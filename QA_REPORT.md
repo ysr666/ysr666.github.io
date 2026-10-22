@@ -34,3 +34,7 @@ This is a browser QA pass, not full independent WCAG 2.2 AA certification. Refer
 - Replaced the long two-part engineering narrative, dark showcase card and separate signal-acquisition subsection with one compact aircraft-project entry.
 - The 2025 Tengfei Cup team award remains in Honors instead of being repeated here.
 - Verified Chrome render at 320, 375, 768 and 1440 CSS px in Chinese and English: no horizontal overflow or JavaScript errors, the Engineering navigation still targets the section, and language switching works.
+
+## Engineering practice list restored (2026-10-22)
+- Replaced the single aircraft entry with four one-paragraph, evidence-scoped entries (aircraft, Mars sampling planning, SolidWorks assembly coursework, basic neural signal demonstration). No new results or claims of completed integration were added.
+- Rechecked using Chrome/Playwright at widths 320, 375, 768 and 1440 px, in Chinese and English: all four records present, navigation correct, no horizontal overflow, heading clipping or script errors.

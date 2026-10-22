@@ -28,3 +28,9 @@ Only career-relevant and source-supported experiences are presented on the publi
 - The separate club/class-officer history, secondary-school committee positions and student-organization event narratives. These were removed for editorial relevance, not because they were disproved.
 - Unverified competitions or distinctions should not reappear without checking dates, exact labels, individual/team scope and evidence.
 - No public phone number, home address, private family or confidential project details.
+
+## Additional engineering practice (scope and status)
+- Mars air–ground sampling concept: rover, arm and drone selection, integration and sample-transfer planning. **Ongoing**; do not claim completed hardware integration, autonomous landing or sampling.
+- SolidWorks six-servo robotic arm assembly: coursework involving servo/link/gripper assembly and joint mate/interference review. **Checks were still under review**; do not claim final motion/interference acceptance.
+- Neural signal acquisition and simulated response: hands-on sensor wiring/acquisition/debugging and a simple simulated-arm response demonstration, not a complete brain–computer interface product.
+- The portfolio shows these as concise entries and does not repeat prizes separately already listed under Honors.
