@@ -1,0 +1,122 @@
+[
+  {
+    "width": 320,
+    "old": 11,
+    "dest": "#history",
+    "eng": 4,
+    "sw": 1,
+    "empty": true,
+    "reset": 11,
+    "memory": 1,
+    "names": [
+      "Computer History"
+    ],
+    "slash": true,
+    "cleared": "",
+    "dims": {
+      "sw": 320,
+      "cw": 320,
+      "imgCount": 6,
+      "allDecoded": true,
+      "lang": "en",
+      "detailLink": "https://ysr666.github.io/projects/vision-router/"
+    },
+    "errors": []
+  },
+  {
+    "width": 375,
+    "old": 11,
+    "dest": "#history",
+    "eng": 4,
+    "sw": 1,
+    "empty": true,
+    "reset": 11,
+    "memory": 1,
+    "names": [
+      "Computer History"
+    ],
+    "slash": true,
+    "cleared": "",
+    "dims": {
+      "sw": 375,
+      "cw": 375,
+      "imgCount": 6,
+      "allDecoded": true,
+      "lang": "en",
+      "detailLink": "https://ysr666.github.io/projects/vision-router/"
+    },
+    "errors": []
+  },
+  {
+    "width": 768,
+    "old": 11,
+    "dest": "#history",
+    "eng": 4,
+    "sw": 1,
+    "empty": true,
+    "reset": 11,
+    "memory": 1,
+    "names": [
+      "Computer History"
+    ],
+    "slash": true,
+    "cleared": "",
+    "dims": {
+      "sw": 768,
+      "cw": 768,
+      "imgCount": 6,
+      "allDecoded": true,
+      "lang": "en",
+      "detailLink": "https://ysr666.github.io/projects/vision-router/"
+    },
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "old": 11,
+    "dest": "#history",
+    "eng": 4,
+    "sw": 1,
+    "empty": true,
+    "reset": 11,
+    "memory": 1,
+    "names": [
+      "Computer History"
+    ],
+    "slash": true,
+    "cleared": "",
+    "dims": {
+      "sw": 1440,
+      "cw": 1440,
+      "imgCount": 6,
+      "allDecoded": true,
+      "lang": "en",
+      "detailLink": "https://ysr666.github.io/projects/vision-router/"
+    },
+    "errors": []
+  },
+  {
+    "width": 1920,
+    "old": 11,
+    "dest": "#history",
+    "eng": 4,
+    "sw": 1,
+    "empty": true,
+    "reset": 11,
+    "memory": 1,
+    "names": [
+      "Computer History"
+    ],
+    "slash": true,
+    "cleared": "",
+    "dims": {
+      "sw": 1920,
+      "cw": 1920,
+      "imgCount": 6,
+      "allDecoded": true,
+      "lang": "en",
+      "detailLink": "https://ysr666.github.io/projects/vision-router/"
+    },
+    "errors": []
+  }
+]
