@@ -1,0 +1,162 @@
+[
+  {
+    "width": 320,
+    "zh0": "写代码，装机器，\n还有很多没有做完的事。",
+    "en1": "Code, machines,\nand a lot still in progress.",
+    "lang": {
+      "lang": "en",
+      "shown": "中",
+      "nav": "Workbench\nWork\nEngineering\nAbout"
+    },
+    "current": {
+      "sw": 320,
+      "cw": 320
+    },
+    "firstTrace": "01 / SEE Observation 30%, 30%",
+    "bridge": true,
+    "hint": "A synthetic target is marked from the observation at 30% / 30%. Select “Move to observed point” to try the inverse kinematics. These coordinate spaces are NOT physically calibrated.",
+    "moved": "X: 91 / Y: 90",
+    "ep": "Run basic checks",
+    "epDesc": "Sample: terminal window and session time span. Complete commands, output, and terminal content are excluded.",
+    "zh2": "运行基本检查",
+    "zhTape": "02 / NOTE 终端示例",
+    "en2": "Run basic checks",
+    "end": {
+      "sw": 320,
+      "cw": 320,
+      "tape": 3
+    },
+    "coverage": [
+      "中"
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "zh0": "写代码，装机器，\n还有很多没有做完的事。",
+    "en1": "Code, machines,\nand a lot still in progress.",
+    "lang": {
+      "lang": "en",
+      "shown": "中",
+      "nav": "Workbench\nWork\nEngineering\nAbout"
+    },
+    "current": {
+      "sw": 375,
+      "cw": 375
+    },
+    "firstTrace": "01 / SEE Observation 25%, 30%",
+    "bridge": true,
+    "hint": "A synthetic target is marked from the observation at 25% / 30%. Select “Move to observed point” to try the inverse kinematics. These coordinate spaces are NOT physically calibrated.",
+    "moved": "X: 81 / Y: 91",
+    "ep": "Run basic checks",
+    "epDesc": "Sample: terminal window and session time span. Complete commands, output, and terminal content are excluded.",
+    "zh2": "运行基本检查",
+    "zhTape": "02 / NOTE 终端示例",
+    "en2": "Run basic checks",
+    "end": {
+      "sw": 375,
+      "cw": 375,
+      "tape": 3
+    },
+    "coverage": [
+      "中"
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "zh0": "写代码，装机器，\n还有很多没有做完的事。",
+    "en1": "Code, machines,\nand a lot still in progress.",
+    "lang": {
+      "lang": "en",
+      "shown": "中",
+      "nav": "Workbench\nWork\nEngineering\nAbout"
+    },
+    "current": {
+      "sw": 768,
+      "cw": 768
+    },
+    "firstTrace": "01 / SEE Observation 19%, 22%",
+    "bridge": true,
+    "hint": "A synthetic target is marked from the observation at 19% / 22%. Select “Move to observed point” to try the inverse kinematics. These coordinate spaces are NOT physically calibrated.",
+    "moved": "X: 70 / Y: 80",
+    "ep": "Run basic checks",
+    "epDesc": "Sample: terminal window and session time span. Complete commands, output, and terminal content are excluded.",
+    "zh2": "运行基本检查",
+    "zhTape": "02 / NOTE 终端示例",
+    "en2": "Run basic checks",
+    "end": {
+      "sw": 768,
+      "cw": 768,
+      "tape": 3
+    },
+    "coverage": [
+      "中"
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "zh0": "写代码，装机器，\n还有很多没有做完的事。",
+    "en1": "Code, machines,\nand a lot still in progress.",
+    "lang": {
+      "lang": "en",
+      "shown": "中",
+      "nav": "Workbench\nWork\nEngineering\nAbout"
+    },
+    "current": {
+      "sw": 1440,
+      "cw": 1440
+    },
+    "firstTrace": "01 / SEE Observation 8%, 22%",
+    "bridge": true,
+    "hint": "A synthetic target is marked from the observation at 8% / 22%. Select “Move to observed point” to try the inverse kinematics. These coordinate spaces are NOT physically calibrated.",
+    "moved": "X: 50 / Y: 81",
+    "ep": "Run basic checks",
+    "epDesc": "Sample: terminal window and session time span. Complete commands, output, and terminal content are excluded.",
+    "zh2": "运行基本检查",
+    "zhTape": "02 / NOTE 终端示例",
+    "en2": "Run basic checks",
+    "end": {
+      "sw": 1440,
+      "cw": 1440,
+      "tape": 3
+    },
+    "coverage": [
+      "中"
+    ],
+    "errors": []
+  },
+  {
+    "width": 1920,
+    "zh0": "写代码，装机器，\n还有很多没有做完的事。",
+    "en1": "Code, machines,\nand a lot still in progress.",
+    "lang": {
+      "lang": "en",
+      "shown": "中",
+      "nav": "Workbench\nWork\nEngineering\nAbout"
+    },
+    "current": {
+      "sw": 1920,
+      "cw": 1920
+    },
+    "firstTrace": "01 / SEE Observation 7%, 22%",
+    "bridge": true,
+    "hint": "A synthetic target is marked from the observation at 7% / 22%. Select “Move to observed point” to try the inverse kinematics. These coordinate spaces are NOT physically calibrated.",
+    "moved": "X: 47 / Y: 80",
+    "ep": "Run basic checks",
+    "epDesc": "Sample: terminal window and session time span. Complete commands, output, and terminal content are excluded.",
+    "zh2": "运行基本检查",
+    "zhTape": "02 / NOTE 终端示例",
+    "en2": "Run basic checks",
+    "end": {
+      "sw": 1920,
+      "cw": 1920,
+      "tape": 3
+    },
+    "coverage": [
+      "中"
+    ],
+    "errors": []
+  }
+]
