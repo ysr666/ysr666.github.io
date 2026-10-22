@@ -312,3 +312,8 @@ button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .case-proof img{width:100%;max-height:270px;height:auto;object-fit:contain;object-position:center;background:#e8eced;border-radius:2px}
 .case-proof figcaption{font-size:var(--small);line-height:1.6;color:#4c5a61;margin:9px 0 0}
 @media(max-width:530px){.case-proof{margin:22px 0 12px;padding:9px}.case-proof img{max-height:230px}}
+
+/* One clear path from the concise homepage to each source-backed case study. */
+.case-links .detail-entry-link{color:#173db3;font-weight:600}
+.case-links .detail-entry-link:hover{color:#132b77}
+.case-links .detail-entry-link:focus-visible{outline:3px solid var(--accent);outline-offset:3px}

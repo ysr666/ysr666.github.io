@@ -57,3 +57,7 @@ Reference URLs and decisions are in DESIGN_REFERENCES.md.
 ## Final visual evidence decision
 
 Rather than keep the former large four-photo gallery, two distinct, source-backed screenshots now sit inside the Vision Router and Computer History case studies. They illustrate a real vision-tool response and the local history/retention UI. Both screenshots link directly to their original public GitHub repository files; all assets are local to this static site. The project stage and mobile previews remain the primary visual experience.
+
+## Project case studies
+
+Two source-backed deep dives share the design tokens, 44px controls and language preference with the homepage. Each presents the problem, technical approach, observable evidence and meaningful limitations. Typography and image treatment are intentionally quieter than the interactive homepage stage. No fictional diagrams, statistics or testimonials were added. Links to original source and release notes remain visible.

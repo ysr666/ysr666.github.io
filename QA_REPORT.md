@@ -57,3 +57,29 @@ Axe with no detected violations is NOT full WCAG 2.2 AA certification. Native Vo
 Taste Skill flagged too few meaningful pictures after the redundant full gallery was removed. We selected two different, actual repository screenshots instead of restoring duplicates: a Vision Router tool-response example and Computer History timeline/retention controls. The images were inspected, downloaded directly from the author's public repositories, and attached to their relevant case studies with descriptive alt text, bilingual captions and external links to the original images.
 
 Final Taste Skill inspector: **0 FAIL / 2 WARN** (font-size count and no video). The images are actual evidence, not styled mockups. The source lint remains **0 FAIL / 2 WARN**. No video is added without authentic footage.
+
+## Source-backed case studies & factual review (2026-10-22)
+
+Two bilingual project case studies have been added:
+- Vision Router: routing architecture, pixel-diff evidence, cloud-vision privacy caveat and v3.0.5 release.
+- Computer History: Work Episodes, local SQLite, opt-in privacy boundaries, v1.1.0 release and platform compatibility caveats.
+
+Both cases link to actual public repository screenshots and keep clear limits on what the examples establish. The main page now has a readable project-detail link for each, without removing source and release links.
+
+The separate public FACT_AUDIT.md records which assertions were reviewed against repository releases/README, which came from the owner's research CV (self-reported), and which remain in progress. No private certificate file or contact record is published.
+
+### Browser acceptance
+
+Tested with Chrome and Playwright on connected Mac: 2 case pages x 320 / 375 / 768 / 1440px x 2 languages (16 final passes), plus a 1024px responsive smoke check. All final checks reported:
+- Zero horizontal overflow, broken eagerly decoded image, browser page error.
+- Zero visible links/buttons below a 44px width or height.
+- Zero Axe WCAG 2.0/2.1/2.2 A/AA tag violations.
+- Correct Chinese/English body text, headings, page titles and image descriptions.
+
+An initial Axe pass found mismatches between visible link text and aria labels; a subsequent pass confirmed the repairs. Automated checks do not constitute complete WCAG 2.2 AA certification or manual VoiceOver/NVDA/Safari testing.
+
+Screenshot records are stored in qa/case-studies/ for 375, 768, 1440px (plus full-page captures at 375 and 1440px).
+
+### Navigation as served by a real HTTP server
+
+A local HTTP server was used for navigation acceptance (plain file:// directory links are not a faithful GitHub Pages simulation). At 375 and 1440px, tests followed homepage links to both cases and then returned via the breadcrumb. All four round trips succeeded without browser script errors.

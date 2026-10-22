@@ -21,5 +21,15 @@ Screenshots in assets originate in public project repositories, including two an
 - PROFILE_CONTENT.md: content provenance / accuracy boundaries.
 - qa/screenshots/: verified preview captures.
 - DESIGN_REFERENCES.md: real personal sites studied and what was adapted.
+- FACT_AUDIT.md: source-backed claim register and outstanding verification limits.
+- projects/vision-router/ and projects/computer-history/: bilingual detailed case studies with public source links.
 
 Style direction: Taste Skill v2 Split Stage adapted to actual developer work. Mobile leads with the owner's name; the full-width archive follows the featured work.
+
+## Project deep dives
+
+- /projects/vision-router/ — bilingual case study, release and privacy caveats.
+- /projects/computer-history/ — bilingual case study, privacy boundaries and validation.
+- /FACT_AUDIT.md — public, source-tiered statement verification list.
+
+Both case studies run on the same static HTML/CSS/JavaScript stack. Screenshots are in qa/case-studies/.
