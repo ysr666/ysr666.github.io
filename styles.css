@@ -74,3 +74,38 @@ html[lang="en"] .intro h1{letter-spacing:-.07em}
 .engineering-heading span{font-size:13px;line-height:1.55;color:var(--muted)}
 .engineering-entry p{font-size:15px;line-height:1.7;color:#49565d;max-width:58ch;margin:0}
 @media(max-width:530px){.journey-section{padding-top:52px;padding-bottom:52px}.journey-section>h2{margin-bottom:18px}.engineering-heading{gap:2px}.engineering-heading span{display:block;flex-basis:100%}}
+
+/* Mobile header: preserve all primary navigation links, including Engineering. */
+@media(max-width:530px){
+  :root{--top:104px}
+  .topbar-inner{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    grid-template-rows:56px 48px;
+    height:var(--top);
+    gap:0;
+    padding:0 20px;
+  }
+  .identity{grid-column:1;grid-row:1;justify-self:start;align-self:center}
+  .header-end{grid-column:2;grid-row:1;justify-self:end;align-self:center}
+  .topnav{
+    grid-column:1 / -1;
+    grid-row:2;
+    justify-self:start;
+    display:flex;
+    width:100%;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    font-size:14px;
+  }
+  .topnav a{display:inline-flex;align-items:center;min-height:42px;white-space:nowrap}
+  .topnav a:nth-child(3){display:inline-flex}
+}
+@media(max-width:360px){
+  .topbar-inner{padding:0 14px}
+  .topnav{gap:8px;font-size:13px}
+}
+
+/* Long portfolio pages should navigate directly rather than animate through thousands of pixels. */
+html{scroll-behavior:auto}

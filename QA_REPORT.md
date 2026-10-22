@@ -38,3 +38,10 @@ This is a browser QA pass, not full independent WCAG 2.2 AA certification. Refer
 ## Engineering practice list restored (2026-10-22)
 - Replaced the single aircraft entry with four one-paragraph, evidence-scoped entries (aircraft, Mars sampling planning, SolidWorks assembly coursework, basic neural signal demonstration). No new results or claims of completed integration were added.
 - Rechecked using Chrome/Playwright at widths 320, 375, 768 and 1440 px, in Chinese and English: all four records present, navigation correct, no horizontal overflow, heading clipping or script errors.
+
+## Mobile Engineering navigation fix (2026-10-22)
+- Root cause: previous mobile CSS deliberately hid the third navigation anchor, which is Engineering. The section was deployed, but its navigation control was invisible.
+- Fixed with a two-row mobile header that exposes all three primary anchors at widths <= 530px.
+- Disabled long-distance smooth anchor scrolling so a tap takes users directly to the target rather than appearing unresponsive.
+- Versioned CSS reference in HTML to refresh stale stylesheet assets.
+- Tested Chrome on 320/375/390/768/1440 px in both locales. Clicked the actual Engineering navigation control and confirmed the section enters the viewport immediately, four entries are present, link hash is correct, and navigation is visible at all tested widths.
