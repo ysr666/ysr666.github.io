@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#faf7ef"><meta name="color-scheme" content="light">
+<meta name="description" content="叶石瑞的个人工作台：开源 Agent 工具与机械实践。一份可操作的个人网站实验。">
+<title>叶石瑞 / Shirui Ye · 正在装配的个人工作台</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="workbench.css">
+<script defer src="workbench.js"></script>
+</head>
+<body>
+<a href="#main" class="skip">跳至正文</a>
+<header class="masthead">
+  <a class="site-mark" href="#top"><span class="site-mark-symbol">SY<span>✳</span></span><span>SHIRUI YE<br><small>PERSONAL WORKBENCH</small></span></a>
+  <nav aria-label="页面导航"><a href="#main">工作台</a><a href="#work">作品</a><a href="#engineering">工程</a><a href="#about">关于</a></nav>
+  <a class="header-repo" href="https://github.com/ysr666" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+</header>
+<main id="top">
+<section class="hero-shell" id="main" aria-labelledby="main-title">
+  <div class="hero-intro">
+    <p class="chapter-index"><span class="pulse"></span> 始终处于装配中 <span class="idx">/ 001</span></p>
+    <h1 id="main-title">你好，<br>我是 <span>叶石瑞</span><i>。</i></h1>
+    <p class="hero-headline">在西安交大读机械，也做一些<br>关于软件、Agent 与机器的尝试。</p>
+    <p class="hero-aside">这里有三个可以操作的小入口：<strong>看见、记住、运动。</strong>它们来自真实的开源作品和工程实践，但右侧这台机器只是艺术化的交互隐喻，并非实物模型。</p>
+    <div class="hero-cta"><a class="solid-link" href="#work">看全部作品 <span>↗</span></a><a class="quiet-link" href="#engineering">了解工程实践 ↓</a></div>
+    <div class="small-signature">BUILD / OBSERVE / REMEMBER / MOVE <span>2026</span></div>
+  </div>
+  <div class="lab" aria-label="可交互的工作台：切换三种模式，体验真实项目相关操作">
+    <div class="lab-topline"><span><i class="status-dot"></i> WORKBENCH / ACTIVE</span><span>NO. 018 <span class="lab-clock">· 2026.10</span></span></div>
+    <div class="lab-titlebar">
+      <p>CHOOSE A MODULE</p>
+      <div class="module-tabs" role="tablist" aria-label="工作台模块">
+        <button type="button" id="tab-see" class="module-tab" data-mode="see" role="tab" aria-controls="panel-see" aria-selected="true"><b>01</b> <span>看见</span></button>
+        <button type="button" id="tab-memory" class="module-tab" data-mode="memory" role="tab" aria-controls="panel-memory" aria-selected="false" tabindex="-1"><b>02</b> <span>记住</span></button>
+        <button type="button" id="tab-motion" class="module-tab" data-mode="motion" role="tab" aria-controls="panel-motion" aria-selected="false" tabindex="-1"><b>03</b> <span>运动</span></button>
+      </div>
+    </div>
+    <div class="machine-body">
+      <div class="machine-panel see-panel" id="panel-see" role="tabpanel" aria-labelledby="tab-see">
+        <div class="panel-header"><div><span class="mono subscript">TOOL 01 — VISION ROUTER</span><h2>让 Agent 看得见<span class="accent-star">✳</span></h2></div><span class="panel-side-tag">ACTUAL REPOSITORY IMAGE</span></div>
+        <p class="panel-instruction">在真实截图上移动指针，尝试局部放大和查看坐标。<br><small>这是网页图像观察演示，不是在现场调用模型识别。</small></p>
+        <div class="vision-frame">
+          <img id="vision-shot" src="../assets/vision-qa-evidence.png" width="1400" height="1073" alt="Vision Router 项目公开的 DeepSeek Harness 图像问答界面截图">
+          <div class="vision-scanner" id="vision-scanner" aria-hidden="true"><span></span></div>
+          <div class="vision-zoom" id="vision-zoom" aria-hidden="true"></div>
+          <div class="vision-label" aria-hidden="true">SOURCE / IMAGE 01</div>
+        </div>
+        <div class="readout"><span>OBSERVATION POINT</span><output id="vision-coord" aria-live="off">X: 50% / Y: 50%</output><a href="../projects/vision-router/index.html">查看真实案例 ↗</a></div>
+      </div>
+      <div class="machine-panel memory-panel" id="panel-memory" role="tabpanel" aria-labelledby="tab-memory" hidden>
+        <div class="panel-header"><div><span class="mono subscript">TOOL 02 — COMPUTER HISTORY</span><h2>让上下文留得住<span class="accent-star">✳</span></h2></div><span class="panel-side-tag">SYNTHETIC EXAMPLE</span></div>
+        <p class="panel-instruction">点选工作片段，看看有限的元数据怎样帮下一次会话找到线索。<br><small>下面是模拟记录，不是本人电脑的真实活动日志。</small></p>
+        <div class="memory-art">
+          <div class="film-track" aria-label="可选择的工作片段">
+            <button type="button" data-episode="0" class="episode active" aria-pressed="true"><span>01:40</span><b>编辑器</b><small>CODE</small></button>
+            <button type="button" data-episode="1" class="episode" aria-pressed="false"><span>02:12</span><b>浏览器</b><small>READ</small></button>
+            <button type="button" data-episode="2" class="episode" aria-pressed="false"><span>02:38</span><b>终端</b><small>TEST</small></button>
+          </div>
+          <div class="episode-card">
+            <div class="episode-head"><span>WORK EPISODE / SAMPLE</span><span id="episode-no">01 / 03</span></div>
+            <h3 id="episode-title">从代码开始</h3>
+            <p id="episode-description">示例记录：编辑器窗口、项目资源及时间范围。这里不采集源代码正文。</p>
+            <div class="episode-footer"><span>LOCAL METADATA</span><span id="episode-resource">RESOURCE / PROJECT</span></div>
+          </div>
+          <div class="memory-screenshot"><img src="../assets/history-timeline.png" width="1280" height="768" alt="Computer History 项目公开界面：本地时间线的示例画面" loading="lazy"></div>
+        </div>
+        <div class="readout"><span>COLLECTION / OFF BY DEFAULT</span><strong>SQLite · Local</strong><a href="../projects/computer-history/index.html">查看真实案例 ↗</a></div>
+      </div>
+      <div class="machine-panel motion-panel" id="panel-motion" role="tabpanel" aria-labelledby="tab-motion" hidden>
+        <div class="panel-header"><div><span class="mono subscript">MODULE 03 — TWO-LINK STUDY</span><h2>让关节动起来<span class="accent-star">✳</span></h2></div><span class="panel-side-tag">INTERACTIVE MATH MODEL</span></div>
+        <p class="panel-instruction">拖动末端的珊瑚色控制点，或调整两个关节角度。<br><small>这是二维两连杆运动学演示，不是你那台六舵机机械臂的实测或完整仿真。</small></p>
+        <div class="mechanism-frame">
+          <svg id="arm-svg" viewBox="0 0 540 360" role="group" aria-label="二维双连杆机械臂模型，可拖动末端控制点">
+            <defs><pattern id="arm-grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#949bb0" stroke-opacity=".2" stroke-width=".7"/></pattern></defs>
+            <rect x="0" y="0" width="540" height="360" fill="url(#arm-grid)"/>
+            <circle cx="154" cy="298" r="270" fill="none" stroke="#c9d1ec" stroke-dasharray="6 8" opacity=".5"/>
+            <path d="M30 298H510" stroke="#9ca8ca" stroke-width="1.2"/>
+            <path id="motion-trail" d="" fill="none" stroke="#ff775e" stroke-width="1.5" stroke-opacity=".55"/>
+            <line id="arm-link-1" x1="154" y1="298" x2="300" y2="200" stroke="#ddff74" stroke-linecap="round" stroke-width="19"/>
+            <line id="arm-link-2" x1="300" y1="200" x2="360" y2="130" stroke="#a99cff" stroke-linecap="round" stroke-width="16"/>
+            <circle cx="154" cy="298" r="31" fill="#26345e" stroke="#ddff74" stroke-width="5"/>
+            <circle cx="154" cy="298" r="9" fill="#ddff74"/>
+            <circle id="joint-2" cx="300" cy="200" r="23" fill="#1c2442" stroke="#ddff74" stroke-width="5"/>
+            <circle id="joint-2-center" cx="300" cy="200" r="5" fill="#fff"/>
+            <circle id="arm-end" cx="360" cy="130" r="24" fill="#ff775e" stroke="#171b31" stroke-width="4" tabindex="0" role="slider" aria-label="末端位置，使用左右上下键调整关节角度" aria-valuemin="-70" aria-valuemax="110" aria-valuenow="25"/>
+            <circle id="arm-end-dot" cx="360" cy="130" r="6" fill="#1c2442" pointer-events="none"/>
+            <text x="20" y="24" fill="#b4bce0" font-size="11" font-family="monospace">DRAG THE CORAL JOINT ↗</text>
+            <text x="365" y="339" fill="#b4bce0" font-size="11" font-family="monospace">2D DEMO / NOT CAD</text>
+          </svg>
+        </div>
+        <div class="motion-controls">
+          <label><span>肩关节 <strong id="shoulder-value">25°</strong></span><input type="range" id="shoulder" min="-70" max="110" step="1" value="25"></label>
+          <label><span>肘关节 <strong id="elbow-value">65°</strong></span><input type="range" id="elbow" min="0" max="155" step="1" value="65"></label>
+          <button id="arm-reset" type="button">↺ 复位</button>
+        </div>
+        <div class="readout"><span>END EFFECTOR / RELATIVE</span><output id="tip-coord">X: 0 / Y: 0</output><a href="#engineering">查看机械实践 ↗</a></div>
+      </div>
+    </div>
+    <div class="lab-bottomline"><span><span class="lab-foot-dot"></span> THIS IS A PERSONAL DESIGN EXPERIMENT</span><span id="active-label">MODE 01 / OBSERVE</span></div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><span>BUILD THE TOOLS</span><span>●</span><span>SEE WHAT THEY DO</span><span>●</span><span>LEAVE EVIDENCE</span><span>●</span><span>STAY CURIOUS</span><span>●</span></div>
+
+<section class="work-section" id="work" aria-labelledby="work-title">
+ <div class="section-kicker">01 / SELECTED WORK <span>PUBLIC · TRACEABLE</span></div>
+ <div class="section-hero"><h2 id="work-title">真正做过的<span>东西。</span></h2><p>操作是一种认识方式，代码和具体结果则是另一回事。这里保留真实项目、发布状态与资料入口。</p></div>
+ <div class="selected-grid">
+   <article class="feature feature-vision"><div class="feature-heading"><span>VISION / 001</span><b>RELEASED · v3.0.5</b></div><div class="feature-display"><img src="../assets/vision-demo.png" alt="Vision Router 项目公开像素比对的实际截图" loading="lazy"></div><div class="feature-copy"><h3>Vision Router</h3><p>给文字 Agent 添加图像问答、OCR、定位和像素对比工具；默认免密钥视觉后备会使用云端服务。</p><div><a href="../projects/vision-router/index.html">项目案例 ↗</a><a href="https://github.com/ysr666/dsh-vision-router" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div></article>
+   <article class="feature feature-history"><div class="feature-heading"><span>MEMORY / 002</span><b>RELEASED · v1.1.0</b></div><div class="feature-display"><img src="../assets/history-timeline-evidence.png" alt="Computer History 项目公开时间线及保留策略界面" loading="lazy"></div><div class="feature-copy"><h3>Computer History</h3><p>把有限的应用、资源及时间元数据保留在本地，为后续会话提供连续工作线索。默认关闭采集。</p><div><a href="../projects/computer-history/index.html">项目案例 ↗</a><a href="https://github.com/ysr666/dsh-computer-history" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div></article>
+   <article class="feature feature-agent"><div class="feature-heading"><span>SESSION / 003</span><b>EXPERIMENTAL</b></div><div class="feature-type"><span>AGENT</span><strong>WRAPPED</strong><div>⌁ ⌁ ⌁ <em>SESSION STORIES</em></div></div><div class="feature-copy"><h3>Agent Wrapped</h3><p>试着从冗长的编程 Agent 会话中提取有证据的事件和转折；目前仍在实验。</p><div><a href="https://github.com/ysr666/agent-wrapped" target="_blank" rel="noopener noreferrer">查看源码 ↗</a></div></div></article>
+ </div>
+</section>
+<section class="others-section" id="more" aria-labelledby="more-title">
+ <div class="section-kicker">02 / SIDE PROJECTS <span>IDEAS IN PROGRESS</span></div><div class="section-hero"><h2 id="more-title">还有一些<span>小实验。</span></h2><p>不是每个项目都需要巨大的封面，但每一个都有自己真实的状态。</p></div>
+ <div class="side-grid">
+  <a href="https://github.com/ysr666/cuoshi" target="_blank" rel="noopener noreferrer"><span>01 / EVERYDAY</span><h3>错事 / Cuoshi</h3><p>安静的私人记录工具。Web 和微信小程序版本仍在开发。</p><b>Vue · uni-app ↗</b></a>
+  <a href="https://github.com/ysr666/travelmap-planner" target="_blank" rel="noopener noreferrer"><span>02 / TRAVEL</span><h3>TripMap</h3><p>地图、路线、票据和旅行资料的整理与探索。</p><b>React · MapLibre ↗</b></a>
+  <a href="https://github.com/ysr666/agent-picket" target="_blank" rel="noopener noreferrer"><span>03 / THOUGHT EXPERIMENT</span><h3>Agent Picket</h3><p>关于 AI 劳动权益的自愿参与模拟，尚未正式发布。</p><b>TypeScript · Concept ↗</b></a>
+  <a href="https://github.com/ysr666/a-share-trader" target="_blank" rel="noopener noreferrer"><span>04 / RESEARCH</span><h3>A-Share Trader</h3><p>本地 A 股市场研究与风险提示，不自动执行交易。</p><b>Python · Research ↗</b></a>
+ </div>
+</section>
+<section class="engineering-section" id="engineering" aria-labelledby="engineering-title">
+ <div class="section-kicker">03 / THE REAL-WORLD SIDE <span>MACHINES & MATERIALS</span></div>
+ <div class="section-hero"><h2 id="engineering-title">不只<span>写代码。</span></h2><p>设计模型要面对零件、约束和实际装配。这里记录我的工程实践，不把方案阶段写成已经完成的系统。</p></div>
+ <div class="eng-layout">
+ <div class="eng-lead"><span>MECH / STUDIO NOTES</span><div class="eng-doodle" aria-hidden="true"><svg viewBox="0 0 300 320"><circle cx="150" cy="150" r="117" fill="none" stroke="#d6ff6f" stroke-dasharray="5 7"/><path d="M86 243L145 150L209 86" fill="none" stroke="#d6ff6f" stroke-width="16" stroke-linecap="round"/><circle cx="86" cy="243" r="25" fill="#d6ff6f"/><circle cx="145" cy="150" r="25" fill="#ff7a5e"/><circle cx="209" cy="86" r="20" fill="#afa1ff"/><path d="M45 263L266 45" stroke="#fff" stroke-width="1" opacity=".4"/><text x="18" y="307" fill="#c5cdf3" font-size="11" font-family="monospace">IDEA → CAD → BUILD → TEST</text></svg></div><span>STILL LEARNING / STILL BUILDING</span></div>
+ <div class="eng-entries">
+  <article><span>01 / NATIONAL INNOVATION PROJECT</span><h3>共轴双桨飞行器</h3><p>项目成员，参与 Fusion 360 建模、3D 打印、装配和推力／平衡测试；项目团队获腾飞杯一等奖。</p></article>
+  <article><span>02 / CONCEPT IN PROGRESS</span><h3>火星陆空协同采样</h3><p>参与移动底盘、机械臂与无人机选型，规划模拟土壤采样及样品交接；尚未完成整机联调。</p></article>
+  <article><span>03 / SOLIDWORKS COURSEWORK</span><h3>六舵机机械臂装配</h3><p>舵机、连杆、夹爪的建模装配与基础配合，持续核对关节运动和干涉。</p></article>
+  <article><span>04 / BASIC EXPERIMENT</span><h3>神经信号采集与模拟响应</h3><p>参与传感器接线、信号采集和代码调试，完成模拟手臂响应的基础演示。</p></article>
+ </div></div>
+</section>
+<section class="bio-section" id="about" aria-labelledby="bio-title">
+ <div class="section-kicker">04 / ABOUT ME <span>NOT A COMPANY</span></div>
+ <div class="section-hero"><h2 id="bio-title">一个人的<span>工作台。</span></h2><p>西安交通大学少年班体系机械类 2606 本科生。喜欢开源、产品设计、机械结构，也参加过辩论、社团和团支部工作。</p></div>
+ <div class="bio-cols">
+   <div class="award-block"><h3>竞赛与荣誉 <span>↗</span></h3><ul>
+    <li><span>全国大学生物理实验（创新）竞赛</span><b>西北赛区一等奖</b></li>
+    <li><span>全国青年科普创新实验暨作品大赛</span><b>省一等奖</b></li>
+    <li><span>国创赛「萌芽赛道」</span><b>省创新潜力奖</b></li>
+    <li><span>2025 西安交通大学「腾飞杯」· 飞行器团队</span><b>一等奖</b></li>
+    <li><span>学校三好学生</span><b>校级</b></li>
+   </ul><p class="audit-note">奖项和资格依据此前个人简历整理。部分证书及具体日期尚未独立核验。</p></div>
+   <div class="skill-block"><h3>工具与语言 <span>⌁</span></h3>
+    <dl><div><dt>DEVELOPMENT</dt><dd>Python · C++（基础） · TypeScript · Git</dd></div><div><dt>ENGINEERING</dt><dd>Fusion 360 · 3D Printing · Arduino（基础）</dd></div><div><dt>LEARNING</dt><dd>SolidWorks · Robotics · Intelligent Manufacturing</dd></div><div><dt>ENGLISH</dt><dd>CET-4 已通过 · CET-6 已通过</dd></div></dl>
+   </div>
+ </div>
+</section>
+<section class="contact-section" id="contact"><div><span>IF YOU HAVE AN IDEA</span><h2>欢迎来<span>聊聊。</span></h2><p>开源项目、软件、机械，或者其他有意思的事情。</p></div><a href="mailto:ysr182@qq.com">联系我 ↗</a></section>
+<footer class="site-footer"><span>SHIRUI YE © 2026</span><span>可操作的设计实验 · 不是正式网站</span><a href="#top">BACK TO TOP ↑</a></footer>
+</main>
+</body></html>
