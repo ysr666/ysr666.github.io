@@ -29,3 +29,8 @@ The connected Mac's Google Chrome was controlled by Playwright. Tested 320, 375,
 Chrome + Playwright checks on connected Mac: Chinese and English at 320, 375, 768, 1440, 1920 px. All rendered without horizontal overflow, clipped skill headings or browser page errors. Navigation links resolve, bilingual toggle updates language, and CET-4/CET-6 appear correctly in both locales.
 
 This is a browser QA pass, not full independent WCAG 2.2 AA certification. Refer to PROFILE_CONTENT.md for provenance/accuracy notes.
+
+## Engineering section condensed (2026-10-22)
+- Replaced the long two-part engineering narrative, dark showcase card and separate signal-acquisition subsection with one compact aircraft-project entry.
+- The 2025 Tengfei Cup team award remains in Honors instead of being repeated here.
+- Verified Chrome render at 320, 375, 768 and 1440 CSS px in Chinese and English: no horizontal overflow or JavaScript errors, the Engineering navigation still targets the section, and language switching works.

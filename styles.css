@@ -63,3 +63,12 @@ html[lang="en"] .intro h1{letter-spacing:-.07em}
 }
 /* Extremely narrow handsets: preserve meaningful navigation in both languages. */
 @media(max-width:360px){.topbar-inner{gap:7px;padding:0 10px}.identity{gap:6px}.identity-cn{display:none}.identity-name{font-size:13px}.identity-symbol{height:31px;width:31px}.topnav{gap:9px;font-size:12px}.header-end{gap:0}.language{min-width:36px;width:36px;padding:0 4px;height:38px}}
+
+/* Compact engineering entry for a career-focused portfolio. */
+.journey-section{padding-top:68px;padding-bottom:70px}
+.journey-section>h2{font-size:clamp(28px,2.5vw,38px);font-weight:600;letter-spacing:-.05em;line-height:1.2;margin:0 0 25px}
+.engineering-brief{border-left:2px solid var(--accent);padding:1px 0 2px 18px}
+.engineering-meta{font-size:13px;line-height:1.6;color:var(--muted);margin:0 0 6px}
+.engineering-brief h3{font-size:clamp(19px,2vw,23px);letter-spacing:-.03em;line-height:1.35;font-weight:600;margin:0 0 7px}
+.engineering-brief>p:last-child{font-size:15px;line-height:1.75;color:#49565d;max-width:50ch;margin:0}
+@media(max-width:530px){.journey-section{padding-top:56px;padding-bottom:58px}.journey-section>h2{margin-bottom:22px}.engineering-brief{padding-left:15px}}
