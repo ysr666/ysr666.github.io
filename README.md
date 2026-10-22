@@ -1,31 +1,24 @@
-# Shirui Ye — Developer Portfolio
+# Shirui Ye / 叶石瑞
 
-A bilingual, responsive, static personal portfolio built as a curated archive of real open-source work.
+A bilingual professional portfolio of open-source software, selected engineering work and qualifications.
 
-**Live**: https://ysr666.github.io/
-**Source**: https://github.com/ysr666/ysr666.github.io
+Website: https://ysr666.github.io/
 
 ## Run
 
-The site is HTML + CSS + vanilla JS and does not require a build pipeline.
-
-```bash
-python3 -m http.server 8080
-# visit http://localhost:8080
-```
-
-Deploys through GitHub Pages from the repository's `main` branch root. Edit the site, commit, and push.
+Plain HTML, CSS and JavaScript. No dependencies or build process. Run a local web server from this directory: python3 -m http.server 8080. GitHub Pages publishes from the main branch root.
 
 ## Content
 
-Three substantial case studies: Vision Router, Computer History, Agent Wrapped. Four shorter entries: Cuoshi, TripMap, Agent Picket and A-Share Trader. Forked repositories are deliberately excluded. Images under `assets/` originate in project repositories and remain subject to their respective licences.
+Featured source-backed work: DSH Vision Router, Computer History and Agent Wrapped. Four other non-fork public repositories are listed briefly. Engineering practice is compact and distinguishes participation from planned integration. The qualifications section includes CET-4 and CET-6 passed. No invented achievements, fake interfaces, unrelated fork attribution, private phone number or confidential projects.
 
-For design rationale see `DESIGN_SYSTEM.md`. For viewport checks see `QA_REPORT.md`.
+The four screenshot images in assets originate in public project repositories. Agent Wrapped artwork is typographic, not presented as a real app screen.
 
-## Personal profile (career-oriented)
+## Documentation
 
-The public page prioritizes independent software, hands-on engineering experience, verified competition distinctions, and technical/language qualifications. **CET-4 and CET-6 are listed as passed**, without invented scores. SolidWorks and other early-stage skills are clearly marked as ongoing learning.
+- DESIGN_SYSTEM.md: positioning, design tokens, grid, component behavior and design exceptions.
+- QA_REPORT.md: inspect/lint, Axe automated checks, browser sizes, screenshots and limits.
+- PROFILE_CONTENT.md: content provenance / accuracy boundaries.
+- qa/screenshots/: verified preview captures.
 
-A detailed student-officeholder timeline was deliberately removed from the homepage to keep the focus on evidence relevant to research, internships, and developer opportunities. English and Chinese content are maintained together and switch without reloading.
-
-For content boundaries and verification notes, see [PROFILE_CONTENT.md](PROFILE_CONTENT.md). Private contact data and forked repositories are excluded.
+Style direction: Taste Skill v2 Split Stage adapted to actual developer work. Mobile leads with the owner's name; the full-width archive follows the featured work.

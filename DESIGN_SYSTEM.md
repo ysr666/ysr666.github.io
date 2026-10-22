@@ -1,31 +1,45 @@
-# Shirui Ye — Portfolio Design System (v2)
+# Shirui Ye — Portfolio Design System
 
-## Product positioning
+Updated 2026-10-22. Art direction: Taste Skill v2 Split Stage, modified for a public developer portfolio.
 
-An independent developer's verifiable body of work, not a landing-page template. Primary readers: Qoder ambassador reviewers, open-source collaborators, technical recruiters and other makers. Primary action: inspect a real repository or start a collaboration.
+## Positioning and user journey
 
-## Art direction
+Audience: open-source collaborators, internship/recruitment reviewers, developer-community organizers and technical peers. Primary action: inspect a real source repository. Secondary actions: understand engineering background, view confirmed competition distinctions / CET qualifications, and make contact.
 
-Inspired by Taste Skill v2's **Split Stage** direction. The central material is **actual project UI and evidence**, not decorative AI graphics. On desktop, a stable visual field holds real repository screenshots while the adjacent reading column tells the full technical story. On mobile, the composition changes to a readable picture-then-story sequence. The stage controls jump to individual case studies and provide a functional preview switch.
+Reading hierarchy: personal identity → featured verifiable work → actual project screenshots → smaller projects → concise engineering → honors → qualifications → contact.
 
-- Color: white `#fff` as ground; ink `#171d20`; deep stage `#172025`; muted text `#60696f`; subtle surface `#f5f6f4`; one blue accent `#2450d8`.
-- Typography: General Sans for Latin, local PingFang SC / system Chinese for CJK; no decorative fallback serif for Chinese. H1 ~36–70px; project titles ~27–41px; long-form copy 15–18px, 1.75–1.9 line height.
-- Grid: desktop 47% image + 53% reading; max layout width 1600px. Tablet (<=850px) stacks a horizontal project image section above reading; phone (<=530px) uses a compact image and 24px reading gutters.
-- Spacing: fixed header 78px desktop, 72px tablet, 70px mobile. Layout gutters 24–88px, case section padding 66–105px.
-- Components: readable long-form case study, source/evidence links, field note, status label, compact index row. Only one primary CTA, no redundant card grid. Corners 5–8px only where an image field or interactive control needs framing.
-- Motion: reduced-motion-aware ~210ms crossfade when changing visual stage. Keyboard-accessible selection buttons with `aria-pressed` and focus ring. No uncontrolled scroll effects or autoplay.
+## Visual concept
 
-## Content / authorship policy
+Real software screens are the visual material, not generic AI illustrations. The large screenshot field stays beside the three featured case studies only, then releases; the remaining material becomes a full-width editorial archive. On mobile, the name and introduction precede the screenshot. Agent Wrapped uses typographic artwork identified as artwork, not a false application screenshot.
 
-Feature only non-fork, demonstrably owned repositories. Forks (`awesome-deepseek-harness`, `deepseek-harness`, `DSH-Store`, `QzonePhoto`) are **not** presented as authored projects. Claims are grounded in project READMEs; previews use image assets from the repositories. Experimental and pending items are explicitly identified. No claimed production results, metrics, awards or agent autonomy without evidence.
+## Design tokens
 
-## Accessibility baseline
+| Role | Value |
+|---|---|
+| Background | #ffffff |
+| Main text | #171d20 |
+| Secondary text | #59666c |
+| Quiet field | #edf2f2 |
+| Accent / focus | #2450d8 |
+| Image stage | #141e22 |
+| Small / body / lead | 13px / 16px / fluid 19–23px |
+| Heading / display | fluid 30–40px / 52–86px desktop, narrower on phones |
+| Typeface | General Sans for Latin, PingFang SC / system fallback for Chinese |
+| Space | 4, 8, 12, 16, 24, 32, 48, 64px rhythm |
+| Radius | 5px for image fields and CTA, functional pill for language |
+| Motion | 230ms screenshot crossfade and small 450ms one-time section reveals |
+| Grid | 47/53 desktop split, stacked at 850px, two-row phone nav <=530px |
 
-Semantic `header / main / nav / section / article / footer`; skip link; explicit link purpose; button labels; bilingual document language updates; visible `:focus-visible`; target sizes near or above 44px for key controls; readable CJK typography; touch-safe margins; `prefers-reduced-motion` supported. This is a technical baseline, not a claim of complete WCAG certification.
-## v2.1 — Personal narrative modules (2026-10-22)
-- New editorial sections: Engineering / Awards / Campus / Skills, complementing rather than displacing case studies.
-- Research uses one dark emphasis field with factual project details and a limited three-column fact line; it collapses to rows on narrow screens.
-- Awards use a vertically ordered two-column typographic ledger, not badges or trophy icon cards. At <=620px, each award's title and result stack.
-- Leadership uses timeline rows; tool experience uses aligned label/value rows and explicitly labels beginner / learning status.
-- The mobile top bar shows Work + Experience links, deliberately omitting About to protect 320px width. About and Contact remain in the document and are reachable by scrolling.
-- Identity, privacy boundaries and source transparency are documented in PROFILE_CONTENT.md.
+The measured font sizes between roles result from fluid scaling, Latin/CJK metrics and localized components; the design uses five main semantic tiers.
+
+## Interaction, semantics and responsiveness
+
+Semantic main, nav and sections; one H1 for the person's real name, skip link, descriptive images and project links. Explicit focus rings. All visible mobile controls are at least 44×44 CSS px. No browser zoom restrictions. Full keyboard use, named project preview buttons, correct pressed state, language switching in place and persistence where storage is available. Browser fragment jumps are immediate rather than animated through long pages. Motion respects the reduced-motion preference and never blocks reading.
+
+The screenshot gallery uses four raster images from actual public Vision Router and Computer History repositories. Experimental or pending work is labeled, forked repositories never claimed as original, and private projects/contact details remain excluded.
+
+## Deliberate Taste Skill exceptions
+
+No video: there is no verified footage in the evidence selected for this page; inventing a demo would undermine credibility. The language switch retains a functional 1px border for affordance. Computed responsive type yields more pixel sizes than the five semantic roles. No gradients, at-rest shadows, decorative card grids or invented statistics.
+
+See QA_REPORT.md for tested coverage and remaining limits.

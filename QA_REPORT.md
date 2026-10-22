@@ -1,47 +1,42 @@
-# Visual & Functional QA — Shirui Portfolio v2
+# Portfolio verification report — 2026-10-22
 
-## What changed
+Target: Shirui Ye portfolio, static HTML/CSS/JS; Chrome and Playwright on the connected Mac.
 
-- Removed **Awesome DSH**. Verified that it and other unrelated forked repositories cannot be presented as original work.
-- Replaced the previous abstract and oversized hero with real project evidence and readable case studies.
-- Added concrete technical background, implementation, privacy tradeoffs, limits and source links for three featured projects; four supporting product descriptions.
-- Changed layout to Taste Skill v2's Split Stage: sticky evidence field on desktop, compact responsive field on mobile.
-- Preserved bilingual switching and added accessible project preview controls.
+## Results
 
-## Checks performed
+| Review | Outcome |
+|---|---|
+| Taste Skill source lint | 0 FAIL / 2 WARN |
+| Taste Skill browser inspector | 0 FAIL / 2 WARN |
+| Axe automated WCAG A/AA (including 2.1 / 2.2 tags) | 0 confirmed violations in tested Chinese/English states |
+| Responsive browser widths | 320, 375, 390, 768, 1440, 1920px; no document horizontal overflow or page JS errors |
+| Visual screenshots reviewed | 375, 768, 1440px and additional first-view breakpoints |
+| Keyboard and controls | Tab/Enter/Space, focus ring, language toggle, preview selection, immediate anchor links tested |
+| Mobile hit targets | 320, 375, 768px: links and buttons 44px minimum in both axes |
+| Assets / internal links | No broken local images; all internal link fragments found |
 
-The connected Mac's Google Chrome was controlled by Playwright. Tested 320, 375, 768, 1440 and 1920 CSS px in both languages. Collected browser screenshots of first viewports and full pages, checked document widths, runtime errors, project links and project-stage switching. Fixed an earlier image-density issue by adding a second real screenshot to the desktop stage.
+Taste Skill moved from an initial **7 FAIL / 5 WARN** to **0 FAIL / 2 WARN** after visual and code repairs. Two inspector warnings remain: actual responsive font sizes exceed a five-step ideal, and no authentic video is present. Lint has different warnings: a functional language-control border and several em-dash punctuation marks.
 
-## Current limitations
+## Verified repairs
 
-- External services, font availability and native screen readers are not fully covered by browser automation.
-- Some offscreen images use `loading=lazy`; screenshot automation should scroll and wait for decode before a full-page capture.
-- This is a design and smoke-test report, **not** an independent WCAG 2.2 AA certificate.
+- Made the person's actual name the hero, not a generic slogan.
+- Corrected images overflowing the screenshot stage, and gave the stage scope only over featured case studies.
+- Put introductory content before visual work on phones, with explicit two-row primary navigation.
+- Removed obsolete styles and reorganized the site under documented tokens and layouts.
+- Added four real project screenshots with source captions.
+- Corrected aria names, descriptive media, focus and mobile click targets.
+- Fixed a race between manual preview selection and automatic scroll-based stage changes.
+- Added subtle optional section reveals, disabled when reduced motion is requested.
+- Retained factual source boundaries and the career-focused content hierarchy.
 
-## Career-focused content revision · 2026-10-22
+## Screenshot records
 
-- Removed the standalone campus timeline and detailed high-school / preparatory student offices from the visible homepage. This is editorial relevance curation, not a factual retraction.
-- Kept documented open-source work, engineering practice, competition distinctions and school merit recognition.
-- Rebuilt the skills section with software, web/app project experience, engineering tools, explicitly passed CET-4 / CET-6, and separately labelled studies in progress.
-- Rewrote the introduction and About to emphasize undergraduate engineering, open source and future work instead of student-leadership summaries.
-- Kept the same static HTML/CSS/JS site; no functionality removed except the intentionally deleted student-officeholder section.
+- Mobile 375px: qa/screenshots/mobile-375.png
+- Tablet 768px: qa/screenshots/tablet-768.png
+- Desktop 1440px: qa/screenshots/desktop-1440.png
+- Mobile full page: qa/screenshots/mobile-375-full.png
+- Desktop full page: qa/screenshots/desktop-1440-full.png
 
-Chrome + Playwright checks on connected Mac: Chinese and English at 320, 375, 768, 1440, 1920 px. All rendered without horizontal overflow, clipped skill headings or browser page errors. Navigation links resolve, bilingual toggle updates language, and CET-4/CET-6 appear correctly in both locales.
+## Limits
 
-This is a browser QA pass, not full independent WCAG 2.2 AA certification. Refer to PROFILE_CONTENT.md for provenance/accuracy notes.
-
-## Engineering section condensed (2026-10-22)
-- Replaced the long two-part engineering narrative, dark showcase card and separate signal-acquisition subsection with one compact aircraft-project entry.
-- The 2025 Tengfei Cup team award remains in Honors instead of being repeated here.
-- Verified Chrome render at 320, 375, 768 and 1440 CSS px in Chinese and English: no horizontal overflow or JavaScript errors, the Engineering navigation still targets the section, and language switching works.
-
-## Engineering practice list restored (2026-10-22)
-- Replaced the single aircraft entry with four one-paragraph, evidence-scoped entries (aircraft, Mars sampling planning, SolidWorks assembly coursework, basic neural signal demonstration). No new results or claims of completed integration were added.
-- Rechecked using Chrome/Playwright at widths 320, 375, 768 and 1440 px, in Chinese and English: all four records present, navigation correct, no horizontal overflow, heading clipping or script errors.
-
-## Mobile Engineering navigation fix (2026-10-22)
-- Root cause: previous mobile CSS deliberately hid the third navigation anchor, which is Engineering. The section was deployed, but its navigation control was invisible.
-- Fixed with a two-row mobile header that exposes all three primary anchors at widths <= 530px.
-- Disabled long-distance smooth anchor scrolling so a tap takes users directly to the target rather than appearing unresponsive.
-- Versioned CSS reference in HTML to refresh stale stylesheet assets.
-- Tested Chrome on 320/375/390/768/1440 px in both locales. Clicked the actual Engineering navigation control and confirmed the section enters the viewport immediately, four entries are present, link hash is correct, and navigation is visible at all tested widths.
+Axe with no detected violations is NOT full WCAG 2.2 AA certification. Native VoiceOver/NVDA, Safari/iOS behavior, forced colors, and all zoom combinations require separate manual testing. Taste Skill passing also does not certify subjective visual taste. A human should review the site and each résumé claim before using it as a formal application.
