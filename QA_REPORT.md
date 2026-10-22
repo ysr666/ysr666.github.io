@@ -40,3 +40,20 @@ Taste Skill moved from an initial **7 FAIL / 5 WARN** to **0 FAIL / 2 WARN** aft
 ## Limits
 
 Axe with no detected violations is NOT full WCAG 2.2 AA certification. Native VoiceOver/NVDA, Safari/iOS behavior, forced colors, and all zoom combinations require separate manual testing. Taste Skill passing also does not certify subjective visual taste. A human should review the site and each résumé claim before using it as a formal application.
+
+
+## Personal-site comparison refinement (2026-10-22)
+
+- Compared original sites of Anthony Fu, Paco Coursey, Brittany Chiang, Emil Kowalski and Rauno Freiberg. Adapted information curation and personal voice without copying page code or branding.
+- Removed the duplicate four-image gallery; original repository/source links were kept.
+- Added a short, evidence-conscious Now note; edited About and intro and changed navigation to Projects / Background / Contact.
+- Desktop split is now 42/58 and the intro is shorter to surface project content sooner.
+- Browser check at 320, 375, 390, 768, 1024, 1440 and 1920 CSS px in both languages: no document horizontal overflow, broken image, invalid internal fragment or JS page error; 375, 768 and 1440 screenshots reviewed.
+- Repeated Axe at 375, 768 and 1440: zero confirmed WCAG violations, not a certification. Taste Skill source lint: zero FAIL, two existing WARN.
+
+
+## Source-backed evidence check (2026-10-22)
+
+Taste Skill flagged too few meaningful pictures after the redundant full gallery was removed. We selected two different, actual repository screenshots instead of restoring duplicates: a Vision Router tool-response example and Computer History timeline/retention controls. The images were inspected, downloaded directly from the author's public repositories, and attached to their relevant case studies with descriptive alt text, bilingual captions and external links to the original images.
+
+Final Taste Skill inspector: **0 FAIL / 2 WARN** (font-size count and no video). The images are actual evidence, not styled mockups. The source lint remains **0 FAIL / 2 WARN**. No video is added without authentic footage.

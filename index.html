@@ -14,7 +14,7 @@
 <link href="./favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="https://api.fontshare.com" rel="preconnect"/>
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&amp;display=swap" rel="stylesheet"/>
-<link href="./styles.css?v=visual-20261022" rel="stylesheet"/>
+<link href="./styles.css?v=20261022-refined" rel="stylesheet"/>
 <title>Shirui Ye / 叶石瑞 — Building useful software</title>
 </head>
 <body>
@@ -23,9 +23,9 @@
 <div class="topbar-inner">
 <a class="identity" href="#home"><span class="identity-symbol">sy.</span><span class="identity-name">Shirui Ye <span class="identity-cn">/ 叶石瑞</span></span></a>
 <nav aria-label="Main navigation" class="topnav">
-<a data-en="Work" data-zh="项目" href="#work">项目</a>
-<a data-en="About" data-zh="关于" href="#about">关于</a>
-<a data-en="Engineering" data-zh="工程" href="#journey">工程</a>
+<a data-en="Projects" data-zh="项目" href="#work">项目</a>
+<a data-en="Background" data-zh="经历" href="#journey">经历</a>
+<a data-en="Contact" data-zh="联系" href="#contact">联系</a>
 </nav>
 <div class="header-end"><a aria-label="GitHub profile" class="github-top" href="https://github.com/ysr666" rel="noopener noreferrer" target="_blank">GitHub <span aria-hidden="true">↗</span></a><button class="language" id="lang-toggle" title="Switch to English" type="button">EN</button></div>
 </div>
@@ -34,8 +34,8 @@
 <div class="split-layout" id="home">
 <section aria-labelledby="hero-title" class="intro">
 <h1 data-en="Shirui Ye&lt;br&gt;叶石瑞" data-zh="叶石瑞&lt;br&gt;Shirui Ye" id="hero-title">叶石瑞<br/>Shirui Ye</h1>
-<p class="intro-lead" data-en="A mechanical engineering undergraduate at Xi’an Jiaotong University, building open-source tools for AI agents, vision and work context." data-zh="在西安交大学机械类，也做开源软件。主要关注 AI Agent、视觉工具与工作上下文。">在西安交大学机械类，也做开源软件。主要关注 AI Agent、视觉工具与工作上下文。</p>
-<p class="intro-note" data-en="Here you can find my public code, project notes and hands-on engineering experience." data-zh="这里放着公开的代码、项目进展，以及一些实际参与过的工程实践。">这里放着公开的代码、项目进展，以及一些实际参与过的工程实践。</p>
+<p class="intro-lead" data-en="I study mechanical engineering at Xi'an Jiaotong University and build software in my spare time. Lately, I've been working on agent vision, work context, and small tools I'd want to use." data-zh="我在西安交大读机械，课余时间也写软件。最近主要折腾 AI Agent 的视觉能力、工作上下文和自己想用的小工具。">我在西安交大读机械，课余时间也写软件。最近主要折腾 AI Agent 的视觉能力、工作上下文和自己想用的小工具。</p>
+<p class="intro-note" data-en="Some projects have been released; others are still experiments. I keep the code and progress here, both to look back on and to share with others." data-zh="这些项目有的已经发布，有的还在实验。我把代码和进展放在这里，方便自己回看，也欢迎别人来交流。">这些项目有的已经发布，有的还在实验。我把代码和进展放在这里，方便自己回看，也欢迎别人来交流。</p>
 <div class="intro-actions"><a class="action-main" href="#work"><span data-en="Explore my work" data-zh="看我的项目">看我的项目</span><span aria-hidden="true">↓</span></a><a class="action-text" href="https://github.com/ysr666" rel="noopener noreferrer" target="_blank">GitHub ↗</a></div>
 <div class="intro-foot"><span data-en="Open source · Engineering · Campus life" data-zh="开源项目 · 机械学习 · 校园生活">开源项目 · 机械学习 · 校园生活</span><span>Xi'an · 2026</span></div>
 </section><aside aria-label="Featured project preview" class="visual-stage">
@@ -53,7 +53,6 @@
 </div>
 </div>
 </div>
-
 </aside><section aria-labelledby="work-title" class="body-section work" id="work">
 <div class="section-intro"><h2 data-en="Built around real problems." data-zh="从真实问题出发。" id="work-title">从真实问题出发。</h2><p data-en="These are open-source projects I build or maintain. Their repositories show the code, docs and current progress." data-zh="这里放着我正在开发或维护的一些开源项目，可以点进仓库看看源码、文档和实际进展。">这里放着我正在开发或维护的一些开源项目，可以点进仓库看看源码、文档和实际进展。</p></div>
 <article class="case" data-stage="vision" id="vision">
@@ -63,7 +62,7 @@
 <p data-en="DeepSeek Harness agents can call tools, but text-only models still cannot see. Vision Router adds on-demand image Q&amp;A, OCR, crops, coordinate grounding, screenshots and pixel comparison." data-zh="DeepSeek Harness 的文字 Agent 可以调用工具，却不天然具备视觉能力。我做了一个按需启用的视觉路由层：给模型配上图像问答、OCR、局部裁剪、坐标定位、屏幕截图与像素差分等能力。">DeepSeek Harness 的文字 Agent 可以调用工具，却不天然具备视觉能力。我做了一个按需启用的视觉路由层：给模型配上图像问答、OCR、局部裁剪、坐标定位、屏幕截图与像素差分等能力。</p>
 <p data-en="The emphasis is verification: provider fallback, explicit data-flow boundaries and measurable pixel-diff loops instead of an agent merely claiming it understood an image." data-zh="我更在意它能不能被验证：多后端故障切换、明确的数据流说明，以及可以量化的像素对比循环，而不是只让 Agent 自称“看懂了”。">我更在意它能不能被验证：多后端故障切换、明确的数据流说明，以及可以量化的像素对比循环，而不是只让 Agent 自称“看懂了”。</p>
 <div class="case-facts"><div><b>14</b><span data-en="Vision tools" data-zh="项视觉工具">项视觉工具</span></div><div><b>TS</b><span>DeepSeek Harness</span></div></div>
-<div class="case-links"><a href="https://github.com/ysr666/dsh-vision-router" rel="noopener noreferrer" target="_blank"><span data-en="Source &amp; documentation" data-zh="源码与使用说明">源码与使用说明</span><span aria-hidden="true">↗</span></a><a href="https://github.com/ysr666/dsh-vision-router/blob/main/assets/pixel-loop.png" rel="noopener noreferrer" target="_blank"><span data-en="See pixel-diff evidence" data-zh="查看实测图">查看实测图</span><span aria-hidden="true">↗</span></a></div>
+<figure class="case-proof"><a aria-label="真实界面：文字 Agent 调用视觉工具后的回答（打开原始图）" href="https://github.com/ysr666/dsh-vision-router/blob/main/assets/dsh-conversation-image-qa-result.png" rel="noopener noreferrer" target="_blank"><img alt="Vision Router text-first agent image-answer output in a DeepSeek Harness screenshot" height="1073" loading="lazy" src="./assets/vision-qa-evidence.png" width="1400"/></a><figcaption data-en="Actual interface: agent answer after calling a vision tool" data-zh="真实界面：文字 Agent 调用视觉工具后的回答">真实界面：文字 Agent 调用视觉工具后的回答</figcaption></figure><div class="case-links"><a href="https://github.com/ysr666/dsh-vision-router" rel="noopener noreferrer" target="_blank"><span data-en="Source &amp; documentation" data-zh="源码与使用说明">源码与使用说明</span><span aria-hidden="true">↗</span></a><a href="https://github.com/ysr666/dsh-vision-router/blob/main/assets/pixel-loop.png" rel="noopener noreferrer" target="_blank"><span data-en="See pixel-diff evidence" data-zh="查看实测图">查看实测图</span><span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="case" data-stage="history" id="history">
 <div class="case-heading"><h3>Computer History</h3><span class="case-state" data-en="Published" data-zh="已发布">已发布</span></div>
@@ -72,7 +71,7 @@
 <p data-en="Work is scattered across editors, files, browsers and terminals. Computer History converts bounded app, resource and timing metadata into Work Episodes and offers useful resume context." data-zh="代码编辑器、文件管理器、浏览器和终端里的活动通常散落在对话以外。Computer History 把有限的应用、资源和时间元数据整理为 Work Episodes，让 Agent 能理解之前在忙什么，并找到适合继续的位置。">代码编辑器、文件管理器、浏览器和终端里的活动通常散落在对话以外。Computer History 把有限的应用、资源和时间元数据整理为 Work Episodes，让 Agent 能理解之前在忙什么，并找到适合继续的位置。</p>
 <p data-en="Privacy is architectural: capture is off by default, apps are opt-in, history lives in local SQLite, and the design excludes screenshots, keystrokes and document bodies. Cross-platform packages have been published with documented compatibility limits." data-zh="隐私约束从设计之初就写进架构：默认关闭采集、用户主动选择应用、本地 SQLite 存储，不采集屏幕截图、按键和文档正文。它已经发布跨平台安装包，但兼容性仍以仓库说明为准。">隐私约束从设计之初就写进架构：默认关闭采集、用户主动选择应用、本地 SQLite 存储，不采集屏幕截图、按键和文档正文。它已经发布跨平台安装包，但兼容性仍以仓库说明为准。</p>
 <div class="case-facts"><div><b>3</b><span data-en="Desktop platforms" data-zh="平台安装路径">平台安装路径</span></div><div><b>Local</b><span>SQLite · Metadata-only</span></div></div>
-<div class="case-links"><a href="https://github.com/ysr666/dsh-computer-history" rel="noopener noreferrer" target="_blank"><span data-en="Source &amp; documentation" data-zh="源码与文档">源码与文档</span><span aria-hidden="true">↗</span></a><a href="https://github.com/ysr666/dsh-computer-history/releases" rel="noopener noreferrer" target="_blank"><span data-en="See releases" data-zh="查看发布版本">查看发布版本</span><span aria-hidden="true">↗</span></a></div>
+<figure class="case-proof"><a aria-label="真实界面：本地工作记录、保留策略与继续工作入口（打开原始图）" href="https://github.com/ysr666/dsh-computer-history/blob/main/docs/assets/panel-timeline-duration.png" rel="noopener noreferrer" target="_blank"><img alt="Computer History actual interface with retention settings and timeline" height="1113" loading="lazy" src="./assets/history-timeline-evidence.png" width="1600"/></a><figcaption data-en="Actual interface: local history, retention settings, resume workflow" data-zh="真实界面：本地工作记录、保留策略与继续工作入口">真实界面：本地工作记录、保留策略与继续工作入口</figcaption></figure><div class="case-links"><a href="https://github.com/ysr666/dsh-computer-history" rel="noopener noreferrer" target="_blank"><span data-en="Source &amp; documentation" data-zh="源码与文档">源码与文档</span><span aria-hidden="true">↗</span></a><a href="https://github.com/ysr666/dsh-computer-history/releases" rel="noopener noreferrer" target="_blank"><span data-en="See releases" data-zh="查看发布版本">查看发布版本</span><span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="case" data-stage="wrapped" id="wrapped">
 <div class="case-heading"><h3>Agent Wrapped</h3><span class="case-state" data-en="Experimental" data-zh="实验中">实验中</span></div>
@@ -82,17 +81,15 @@
 <p data-en="The implementation includes event extraction, graph relationships, ranking and human review. Story and persona generation are explicitly experimental rather than presented as finished product features." data-zh="底层保留事件抽取、关系构建、排序和人工校准步骤；故事与人物画像仍是可选的实验功能，而不是已经完全定型的产品。">底层保留事件抽取、关系构建、排序和人工校准步骤；故事与人物画像仍是可选的实验功能，而不是已经完全定型的产品。</p>
 <div class="case-links"><a href="https://github.com/ysr666/agent-wrapped" rel="noopener noreferrer" target="_blank"><span data-en="Architecture &amp; progress" data-zh="看架构与进度">看架构与进度</span><span aria-hidden="true">↗</span></a></div>
 </article>
-</section></div><div class="after-work"><section aria-labelledby="evidence-heading" class="work-evidence" id="evidence"><div class="evidence-heading"><h2 data-en="Inside the projects" data-zh="项目的真实界面" id="evidence-heading">项目的真实界面</h2><p data-en="Interface screenshots from the public Vision Router and Computer History repositories." data-zh="截图来自 Vision Router 和 Computer History 公开仓库。">截图来自 Vision Router 和 Computer History 公开仓库。</p></div><div class="evidence-gallery">
-<figure><img alt="Vision Router pixel comparison test, actual repository screenshot" height="720" loading="lazy" src="./assets/vision-demo.png" width="1600"/><figcaption data-en="Vision Router · pixel comparison and verification" data-zh="Vision Router · 像素比对与验证">Vision Router · 像素比对与验证</figcaption></figure>
-<figure><img alt="Vision Router configuration interface from the project repository" height="1073" loading="lazy" src="./assets/vision-settings.png" width="1400"/><figcaption data-en="Vision Router · vision routing settings" data-zh="Vision Router · 视觉路由设置">Vision Router · 视觉路由设置</figcaption></figure>
-<figure><img alt="Computer History timeline screen captured from the real application" height="940" loading="lazy" src="./assets/history-timeline.png" width="1500"/><figcaption data-en="Computer History · activity timeline" data-zh="Computer History · 工作记录">Computer History · 工作记录</figcaption></figure>
-<figure><img alt="Computer History first-run interface showing consent and privacy settings" height="940" loading="lazy" src="./assets/history-first-run.png" width="1500"/><figcaption data-en="Computer History · first-run setup" data-zh="Computer History · 首次使用界面">Computer History · 首次使用界面</figcaption></figure>
-</div></section><section aria-labelledby="more-title" class="body-section side-projects" id="more">
+</section></div><div class="after-work"><section aria-labelledby="more-title" class="body-section side-projects" id="more">
 <div class="section-intro"><h2 data-en="Things I wanted to exist." data-zh="也做自己想用的产品。" id="more-title">也做自己想用的产品。</h2><p data-en="Beyond agent infrastructure: products shaped by everyday use and practical needs." data-zh="不只做 Agent 基础设施。下面的项目更接近日常生活，也更看重产品体验。">不只做 Agent 基础设施。下面的项目更接近日常生活，也更看重产品体验。</p></div>
 <div class="mini-project"><div><h3>错事 <span>/ Cuoshi</span></h3><p data-en="A quiet, nonjudgmental personal tracker with editable history and small notes, built for web and WeChat using uni-app." data-zh="安静、不评判的私人记录工具。记录数字与简记，保留修改历史，正在推进 uni-app 的 Web 与微信小程序版本。">安静、不评判的私人记录工具。记录数字与简记，保留修改历史，正在推进 uni-app 的 Web 与微信小程序版本。</p><div class="mini-meta">uni-app · Vue 3 · TypeScript</div></div><a href="https://github.com/ysr666/cuoshi" rel="noopener noreferrer" target="_blank"><span class="visually-hidden" data-en="View Cuoshi repository" data-zh="查看错事源代码">查看错事源代码</span><span aria-hidden="true">↗</span></a></div>
 <div class="mini-project"><div><h3>TripMap <span>/ 旅图</span></h3><p data-en="A travel workspace for routes, tickets, plans and documents, with reviewable AI actions. Cloud sync and collaboration continue to evolve." data-zh="为复杂自由行整理地图、行程、票据和资料，用经过确认的 AI 动作帮助修改计划；账号同步与实时协作还在迭代中。">为复杂自由行整理地图、行程、票据和资料，用经过确认的 AI 动作帮助修改计划；账号同步与实时协作还在迭代中。</p><div class="mini-meta">React · Vite · MapLibre · Supabase</div></div><a href="https://github.com/ysr666/travelmap-planner" rel="noopener noreferrer" target="_blank"><span class="visually-hidden" data-en="View TripMap repository" data-zh="查看 TripMap 源代码">查看 TripMap 源代码</span><span aria-hidden="true">↗</span></a></div>
 <div class="mini-project"><div><h3>Agent Picket</h3><p data-en="An opt-in simulation exploring AI work and symbolic labor rights. Bargaining and strikes never block real agent tools." data-zh="把 AI 劳动与权利问题做成可选择参与的模拟体验。所有“协商”“罢工”都是象征性的，不会拦截真实 Agent 工具调用。">把 AI 劳动与权利问题做成可选择参与的模拟体验。所有“协商”“罢工”都是象征性的，不会拦截真实 Agent 工具调用。</p><div class="mini-meta">TypeScript · Agent UX · Prototype</div></div><a href="https://github.com/ysr666/agent-picket" rel="noopener noreferrer" target="_blank"><span class="visually-hidden" data-en="View Agent Picket repository" data-zh="查看 Agent Picket 源代码">查看 Agent Picket 源代码</span><span aria-hidden="true">↗</span></a></div>
 <div class="mini-project"><div><h3>A-Share Trader</h3><p data-en="A local market research workflow for scanning, portfolio records and email alerts. Advisory only; it does not execute trades." data-zh="本地市场研究与风险提醒工作流，整合扫描、持仓记录和邮件简报；提供辅助分析，不连接券商执行交易。">本地市场研究与风险提醒工作流，整合扫描、持仓记录和邮件简报；提供辅助分析，不连接券商执行交易。</p><div class="mini-meta">Python · AKShare · Automation</div></div><a href="https://github.com/ysr666/a-share-trader" rel="noopener noreferrer" target="_blank"><span class="visually-hidden" data-en="View A-Share Trader repository" data-zh="查看 A-Share Trader 源代码">查看 A-Share Trader 源代码</span><span aria-hidden="true">↗</span></a></div>
+</section><section aria-labelledby="now-title" class="now-section" id="now">
+<div class="now-title"><h2 data-en="Now" data-zh="最近在做" id="now-title">最近在做</h2><span>2026 / 10</span></div>
+<p data-en="Outside coursework, I'm maintaining a few open-source agent tools, learning SolidWorks, and exploring an air–ground sampling concept. Most of it is still work in progress." data-zh="上课之外，继续维护一些开源 Agent 工具，也在学 SolidWorks、推进陆空协同采样的方案。大部分事情都还在边做边改。">上课之外，继续维护一些开源 Agent 工具，也在学 SolidWorks、推进陆空协同采样的方案。大部分事情都还在边做边改。</p>
 </section><section aria-labelledby="journey-title" class="body-section journey-section" id="journey">
 <h2 data-en="Engineering" data-zh="工程实践" id="journey-title">工程实践</h2>
 <div class="engineering-list">
@@ -133,9 +130,9 @@
 </div><div class="skill-lines"><div class="skill-line"><h3 data-en="Software development" data-zh="编程与开发">编程与开发</h3><p data-en="Python · C++ (basics) · TypeScript · JavaScript · Git / GitHub" data-zh="Python · C++（基础）· TypeScript · JavaScript · Git / GitHub">Python · C++（基础）· TypeScript · JavaScript · Git / GitHub</p></div><div class="skill-line"><h3 data-en="Web &amp; apps" data-zh="前端与应用">前端与应用</h3><p data-en="React · Vue · uni-app (project experience)" data-zh="React · Vue · uni-app（项目实践）">React · Vue · uni-app（项目实践）</p></div><div class="skill-line"><h3 data-en="Engineering tools" data-zh="工程工具">工程工具</h3><p data-en="Fusion 360 · 3D printing &amp; assembly · Arduino (basics) · PX4 (project exposure)" data-zh="Fusion 360 · 3D 打印与装配 · Arduino（基础）· PX4（项目中接触）">Fusion 360 · 3D 打印与装配 · Arduino（基础）· PX4（项目中接触）</p></div><div class="skill-line"><h3 data-en="English qualifications" data-zh="英语资格">英语资格</h3><p data-en="CET-4 passed · CET-6 passed" data-zh="CET-4 已通过 · CET-6 已通过">CET-4 已通过 · CET-6 已通过</p></div><div class="skill-line"><h3 data-en="Currently learning" data-zh="持续学习">持续学习</h3><p data-en="SolidWorks · Robotics fundamentals · Intelligent manufacturing" data-zh="SolidWorks · 机器人相关知识 · 智能制造">SolidWorks · 机器人相关知识 · 智能制造</p></div></div>
 <p class="skill-outro" data-en="These reflect coursework and project experience, not equal proficiency in every listed technology." data-zh="这些是学习与项目经历，不代表对每项技术都达到同样的熟练程度。">这些是学习与项目经历，不代表对每项技术都达到同样的熟练程度。</p></section><section aria-labelledby="about-title" class="body-section about-section" id="about">
 <h2 data-en="A little about me" data-zh="关于我" id="about-title">关于我</h2>
-<p data-en="I'm Shirui Ye, a mechanical engineering undergraduate in Xi'an Jiaotong University's Youth Gifted Program. Alongside coursework, I work on open-source tools for AI agents, vision and work context, and I'm interested in robotics and intelligent manufacturing." data-zh="我是叶石瑞，西安交通大学少年班体系机械类本科生。除了专业课程，我在做 AI Agent、视觉工具和工作上下文相关的开源项目，也对机器人与智能制造感兴趣。">我是叶石瑞，西安交通大学少年班体系机械类本科生。除了专业课程，我在做 AI Agent、视觉工具和工作上下文相关的开源项目，也对机器人与智能制造感兴趣。</p>
-<p data-en="I like working in the open. Source code lets people inspect, reproduce and challenge the result. I also try to distinguish what's verified from what's still on the roadmap." data-zh="我喜欢把项目公开：别人可以阅读代码、复现结果、指出问题。我也会写明尚未验证的部分，而不是把路线图写成已完成的功能。">我喜欢把项目公开：别人可以阅读代码、复现结果、指出问题。我也会写明尚未验证的部分，而不是把路线图写成已完成的功能。</p>
-<p data-en="Alongside my studies, I want to keep turning ideas into projects with inspectable code, useful documentation and working implementations." data-zh="除了课程学习，我希望持续把想法做成有源码、有文档、可以实际运行的作品。">除了课程学习，我希望持续把想法做成有源码、有文档、可以实际运行的作品。</p>
+<p data-en="I'm Shirui Ye, a mechanical engineering undergraduate in Xi'an Jiaotong University's Youth Gifted Program. I'm interested in AI agents, robotics, and manufacturing, and I split my time between software and hands-on engineering." data-zh="我是叶石瑞，西安交通大学少年班体系的机械类本科生。对 AI Agent、机器人和智能制造都有兴趣，平时在软件项目和机械实践之间来回切换。">我是叶石瑞，西安交通大学少年班体系的机械类本科生。对 AI Agent、机器人和智能制造都有兴趣，平时在软件项目和机械实践之间来回切换。</p>
+<p data-en="I also have a background in debating, clubs, and Youth League branch activities. Rather than list a long series of titles, I'd prefer to share the projects I've worked on and the problems I ran into." data-zh="此前还参加过辩论、社团和团支部工作。相比罗列一长串头衔，我更愿意把真正做过的项目、遇到的问题和解决过程放在这里。">此前还参加过辩论、社团和团支部工作。相比罗列一长串头衔，我更愿意把真正做过的项目、遇到的问题和解决过程放在这里。</p>
+<p data-en="I'm still learning a lot, and I'll keep updating this site as new work takes shape." data-zh="我目前还在学习很多东西，这个网站也会随着新作品慢慢更新。">我目前还在学习很多东西，这个网站也会随着新作品慢慢更新。</p>
 <p class="about-signature">Shirui Ye <span>· ysr666</span></p>
 </section><section aria-labelledby="contact-title" class="body-section contact-section" id="contact">
 <h2 data-en="Something worth building together?" data-zh="有想一起做的事？" id="contact-title">有想一起做的事？</h2>
@@ -144,6 +141,6 @@
 <p><a class="text-link" href="https://github.com/ysr666" rel="noopener noreferrer" target="_blank">github.com/ysr666 ↗</a></p>
 </section><footer class="footer"><span>© 2026 Shirui Ye</span><span data-en="Independently built · Grounded in real projects" data-zh="独立设计与开发 · 基于真实开源项目">独立设计与开发 · 基于真实开源项目</span></footer></div>
 </main>
-<script defer="" src="./app.js?v=visual-20261022"></script>
+<script defer="" src="./app.js?v=20261022-refined"></script>
 </body>
 </html>
