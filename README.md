@@ -1,25 +1,35 @@
-# Shirui Ye / 叶石瑞 · Personal Website
+# Shirui Ye / 叶石瑞
 
-Live site: https://ysr666.github.io/
+A bilingual professional portfolio of open-source software, selected engineering work and qualifications.
 
-Bilingual editorial personal homepage about open-source software, hands-on mechanical engineering, relevant competition achievements, CET qualifications and contact information.
+Website: https://ysr666.github.io/
 
-## Files
+## Run
 
-- index.html + home.css + home.js: small, accessible, text-first main site.
-- projects/vision-router/ and projects/computer-history/: source-backed bilingual detail pages.
-- styles.css, project-detail.css, project-detail.js: shared styling/localization for the detail pages.
-- FACT_AUDIT.md: claim evidence, source classes and remaining unverified facts.
-- DESIGN_SYSTEM.md and DESIGN_REFERENCES.md: design direction and five real-site comparison.
-- QA_REPORT.md: current tests. QA_HISTORY.md: prior homepage acceptance history.
-- qa/editorial/: tested current screenshots at mobile, tablet and desktop resolutions.
+Plain HTML, CSS and JavaScript. No dependencies or build process. Run a local web server from this directory: python3 -m http.server 8080. GitHub Pages publishes from the main branch root.
 
-## Running locally
+## Content
 
-Run a static server from the repository root using python3 -m http.server 8080. Open http://localhost:8080 . GitHub Pages publishes the main branch root; no compilation or package install is needed.
+Featured source-backed work: DSH Vision Router, Computer History and Agent Wrapped. Four other non-fork public repositories are listed briefly. Engineering practice is compact and distinguishes participation from planned integration. The qualifications section includes CET-4 and CET-6 passed. No invented achievements, fake interfaces, unrelated fork attribution, private phone number or confidential projects.
 
-The default Chinese content remains accessible without JavaScript. A bilingual toggle, shown when JS loads, persists the selection when localStorage is available. All repository links use native anchors.
+Screenshots in assets originate in public project repositories, including two annotated case-study images with links back to their original files. Agent Wrapped artwork is typographic, not presented as a real app screen.
 
-## Content integrity
+## Documentation
 
-Project claims are checked against source repos, README text and releases. Awards, CET and education are self-reported from the owner's research CV; no individual awards are fabricated from team evidence. Unreleased or planning-stage work is marked honestly. Private files and credentials are excluded.
+- DESIGN_SYSTEM.md: positioning, design tokens, grid, component behavior and design exceptions.
+- QA_REPORT.md: inspect/lint, Axe automated checks, browser sizes, screenshots and limits.
+- PROFILE_CONTENT.md: content provenance / accuracy boundaries.
+- qa/screenshots/: verified preview captures.
+- DESIGN_REFERENCES.md: real personal sites studied and what was adapted.
+- FACT_AUDIT.md: source-backed claim register and outstanding verification limits.
+- projects/vision-router/ and projects/computer-history/: bilingual detailed case studies with public source links.
+
+Style direction: Taste Skill v2 Split Stage adapted to actual developer work. Mobile leads with the owner's name; the full-width archive follows the featured work.
+
+## Project deep dives
+
+- /projects/vision-router/ — bilingual case study, release and privacy caveats.
+- /projects/computer-history/ — bilingual case study, privacy boundaries and validation.
+- /FACT_AUDIT.md — public, source-tiered statement verification list.
+
+Both case studies run on the same static HTML/CSS/JavaScript stack. Screenshots are in qa/case-studies/.

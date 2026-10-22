@@ -1,35 +1,63 @@
-# Shirui Ye / 叶石瑞 — Personal Site Design System
-2026-10-22 · Editorial Index direction
+# Shirui Ye — Portfolio Design System
 
-## Positioning
-This is a young mechanical engineering undergraduate's personal homepage, not a SaaS product landing page or a fabricated senior engineer résumé. Visitors should immediately see who is here, what open-source code exists, which work is experimental, and where to contact the owner.
+Updated 2026-10-22. Art direction: Taste Skill v2 Split Stage, modified for a public developer portfolio.
 
-## Five visual references actually examined in Chrome
-- Anthony Fu (antfu.me): human prose and repository links in a relatively narrow text column.
-- Paco Coursey (paco.me): concise building, projects, now and contact; a compact editorial layout.
-- Emil Kowalski (emilkowal.ski): plain project links and confident typography without decorative screenshots.
-- Brittany Chiang (brittanychiang.com): career evidence and projects organized distinctly with clear identity.
-- Rauno Freiberg (rauno.me): precision and artistic personality; we avoid copying his yellow disk or theatrical motion.
+## Positioning and user journey
 
-The original old site was a large sticky project visual and resembled product promotion. The selected user references are mainly about the *person and useful links*. We prioritize the Anthony/Paco/Emil approach while retaining reliable résumé facts and deliberate interactions.
+Audience: open-source collaborators, internship/recruitment reviewers, developer-community organizers and technical peers. Primary action: inspect a real source repository. Secondary actions: understand engineering background, view confirmed competition distinctions / CET qualifications, and make contact.
 
-## Tokens
-- Canvas: #fbfbfa, slightly warm white.
-- Main ink: #1e2528, body copy #35444a, muted #48575d, fine metadata #626f74.
-- Link: #274c65, focus ring #2c50c7.
-- Font: General Sans plus local PingFang SC / system fallback.
-- Centered main column: 720px. Desktop 17px personal intro and 16px project prose; ~52px hero identity, 16px section heading, 19–20px project title.
-- Spacing: editorial rhythm with 24/32px within sections and 60–90px chapter gaps. Mostly no borders, shadows, gradients or container cards.
-- Responsiveness: at 530px a two-row accessible header; one-column project index, actual 44px links.
-- Motion: restrained hover/focus state. No autoplay animation or media.
+Reading hierarchy: personal identity → featured verifiable work → actual project screenshots → smaller projects → concise engineering → honors → qualifications → contact.
 
-## Information architecture
-Identity & introduction → What I am doing now → three main open-source works → four small projects → education and short engineering practice → awards, CET qualifications → About, tools, and contact.
+## Visual concept
 
-Every main project title links directly to a real case study or source. The two case studies retain full source-backed screenshots, deeper engineering details and limitation notes. All previous detailed case-study files are preserved under projects/ and continue using the existing styles.css and project-detail.css.
+Real software screens are the visual material, not generic AI illustrations. A project screenshot field stays beside three featured case studies only, then releases to a full-width editorial archive. A separate duplicate gallery was removed. On mobile, the name and introduction precede the screenshot. Agent Wrapped uses typographic artwork identified as artwork, not a false application screenshot.
 
-## Accessibility and content boundaries
-Native headings, links and landmarks; keyboard focus visible; no forced browser zoom restrictions; all visible interactive controls measured at least 44px at tested widths. Chinese remains accessible without JS; the English toggle appears only when JS is available and updates the selected language, title and document language. Fact claims use FACT_AUDIT.md and published GitHub release records. No unrelated forks, invented measurements or inflated awards.
+## Design tokens
 
-## Deliberate check-tool exception
-Taste Skill source lint passes 0 FAIL / 0 WARN. Its browser inspector still requests multiple photographs, autoplay motion and a dramatic image-led hero. These are deliberate exceptions because most of the actual sites chosen by this user have a text-led homepage and little to no imagery. Adding arbitrary media to satisfy an award-site heuristic would betray the reference preference. See QA_REPORT.md for transparent coverage and limitations.
+| Role | Value |
+|---|---|
+| Background | #ffffff |
+| Main text | #171d20 |
+| Secondary text | #59666c |
+| Quiet field | #edf2f2 |
+| Accent / focus | #2450d8 |
+| Image stage | #141e22 |
+| Small / body / lead | 13px / 16px / fluid 19–23px |
+| Heading / display | fluid 30–40px / 52–86px desktop, narrower on phones |
+| Typeface | General Sans for Latin, PingFang SC / system fallback for Chinese |
+| Space | 4, 8, 12, 16, 24, 32, 48, 64px rhythm |
+| Radius | 5px for image fields and CTA, functional pill for language |
+| Motion | 230ms screenshot crossfade and small 450ms one-time section reveals |
+| Grid | 42/58 desktop split, stacked at 850px, two-row phone nav <=530px |
+
+The measured font sizes between roles result from fluid scaling, Latin/CJK metrics and localized components; the design uses five main semantic tiers.
+
+## Interaction, semantics and responsiveness
+
+Semantic main, nav and sections; one H1 for the person's real name, skip link, descriptive images and project links. Explicit focus rings. All visible mobile controls are at least 44×44 CSS px. No browser zoom restrictions. Full keyboard use, named project preview buttons, correct pressed state, language switching in place and persistence where storage is available. Browser fragment jumps are immediate rather than animated through long pages. Motion respects the reduced-motion preference and never blocks reading.
+
+Featured screenshots come from public Vision Router and Computer History repositories. A separate duplicate gallery was intentionally removed. Experimental or pending work is labeled, forked repositories never claimed as original, and private projects/contact details remain excluded.
+
+## Deliberate Taste Skill exceptions
+
+No video: there is no verified footage in the evidence selected for this page; inventing a demo would undermine credibility. The language switch retains a functional 1px border for affordance. Computed responsive type yields more pixel sizes than the five semantic roles. No gradients, at-rest shadows, decorative card grids or invented statistics.
+
+See QA_REPORT.md for tested coverage and remaining limits.
+
+
+## Reference review (2026-10-22)
+
+We compared real public portfolios rather than choosing aesthetics from one inspiration image: Anthony Fu (personal voice and open-source projects), Paco Coursey (compact editorial structure and Now), Brittany Chiang (recruiting evidence and contact), Emil Kowalski (projects as proof), and Rauno Freiberg (careful typographic craft).
+
+The adaptation keeps the existing source-backed work but uses more human copy, Projects / Background / Contact navigation, removes duplicate screenshots, and adds a truthful Now note about work still in progress. This alters information hierarchy, not the user's achievements.
+
+Reference URLs and decisions are in DESIGN_REFERENCES.md.
+
+
+## Final visual evidence decision
+
+Rather than keep the former large four-photo gallery, two distinct, source-backed screenshots now sit inside the Vision Router and Computer History case studies. They illustrate a real vision-tool response and the local history/retention UI. Both screenshots link directly to their original public GitHub repository files; all assets are local to this static site. The project stage and mobile previews remain the primary visual experience.
+
+## Project case studies
+
+Two source-backed deep dives share the design tokens, 44px controls and language preference with the homepage. Each presents the problem, technical approach, observable evidence and meaningful limitations. Typography and image treatment are intentionally quieter than the interactive homepage stage. No fictional diagrams, statistics or testimonials were added. Links to original source and release notes remain visible.
