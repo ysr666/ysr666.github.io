@@ -1,0 +1,90 @@
+/* A — SIGNAL STUDIO
+   A strong personal identity in electric cobalt; vector motion is an authored visual, not a technology claim.
+   Inspired by Rauno's confidence and Emil's interaction precision, balanced by real developer work. */
+:root{--paper:#faf8ef;--ink:#202145;--secondary:#43485e;--accent:#4e4de4}
+body{background:var(--paper)}
+.site-header{background:#4141e8;color:white}
+.wordmark span{color:#ddff70}
+.site-header .main-nav a{color:#fff}.site-header .main-nav a:hover{color:#deff77}
+.site-header .lang-button{color:white;border-color:#b9bdff}.site-header .lang-button:hover{background:#2b2ac1}
+.a-hero{background:#4141e8;color:#fff;min-height:680px;display:grid;grid-template-columns:minmax(0,.98fr) minmax(0,1.02fr);gap:30px;padding:65px clamp(24px,5vw,92px) 85px;align-items:center}
+.a-hero .hero-copy{position:relative;z-index:2}
+.a-hero .overline{font:12px var(--mono);letter-spacing:.065em;margin:0 0 39px;color:#dfdefd}
+.a-hero h1{font-size:clamp(63px,6.4vw,113px);max-width:670px}
+.a-hero .highlight-name{color:#ddff75}
+.a-hero .hero-sub{font-size:clamp(22px,2vw,32px);max-width:510px;letter-spacing:-.04em;margin:27px 0 12px}
+.a-hero .hero-intro{font-size:16px;line-height:1.8;color:#e5e5ff;margin:0;max-width:490px}
+.a-hero .cta-primary{background:#dfff75;color:#1d2367}.a-hero .cta-primary:hover{background:#fff;color:#2527a7}
+.a-hero .cta-secondary{border:1px solid #bcbcf5;color:white}.a-hero .cta-secondary:hover{background:white;color:#3b3bd7}
+.hero-scroll{margin-top:56px;display:flex;justify-content:space-between;max-width:210px;color:#d4d3ff;font:12px var(--mono)}
+.hero-scroll span{font-size:17px}
+.a-hero .hero-art{border:1px solid #7d7bf0;background:#3432c9;aspect-ratio:1.06/1;max-width:570px;width:100%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;justify-self:end;border-radius:120px 18px 120px 18px;color:#dce1ff;isolation:isolate}
+.a-hero .hero-art::before{content:"";position:absolute;width:75%;height:75%;top:13%;left:15%;border-radius:50%;background:#dad2ff;opacity:.08}
+.a-hero .hero-art::after{content:"";position:absolute;width:64px;height:64px;border-radius:50%;top:5%;right:5%;background:#ec775f;mix-blend-mode:screen}
+.signature-svg{width:98%;height:98%;display:block;position:relative;z-index:1}
+.kinematic-group{transform-origin:231px 225px;transform:translateY(var(--art-y,0px)) rotate(var(--art-rot,0deg));transition:transform .27s cubic-bezier(.22,.8,.22,1)}
+.art-caption{position:absolute;bottom:24px;left:26px;font:11px var(--mono);letter-spacing:.09em;color:#dddeff}
+.a-hero .hero-art:focus-visible{outline:3px solid #e3ff82}
+.now-strip{background:#e1ff7d;color:#242849}
+.now-marker{background:#f86a54}
+.work-section{background:#faf8ef}
+.work-section .section-header h2 span{color:#5150e8}
+.vision-visual{background:#20234e;border-radius:65px 9px 65px 9px}
+.history-visual{background:#cdc8ff;border-radius:9px 65px 9px 65px}
+.wrapped-visual{background:#ff785f;color:#222243;border-radius:65px 9px 65px 9px}
+.wrapped-visual .wrap-star{color:#e4ff82}
+.visual-index{color:#e7ebff}
+.history-visual .visual-index,.wrapped-visual .visual-index{color:#24234d}
+.project-state{color:#4248bd}
+.project-count{color:#656578}
+.project-link{color:#3035cb}
+.more-section{background:#e9e9ff}
+.more-section .section-header h2 span{color:#5b55e8}
+.mini{background:white;border-radius:18px 3px 18px 3px;box-shadow:6px 6px 0 #d6d5ff}
+.mini:nth-child(2){background:#e0ff90;box-shadow:6px 6px 0 #cac9f9}
+.mini:nth-child(3){background:#ffd6c9;box-shadow:6px 6px 0 #cac9f9}
+.mini:nth-child(4){background:#fff;box-shadow:6px 6px 0 #cac9f9}
+.mini>span{color:#5d5d80}
+.engineering-section{background:#faf8ef}
+.engineering-section .section-header h2 span{color:#5553e7}
+.eng-index{color:#5957dd}
+.eng-item{padding:18px 18px 18px 0}
+.eng-item small{color:#656584}
+.recognition-section{background:#242448;color:#fff}
+.recognition-section .section-header h2 span{color:#e0ff75}
+.recognition-section .section-header>p{color:#d2d2ed}
+.recognition-grid h3{color:#eeedff}
+.awards li{border-bottom:1px solid #4c4c70}
+.awards li strong{color:#e0ff75}
+.skill-row{border-bottom:1px solid #4c4c70}
+.skills>small{color:#cccce7}
+.about-section{background:#e0ff82}
+.about-section .eyebrow{color:#3d4493}
+.about-section h2 span{color:#4246c9}
+.about-section>div:last-child>p:last-child{color:#343954}
+.contact-section{background:#ff795f;color:#1d2245}
+.contact-section h2 span{color:#fff8ef}
+.contact-section p{color:#242547}
+.contact-email{border-bottom:2px solid currentColor}
+.site-footer{background:#222347;color:#f5f3fd}
+.site-footer a:hover{color:#e0ff75}
+@media(max-width:1050px){.a-hero{grid-template-columns:1fr 1fr;gap:15px}.a-hero h1{font-size:clamp(50px,6vw,82px)}}
+@media(max-width:850px){.a-hero{grid-template-columns:1fr;gap:38px;padding-top:55px}.a-hero .hero-art{justify-self:center;max-width:560px}.a-hero h1{font-size:clamp(58px,9vw,93px)}.hero-scroll{display:none}}
+@media(max-width:600px){
+ .a-hero{min-height:0;padding:50px 21px 65px;gap:34px}
+ .a-hero .overline{margin-bottom:23px;font-size:11px}
+ .a-hero h1{font-size:clamp(55px,14vw,78px)}
+ .a-hero .hero-sub{font-size:clamp(21px,5.7vw,28px);margin:22px 0 12px}
+ .a-hero .hero-intro{font-size:15px}
+ .a-hero .hero-art{aspect-ratio:1.18/1;border-radius:80px 9px 80px 9px}
+ .art-caption{font-size:9px;bottom:16px;left:15px}
+ .a-hero .hero-art::after{height:46px;width:46px}
+ .vision-visual{border-radius:30px 4px 30px 4px}
+ .history-visual{border-radius:4px 30px 4px 30px}
+ .wrapped-visual{border-radius:30px 4px 30px 4px}
+ .mini{box-shadow:4px 4px 0 #d6d5ff}
+ .mini:nth-child(n){box-shadow:4px 4px 0 #cbc9f9}
+ .about-brand{font-size:130px}
+}
+/* Readable contact title on saturated coral. */
+.contact-section h2 span{color:#212348}
