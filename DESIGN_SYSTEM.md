@@ -22,3 +22,10 @@ Feature only non-fork, demonstrably owned repositories. Forks (`awesome-deepseek
 ## Accessibility baseline
 
 Semantic `header / main / nav / section / article / footer`; skip link; explicit link purpose; button labels; bilingual document language updates; visible `:focus-visible`; target sizes near or above 44px for key controls; readable CJK typography; touch-safe margins; `prefers-reduced-motion` supported. This is a technical baseline, not a claim of complete WCAG certification.
+## v2.1 — Personal narrative modules (2026-10-22)
+- New editorial sections: Engineering / Awards / Campus / Skills, complementing rather than displacing case studies.
+- Research uses one dark emphasis field with factual project details and a limited three-column fact line; it collapses to rows on narrow screens.
+- Awards use a vertically ordered two-column typographic ledger, not badges or trophy icon cards. At <=620px, each award's title and result stack.
+- Leadership uses timeline rows; tool experience uses aligned label/value rows and explicitly labels beginner / learning status.
+- The mobile top bar shows Work + Experience links, deliberately omitting About to protect 320px width. About and Contact remain in the document and are reachable by scrolling.
+- Identity, privacy boundaries and source transparency are documented in PROFILE_CONTENT.md.

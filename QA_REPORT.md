@@ -17,3 +17,11 @@ The connected Mac's Google Chrome was controlled by Playwright. Tested 320, 375,
 - External services, font availability and native screen readers are not fully covered by browser automation.
 - Some offscreen images use `loading=lazy`; screenshot automation should scroll and wait for decode before a full-page capture.
 - This is a design and smoke-test report, **not** an independent WCAG 2.2 AA certificate.
+## v2.1 personal profile expansion · 2026-10-22
+- Added 4 sections: Engineering, Honors, Campus, Skills; 11 award / honor records and 4 student-role entries.
+- Evidence: the owner's prior research CV, application portfolio and recorded campus experience; see PROFILE_CONTENT.md for precision and exclusions.
+- Ran Chromium/Chrome visual screenshots of each new section in Chinese and English at 375, 768, 1440 px.
+- Ran scripted layout/translation regression checks at 320, 375, 768, 1440, 1920 px in both languages. No horizontal overflow or JavaScript page errors after repair.
+- Fixed English 320 px navigation overflow and mobile Experience link being hidden by the previous second-item rule.
+- Taste Skill's automated photo/motion editorial heuristic may not fully apply to a software-engineering portfolio, so those warnings are not presented as independent WCAG conformance.
+- WCAG 2.2 AA manual screen-reader testing remains out of scope; this is a responsive and browser interaction QA pass, not formal certification.
