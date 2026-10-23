@@ -1,0 +1,114 @@
+[
+  {
+    "name": "chromium",
+    "width": 320,
+    "start": 126,
+    "end": 126,
+    "selected": "Computer History",
+    "link": "#history",
+    "hash": "#history",
+    "label": "Explore Computer History case study",
+    "wrapped": "#wrapped",
+    "dims": {
+      "w": 320,
+      "cw": 320
+    },
+    "errors": []
+  },
+  {
+    "name": "chromium",
+    "width": 375,
+    "start": 139,
+    "end": 139,
+    "selected": "Computer History",
+    "link": "#history",
+    "hash": "#history",
+    "label": "Explore Computer History case study",
+    "wrapped": "#wrapped",
+    "dims": {
+      "w": 375,
+      "cw": 375
+    },
+    "errors": []
+  },
+  {
+    "name": "chromium",
+    "width": 768,
+    "start": 128,
+    "end": 128,
+    "selected": "Computer History",
+    "link": "#history",
+    "hash": "#history",
+    "label": "Explore Computer History case study",
+    "wrapped": "#wrapped",
+    "dims": {
+      "w": 768,
+      "cw": 768
+    },
+    "errors": []
+  },
+  {
+    "name": "chromium",
+    "width": 1440,
+    "start": 0,
+    "end": 0,
+    "selected": "Computer History",
+    "link": "#history",
+    "hash": "#history",
+    "label": "Explore Computer History case study",
+    "wrapped": "#wrapped",
+    "dims": {
+      "w": 1440,
+      "cw": 1440
+    },
+    "errors": []
+  },
+  {
+    "name": "chromium",
+    "width": 1920,
+    "start": 0,
+    "end": 0,
+    "selected": "Computer History",
+    "link": "#history",
+    "hash": "#history",
+    "label": "Explore Computer History case study",
+    "wrapped": "#wrapped",
+    "dims": {
+      "w": 1920,
+      "cw": 1920
+    },
+    "errors": []
+  },
+  {
+    "name": "webkit",
+    "width": 375,
+    "start": 109,
+    "end": 109,
+    "selected": "Computer History",
+    "link": "#history",
+    "hash": "#history",
+    "label": "Explore Computer History case study",
+    "wrapped": "#wrapped",
+    "dims": {
+      "w": 375,
+      "cw": 375
+    },
+    "errors": []
+  },
+  {
+    "name": "webkit",
+    "width": 1440,
+    "start": 0,
+    "end": 0,
+    "selected": "Computer History",
+    "link": "#history",
+    "hash": "#history",
+    "label": "Explore Computer History case study",
+    "wrapped": "#wrapped",
+    "dims": {
+      "w": 1440,
+      "cw": 1440
+    },
+    "errors": []
+  }
+]

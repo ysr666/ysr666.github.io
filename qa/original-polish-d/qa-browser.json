@@ -1,0 +1,359 @@
+[
+  {
+    "engine": "chromium",
+    "width": 320,
+    "initial": {
+      "vw": 320,
+      "sw": 320,
+      "imgs": [
+        {
+          "ok": true,
+          "src": "./assets/vision-demo.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-settings.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-demo.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-qa-evidence.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/history-timeline.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/history-timeline-evidence.png"
+        }
+      ],
+      "caseCount": 3,
+      "nav": 3
+    },
+    "initialScroll": 0,
+    "history": "Computer History",
+    "dest": "#history",
+    "scrollAfter": 38,
+    "reached": {
+      "fragment": "#history",
+      "scroll": 2260
+    },
+    "en": "Explore Computer History case study",
+    "wrapped": "#wrapped",
+    "final": {
+      "scrollWidth": 320,
+      "clientWidth": 320
+    },
+    "errors": []
+  },
+  {
+    "engine": "chromium",
+    "width": 375,
+    "initial": {
+      "vw": 375,
+      "sw": 375,
+      "imgs": [
+        {
+          "ok": true,
+          "src": "./assets/vision-demo.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-settings.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-demo.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-qa-evidence.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/history-timeline.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/history-timeline-evidence.png"
+        }
+      ],
+      "caseCount": 3,
+      "nav": 3
+    },
+    "initialScroll": 0,
+    "history": "Computer History",
+    "dest": "#history",
+    "scrollAfter": 418,
+    "reached": {
+      "fragment": "#history",
+      "scroll": 2291
+    },
+    "en": "Explore Computer History case study",
+    "wrapped": "#wrapped",
+    "final": {
+      "scrollWidth": 375,
+      "clientWidth": 375
+    },
+    "errors": []
+  },
+  {
+    "engine": "chromium",
+    "width": 768,
+    "initial": {
+      "vw": 768,
+      "sw": 768,
+      "imgs": [
+        {
+          "ok": true,
+          "src": "./assets/vision-demo.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-settings.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-demo.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-qa-evidence.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/history-timeline.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/history-timeline-evidence.png"
+        }
+      ],
+      "caseCount": 3,
+      "nav": 3
+    },
+    "initialScroll": 0,
+    "history": "Computer History",
+    "dest": "#history",
+    "scrollAfter": 488,
+    "reached": {
+      "fragment": "#history",
+      "scroll": 2416
+    },
+    "en": "Explore Computer History case study",
+    "wrapped": "#wrapped",
+    "final": {
+      "scrollWidth": 768,
+      "clientWidth": 768
+    },
+    "errors": []
+  },
+  {
+    "engine": "chromium",
+    "width": 1440,
+    "initial": {
+      "vw": 1440,
+      "sw": 1440,
+      "imgs": [
+        {
+          "ok": true,
+          "src": "./assets/vision-demo.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-settings.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-demo.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-qa-evidence.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/history-timeline.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/history-timeline-evidence.png"
+        }
+      ],
+      "caseCount": 3,
+      "nav": 3
+    },
+    "initialScroll": 0,
+    "history": "Computer History",
+    "dest": "#history",
+    "scrollAfter": 0,
+    "reached": {
+      "fragment": "#history",
+      "scroll": 1822
+    },
+    "en": "Explore Computer History case study",
+    "wrapped": "#wrapped",
+    "final": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440
+    },
+    "errors": []
+  },
+  {
+    "engine": "chromium",
+    "width": 1920,
+    "initial": {
+      "vw": 1920,
+      "sw": 1920,
+      "imgs": [
+        {
+          "ok": true,
+          "src": "./assets/vision-demo.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-settings.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-demo.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-qa-evidence.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/history-timeline.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/history-timeline-evidence.png"
+        }
+      ],
+      "caseCount": 3,
+      "nav": 3
+    },
+    "initialScroll": 0,
+    "history": "Computer History",
+    "dest": "#history",
+    "scrollAfter": 0,
+    "reached": {
+      "fragment": "#history",
+      "scroll": 1830
+    },
+    "en": "Explore Computer History case study",
+    "wrapped": "#wrapped",
+    "final": {
+      "scrollWidth": 1920,
+      "clientWidth": 1920
+    },
+    "errors": []
+  },
+  {
+    "engine": "webkit",
+    "width": 375,
+    "initial": {
+      "vw": 375,
+      "sw": 375,
+      "imgs": [
+        {
+          "ok": true,
+          "src": "./assets/vision-demo.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-settings.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-demo.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-qa-evidence.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/history-timeline.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/history-timeline-evidence.png"
+        }
+      ],
+      "caseCount": 3,
+      "nav": 3
+    },
+    "initialScroll": 0,
+    "history": "Computer History",
+    "dest": "#history",
+    "scrollAfter": 21,
+    "reached": {
+      "fragment": "#history",
+      "scroll": 2260
+    },
+    "en": "Explore Computer History case study",
+    "wrapped": "#wrapped",
+    "final": {
+      "scrollWidth": 375,
+      "clientWidth": 375
+    },
+    "errors": []
+  },
+  {
+    "engine": "webkit",
+    "width": 1440,
+    "initial": {
+      "vw": 1440,
+      "sw": 1440,
+      "imgs": [
+        {
+          "ok": true,
+          "src": "./assets/vision-demo.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-settings.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-demo.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/vision-qa-evidence.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/history-timeline.png"
+        },
+        {
+          "ok": true,
+          "src": "./assets/history-timeline-evidence.png"
+        }
+      ],
+      "caseCount": 3,
+      "nav": 3
+    },
+    "initialScroll": 0,
+    "history": "Computer History",
+    "dest": "#history",
+    "scrollAfter": 0,
+    "reached": {
+      "fragment": "#history",
+      "scroll": 1822
+    },
+    "en": "Explore Computer History case study",
+    "wrapped": "#wrapped",
+    "final": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440
+    },
+    "errors": []
+  }
+]
