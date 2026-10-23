@@ -16,6 +16,9 @@
 <link href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxOCIgZmlsbD0iIzE3MWQyMCIvPjx0ZXh0IHg9IjMyIiB5PSI0MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMjciIGxldHRlci1zcGFjaW5nPSItMiIgZmlsbD0iI2ZmZiI+c3kuPC90ZXh0Pjwvc3ZnPg==" rel="icon" type="image/svg+xml"/>
 <link href="https://api.fontshare.com" rel="preconnect"/>
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&amp;display=swap" rel="stylesheet"/>
+
+
+<title>Shirui Ye / 叶石瑞 — Work, Decisions & Evidence</title>
 <style>
 /*
  * Shirui Ye — portfolio design system
@@ -409,8 +412,82 @@ button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .stage-wordmark>small{color:#192d38!important}
 @media(prefers-reduced-motion:reduce){.visual-picture{transition:none!important}}
 
+/* V6 — The proof dossier is an interactive résumé reader, not a demo.
+ * Original website remains the visual grammar; purposeful color is reserved
+ * for verified evidence and direct actions. */
+:root{--proof-orange:#da6549;--proof-blue:#2450d8;--proof-paper:#f4f6f6;}
+@media(min-width:851px){
+ .split-layout{grid-template-rows:auto auto auto}
+ .split-layout>.intro{grid-row:1}
+ .split-layout>.proof-dossier{grid-column:2;grid-row:2;min-width:0}
+ .split-layout>.work{grid-row:3}
+ .visual-stage{grid-row:1/span 3}
+}
+.proof-dossier{padding:45px clamp(28px,5.1vw,88px) 56px clamp(32px,5.2vw,86px);scroll-margin-top:calc(var(--top) + 20px)}
+.proof-heading{border-top:2px solid #1b2428;padding:18px 0 0}
+.proof-eyebrow{display:flex;justify-content:space-between;align-items:center;gap:9px;color:#53666d;font-size:11px;line-height:1.45;letter-spacing:.05em}
+.proof-eyebrow span:first-child{color:var(--proof-blue);font-weight:700;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.proof-heading h2{font-size:clamp(38px,3.9vw,61px);line-height:1.1;letter-spacing:-.065em;font-weight:600;margin:24px 0 15px}
+.proof-heading>p{font-size:15px;line-height:1.72;color:#53646a;margin:0 0 26px;max-width:53ch}
+.proof-selector{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid #bac5ca;border-bottom:1px solid #bac5ca}
+.proof-selector button{flex:1 1 150px;min-width:0;position:relative;display:flex;gap:9px;justify-content:flex-start;align-items:center;text-align:left;min-height:57px;border:0;border-right:1px solid #bac5ca;padding:10px 11px;color:#36464e;background:white;font-size:12px;font-weight:600;line-height:1.45;cursor:pointer}
+.proof-selector button:last-child{border-right:0}
+.proof-selector button[aria-pressed=true]{background:#192c34;color:white}
+.proof-selector button:hover:not([aria-pressed=true]){background:#eaf0fa;color:#1c4ab9}
+.proof-selector button:focus-visible{outline-offset:-4px}
+.proof-no{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;color:#5476b3}
+.proof-selector button[aria-pressed=true] .proof-no{color:#c6d6ff}
+.proof-tick{margin-left:auto;font-size:16px;color:var(--proof-orange)}
+.proof-sheet{border:1px solid #d4dfe3;border-top:0;background:#f5f8f8;padding:21px 26px 9px}
+.proof-sheet-meta{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-bottom:17px;border-bottom:1px solid #cfdadd;color:#52656b;font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.025em}
+#proof-stage{color:#18439c;font-weight:700}
+.proof-item{display:grid;grid-template-columns:minmax(120px,36%) minmax(0,1fr);align-items:baseline;gap:15px 20px;padding:18px 0;border-bottom:1px solid #d4dfe2}
+.proof-item-head{display:flex;align-items:baseline;gap:9px}
+.proof-index{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;flex:none;background:var(--proof-orange);color:white;font:700 11px ui-monospace,SFMono-Regular,Menlo,monospace}
+.proof-item h3{font-size:14px;letter-spacing:-.015em;line-height:1.5;font-weight:700;margin:0}
+.proof-item p{margin:0;font-size:13px;line-height:1.77;color:#3d4e55}
+.proof-actions{display:flex;justify-content:space-between;gap:8px 20px;align-items:center;flex-wrap:wrap;padding:18px 0 15px}
+.proof-actions a{min-height:44px;display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:700;border-bottom:1px solid #74889b}
+.proof-actions a:first-child{color:#193f96;border-color:#2450d8}
+.proof-actions a:hover{color:var(--proof-orange);border-color:var(--proof-orange)}
+.proof-next{padding:15px 0 0;display:flex;flex-wrap:wrap;gap:12px 15px;align-items:center;justify-content:space-between;color:#6b787f;font-size:12px;line-height:1.65}
+.proof-next a{color:#2450d8;font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
+.proof-next a:hover{color:var(--proof-orange)}
+.proof-dossier .proof-sheet [id^=proof-]{transition:none}
+.stage-action{color:#e3f1f6}
+@media (min-width:851px) and (max-width:1100px){
+ .proof-dossier{padding-left:38px;padding-right:36px}
+ .proof-selector button{font-size:11px;flex:1 1 118px}
+ .proof-item{grid-template-columns:1fr;gap:7px}
+}
+@media(max-width:850px){
+ .split-layout>.proof-dossier{order:3;width:100%;padding:35px 26px 40px}
+ .split-layout>.work{order:4}
+ .visual-stage{order:2}
+ .proof-heading h2{font-size:clamp(38px,6vw,53px)}
+ .proof-selector button{min-height:52px}
+}
+@media(max-width:620px){
+ .split-layout>.proof-dossier{padding:25px 22px 38px}
+ .proof-heading h2{font-size:41px}
+ .proof-eyebrow{font-size:10px}
+ .proof-selector{display:grid;grid-template-columns:1fr 1fr;gap:0}
+ .proof-selector button{font-size:12px;min-height:52px;flex:auto}
+ .proof-selector button:nth-child(2){border-right:0}
+ .proof-selector button:nth-child(3){grid-column:1/-1;border-top:1px solid #bac5ca}
+ .proof-sheet{padding:14px 15px 5px}
+ .proof-item{grid-template-columns:1fr;gap:7px;padding:14px 0}
+ .proof-item h3{font-size:13px}
+ .proof-item p{font-size:13px;line-height:1.65}
+ .proof-sheet-meta{font-size:10px;gap:8px;flex-wrap:wrap}
+ .proof-next{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){.proof-dossier *{scroll-behavior:auto}}
+
+/* All public-source links remain usable as touch targets on compact phones. */
+@media(max-width:620px){.finder-item-side .finder-source{display:inline-flex;align-items:center;min-height:44px;padding:8px 9px;margin:-6px -9px -6px 0;text-decoration-thickness:1px}}
+
 </style>
-<title>Shirui Ye / 叶石瑞 — Building useful software</title>
 </head>
 <body>
 <a class="skip-link" data-en="Skip to content" data-zh="跳转到正文" href="#main">跳转到正文</a>
@@ -431,7 +508,7 @@ button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 <h1 data-en="Shirui Ye&lt;br&gt;叶石瑞" data-zh="叶石瑞&lt;br&gt;Shirui Ye" id="hero-title">叶石瑞<br/>Shirui Ye</h1>
 <p class="intro-lead" data-en="I study mechanical engineering at Xi'an Jiaotong University and build software in my spare time. Lately, I've been working on agent vision, work context, and small tools I'd want to use." data-zh="我在西安交大读机械，课余时间也写软件。最近主要折腾 AI Agent 的视觉能力、工作上下文和自己想用的小工具。">我在西安交大读机械，课余时间也写软件。最近主要折腾 AI Agent 的视觉能力、工作上下文和自己想用的小工具。</p>
 <p class="intro-note" data-en="Some projects have been released; others are still experiments. I keep the code and progress here, both to look back on and to share with others." data-zh="这些项目有的已经发布，有的还在实验。我把代码和进展放在这里，方便自己回看，也欢迎别人来交流。">这些项目有的已经发布，有的还在实验。我把代码和进展放在这里，方便自己回看，也欢迎别人来交流。</p>
-<div class="intro-actions"><a class="action-main" href="#work"><span data-en="Explore my work" data-zh="看我的项目">看我的项目</span><span aria-hidden="true">↓</span></a><a class="action-text" href="#explore"><span data-en="Find a project" data-zh="快速找项目">快速找项目</span> ↗</a><a class="action-text intro-github" href="https://github.com/ysr666" rel="noopener noreferrer" target="_blank">GitHub ↗</a></div>
+<div class="intro-actions"><a class="action-main" href="#work"><span data-en="Explore my work" data-zh="看我的项目">看我的项目</span><span aria-hidden="true">↓</span></a><a class="action-text" href="#proof"><span data-en="Follow the evidence" data-zh="按证据看作品">按证据看作品</span> ↗</a><a class="action-text intro-github" href="https://github.com/ysr666" rel="noopener noreferrer" target="_blank">GitHub ↗</a></div>
 <div class="intro-foot"><span data-en="Open source · Engineering · Campus life" data-zh="开源项目 · 机械学习 · 校园生活">开源项目 · 机械学习 · 校园生活</span><span>Xi'an · 2026</span></div>
 </section><aside aria-label="Featured project preview" class="visual-stage">
 <div class="visual-frame">
@@ -449,7 +526,25 @@ button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 </div>
 </div>
 </div>
-</aside><section aria-labelledby="work-title" class="body-section work" id="work">
+</aside><section id="proof" class="proof-dossier" aria-labelledby="proof-title">
+<div class="proof-heading"><div class="proof-eyebrow"><span>WORK RECORD / 01–03</span><span data-zh="可查证 · 有边界" data-en="Traceable, with limits">可查证 · 有边界</span></div>
+<h2 id="proof-title" data-zh="这件事，我做了什么？" data-en="What did I actually build?">这件事，我做了什么？</h2>
+<p data-zh="选择一项工作，项目预览和这份记录会一起更新：为什么做、做了什么、哪里可以核对。" data-en="Select a project to update its preview and evidence notes: the problem, the work, and where to verify it.">选择一项工作，项目预览和这份记录会一起更新：为什么做、做了什么、哪里可以核对。</p></div>
+<div class="proof-selector" role="group" aria-label="选择项目证据">
+<button type="button" data-proof="vision" aria-pressed="true"><span class="proof-no">01</span> Vision Router <span class="proof-tick" aria-hidden="true">↗</span></button>
+<button type="button" data-proof="history" aria-pressed="false"><span class="proof-no">02</span> Computer History <span class="proof-tick" aria-hidden="true">↗</span></button>
+<button type="button" data-proof="wrapped" aria-pressed="false"><span class="proof-no">03</span> Agent Wrapped <span class="proof-tick" aria-hidden="true">↗</span></button>
+</div>
+<div class="proof-sheet" aria-live="polite">
+<div class="proof-sheet-meta"><span id="proof-stage">RELEASED / v3.0.5</span><span id="proof-authority">PUBLIC REPO + CASE STUDY</span></div>
+<div class="proof-item"><div class="proof-item-head"><span class="proof-index">A</span><h3 data-zh="问题是什么" data-en="The problem">问题是什么</h3></div><p id="proof-problem">文字 Agent 无法直接完成图像定位与视觉验证。</p></div>
+<div class="proof-item"><div class="proof-item-head"><span class="proof-index">B</span><h3 data-zh="我做了什么" data-en="The work">我做了什么</h3></div><p id="proof-method">提供按需图像问答、OCR、裁剪及像素比对等工具。</p></div>
+<div class="proof-item"><div class="proof-item-head"><span class="proof-index">C</span><h3 data-zh="怎么核对" data-en="The evidence">怎么核对</h3></div><p id="proof-evidence">项目版本与真实测试示例有公开来源，详见案例。</p></div>
+<div class="proof-actions"><a href="#vision" id="proof-detail"><span data-zh="看完整项目案例" data-en="Read full case study">看完整项目案例</span> <span aria-hidden="true">↗</span></a><a href="https://github.com/ysr666/dsh-vision-router" target="_blank" rel="noopener noreferrer" id="proof-source"><span data-zh="打开公开资料" data-en="Open public sources">打开公开资料</span> <span aria-hidden="true">↗</span></a></div>
+</div>
+</div>
+<div class="proof-next"><span data-zh="机械实践没有经过公开核验的整机成果，不在这里伪造演示。" data-en="Engineering concepts and coursework are not presented as independently verified complete hardware.">机械实践没有经过公开核验的整机成果，不在这里伪造演示。</span><a href="#journey" data-zh="查看工程参与经历 ↗" data-en="See engineering participation ↗">查看工程参与经历 ↗</a></div>
+</section><section aria-labelledby="work-title" class="body-section work" id="work">
 <div class="section-intro"><h2 data-en="Built around real problems." data-zh="从真实问题出发。" id="work-title">从真实问题出发。</h2><p data-en="These are open-source projects I build or maintain. Their repositories show the code, docs and current progress." data-zh="这里放着我正在开发或维护的一些开源项目，可以点进仓库看看源码、文档和实际进展。">这里放着我正在开发或维护的一些开源项目，可以点进仓库看看源码、文档和实际进展。</p></div>
 <article class="case" data-stage="vision" id="vision">
 <div class="case-heading"><h3>Vision Router</h3><span class="case-state" data-en="Open-source plugin" data-zh="开源插件">开源插件</span></div>
@@ -554,6 +649,7 @@ button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 </main>
 
 
+
 <script>
 (() => {
 'use strict';
@@ -644,6 +740,7 @@ if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: re
     reveal.observe(el);
   }
 }
+window.portfolioSelectPreview=setStage;
 translate();
 })();
 (() => {
@@ -727,6 +824,73 @@ new MutationObserver(()=>{
  copyStatus.textContent='';render();
 }).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 input.placeholder=trans('搜索项目、技术或方向','Search projects, technologies, or topics');
+render();
+})();
+(() => {
+'use strict';
+// Factual notes from FACT_AUDIT.md, published case studies and source repositories.
+// Only public or clearly scoped example data; never imply unverified performance.
+const proof={
+ vision:{
+  zh:{stage:'已发布 · v3.0.5',source:'GITHUB RELEASE + 真实截图',
+   problem:'文字 Agent 能调用工具，却不能直接完成图片定位与像素验证。',
+   method:'为 DeepSeek Harness 开发按需视觉工具，包括图像问答、OCR、局部裁剪、定位与像素比对。默认免密钥后备可能使用云端服务。',
+   evidence:'公开的 v3.0.5 Release、源码和真实界面截图；2.54% 是一次像素比对示例，不代表平均性能。'},
+  en:{stage:'RELEASED · v3.0.5',source:'GITHUB RELEASE + ACTUAL UI',
+   problem:'Text-first agents can call tools, but cannot directly locate or verify details in images.',
+   method:'Built on-demand vision tools for DeepSeek Harness: image Q&A, OCR, crops, grounding and pixel comparison. The default keyless fallback may use cloud services.',
+   evidence:'Public v3.0.5 release, source and real interface captures. The 2.54% pixel-diff figure is one example, not aggregate performance.'},
+  detail:'#vision',src:'https://github.com/ysr666/dsh-vision-router/releases/tag/v3.0.5'
+ },
+ history:{
+  zh:{stage:'已发布 · v1.1.0',source:'RELEASE + 三平台记录',
+   problem:'切换会话后，编辑器、终端、文件与浏览器中的工作线索容易丢失。',
+   method:'实现默认关闭、用户自选应用的本地元数据记录，整理工作片段并存入 SQLite；不采集按键、截图或文档正文。',
+   evidence:'公开的 v1.1.0 Release 及三平台验证文档。展示中的时间线图片含示例数据，不是本人的私人活动记录。'},
+  en:{stage:'RELEASED · v1.1.0',source:'RELEASE + PLATFORM NOTES',
+   problem:'Session changes can lose the context connecting editors, terminals, files and browsers.',
+   method:'Built opt-in local metadata tracking and Work Episodes stored in SQLite. Capture is off by default; no keystrokes, screenshots or document bodies.',
+   evidence:'Public v1.1.0 release and three-platform validation notes. Timeline screenshots contain example data, not private activity records.'},
+  detail:'#history',src:'https://github.com/ysr666/dsh-computer-history/blob/main/docs/validation-three-platforms.md'
+ },
+ wrapped:{
+  zh:{stage:'实验中 · 未正式发布',source:'公开仓库 · 进行中的代码',
+   problem:'长时间的 Agent 编程会话很难直接回看关键决策与转折。',
+   method:'实验性整理事件、构建关系并为人工核对保留依据；叙事化呈现仍属于探索功能。',
+   evidence:'可以查看公开源码、架构与进度；不把设计目标或生成故事当成已验证的产品效果。'},
+  en:{stage:'EXPERIMENTAL · NOT RELEASED',source:'PUBLIC REPO · WORK IN PROGRESS',
+   problem:'Important decisions and turning points are hard to revisit in long coding-agent sessions.',
+   method:'Exploring event extraction, relationships and evidence for human review. Narrative presentation remains experimental.',
+   evidence:'Public source, architecture and work in progress; neither intent nor generated stories are presented as verified product outcomes.'},
+  detail:'#wrapped',src:'https://github.com/ysr666/agent-wrapped'
+ }
+};
+const buttons=[...document.querySelectorAll('[data-proof]')];
+const title=document.querySelector('#stage-name');
+const stage=document.querySelector('#proof-stage'),authority=document.querySelector('#proof-authority');
+const problem=document.querySelector('#proof-problem'),method=document.querySelector('#proof-method'),evidence=document.querySelector('#proof-evidence');
+const detail=document.querySelector('#proof-detail'),source=document.querySelector('#proof-source');
+const lang=()=>document.documentElement.lang.startsWith('en')?'en':'zh';
+let selected='vision';
+function render(){
+ const x=proof[selected],v=x[lang()];
+ stage.textContent=v.stage;authority.textContent=v.source;
+ problem.textContent=v.problem;method.textContent=v.method;evidence.textContent=v.evidence;
+ detail.href=x.detail;source.href=x.src;
+ buttons.forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.proof===selected)));
+}
+buttons.forEach(btn=>btn.addEventListener('click',()=>{
+ selected=btn.dataset.proof;
+ // The left panel is an actual project preview, not a decorative simulation.
+ if(typeof window.portfolioSelectPreview==='function')window.portfolioSelectPreview(selected);
+ render();
+}));
+const byName={'Vision Router':'vision','Computer History':'history','Agent Wrapped':'wrapped'};
+new MutationObserver(()=>{
+ const corresponding=byName[title.textContent.trim()];
+ if(corresponding&&corresponding!==selected){selected=corresponding;render();}
+}).observe(title,{childList:true,subtree:true,characterData:true});
+new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 render();
 })();
 </script>

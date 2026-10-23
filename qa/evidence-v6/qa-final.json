@@ -1,0 +1,961 @@
+[
+  {
+    "kind": "chromium",
+    "w": 320,
+    "status": 200,
+    "zhTitle": "这件事，我做了什么？",
+    "list": [
+      {
+        "language": "zh",
+        "id": "vision",
+        "stats": {
+          "scroll": 320,
+          "client": 320,
+          "project": "Vision Router",
+          "proof": "已发布 · v3.0.5",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#vision",
+          "source": "https://github.com/ysr666/dsh-vision-router/releases/tag/v3.0.5",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "zh",
+        "id": "history",
+        "stats": {
+          "scroll": 320,
+          "client": 320,
+          "project": "Computer History",
+          "proof": "已发布 · v1.1.0",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#history",
+          "source": "https://github.com/ysr666/dsh-computer-history/blob/main/docs/validation-three-platforms.md",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "zh",
+        "id": "wrapped",
+        "stats": {
+          "scroll": 320,
+          "client": 320,
+          "project": "Agent Wrapped",
+          "proof": "实验中 · 未正式发布",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#wrapped",
+          "source": "https://github.com/ysr666/agent-wrapped",
+          "images": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "vision",
+        "stats": {
+          "scroll": 320,
+          "client": 320,
+          "project": "Vision Router",
+          "proof": "RELEASED · v3.0.5",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#vision",
+          "source": "https://github.com/ysr666/dsh-vision-router/releases/tag/v3.0.5",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "history",
+        "stats": {
+          "scroll": 320,
+          "client": 320,
+          "project": "Computer History",
+          "proof": "RELEASED · v1.1.0",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#history",
+          "source": "https://github.com/ysr666/dsh-computer-history/blob/main/docs/validation-three-platforms.md",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "wrapped",
+        "stats": {
+          "scroll": 320,
+          "client": 320,
+          "project": "Agent Wrapped",
+          "proof": "EXPERIMENTAL · NOT RELEASED",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#wrapped",
+          "source": "https://github.com/ysr666/agent-wrapped",
+          "images": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      }
+    ],
+    "errors": []
+  },
+  {
+    "kind": "chromium",
+    "w": 375,
+    "status": 200,
+    "zhTitle": "这件事，我做了什么？",
+    "list": [
+      {
+        "language": "zh",
+        "id": "vision",
+        "stats": {
+          "scroll": 375,
+          "client": 375,
+          "project": "Vision Router",
+          "proof": "已发布 · v3.0.5",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#vision",
+          "source": "https://github.com/ysr666/dsh-vision-router/releases/tag/v3.0.5",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "zh",
+        "id": "history",
+        "stats": {
+          "scroll": 375,
+          "client": 375,
+          "project": "Computer History",
+          "proof": "已发布 · v1.1.0",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#history",
+          "source": "https://github.com/ysr666/dsh-computer-history/blob/main/docs/validation-three-platforms.md",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "zh",
+        "id": "wrapped",
+        "stats": {
+          "scroll": 375,
+          "client": 375,
+          "project": "Agent Wrapped",
+          "proof": "实验中 · 未正式发布",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#wrapped",
+          "source": "https://github.com/ysr666/agent-wrapped",
+          "images": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "vision",
+        "stats": {
+          "scroll": 375,
+          "client": 375,
+          "project": "Vision Router",
+          "proof": "RELEASED · v3.0.5",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#vision",
+          "source": "https://github.com/ysr666/dsh-vision-router/releases/tag/v3.0.5",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "history",
+        "stats": {
+          "scroll": 375,
+          "client": 375,
+          "project": "Computer History",
+          "proof": "RELEASED · v1.1.0",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#history",
+          "source": "https://github.com/ysr666/dsh-computer-history/blob/main/docs/validation-three-platforms.md",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "wrapped",
+        "stats": {
+          "scroll": 375,
+          "client": 375,
+          "project": "Agent Wrapped",
+          "proof": "EXPERIMENTAL · NOT RELEASED",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#wrapped",
+          "source": "https://github.com/ysr666/agent-wrapped",
+          "images": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      }
+    ],
+    "errors": []
+  },
+  {
+    "kind": "chromium",
+    "w": 768,
+    "status": 200,
+    "zhTitle": "这件事，我做了什么？",
+    "list": [
+      {
+        "language": "zh",
+        "id": "vision",
+        "stats": {
+          "scroll": 768,
+          "client": 768,
+          "project": "Vision Router",
+          "proof": "已发布 · v3.0.5",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#vision",
+          "source": "https://github.com/ysr666/dsh-vision-router/releases/tag/v3.0.5",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "zh",
+        "id": "history",
+        "stats": {
+          "scroll": 768,
+          "client": 768,
+          "project": "Computer History",
+          "proof": "已发布 · v1.1.0",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#history",
+          "source": "https://github.com/ysr666/dsh-computer-history/blob/main/docs/validation-three-platforms.md",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "zh",
+        "id": "wrapped",
+        "stats": {
+          "scroll": 768,
+          "client": 768,
+          "project": "Agent Wrapped",
+          "proof": "实验中 · 未正式发布",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#wrapped",
+          "source": "https://github.com/ysr666/agent-wrapped",
+          "images": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "vision",
+        "stats": {
+          "scroll": 768,
+          "client": 768,
+          "project": "Vision Router",
+          "proof": "RELEASED · v3.0.5",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#vision",
+          "source": "https://github.com/ysr666/dsh-vision-router/releases/tag/v3.0.5",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "history",
+        "stats": {
+          "scroll": 768,
+          "client": 768,
+          "project": "Computer History",
+          "proof": "RELEASED · v1.1.0",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#history",
+          "source": "https://github.com/ysr666/dsh-computer-history/blob/main/docs/validation-three-platforms.md",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "wrapped",
+        "stats": {
+          "scroll": 768,
+          "client": 768,
+          "project": "Agent Wrapped",
+          "proof": "EXPERIMENTAL · NOT RELEASED",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#wrapped",
+          "source": "https://github.com/ysr666/agent-wrapped",
+          "images": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      }
+    ],
+    "errors": []
+  },
+  {
+    "kind": "chromium",
+    "w": 1440,
+    "status": 200,
+    "zhTitle": "这件事，我做了什么？",
+    "list": [
+      {
+        "language": "zh",
+        "id": "vision",
+        "stats": {
+          "scroll": 1440,
+          "client": 1440,
+          "project": "Vision Router",
+          "proof": "已发布 · v3.0.5",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#vision",
+          "source": "https://github.com/ysr666/dsh-vision-router/releases/tag/v3.0.5",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "zh",
+        "id": "history",
+        "stats": {
+          "scroll": 1440,
+          "client": 1440,
+          "project": "Computer History",
+          "proof": "已发布 · v1.1.0",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#history",
+          "source": "https://github.com/ysr666/dsh-computer-history/blob/main/docs/validation-three-platforms.md",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "zh",
+        "id": "wrapped",
+        "stats": {
+          "scroll": 1440,
+          "client": 1440,
+          "project": "Agent Wrapped",
+          "proof": "实验中 · 未正式发布",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#wrapped",
+          "source": "https://github.com/ysr666/agent-wrapped",
+          "images": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "vision",
+        "stats": {
+          "scroll": 1440,
+          "client": 1440,
+          "project": "Vision Router",
+          "proof": "RELEASED · v3.0.5",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#vision",
+          "source": "https://github.com/ysr666/dsh-vision-router/releases/tag/v3.0.5",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "history",
+        "stats": {
+          "scroll": 1440,
+          "client": 1440,
+          "project": "Computer History",
+          "proof": "RELEASED · v1.1.0",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#history",
+          "source": "https://github.com/ysr666/dsh-computer-history/blob/main/docs/validation-three-platforms.md",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "wrapped",
+        "stats": {
+          "scroll": 1440,
+          "client": 1440,
+          "project": "Agent Wrapped",
+          "proof": "EXPERIMENTAL · NOT RELEASED",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#wrapped",
+          "source": "https://github.com/ysr666/agent-wrapped",
+          "images": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      }
+    ],
+    "errors": []
+  },
+  {
+    "kind": "chromium",
+    "w": 1920,
+    "status": 200,
+    "zhTitle": "这件事，我做了什么？",
+    "list": [
+      {
+        "language": "zh",
+        "id": "vision",
+        "stats": {
+          "scroll": 1920,
+          "client": 1920,
+          "project": "Vision Router",
+          "proof": "已发布 · v3.0.5",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#vision",
+          "source": "https://github.com/ysr666/dsh-vision-router/releases/tag/v3.0.5",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "zh",
+        "id": "history",
+        "stats": {
+          "scroll": 1920,
+          "client": 1920,
+          "project": "Computer History",
+          "proof": "已发布 · v1.1.0",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#history",
+          "source": "https://github.com/ysr666/dsh-computer-history/blob/main/docs/validation-three-platforms.md",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "zh",
+        "id": "wrapped",
+        "stats": {
+          "scroll": 1920,
+          "client": 1920,
+          "project": "Agent Wrapped",
+          "proof": "实验中 · 未正式发布",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#wrapped",
+          "source": "https://github.com/ysr666/agent-wrapped",
+          "images": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "vision",
+        "stats": {
+          "scroll": 1920,
+          "client": 1920,
+          "project": "Vision Router",
+          "proof": "RELEASED · v3.0.5",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#vision",
+          "source": "https://github.com/ysr666/dsh-vision-router/releases/tag/v3.0.5",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "history",
+        "stats": {
+          "scroll": 1920,
+          "client": 1920,
+          "project": "Computer History",
+          "proof": "RELEASED · v1.1.0",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#history",
+          "source": "https://github.com/ysr666/dsh-computer-history/blob/main/docs/validation-three-platforms.md",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "wrapped",
+        "stats": {
+          "scroll": 1920,
+          "client": 1920,
+          "project": "Agent Wrapped",
+          "proof": "EXPERIMENTAL · NOT RELEASED",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#wrapped",
+          "source": "https://github.com/ysr666/agent-wrapped",
+          "images": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      }
+    ],
+    "errors": []
+  },
+  {
+    "kind": "webkit",
+    "w": 375,
+    "status": 0,
+    "zhTitle": "这件事，我做了什么？",
+    "list": [
+      {
+        "language": "zh",
+        "id": "vision",
+        "stats": {
+          "scroll": 375,
+          "client": 375,
+          "project": "Vision Router",
+          "proof": "已发布 · v3.0.5",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#vision",
+          "source": "https://github.com/ysr666/dsh-vision-router/releases/tag/v3.0.5",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "zh",
+        "id": "history",
+        "stats": {
+          "scroll": 375,
+          "client": 375,
+          "project": "Computer History",
+          "proof": "已发布 · v1.1.0",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#history",
+          "source": "https://github.com/ysr666/dsh-computer-history/blob/main/docs/validation-three-platforms.md",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "zh",
+        "id": "wrapped",
+        "stats": {
+          "scroll": 375,
+          "client": 375,
+          "project": "Agent Wrapped",
+          "proof": "实验中 · 未正式发布",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#wrapped",
+          "source": "https://github.com/ysr666/agent-wrapped",
+          "images": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "vision",
+        "stats": {
+          "scroll": 375,
+          "client": 375,
+          "project": "Vision Router",
+          "proof": "RELEASED · v3.0.5",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#vision",
+          "source": "https://github.com/ysr666/dsh-vision-router/releases/tag/v3.0.5",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "history",
+        "stats": {
+          "scroll": 375,
+          "client": 375,
+          "project": "Computer History",
+          "proof": "RELEASED · v1.1.0",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#history",
+          "source": "https://github.com/ysr666/dsh-computer-history/blob/main/docs/validation-three-platforms.md",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "wrapped",
+        "stats": {
+          "scroll": 375,
+          "client": 375,
+          "project": "Agent Wrapped",
+          "proof": "EXPERIMENTAL · NOT RELEASED",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#wrapped",
+          "source": "https://github.com/ysr666/agent-wrapped",
+          "images": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      }
+    ],
+    "errors": []
+  },
+  {
+    "kind": "webkit",
+    "w": 1440,
+    "status": 0,
+    "zhTitle": "这件事，我做了什么？",
+    "list": [
+      {
+        "language": "zh",
+        "id": "vision",
+        "stats": {
+          "scroll": 1440,
+          "client": 1440,
+          "project": "Vision Router",
+          "proof": "已发布 · v3.0.5",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#vision",
+          "source": "https://github.com/ysr666/dsh-vision-router/releases/tag/v3.0.5",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "zh",
+        "id": "history",
+        "stats": {
+          "scroll": 1440,
+          "client": 1440,
+          "project": "Computer History",
+          "proof": "已发布 · v1.1.0",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#history",
+          "source": "https://github.com/ysr666/dsh-computer-history/blob/main/docs/validation-three-platforms.md",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "zh",
+        "id": "wrapped",
+        "stats": {
+          "scroll": 1440,
+          "client": 1440,
+          "project": "Agent Wrapped",
+          "proof": "实验中 · 未正式发布",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#wrapped",
+          "source": "https://github.com/ysr666/agent-wrapped",
+          "images": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "vision",
+        "stats": {
+          "scroll": 1440,
+          "client": 1440,
+          "project": "Vision Router",
+          "proof": "RELEASED · v3.0.5",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#vision",
+          "source": "https://github.com/ysr666/dsh-vision-router/releases/tag/v3.0.5",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "history",
+        "stats": {
+          "scroll": 1440,
+          "client": 1440,
+          "project": "Computer History",
+          "proof": "RELEASED · v1.1.0",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#history",
+          "source": "https://github.com/ysr666/dsh-computer-history/blob/main/docs/validation-three-platforms.md",
+          "images": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      },
+      {
+        "language": "en",
+        "id": "wrapped",
+        "stats": {
+          "scroll": 1440,
+          "client": 1440,
+          "project": "Agent Wrapped",
+          "proof": "EXPERIMENTAL · NOT RELEASED",
+          "detail": "file:///tmp/shirui-portfolio-directions/qa/evidence-v6/evidence-v6-standalone.html#wrapped",
+          "source": "https://github.com/ysr666/agent-wrapped",
+          "images": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "projectCount": 11
+        },
+        "violations": []
+      }
+    ],
+    "errors": []
+  }
+]
