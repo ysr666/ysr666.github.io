@@ -1,0 +1,100 @@
+/*
+ * ORIGINAL / POLISH D
+ *
+ * Conservative design experiment. Everything below is an explicit delta from
+ * the 01456c8 published stylesheet, never a new design system.
+ * Intent: tighter hierarchy, more legible real work imagery, and a genuine
+ * preview interaction that does not forcibly jump a visitor down the page.
+ * No new imagery, no decorative animation, no altered claims or awards.
+ */
+:root{
+  --display:clamp(52px,5.45vw,81px);
+  --heading:clamp(30px,2.75vw,39px);
+}
+/* Quiet navigation edge creates a firm reading start without new color blocks. */
+.topbar{border-bottom:1px solid #e7ecee}
+.identity-name{letter-spacing:-.025em}
+.topnav{gap:clamp(20px,2.4vw,34px)}
+.topnav a{font-weight:500}
+/* A precise reading measure, while preserving the original visual identity. */
+.intro h1{letter-spacing:-.071em;margin-bottom:29px}
+.intro-lead{line-height:1.62;letter-spacing:-.022em}
+.intro-note{line-height:1.79}
+.intro-actions{gap:22px}
+/* Primary visual work: one genuine key screenshot, then an optional interface
+   capture. The second image no longer divides the panel into equal halves. */
+.visual-picture{gap:14px;background:#111b1f}
+.visual-picture:has(.stage-secondary)>img:first-child{
+  height:56%;
+  max-height:56%;
+}
+.visual-picture:has(.stage-secondary)>.stage-secondary{
+  height:44%;
+  max-height:44%;
+}
+/* Source-aware affordance, not a separate synthetic feature. The action remains
+   in sight even when someone switches the displayed project. */
+.visual-overlay{position:relative}
+.stage-case-link{
+  position:absolute;
+  bottom:34px;
+  left:clamp(20px,3vw,42px);
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  min-height:40px;
+  max-width:calc(100% - 215px);
+  color:#d3e4fd;
+  font-size:13px;
+  font-weight:600;
+  border-bottom:1px solid #829bb9;
+  transition:color .16s ease,border-color .16s ease;
+}
+.stage-case-link:hover{color:white;border-color:#fff}
+.stage-case-link>span[aria-hidden]{font-size:17px}
+/* Work entries are editorial chapters. Delimit them gently; do not create
+   additional heavy cards for content already in the source. */
+.work>.section-intro{margin-bottom:43px}
+.work>.section-intro h2{letter-spacing:-.054em}
+.work .case+.case{
+  border-top:1px solid #e0e8eb;
+  padding-top:44px;
+}
+.case-heading h3{letter-spacing:-.057em}
+.case-dek{line-height:1.53}
+.case>p:not(.case-dek){line-height:1.8}
+.case-proof{background:#f2f5f6}
+.case-proof img{max-height:310px}
+/* Typographic rhythm and normal affordance across rest of the CV. */
+.after-work .section-intro h2{letter-spacing:-.052em}
+.mini-project>a:focus-visible,.case-links a:focus-visible{outline-offset:3px}
+.footer{border-top:1px solid #edf0f0}
+/* Tablet controls have less horizontal room but need the same real affordance. */
+@media(max-width:850px){
+ .visual-picture:has(.stage-secondary)>img:first-child{height:auto;max-height:100%}
+ .stage-case-link{position:static;align-self:flex-start;font-size:12px;max-width:100%;min-height:36px;flex-shrink:0}
+ .visual-overlay{position:relative}
+ .stage-controls{align-self:flex-end}
+}
+@media(max-width:530px){
+ .intro{padding-top:43px;padding-bottom:31px}
+ .intro h1{margin-bottom:24px}
+ .intro-lead{line-height:1.6}
+ .intro-note{line-height:1.77}
+ .intro-foot{margin-top:30px}
+ .visual-frame{height:356px}
+ .visual-overlay{flex-basis:140px;padding-bottom:11px}
+ .visual-picture:has(.stage-secondary)>img:first-child{height:auto;max-height:100%}
+ .stage-case-link{position:static;align-self:flex-start;min-height:30px;font-size:12px}
+ .stage-case-link>span[aria-hidden]{font-size:15px}
+ .stage-caption h2{font-size:27px}
+ .stage-caption p{font-size:13px;line-height:1.4;max-width:95%}
+ .stage-controls{position:absolute;top:8px;right:8px;gap:4px}
+ .stage-dot{min-width:53px;min-height:44px}
+ .work{padding-top:57px}
+ .work .case+.case{padding-top:35px}
+ .case-proof img{max-height:250px}
+}
+@media(prefers-reduced-motion:reduce){
+ .stage-case-link{transition:none}
+}

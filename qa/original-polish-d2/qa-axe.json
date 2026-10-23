@@ -1,0 +1,74 @@
+[
+  {
+    "width": 375,
+    "lang": "zh",
+    "stage": "vision",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "lang": "zh",
+    "stage": "history",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "lang": "zh",
+    "stage": "wrapped",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "lang": "en",
+    "stage": "vision",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "lang": "en",
+    "stage": "history",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "lang": "en",
+    "stage": "wrapped",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "lang": "zh",
+    "stage": "vision",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "lang": "zh",
+    "stage": "history",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "lang": "zh",
+    "stage": "wrapped",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "lang": "en",
+    "stage": "vision",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "lang": "en",
+    "stage": "history",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "lang": "en",
+    "stage": "wrapped",
+    "violations": []
+  }
+]
