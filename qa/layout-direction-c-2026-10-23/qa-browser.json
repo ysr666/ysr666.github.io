@@ -1,0 +1,219 @@
+[
+  {
+    "kind": "chromium",
+    "width": 320,
+    "stats": {
+      "scrollWidth": 320,
+      "clientWidth": 320,
+      "imgs": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true
+        }
+      ],
+      "cHidden": false,
+      "anchors": [
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-work",
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-making",
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-about",
+        "https://github.com/ysr666"
+      ]
+    },
+    "settings": "Vision Router 实际设置界面截图",
+    "settingsSrc": "https://github.com/ysr666/ysr666.github.io/blob/main/assets/vision-settings.png",
+    "aShown": true,
+    "bShown": true,
+    "cShown": true,
+    "errors": []
+  },
+  {
+    "kind": "chromium",
+    "width": 375,
+    "stats": {
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "imgs": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true
+        }
+      ],
+      "cHidden": false,
+      "anchors": [
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-work",
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-making",
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-about",
+        "https://github.com/ysr666"
+      ]
+    },
+    "settings": "Vision Router 实际设置界面截图",
+    "settingsSrc": "https://github.com/ysr666/ysr666.github.io/blob/main/assets/vision-settings.png",
+    "aShown": true,
+    "bShown": true,
+    "cShown": true,
+    "errors": []
+  },
+  {
+    "kind": "chromium",
+    "width": 768,
+    "stats": {
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "imgs": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true
+        }
+      ],
+      "cHidden": false,
+      "anchors": [
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-work",
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-making",
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-about",
+        "https://github.com/ysr666"
+      ]
+    },
+    "settings": "Vision Router 实际设置界面截图",
+    "settingsSrc": "https://github.com/ysr666/ysr666.github.io/blob/main/assets/vision-settings.png",
+    "aShown": true,
+    "bShown": true,
+    "cShown": true,
+    "errors": []
+  },
+  {
+    "kind": "chromium",
+    "width": 1440,
+    "stats": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "imgs": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true
+        }
+      ],
+      "cHidden": false,
+      "anchors": [
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-work",
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-making",
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-about",
+        "https://github.com/ysr666"
+      ]
+    },
+    "settings": "Vision Router 实际设置界面截图",
+    "settingsSrc": "https://github.com/ysr666/ysr666.github.io/blob/main/assets/vision-settings.png",
+    "aShown": true,
+    "bShown": true,
+    "cShown": true,
+    "errors": []
+  },
+  {
+    "kind": "chromium",
+    "width": 1920,
+    "stats": {
+      "scrollWidth": 1920,
+      "clientWidth": 1920,
+      "imgs": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true
+        }
+      ],
+      "cHidden": false,
+      "anchors": [
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-work",
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-making",
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-about",
+        "https://github.com/ysr666"
+      ]
+    },
+    "settings": "Vision Router 实际设置界面截图",
+    "settingsSrc": "https://github.com/ysr666/ysr666.github.io/blob/main/assets/vision-settings.png",
+    "aShown": true,
+    "bShown": true,
+    "cShown": true,
+    "errors": []
+  },
+  {
+    "kind": "webkit",
+    "width": 375,
+    "stats": {
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "imgs": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true
+        }
+      ],
+      "cHidden": false,
+      "anchors": [
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-work",
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-making",
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-about",
+        "https://github.com/ysr666"
+      ]
+    },
+    "settings": "Vision Router 实际设置界面截图",
+    "settingsSrc": "https://github.com/ysr666/ysr666.github.io/blob/main/assets/vision-settings.png",
+    "aShown": true,
+    "bShown": true,
+    "cShown": true,
+    "errors": []
+  },
+  {
+    "kind": "webkit",
+    "width": 1440,
+    "stats": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "imgs": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true
+        }
+      ],
+      "cHidden": false,
+      "anchors": [
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-work",
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-making",
+        "file:///tmp/shirui-portfolio-directions/studies/layout-direction-c-2026-10-23/index.html?v=c#c-about",
+        "https://github.com/ysr666"
+      ]
+    },
+    "settings": "Vision Router 实际设置界面截图",
+    "settingsSrc": "https://github.com/ysr666/ysr666.github.io/blob/main/assets/vision-settings.png",
+    "aShown": true,
+    "bShown": true,
+    "cShown": true,
+    "errors": []
+  }
+]

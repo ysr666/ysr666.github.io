@@ -1,0 +1,160 @@
+/* ROUTE C
+   A layout rather than a theme: a calm, authored, genuine personal site.
+   Fine typography + real work; imagery appears only when it has something to show. */
+.review-options:has([data-view="c"]){min-width:390px}
+.c-site{background:#fcfcfa;color:#23292d;font-size:16px}
+.c-wrap{max-width:810px;margin:0 auto;padding:0 38px}
+.c-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:39px 0 0}
+.c-signature{font-weight:800;font-size:21px;letter-spacing:-.05em;white-space:nowrap}
+.c-signature span{color:#a2a9a8;font-weight:400;margin:0 5px}
+.c-nav{display:flex;align-items:center;gap:24px;font-size:13px}
+.c-nav>a{display:inline-flex;gap:5px;align-items:center;padding:6px 0;min-height:39px;color:#606b70}
+.c-nav>a:hover{color:#2756b9}
+.c-nav .c-nav-external{color:#2a4ea5}
+.c-intro{padding:100px 0 104px}
+.c-intro-overline{display:flex;justify-content:space-between;gap:15px;align-items:center;color:#637076;font:700 11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.065em}
+.c-intro-overline span:first-child{color:#3158b2}
+.c-intro h1{font-size:clamp(44px,4.2vw,60px);line-height:1.16;letter-spacing:-.063em;margin:24px 0 23px;font-weight:700;display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 18px}
+.c-english{font-size:clamp(23px,2.7vw,37px);font-family:Georgia,'Times New Roman',serif;font-style:italic;letter-spacing:-.055em;color:#647283;font-weight:400}
+.c-hero-line{font-size:clamp(23px,2.3vw,32px);line-height:1.6;letter-spacing:-.045em;font-weight:600;margin:0 0 25px;max-width:600px}
+.c-hero-line em{font-style:normal;position:relative;white-space:normal}
+.c-hero-line em::after{content:'';position:absolute;right:0;left:0;bottom:-3px;border-bottom:2px solid #ea7b5f;transform:rotate(-1deg);pointer-events:none}
+.c-hero-body{font-size:16px;max-width:660px;line-height:2;color:#59656a;margin:0}
+.c-intro-links{display:flex;gap:11px 26px;flex-wrap:wrap;align-items:center;margin-top:29px;font-size:14px}
+.c-intro-links a{min-height:40px;display:inline-flex;align-items:center;gap:9px;border-bottom:1px solid #bbc8cb;color:#2e4557;font-weight:600}
+.c-intro-links a:first-child{color:#2b58b8;border-color:#2b58b8}
+.c-intro-links a:hover{color:#d26046;border-color:#d26046}
+.c-rule{display:flex;justify-content:space-between;align-items:center;gap:20px;border-top:1px solid #cfd6d4;padding-top:15px;color:#687579;font:700 11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.07em}
+.c-rule-mark{color:#dd6e4d;font-size:24px;line-height:1}
+.c-columns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;padding:40px 0 104px}
+.c-column h2{display:flex;align-items:baseline;justify-content:space-between;gap:9px;font-size:15px;font-weight:700;letter-spacing:-.02em;margin:0 0 23px}
+.c-column h2 span{font:700 10px ui-monospace,Menlo,monospace;color:#8c9a9c}
+.c-column-link{display:block;margin:0 0 27px;font-size:15px;color:#303b40;outline-offset:3px}
+.c-column-link strong{display:block;line-height:1.45;font-weight:600}
+.c-column-link strong>span{color:#3257b4;margin-left:2px}
+.c-column-link:hover strong{color:#315ac7}
+.c-column-link small{font-size:13px;color:#65747a;line-height:1.7;display:block;margin-top:4px}
+.c-column-static{cursor:default}
+.c-column-static strong{color:#303b40!important}
+.c-work{padding-bottom:60px}
+.c-section-label{display:flex;align-items:center;justify-content:space-between;gap:15px;color:#596a73;font:700 11px ui-monospace,Menlo,monospace;letter-spacing:.06em;padding:16px 0 0;border-top:1px solid #cad4d3}
+.c-section-label span:first-child{color:#2a51a4}
+.c-project-top{display:flex;justify-content:space-between;align-items:end;gap:25px;margin:17px 0 38px}
+.c-project-top>div{max-width:540px}
+.c-project-top h2{font-size:clamp(28px,3vw,41px);line-height:1.28;letter-spacing:-.058em;margin:0 0 9px}
+.c-project-top p{font-size:14px;line-height:1.8;color:#657479;margin:0}
+.c-subtle-link{font-size:13px;font-weight:600;color:#2855b9;white-space:nowrap}
+.c-subtle-link:hover{color:#c75b44}
+.c-feature{border-top:1px solid #d3dbda;padding:30px 0 39px}
+.c-feature-meta{display:flex;justify-content:space-between;align-items:center;gap:14px;font:700 11px ui-monospace,Menlo,monospace;letter-spacing:.035em;color:#68767b}
+.c-feature-meta span:first-child{color:#2954a6}
+.c-status-dot{display:inline-block;width:7px;height:7px;background:#3760c8;border-radius:50%;margin-right:7px}
+.c-feature h3{font-size:clamp(26px,3.3vw,42px);letter-spacing:-.05em;margin:18px 0 11px;line-height:1.2;font-weight:650}
+.c-feature h3 a>span{font-size:20px;color:#3d5fbc}
+.c-feature h3 a:hover{color:#3156bb}
+.c-feature-dek{font-size:19px;letter-spacing:-.035em;line-height:1.5;font-weight:600;margin:0 0 14px}
+.c-feature-detail{font-size:14px;color:#576971;line-height:1.87;max-width:620px;margin:0 0 25px}
+.c-evidence{background:#f0f4f4;border:1px solid #d7e0df;padding:18px 18px 13px}
+.c-evidence-toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;font-size:12px;font-weight:600;color:#5b686d;margin-bottom:14px}
+.c-evidence-toolbar>div{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.c-evidence-toolbar button{border:1px solid transparent;background:transparent;color:#637079;font-size:12px;font-weight:600;padding:8px 10px;min-height:36px;cursor:pointer;border-radius:4px}
+.c-evidence-toolbar button[aria-pressed=true]{border-color:#93aac0;background:white;color:#1e4ea3}
+.c-evidence-toolbar button:not([aria-pressed=true]):hover{color:#1e4ea3;background:#e7edf5}
+#c-evidence-open{display:block;background:#19252b;position:relative;padding:18px;min-height:0;outline-offset:3px}
+#c-evidence-open img{width:100%;height:auto;max-height:310px;object-fit:contain}
+.c-image-open{position:absolute;bottom:11px;right:11px;font-size:11px;font-weight:700;color:#233e78;background:#eef4fb;padding:7px 9px}
+.c-evidence-caption{font-size:12px;line-height:1.6;color:#68767d;margin:11px 0 0}
+.c-feature-actions{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:17px;font-size:13px}
+.c-feature-actions a{min-height:41px;display:inline-flex;align-items:center;color:#2e55a7;font-weight:700;border-bottom:1px solid #aebfdc}
+.c-feature-actions a:hover{color:#c85b42;border-color:#c85b42}
+.c-feature-history{padding-top:40px}
+.c-feature-history .c-feature-meta span:first-child{color:#a05b3b}
+.c-feature-history .c-status-dot{background:#cc7954}
+.c-history-body{display:grid;grid-template-columns:minmax(0,40%) minmax(0,60%);gap:32px;align-items:start;margin-top:23px}
+.c-history-text{min-width:0}
+.c-history-text p{font-size:14px;line-height:1.9;color:#596a72;margin:0 0 20px}
+.c-history-text a{font-size:13px;color:#2a52ad;font-weight:600}
+.c-history-text a:hover{color:#c45d45}
+.c-history-body figure{margin:0;background:#f1f5f5;border:1px solid #e0e5e5;padding:15px 14px 10px;min-width:0}
+.c-history-body img{width:100%;height:auto;object-fit:contain}
+.c-history-body figcaption{font:11px/1.7 ui-monospace,Menlo,monospace;color:#596b72;margin-top:9px}
+.c-lately{padding:52px 0 75px}
+.c-lately h2{font-size:29px;letter-spacing:-.05em;margin:24px 0 11px}
+.c-lately p{max-width:660px;font-size:15px;color:#4f5f65;line-height:1.95;margin:0 0 14px}
+.c-lately .c-lately-aside{font-size:13px;color:#677679}
+.c-footer{padding:24px 0 50px;border-top:1px solid #cbd5d4;display:grid;grid-template-columns:1fr auto;gap:15px 30px}
+.c-footer strong{font-size:14px;font-weight:700}
+.c-footer p{font-size:12px;color:#667579;margin:8px 0 0}
+.c-footer-links{display:flex;flex-wrap:wrap;gap:11px 18px;align-items:start;font-size:13px}
+.c-footer-links a{color:#2d55b0}
+.c-footer-links a:hover{color:#c65a47}
+.c-footer small{grid-column:1/-1;color:#788685;font:10px ui-monospace,Menlo,monospace;margin-top:18px}
+@media(max-width:800px){
+ .c-wrap{padding:0 30px}
+ .c-header{padding-top:30px}
+ .c-intro{padding:82px 0 86px}
+ .c-columns{gap:20px}
+ .c-project-top{align-items:start}
+ .c-history-body{gap:23px}
+}
+@media(max-width:620px){
+ .review-options:has([data-view=c]){min-width:0}
+ .review-btn{padding:0 6px;font-size:12px}
+ .review-btn-letter{font-size:12px;margin-right:3px}
+ .c-wrap{padding:0 24px}
+ .c-header{padding-top:21px;align-items:center}
+ .c-signature{font-size:18px}
+ .c-nav{gap:12px;font-size:12px}
+ .c-nav a{min-height:40px}
+ .c-nav>a:nth-child(3){display:none}
+ .c-intro{padding:70px 0 76px}
+ .c-intro-overline{font-size:10px}
+ .c-intro h1{font-size:48px;letter-spacing:-.065em;gap:3px 10px;margin:25px 0 22px}
+ .c-intro h1 .c-english{font-size:28px}
+ .c-hero-line{font-size:22px;line-height:1.6}
+ .c-hero-body{font-size:14px;line-height:1.8}
+ .c-intro-links{margin-top:24px;gap:8px 20px}
+ .c-intro-links a{font-size:13px}
+ .c-columns{grid-template-columns:1fr 1fr;column-gap:20px;row-gap:16px;padding:25px 0 58px}
+ .c-column:nth-child(3){grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+ .c-column:nth-child(3) h2{grid-column:1/-1;margin:8px 0 14px}
+ .c-column h2{font-size:14px;margin-bottom:19px}
+ .c-column-link{margin-bottom:20px}
+ .c-column-link strong{font-size:13px}
+ .c-column-link small{font-size:12px}
+ .c-project-top{display:block}
+ .c-subtle-link{display:inline-block;margin-top:13px}
+ .c-feature h3{font-size:31px}
+ .c-feature-dek{font-size:17px}
+ .c-feature-detail{font-size:13px}
+ .c-feature-meta{font-size:10px}
+ .c-evidence{padding:10px}
+ .c-evidence-toolbar{font-size:11px;flex-wrap:wrap;gap:5px;margin-bottom:9px}
+ .c-evidence-toolbar button{font-size:11px;min-height:35px;padding:7px 8px}
+ #c-evidence-open{padding:8px}
+ #c-evidence-open img{max-height:230px}
+ .c-history-body{grid-template-columns:1fr;gap:13px}
+ .c-history-body figure{grid-row:1;padding:12px}
+ .c-history-text{grid-row:2}
+ .c-history-text p{font-size:13px}
+ .c-lately{padding:30px 0 48px}
+ .c-lately p{font-size:14px}
+ .c-footer{grid-template-columns:1fr}
+ .c-footer small{grid-column:1}
+}
+@media(max-width:350px){
+ .c-wrap{padding:0 18px}
+ .c-header .c-nav{gap:9px}
+ .c-nav a{font-size:11px}
+ .c-intro h1{font-size:42px}
+ .c-intro h1 .c-english{font-size:25px}
+ .c-columns{gap:13px}
+ .c-column-link strong{font-size:12px}
+ .review-btn{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){.c-site a,.c-site button{transition:none}}
+
+/* Maintain readable text contrast without changing the visual hierarchy. */
+.c-column h2 span{color:#52636a}
+.c-evidence-caption{color:#53646a}
+.c-footer small{color:#596a6e}
