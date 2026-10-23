@@ -1,0 +1,42 @@
+[
+  {
+    "width": 320,
+    "view": "a",
+    "result": []
+  },
+  {
+    "width": 320,
+    "view": "b",
+    "result": []
+  },
+  {
+    "width": 375,
+    "view": "a",
+    "result": []
+  },
+  {
+    "width": 375,
+    "view": "b",
+    "result": []
+  },
+  {
+    "width": 768,
+    "view": "a",
+    "result": []
+  },
+  {
+    "width": 768,
+    "view": "b",
+    "result": []
+  },
+  {
+    "width": 1440,
+    "view": "a",
+    "result": []
+  },
+  {
+    "width": 1440,
+    "view": "b",
+    "result": []
+  }
+]

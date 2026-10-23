@@ -1,0 +1,450 @@
+[
+  {
+    "name": "chrome",
+    "width": 320,
+    "view": "a",
+    "metrics": {
+      "documentWidth": 320,
+      "clientWidth": 320,
+      "activeWidth": 320,
+      "viewport": 320,
+      "images": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/vision-settings.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true,
+          "display": "block"
+        }
+      ],
+      "title": "叶石瑞 · 视觉研究 / A — 原版精修",
+      "headline": "叶石瑞\nShirui Ye.",
+      "project": "一段工作，\n不必从零讲起。"
+    },
+    "errors": []
+  },
+  {
+    "name": "chrome",
+    "width": 320,
+    "view": "b",
+    "metrics": {
+      "documentWidth": 320,
+      "clientWidth": 320,
+      "activeWidth": 320,
+      "viewport": 320,
+      "images": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/vision-settings.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true,
+          "display": "block"
+        }
+      ],
+      "title": "叶石瑞 · 视觉研究 / B — 创意探索",
+      "headline": "叶石瑞\nShirui\nYe.",
+      "project": "工作会继续。\n记录也应该。"
+    },
+    "errors": []
+  },
+  {
+    "name": "chrome",
+    "width": 375,
+    "view": "a",
+    "metrics": {
+      "documentWidth": 375,
+      "clientWidth": 375,
+      "activeWidth": 375,
+      "viewport": 375,
+      "images": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/vision-settings.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true,
+          "display": "block"
+        }
+      ],
+      "title": "叶石瑞 · 视觉研究 / A — 原版精修",
+      "headline": "叶石瑞\nShirui Ye.",
+      "project": "一段工作，\n不必从零讲起。"
+    },
+    "errors": []
+  },
+  {
+    "name": "chrome",
+    "width": 375,
+    "view": "b",
+    "metrics": {
+      "documentWidth": 375,
+      "clientWidth": 375,
+      "activeWidth": 375,
+      "viewport": 375,
+      "images": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/vision-settings.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true,
+          "display": "block"
+        }
+      ],
+      "title": "叶石瑞 · 视觉研究 / B — 创意探索",
+      "headline": "叶石瑞\nShirui\nYe.",
+      "project": "工作会继续。\n记录也应该。"
+    },
+    "errors": []
+  },
+  {
+    "name": "chrome",
+    "width": 768,
+    "view": "a",
+    "metrics": {
+      "documentWidth": 768,
+      "clientWidth": 768,
+      "activeWidth": 768,
+      "viewport": 768,
+      "images": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/vision-settings.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true,
+          "display": "block"
+        }
+      ],
+      "title": "叶石瑞 · 视觉研究 / A — 原版精修",
+      "headline": "叶石瑞\nShirui Ye.",
+      "project": "一段工作，\n不必从零讲起。"
+    },
+    "errors": []
+  },
+  {
+    "name": "chrome",
+    "width": 768,
+    "view": "b",
+    "metrics": {
+      "documentWidth": 768,
+      "clientWidth": 768,
+      "activeWidth": 768,
+      "viewport": 768,
+      "images": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/vision-settings.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true,
+          "display": "block"
+        }
+      ],
+      "title": "叶石瑞 · 视觉研究 / B — 创意探索",
+      "headline": "叶石瑞\nShirui\nYe.",
+      "project": "工作会继续。\n记录也应该。"
+    },
+    "errors": []
+  },
+  {
+    "name": "chrome",
+    "width": 1440,
+    "view": "a",
+    "metrics": {
+      "documentWidth": 1440,
+      "clientWidth": 1440,
+      "activeWidth": 1440,
+      "viewport": 1440,
+      "images": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/vision-settings.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true,
+          "display": "block"
+        }
+      ],
+      "title": "叶石瑞 · 视觉研究 / A — 原版精修",
+      "headline": "叶石瑞\nShirui Ye.",
+      "project": "一段工作，\n不必从零讲起。"
+    },
+    "errors": []
+  },
+  {
+    "name": "chrome",
+    "width": 1440,
+    "view": "b",
+    "metrics": {
+      "documentWidth": 1440,
+      "clientWidth": 1440,
+      "activeWidth": 1440,
+      "viewport": 1440,
+      "images": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/vision-settings.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true,
+          "display": "block"
+        }
+      ],
+      "title": "叶石瑞 · 视觉研究 / B — 创意探索",
+      "headline": "叶石瑞\nShirui\nYe.",
+      "project": "工作会继续。\n记录也应该。"
+    },
+    "errors": []
+  },
+  {
+    "name": "chrome",
+    "width": 1920,
+    "view": "a",
+    "metrics": {
+      "documentWidth": 1920,
+      "clientWidth": 1920,
+      "activeWidth": 1920,
+      "viewport": 1920,
+      "images": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/vision-settings.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true,
+          "display": "block"
+        }
+      ],
+      "title": "叶石瑞 · 视觉研究 / A — 原版精修",
+      "headline": "叶石瑞\nShirui Ye.",
+      "project": "一段工作，\n不必从零讲起。"
+    },
+    "errors": []
+  },
+  {
+    "name": "chrome",
+    "width": 1920,
+    "view": "b",
+    "metrics": {
+      "documentWidth": 1920,
+      "clientWidth": 1920,
+      "activeWidth": 1920,
+      "viewport": 1920,
+      "images": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/vision-settings.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true,
+          "display": "block"
+        }
+      ],
+      "title": "叶石瑞 · 视觉研究 / B — 创意探索",
+      "headline": "叶石瑞\nShirui\nYe.",
+      "project": "工作会继续。\n记录也应该。"
+    },
+    "errors": []
+  },
+  {
+    "name": "webkit",
+    "width": 375,
+    "view": "a",
+    "metrics": {
+      "documentWidth": 375,
+      "clientWidth": 375,
+      "activeWidth": 375,
+      "viewport": 375,
+      "images": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/vision-settings.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true,
+          "display": "block"
+        }
+      ],
+      "title": "叶石瑞 · 视觉研究 / A — 原版精修",
+      "headline": "叶石瑞\nShirui Ye.",
+      "project": "一段工作，\n不必从零讲起。"
+    },
+    "errors": []
+  },
+  {
+    "name": "webkit",
+    "width": 375,
+    "view": "b",
+    "metrics": {
+      "documentWidth": 375,
+      "clientWidth": 375,
+      "activeWidth": 375,
+      "viewport": 375,
+      "images": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/vision-settings.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true,
+          "display": "block"
+        }
+      ],
+      "title": "叶石瑞 · 视觉研究 / B — 创意探索",
+      "headline": "叶石瑞\nShirui\nYe.",
+      "project": "工作会继续。\n记录也应该。"
+    },
+    "errors": []
+  },
+  {
+    "name": "webkit",
+    "width": 1440,
+    "view": "a",
+    "metrics": {
+      "documentWidth": 1440,
+      "clientWidth": 1440,
+      "activeWidth": 1440,
+      "viewport": 1440,
+      "images": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/vision-settings.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true,
+          "display": "block"
+        }
+      ],
+      "title": "叶石瑞 · 视觉研究 / A — 原版精修",
+      "headline": "叶石瑞\nShirui Ye.",
+      "project": "一段工作，\n不必从零讲起。"
+    },
+    "errors": []
+  },
+  {
+    "name": "webkit",
+    "width": 1440,
+    "view": "b",
+    "metrics": {
+      "documentWidth": 1440,
+      "clientWidth": 1440,
+      "activeWidth": 1440,
+      "viewport": 1440,
+      "images": [
+        {
+          "src": "./assets/vision-demo.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/vision-settings.png",
+          "ok": true,
+          "display": "block"
+        },
+        {
+          "src": "./assets/history-timeline.png",
+          "ok": true,
+          "display": "block"
+        }
+      ],
+      "title": "叶石瑞 · 视觉研究 / B — 创意探索",
+      "headline": "叶石瑞\nShirui\nYe.",
+      "project": "工作会继续。\n记录也应该。"
+    },
+    "errors": []
+  }
+]
