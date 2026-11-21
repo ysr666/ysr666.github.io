@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#081428">
+<title>TunnelLab AI · 现场扫码体验</title>
+<meta name="description" content="TunnelLab AI 量子隧穿学习馆现场体验入口">
+<style>
+:root{color-scheme:dark;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+*{box-sizing:border-box}body{min-height:100svh;display:grid;place-items:center;margin:0;color:#ecf8ff;background:radial-gradient(ellipse at 55% 14%,#124a68 0%,#0a1c36 45%,#061020 100%)}
+main{width:min(90vw,520px);padding:34px 28px;border:1px solid #6dbfdf55;border-radius:22px;background:#0e2547bb;box-shadow:0 14px 60px #0005}
+small{color:#6ee7ef;letter-spacing:.12em;font-size:12px;font-weight:700}h1{margin:10px 0 4px;font-size:clamp(28px,7vw,40px)}p{color:#cbdded;line-height:1.7}#status{font-size:17px;color:#e5f5fa}a,button{border:0;border-radius:12px;padding:13px 16px;display:inline-block;background:#8ceee8;color:#08314a;font-size:16px;font-weight:750;text-decoration:none;cursor:pointer}button{margin-right:8px}#manual{display:none}footer{margin-top:22px;font-size:12px;color:#90adca}
+</style>
+</head>
+<body>
+<main>
+<small>AI × QUANTUM PHYSICS</small>
+<h1>TunnelLab AI</h1>
+<p>量子隧穿交互学习馆 · 现场扫码体验</p>
+<p id="status" role="status" aria-live="polite">正在查询现场演示地址…</p>
+<button id="retry" type="button">重新连接</button>
+<a id="manual" rel="noopener noreferrer">手动进入学习馆</a>
+<footer>固定二维码入口 · 演示由现场 Mac 提供服务，未启动时暂时无法访问。</footer>
+</main>
+<script>
+(function(){
+ const status=document.getElementById('status');
+ const manual=document.getElementById('manual');
+ let visiting=false, checks=0;
+ async function check(){
+   if(visiting)return;
+   checks++;
+   try{
+     const r=await fetch('./current.json?t='+Date.now(),{cache:'no-store'});
+     if(!r.ok)throw Error('入口同步中');
+     const s=await r.json();
+     const u=new URL(s.url || '', location.href);
+     const age=Date.now()-Date.parse(s.updated_at || '');
+     const valid=s.enabled===true && u.protocol==='https:' && u.hostname.endsWith('.trycloudflare.com')
+       && Number.isFinite(age) && age >= -300000 && age < 12*3600*1000;
+     if(valid){
+       visiting=true;status.textContent='已连接现场学习馆，正在进入…';
+       manual.href=u.href;manual.style.display='inline-block';
+       location.replace(u.href);
+       return;
+     }
+     status.textContent=s.enabled ? '上次演示已结束，等待现场重新启动…' : '现场演示暂未启动，请稍后再试。';
+   }catch(e){status.textContent='正在同步演示地址，请稍后再试。';}
+ }
+ document.getElementById('retry').addEventListener('click',check);
+ check();
+ setInterval(()=>{if(!visiting)check()},6000);
+})();
+</script>
+</body>
+</html>
