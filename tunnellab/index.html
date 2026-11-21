@@ -18,39 +18,94 @@ small{color:#6ee7ef;letter-spacing:.12em;font-size:12px;font-weight:700}h1{margi
 <small>AI × QUANTUM PHYSICS</small>
 <h1>TunnelLab AI</h1>
 <p>量子隧穿交互学习馆 · 现场扫码体验</p>
-<p id="status" role="status" aria-live="polite">正在查询现场演示地址…</p>
-<button id="retry" type="button">重新连接</button>
-<a id="manual" rel="noopener noreferrer">手动进入学习馆</a>
+<p id="status" role="status" aria-live="polite">正在连接学习馆，即将自动进入…</p>
+<button id="retry" type="button">重新检查</button>
+<a id="manual" rel="noopener noreferrer">点此直接进入</a>
 <footer>固定二维码入口 · 演示由现场 Mac 提供服务，未启动时暂时无法访问。</footer>
 </main>
 <script>
 (function(){
+ 'use strict';
  const status=document.getElementById('status');
  const manual=document.getElementById('manual');
- let visiting=false, checks=0;
- async function check(){
-   if(visiting)return;
-   checks++;
+ const retry=document.getElementById('retry');
+ let navigating=false, checking=false, lastApiCheck=0;
+ const API='https://api.github.com/repos/ysr666/ysr666.github.io/contents/tunnellab/current.json?ref=main';
+ function destination(s){
+   if(!s || s.enabled!==true || typeof s.url!=='string') return null;
    try{
-     const r=await fetch('./current.json?t='+Date.now(),{cache:'no-store'});
-     if(!r.ok)throw Error('入口同步中');
-     const s=await r.json();
-     const u=new URL(s.url || '', location.href);
-     const age=Date.now()-Date.parse(s.updated_at || '');
-     const valid=s.enabled===true && u.protocol==='https:' && u.hostname.endsWith('.trycloudflare.com')
-       && Number.isFinite(age) && age >= -300000 && age < 12*3600*1000;
-     if(valid){
-       visiting=true;status.textContent='已连接现场学习馆，正在进入…';
-       manual.href=u.href;manual.style.display='inline-block';
-       location.replace(u.href);
-       return;
-     }
-     status.textContent=s.enabled ? '上次演示已结束，等待现场重新启动…' : '现场演示暂未启动，请稍后再试。';
-   }catch(e){status.textContent='正在同步演示地址，请稍后再试。';}
+     const u=new URL(s.url);
+     const age=Date.now()-Date.parse(s.updated_at);
+     if(u.protocol!=='https:' || !/^[a-z0-9-]+\.trycloudflare\.com$/.test(u.hostname)) return null;
+     if(!Number.isFinite(age) || age < -300000 || age > 12*3600*1000) return null;
+     return u.href;
+   }catch(e){return null;}
  }
- document.getElementById('retry').addEventListener('click',check);
+ function navigate(url){
+   if(navigating)return;
+   navigating=true;
+   status.textContent='已连接现场学习馆，正在自动进入…';
+   manual.href=url;
+   retry.style.display='none';
+   window.location.replace(url);
+   setTimeout(function(){
+     manual.style.display='inline-block';
+     if(document.visibilityState==='visible'){
+       const meta=document.createElement('meta');
+       meta.httpEquiv='refresh';
+       meta.content='0;url='+url;
+       document.head.appendChild(meta);
+     }
+   },1800);
+ }
+ async function pagesState(){
+   const response=await fetch('./current.json?t='+Date.now(),{cache:'no-store'});
+   if(!response.ok)throw new Error('Pages 尚未同步');
+   return response.json();
+ }
+ async function githubState(){
+   const controller=new AbortController();
+   const timer=setTimeout(()=>controller.abort(),2600);
+   try{
+     const response=await fetch(API+'&t='+Date.now(),{
+       cache:'no-store',signal:controller.signal,
+       headers:{'Accept':'application/vnd.github+json'}
+     });
+     if(!response.ok)throw new Error('GitHub API 暂不可用');
+     const payload=await response.json();
+     if(typeof payload.content!=='string')throw new Error('状态文件格式错误');
+     return JSON.parse(atob(payload.content.replace(/\s/g,'')));
+   }finally{clearTimeout(timer);}
+ }
+ async function check(){
+   if(checking||navigating)return;
+   checking=true;
+   status.textContent='正在连接学习馆，即将自动进入…';
+   try{
+     const useApi=Date.now()-lastApiCheck>45000;
+     if(useApi)lastApiCheck=Date.now();
+     const pages=pagesState().catch(()=>null);
+     const api=useApi?githubState().catch(()=>null):Promise.resolve(null);
+     let latest=null;
+     const quick=await Promise.race([
+       api.then(s=>({source:'api',state:s})),
+       pages.then(s=>({source:'pages',state:s}))
+     ]);
+     const quickUrl=destination(quick.state);
+     if(quickUrl && (quick.source==='api' || Date.now()-Date.parse(quick.state.updated_at)<25000)){
+       navigate(quickUrl);return;
+     }
+     const [p,a]=await Promise.all([pages,api]);
+     const states=[a,p].filter(Boolean).sort((x,y)=>Date.parse(y.updated_at||0)-Date.parse(x.updated_at||0));
+     latest=states[0]||null;
+     for(const s of states){const target=destination(s);if(target){navigate(target);return;}}
+     status.textContent=latest&&latest.enabled?'公网入口正在同步，请稍候自动进入…':'现场演示尚未启动，启动后会自动进入。';
+   }catch(e){status.textContent='正在重试公网入口，请稍后…';}
+   finally{checking=false;}
+ }
+ retry.addEventListener('click',check);
  check();
- setInterval(()=>{if(!visiting)check()},6000);
+ setInterval(check,3500);
 })();
 </script>
 </body>
