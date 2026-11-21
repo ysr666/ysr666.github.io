@@ -98,7 +98,8 @@ small{color:#6ee7ef;letter-spacing:.12em;font-size:12px;font-weight:700}h1{margi
      const [p,a]=await Promise.all([pages,api]);
      const states=[a,p].filter(Boolean).sort((x,y)=>Date.parse(y.updated_at||0)-Date.parse(x.updated_at||0));
      latest=states[0]||null;
-     for(const s of states){const target=destination(s);if(target){navigate(target);return;}}
+     const target=latest?destination(latest):null;
+     if(target){navigate(target);return;}
      status.textContent=latest&&latest.enabled?'公网入口正在同步，请稍候自动进入…':'现场演示尚未启动，启动后会自动进入。';
    }catch(e){status.textContent='正在重试公网入口，请稍后…';}
    finally{checking=false;}
