@@ -41,22 +41,34 @@ small{color:#6ee7ef;letter-spacing:.12em;font-size:12px;font-weight:700}h1{margi
      return u.href;
    }catch(e){return null;}
  }
- function navigate(url){
-   if(navigating)return;
+ let verifying=false;
+ async function probeTunnel(url){
+   return new Promise(resolve=>{
+     const img=new Image();
+     let done=false;
+     const finish=ok=>{if(done)return;done=true;clearTimeout(timer);img.onload=null;img.onerror=null;resolve(ok);};
+     const timer=setTimeout(()=>finish(false),7500);
+     img.onload=()=>finish(true);
+     img.onerror=()=>finish(false);
+     img.src=url.replace(/\\/$/,'')+'/static/media/nand-bitstate.png?presentation='+Date.now();
+   });
+ }
+ async function navigate(url){
+   if(navigating||verifying)return;
+   verifying=true;
+   status.textContent='正在确认网站能打开，请稍候…';
+   const accessible=await probeTunnel(url);
+   verifying=false;
+   if(!accessible){
+     status.textContent='公网连接暂时不可用，正在自动重试。请保持页面打开。';
+     return;
+   }
    navigating=true;
-   status.textContent='已连接现场学习馆，正在自动进入…';
+   status.textContent='网站已响应，正在自动进入…';
    manual.href=url;
+   manual.style.display='inline-block';
    retry.style.display='none';
    window.location.replace(url);
-   setTimeout(function(){
-     manual.style.display='inline-block';
-     if(document.visibilityState==='visible'){
-       const meta=document.createElement('meta');
-       meta.httpEquiv='refresh';
-       meta.content='0;url='+url;
-       document.head.appendChild(meta);
-     }
-   },1800);
  }
  async function pagesState(){
    const response=await fetch('./current.json?t='+Date.now(),{cache:'no-store'});
@@ -78,7 +90,7 @@ small{color:#6ee7ef;letter-spacing:.12em;font-size:12px;font-weight:700}h1{margi
    }finally{clearTimeout(timer);}
  }
  async function check(){
-   if(checking||navigating)return;
+   if(checking||navigating||verifying)return;
    checking=true;
    status.textContent='正在连接学习馆，即将自动进入…';
    try{
