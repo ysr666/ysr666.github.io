@@ -50,7 +50,7 @@ small{color:#6ee7ef;letter-spacing:.12em;font-size:12px;font-weight:700}h1{margi
      const timer=setTimeout(()=>finish(false),7500);
      img.onload=()=>finish(true);
      img.onerror=()=>finish(false);
-     img.src=url.replace(/\\/$/,'')+'/static/media/nand-bitstate.png?presentation='+Date.now();
+     img.src=(url.endsWith('/')?url.slice(0,-1):url)+'/static/media/nand-bitstate.png?presentation='+Date.now();
    });
  }
  async function navigate(url){
