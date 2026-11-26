@@ -53,39 +53,61 @@ function featured(data,stageRecords){
  }
  const westEnd={style:'westend',title:t('伦敦西区','West End'),context:t('剧场记忆 · 2026 年夏','Theatre memories · Summer 2026'),subtitle:t('伦敦的两场现场音乐剧','Two live musicals in London'),performances:stageRecords||[],tracks:[]};
  main.append(makeCard(westEnd,true));
- for(const r of data){if(r.style==='hadestown')main.append(makeCard(r,true));else rest.append(makeCard(r,false));}
+ for(const r of data){if(r.style==='hamilton')main.append(makeCard(r,true));else rest.append(makeCard(r,false));}
  section.append(main);
  if(rest.children.length){const disclosure=node('details','collection-disclosure');disclosure.append(node('summary','',t('浏览其他作品 · '+rest.children.length+' 部','Browse other works · '+rest.children.length+' titles')),rest);section.append(disclosure);}
  section.append(dialog);return section;
 }
+function osmLink(lat,lon,zoom=6){return 'https://www.openstreetmap.org/?mlat='+lat+'&mlon='+lon+'#map='+zoom+'/'+lat+'/'+lon;}
+function mapFallback(container,lat,lon,zoom){const p=node('p','map-fallback',t('地图服务暂不可用。','Map service is temporarily unavailable.'));const a=node('a','map-open-link',t('在 OpenStreetMap 中查看 ↗','Open in OpenStreetMap ↗'));a.href=osmLink(lat,lon,zoom);a.target='_blank';a.rel='noopener noreferrer';container.replaceChildren(p,a);}
+function setupMap(container,options,center,zoom){
+ if(!window.L){mapFallback(container,center[0],center[1],zoom);return null;}
+ const map=L.map(container,{scrollWheelZoom:false,zoomControl:true,attributionControl:true,...options}).setView(center,zoom);
+ const tiles=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
+ let errors=0;const notice=node('div','map-tile-notice',t('底图加载失败，可使用下方地点链接查看。','Basemap unavailable. Use the place links below.'));
+ notice.hidden=true;container.parentElement?.append(notice);
+ tiles.on('tileerror',()=>{if(++errors>=3)notice.hidden=false;});tiles.on('tileload',()=>{errors=0;notice.hidden=true;});
+ tiles.addTo(map);
+ if('ResizeObserver' in window){const resize=new ResizeObserver(()=>map.invalidateSize({pan:false}));resize.observe(container);}
+ return map;
+}
+// Spherical interpolation of symbolic endpoints. No invented airport/transit legs.
+function greatCircle(a,b){
+ const rad=Math.PI/180,vec=n=>[Math.cos(n.lat*rad)*Math.cos(n.lon*rad),Math.cos(n.lat*rad)*Math.sin(n.lon*rad),Math.sin(n.lat*rad)];
+ const u=vec(a),v=vec(b),theta=Math.acos(Math.max(-1,Math.min(1,u.reduce((s,x,i)=>s+x*v[i],0)))),s=Math.sin(theta);
+ if(s<1e-8)return [[a.lat,a.lon],[b.lat,b.lon]];
+ return Array.from({length:65},(_,i)=>{const q=i/64,x=u.map((p,k)=>(Math.sin((1-q)*theta)*p+Math.sin(q*theta)*v[k])/s);return [Math.atan2(x[2],Math.hypot(x[0],x[1]))/rad,Math.atan2(x[1],x[0])/rad];});
+}
 function routeAtlas(data){
  const section=node('section','route-atlas');section.id='travel-routes';section.append(sectionHeader(data.title,data.note));
- const frame=node('div','atlas-frame');const svg=svgEl('svg',{viewBox:'0 0 820 540',role:'img','aria-label':'Illustrative flight routes across Eurasia and Oceania'});const title=svgEl('title');title.textContent='Travel overview, illustrative routes';svg.append(title,svgEl('image',{href:'./life/world.svg',width:820,height:540}));
- const nodes=new Map(data.nodes.map(n=>[n.id,n]));const xy=n=>[(n.lon+25)*4,(80-n.lat)*4];
- const layers=new Map();for(const j of data.journeys){const layer=svgEl('g',{'data-journey':j.id});for(const [a,b,offset] of j.paths){const [x1,y1]=xy(nodes.get(a)),[x2,y2]=xy(nodes.get(b));const dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy);const bend=Math.min(95,len*.28)*(offset<0?-.55:offset===2?1.4:1);const cx=(x1+x2)/2-dy/len*bend,cy=(y1+y2)/2+dx/len*bend;layer.append(svgEl('path',{d:'M'+x1+' '+y1+' Q'+cx+' '+cy+' '+x2+' '+y2,class:'route-line'+(j.id==='europe'?' route-region':'')}));}svg.append(layer);layers.set(j.id,layer);}
- for(const n of data.nodes){const [x,y]=xy(n);svg.append(svgEl('circle',{cx:x,cy:y,r:n.id==='cn'?5:3.1,class:'atlas-node'}));const text=svgEl('text',{x:x+n.dx,y:y+n.dy,'text-anchor':n.anchor||'start',class:'atlas-label'});localize(text,n.title);svg.append(text);}
- frame.append(svg);section.append(frame,node('p','map-credit','Map outline: Natural Earth · public domain'));
- const controls=node('div','route-controls');const all=node('button','route-button',t('全部旅行','All journeys'));all.type='button';controls.append(all);const buttons=[all];const info=node('p','route-selection',t('选择一段旅程查看示意航迹。','Select a journey to highlight its routes.'));
- function select(id){for(const [key,layer] of layers)layer.classList.toggle('route-muted',!!id&&id!==key);for(const b of buttons)b.setAttribute('aria-pressed',String(b.dataset.route===id));const selected=data.journeys.find(j=>j.id===id);localize(info,selected?(selected.note?t(selected.count.zh+' · '+selected.note.zh,selected.count.en+' · '+selected.note.en):selected.count):t('选择一段旅程查看示意航迹。','Select a journey to highlight its routes.'));}
- all.dataset.route='';all.addEventListener('click',()=>select(''));
- for(const j of data.journeys){const btn=node('button','route-button');btn.type='button';btn.dataset.route=j.id;btn.append(node('strong','',j.title),node('span','',j.count));btn.addEventListener('click',()=>select(j.id));buttons.push(btn);controls.append(btn);}
- section.append(controls,info);select('');return section;
+ const frame=node('div','atlas-frame');const mapEl=node('div','geo-map route-map');mapEl.setAttribute('aria-label','Flight overview map');frame.append(mapEl);section.append(frame);
+ const controls=node('div','route-controls');const all=node('button','route-button',t('全部旅行','All journeys'));all.type='button';all.dataset.route='';controls.append(all);const buttons=[all];const info=node('p','route-selection');const nodes=new Map(data.nodes.map(n=>[n.id,n]));const layers=new Map();let map=null,selected='';
+ function select(id){selected=id;for(const [key,layer] of layers)layer.eachLayer(line=>line.setStyle({opacity:(!id||id===key)?0.8:0.08,weight:id===key?3:2}));for(const b of buttons)b.setAttribute('aria-pressed',String(b.dataset.route===id));const j=data.journeys.find(x=>x.id===id);localize(info,j?(j.note?t(j.count.zh+' · '+j.note.zh,j.count.en+' · '+j.note.en):j.count):t('点击旅程查看对应航迹。','Select a journey to highlight its routes.'));}
+ all.addEventListener('click',()=>select(''));for(const j of data.journeys){const btn=node('button','route-button');btn.type='button';btn.dataset.route=j.id;btn.append(node('strong','',j.title),node('span','',j.count));btn.addEventListener('click',()=>select(j.id));buttons.push(btn);controls.append(btn);}
+ section.append(controls,info);select('');
+ requestAnimationFrame(()=>{
+ map=setupMap(mapEl,{worldCopyJump:true,minZoom:2},[25,86],2);if(!map)return;
+ for(const j of data.journeys){const layer=L.layerGroup().addTo(map);const seen=new Set();for(const [a,b] of j.paths){const key=[a,b].sort().join(':');if(seen.has(key))continue;seen.add(key);L.polyline(greatCircle(nodes.get(a),nodes.get(b)),{color:'#2450d8',weight:2,opacity:.8,dashArray:j.id==='europe'?'5 5':null}).addTo(layer);}layers.set(j.id,layer);}
+ for(const n of data.nodes){const marker=L.circleMarker([n.lat,n.lon],{radius:n.id==='cn'?6:4,color:'#fff',weight:1.5,fillColor:'#172b39',fillOpacity:1}).addTo(map);const label=node('span','',n.title);marker.bindTooltip(label,{direction:'top'});}
+ map.fitBounds(data.nodes.map(n=>[n.lat,n.lon]),{padding:[24,24],maxZoom:3,animate:false});select(selected);translate();
+ });return section;
 }
 const categoryLabels={museum:t('博物馆 / 美术馆','Museum / gallery'),theatre:t('剧院','Theatre'),landmark:t('地标','Landmark'),district:t('街区 / 体验','District / experience')};
 function ukAtlas(data){
  const section=node('section','uk-atlas');section.id='travel-uk';const total=data.cities.reduce((n,c)=>n+c.points.length,0);section.append(sectionHeader(data.title,data.note),node('p','uk-count',t(data.cities.length+' 座城市 · '+total+' 个公共地点',data.cities.length+' cities · '+total+' public places')));
- const cityNav=node('div','city-nav');const filters=node('div','city-nav');const pane=node('div','uk-pane');const mapWrap=node('div','uk-map');const list=node('div','uk-list');pane.append(mapWrap,list);section.append(cityNav,filters,pane);
- let cityIndex=0,type='all';const cityButtons=[],typeButtons=[];
+ const cityNav=node('div','city-nav'),filters=node('div','city-nav'),pane=node('div','uk-pane'),mapWrap=node('div','uk-map'),mapEl=node('div','geo-map city-map'),list=node('div','uk-list');mapWrap.append(mapEl);pane.append(mapWrap,list);section.append(cityNav,filters,pane);
+ let cityIndex=0,type='all',map=null,layer=null;const cityButtons=[],typeButtons=[];
  for(const [i,city] of data.cities.entries()){const b=node('button','route-button');b.type='button';b.append(node('strong','',city.title),node('span','',String(city.points.length)));b.addEventListener('click',()=>{cityIndex=i;type='all';draw();});cityButtons.push(b);cityNav.append(b);}
  for(const key of ['all','museum','theatre','landmark','district']){const b=node('button','route-button',key==='all'?t('全部地点','All places'):categoryLabels[key]);b.type='button';b.addEventListener('click',()=>{type=key;draw()});typeButtons.push([key,b]);filters.append(b);}
- function draw(){cityButtons.forEach((b,i)=>b.setAttribute('aria-pressed',String(cityIndex===i)));typeButtons.forEach(([k,b])=>b.setAttribute('aria-pressed',String(k===type)));const city=data.cities[cityIndex];const all=city.points;const shown=all.filter(p=>type==='all'||p.type===type);mapWrap.replaceChildren();list.replaceChildren();const svg=svgEl('svg',{viewBox:'0 0 520 340',role:'img','aria-label':'Relative geographic position of public places'});const minX=Math.min(...all.map(p=>p.lon)),maxX=Math.max(...all.map(p=>p.lon)),minY=Math.min(...all.map(p=>p.lat)),maxY=Math.max(...all.map(p=>p.lat));const midX=(minX+maxX)/2,midY=(minY+maxY)/2,cos=Math.cos(midY*Math.PI/180);const scale=Math.min(430/Math.max(.003,(maxX-minX)*cos),250/Math.max(.003,maxY-minY));const px=p=>[260+(p.lon-midX)*cos*scale,170-(p.lat-midY)*scale];
- for(let x=40;x<=480;x+=44)svg.append(svgEl('line',{x1:x,y1:25,x2:x,y2:315,class:'uk-gridline'}));for(let y=35;y<=305;y+=45)svg.append(svgEl('line',{x1:25,y1:y,x2:495,y2:y,class:'uk-gridline'}));
- const north=svgEl('text',{x:480,y:20,class:'uk-north'});north.textContent='N ↑';svg.append(north);
- shown.forEach((p,i)=>{const [x,y]=px(p);const g=svgEl('g',{class:'uk-pin pin-'+p.type});const c=svgEl('circle',{cx:x,cy:y,r:10});const num=svgEl('text',{x,y:y+3.5,'text-anchor':'middle'});num.textContent=String(i+1);const title=svgEl('title');localize(title,p.title);g.append(title,c,num);svg.append(g);const a=node('a','uk-place');a.href='https://www.openstreetmap.org/?mlat='+p.lat+'&mlon='+p.lon+'#map=17/'+p.lat+'/'+p.lon;a.target='_blank';a.rel='noopener noreferrer';a.append(node('span','uk-place-number',String(i+1)),node('strong','',p.title),node('span','uk-place-category',categoryLabels[p.type]));list.append(a);});
+ function draw(){cityButtons.forEach((b,i)=>b.setAttribute('aria-pressed',String(cityIndex===i)));typeButtons.forEach(([k,b])=>b.setAttribute('aria-pressed',String(k===type)));const city=data.cities[cityIndex];const shown=city.points.filter(p=>type==='all'||p.type===type);list.replaceChildren();if(layer)layer.clearLayers();
+ shown.forEach((p,i)=>{const a=node('a','uk-place');a.href=osmLink(p.lat,p.lon,17);a.target='_blank';a.rel='noopener noreferrer';a.append(node('span','uk-place-number',String(i+1)),node('strong','',p.title),node('span','uk-place-category',categoryLabels[p.type]));list.append(a);
+ if(layer){const colors={museum:'#855224',theatre:'#7b3f60',landmark:'#346b64',district:'#475d81'};const marker=L.circleMarker([p.lat,p.lon],{radius:7,color:'#fff',weight:1.5,fillColor:colors[p.type],fillOpacity:1}).addTo(layer);const popup=node('div','map-popup');popup.append(node('strong','',p.title),node('p','',categoryLabels[p.type]));const link=node('a','',t('打开地图 ↗','Open map ↗'));link.href=a.href;link.target='_blank';link.rel='noopener noreferrer';popup.append(link);marker.bindPopup(popup);}
+ });
  if(!shown.length)list.append(node('p','archive-empty',t('此城市暂无该分类记录。','No places in this category for this city.')));
- mapWrap.append(svg,node('p','archive-note',t('地点相对坐标图（非街道底图）。点击右侧地点可打开实际地图。','Relative-coordinate plot, not a street basemap. Open a place for the actual map.')));translate();
+ if(map)map.fitBounds((shown.length?shown:city.points).map(p=>[p.lat,p.lon]),{padding:[28,28],maxZoom:16,animate:false});
+ else if(mapEl.children.length)mapFallback(mapEl,city.points[0].lat,city.points[0].lon,13);translate();
  }
- draw();return section;
+ draw();requestAnimationFrame(()=>{map=setupMap(mapEl,{},[51.5,-.12],12);if(map)layer=L.layerGroup().addTo(map);draw();});return section;
 }
 
 function render(data){

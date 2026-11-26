@@ -1092,7 +1092,7 @@
         "Wait for Me (Reprise)",
         "Way Down Hadestown"
       ],
-      "large": true,
+      "large": false,
       "context": {
         "zh": "伦敦卡司现场录音 · 音乐收藏",
         "en": "London live cast recording · listening collection"
@@ -1112,7 +1112,7 @@
         "Look Down",
         "Prologue / Look Down (Live)"
       ],
-      "large": true,
+      "large": false,
       "context": {
         "zh": "2026 年夏 · West End 现场",
         "en": "Summer 2026 · Seen live in the West End"
@@ -1153,7 +1153,7 @@
         "Satisfied",
         "My Shot"
       ],
-      "large": false,
+      "large": true,
       "context": {
         "zh": "百老汇原卡录音",
         "en": "Original Broadway cast recording"

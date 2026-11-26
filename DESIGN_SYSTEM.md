@@ -64,4 +64,6 @@ Two source-backed deep dives share the design tokens, 44px controls and language
 
 ## November quality pass
 
-The site header is shared across the portfolio and project case studies. The main site remains a continuous reading experience; only full source-backed project case studies have distinct URLs. At <=850px the header uses two rows. Work, Background and Life are disclosure groups; Life has two destinations. The top of Music & Theatre is a West End theatre memory (two attended performances) and Hadestown recordings, distinct from attendance. Other collections stay collapsed until requested. Archive data remains separate JSON. Do not treat previous QA screenshots as evidence for this revision.
+The site header is shared across the portfolio and project case studies. The main site remains a continuous reading experience; only full source-backed project case studies have distinct URLs. At <=850px the header uses two rows. Work, Background and Life are disclosure groups; Life has two destinations. The top of Music & Theatre is a West End theatre memory (two attended performances) and Hamilton recordings, distinct from attendance. Other collections stay collapsed until requested. Archive data remains separate JSON. Do not treat previous QA screenshots as evidence for this revision.
+
+Maps use Leaflet and attributed OpenStreetMap tiles; no hand-drawn basemap. Preserve a textual fallback for service failure.

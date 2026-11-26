@@ -61,11 +61,6 @@
 .archive-metric strong{font-size:clamp(30px,5vw,62px);line-height:1.1;letter-spacing:-.05em;font-weight:600;font-variant-numeric:tabular-nums}
 .archive-metric span{font-size:14px;color:var(--muted)}
 .atlas-frame{background:var(--soft);border-radius:var(--radius);padding:12px}
-.atlas-frame svg,.uk-map svg{display:block;width:100%;height:auto}
-.route-line{fill:none;stroke:#296a73;stroke-width:1.6;stroke-opacity:.7;vector-effect:non-scaling-stroke;stroke-linecap:round}
-.route-region{stroke-dasharray:5 4}.route-muted{opacity:.08}
-.atlas-node{fill:#193f44;stroke:#fff;stroke-width:1.2}
-.atlas-label{fill:#1d3538;font-size:10.5px;font-weight:600;paint-order:stroke;stroke:#edf2f2;stroke-width:2.5;stroke-linejoin:round}
 .route-controls,.city-nav{display:flex;gap:6px 14px;flex-wrap:wrap;align-items:center}
 .route-button{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;min-height:44px;padding:8px 3px;border:0;border-bottom:2px solid transparent;background:transparent;color:var(--muted);font-size:14px;cursor:pointer}
 .route-button span{font-size:12px;color:var(--muted)}
@@ -75,9 +70,6 @@
 .uk-pane{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px;margin-top:20px;align-items:start}
 .uk-map{background:var(--soft);border-radius:var(--radius);padding:10px}
 .uk-map .archive-note{padding:0 10px 10px;margin:0;font-size:12px}
-.uk-gridline{stroke:#d7e0df;stroke-width:1}.uk-north{font-size:13px;fill:#385458}
-.uk-pin circle{fill:#346b64;stroke:#fff;stroke-width:1.5}.uk-pin.pin-museum circle{fill:#855224}.uk-pin.pin-theatre circle{fill:#7b3f60}.uk-pin.pin-district circle{fill:#475d81}
-.uk-pin text{fill:#fff;font-size:10px;font-weight:600}
 .uk-list{max-height:420px;overflow:auto}
 .uk-place{display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:8px;align-items:center;padding:12px 4px;border-bottom:1px solid var(--quiet);font-size:14px}
 .uk-place:hover{color:var(--accent)}
@@ -115,10 +107,10 @@
 
 /* Personal collection: two editorial features, no exhaustive card wall. */
 .feature-westend{background:var(--stage);color:#fff}
-.feature-hadestown{background:#e9efef;color:var(--ink)}
-.feature-hadestown .feature-kicker,.feature-hadestown .feature-subtitle,.feature-hadestown .feature-tracks{color:#45575d}
-.feature-hadestown .feature-button:hover{background:#dfe8e8}
-.feature-hadestown .feature-button:focus-visible{outline-color:var(--accent)}
+.feature-hamilton{background:#e9efef;color:var(--ink)}
+.feature-hamilton .feature-kicker,.feature-hamilton .feature-subtitle,.feature-hamilton .feature-tracks{color:#45575d}
+.feature-hamilton .feature-button:hover{background:#dfe8e8}
+.feature-hamilton .feature-button:focus-visible{outline-color:var(--accent)}
 .collection-disclosure{margin:18px 0 0;border-top:1px solid var(--quiet)}
 .collection-disclosure>summary{min-height:48px;padding:14px 0;font-weight:600;cursor:pointer;color:var(--accent)}
 .collection-disclosure[open]>summary{margin-bottom:12px}
@@ -130,4 +122,6 @@
 .life-chapter .featured-works{padding-bottom:12px}
 .life-chapter .route-atlas{border-top:0;padding-top:8px}
 .atlas-frame{position:relative;overflow:hidden}
-@media(max-width:650px){.atlas-frame{overflow-x:auto}.atlas-frame svg{min-width:560px}.collection-disclosure>summary{font-size:14px}.life-chapter + .life-chapter{margin-top:50px}}
+@media(max-width:650px){.atlas-frame{overflow-x:auto}
+/* Real interactive maps: no hand-drawn geography, no page scroll hijacking. */
+.geo-map{width:100%;height:clamp(320px,43vw,540px);background:#edf2f2;border-radius:var(--radius);isolation:isolate;z-index:0}.city-map{height:360px}.atlas-frame,.uk-map{padding:0;overflow:hidden}.map-tile-notice,.map-fallback{font-size:14px;color:var(--muted);padding:12px}.map-open-link{display:inline-block;padding:12px;color:var(--accent)}.map-popup p{margin:6px 0}.leaflet-container{font:inherit}.leaflet-container a{color:var(--accent)}.leaflet-container .leaflet-control-attribution{font-size:10px;background:rgba(255,255,255,.9)}@media(max-width:650px){.geo-map{height:340px}.city-map{height:300px}}
