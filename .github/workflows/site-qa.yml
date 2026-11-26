@@ -7,7 +7,7 @@ permissions:
   contents: read
 jobs:
   browser:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
@@ -21,6 +21,7 @@ jobs:
       - name: Start HTTP server and test
         run: |
           python3 -m http.server 8080 > /tmp/site-http.log 2>&1 &
+          for i in $(seq 1 20); do curl -fsS http://127.0.0.1:8080/ >/dev/null && break; sleep 1; done
           python qa/test_site.py
       - name: Upload QA captures
         if: always()
