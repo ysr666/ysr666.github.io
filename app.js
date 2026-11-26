@@ -61,8 +61,7 @@ controls.forEach(el => el.addEventListener('click', () => {
   // as the browser jumps from the preview to the matching project.
   manualSelectionUntil = Date.now() + 1200;
   setStage(el.dataset.go);
-  const target=document.getElementById(el.dataset.go);
-  if(target){if(location.hash!=='#'+target.id)history.pushState(null,'','#'+target.id);target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});}
+  document.dispatchEvent(new CustomEvent('portfolio:navigate',{detail:el.dataset.go}));
 }));
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => {
@@ -89,39 +88,5 @@ if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: re
     reveal.observe(el);
   }
 }
-// One navigation model: native same-document anchors + scroll position.
-const chapters=['home','work','journey','life','contact'].map(id=>({id,el:document.getElementById(id)})).filter(x=>x.el);
-const subnav=[...document.querySelectorAll('.chapter-nav')].map(nav=>[...nav.querySelectorAll('a[href^="#"]')]);
-const links=[...document.querySelectorAll('[data-chapter]')];
-let scheduled=false;
-function highlight(){
- scheduled=false;
- const header=document.querySelector('.topbar');
- const marker=(header?.getBoundingClientRect().height||78)+Math.min(120,innerHeight*.18);
- let current=chapters[0]?.id;
- for(const c of chapters)if(c.el.getBoundingClientRect().top<=marker)current=c.id;
- if(scrollY>0&&scrollY+innerHeight>=document.documentElement.scrollHeight-4)current='contact';
- links.forEach(a=>{if(a.dataset.chapter===current)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
- for(const group of subnav){
-   const ordered=group.map(a=>({a,el:document.getElementById(a.hash.slice(1))})).filter(x=>x.el);
-   let active=null;
-   const owner=group[0]?.closest('[data-section-chapter]')?.dataset.sectionChapter;
-   if(!owner||owner===current)for(const x of ordered)if(x.el.getBoundingClientRect().top<=marker)active=x.a;
-   group.forEach(a=>{if(a===active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
- }
-}
-function queueHighlight(){if(!scheduled){scheduled=true;requestAnimationFrame(highlight);}}
-window.addEventListener('scroll',queueHighlight,{passive:true});
-window.addEventListener('resize',queueHighlight,{passive:true});
-document.addEventListener('portfolio:archive-ready',queueHighlight);
-// The two async archive sections can change the height above a deep-linked target.
-// Re-align only during initial hash restoration, never during ordinary scrolling.
-const initialHash=location.hash;
-if(initialHash==='#music'||initialHash==='#travel'){
- const target=document.getElementById(initialHash.slice(1));
- const restore=()=>{if(location.hash===initialHash&&target)target.scrollIntoView({behavior:'instant',block:'start'});};
- document.addEventListener('portfolio:archives-ready',restore,{once:true});
- window.addEventListener('load',()=>{if(!document.querySelector('[data-archive][aria-busy="true"]'))restore();},{once:true});
-}
-translate();queueHighlight();
+translate();
 })();

@@ -49,3 +49,5 @@ The home page links to two archives using the original portfolio's text-led desi
 ## Unified site navigation (2026-11-26)
 
 Music and travel mount within the homepage at `/#music` and `/#travel`; the old archive paths redirect for backwards compatibility. Both share the main language preference, navigation, scrolling and layout. Archive JSON remains independently maintained. `archive.js` mounts each data-archive root, scopes translations and uses site-relative assets. Main navigation uses native anchor history, smooth scrolling with reduced-motion support, and scroll-position highlighting. Project case-study URLs are unchanged.
+
+Top navigation uses disclosure buttons for Work, Background and Life, with hover on fine-pointer devices and tap/keyboard operation. `navigation.js` owns smooth, interruptible anchor navigation, active destinations, and history; `app.js` owns project preview and language switching. The Life disclosure has exactly two destinations. No page reload on in-site navigation.

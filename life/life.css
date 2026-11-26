@@ -86,12 +86,12 @@
 
 /* Life is a chapter of the original site, not a subsite. */
 .after-work .life-section{padding-top:clamp(45px,6vw,90px);padding-bottom:clamp(45px,6vw,90px)}
-.life-intro{display:grid;grid-template-columns:minmax(190px,33%) minmax(0,1fr);gap:clamp(30px,5vw,70px);align-items:end;margin-bottom:clamp(32px,5vw,65px)}
-.chapter-index{font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--muted);margin:0 0 12px}
+.life-intro{display:grid;grid-template-columns:minmax(190px,33%) minmax(0,1fr);gap:clamp(30px,5vw,70px);align-items:center;margin-bottom:clamp(25px,4vw,48px)}
+
 .life-intro h2{font-size:clamp(35px,5vw,65px);line-height:1.12;letter-spacing:-.055em;font-weight:600;margin:0}
 .life-intro-copy{font-size:clamp(17px,2vw,22px);color:var(--muted);line-height:1.7;max-width:45ch;margin:0}
 .life-intro .chapter-nav{margin:13px 0 0}
-.life-chapter{border-top:1px solid var(--quiet);padding:clamp(28px,4vw,48px) 0 0;scroll-margin-top:0}
+.life-chapter{border-top:1px solid var(--quiet);padding:clamp(24px,3.5vw,40px) 0 0;scroll-margin-top:0}
 .life-chapter + .life-chapter{margin-top:clamp(35px,6vw,80px)}
 .life-chapter-heading{display:grid;grid-template-columns:minmax(190px,33%) minmax(0,1fr);gap:clamp(30px,5vw,70px);align-items:end;margin-bottom:25px}
 .life-chapter-heading h3{font-size:var(--heading);font-weight:600;letter-spacing:-.05em;line-height:1.2;margin:0}
