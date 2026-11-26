@@ -4,8 +4,8 @@
   "summary": {
     "asOf": "2026-11",
     "note": {
-      "zh": "2026 年 11 月本人回忆估计，尚未逐条核算；与下方公开档案数量不等同。",
-      "en": "Owner-reported estimates from November 2026, not reconciled with individual records or the public archive."
+      "zh": "飞行统计为回忆估计，非逐段飞行日志。",
+      "en": "Approximate flight statistics, not a segment-by-segment flight log."
     },
     "metrics": [
       {
@@ -39,355 +39,6 @@
     ]
   },
   "sections": [],
-  "uk": {
-    "title": {
-      "zh": "英国 · 12 天",
-      "en": "United Kingdom · 12 days"
-    },
-    "note": {
-      "zh": "2026 年夏 · 根据本人确认的到访记录整理，仅收录公共地点。坐标为原始行程点位。",
-      "en": "Summer 2026 · Owner-confirmed visits to public places; coordinates from the itinerary."
-    },
-    "cities": [
-      {
-        "title": {
-          "zh": "伦敦",
-          "en": "London"
-        },
-        "points": [
-          {
-            "title": {
-              "zh": "伦敦眼",
-              "en": "London Eye"
-            },
-            "lat": 51.5033,
-            "lon": -0.1196,
-            "type": "landmark"
-          },
-          {
-            "title": {
-              "zh": "威斯敏斯特教堂",
-              "en": "Westminster Abbey"
-            },
-            "lat": 51.4994,
-            "lon": -0.1273,
-            "type": "landmark"
-          },
-          {
-            "title": {
-              "zh": "国家美术馆",
-              "en": "The National Gallery"
-            },
-            "lat": 51.5089,
-            "lon": -0.1283,
-            "type": "museum"
-          },
-          {
-            "title": {
-              "zh": "国王陛下剧院《歌剧魅影》",
-              "en": "His Majesty’s Theatre · The Phantom of the Opera"
-            },
-            "lat": 51.5082,
-            "lon": -0.1318,
-            "type": "theatre"
-          },
-          {
-            "title": {
-              "zh": "大英博物馆",
-              "en": "British Museum"
-            },
-            "lat": 51.5194,
-            "lon": -0.127,
-            "type": "museum"
-          },
-          {
-            "title": {
-              "zh": "查令十字街84号",
-              "en": "84 Charing Cross Road"
-            },
-            "lat": 51.5141,
-            "lon": -0.13,
-            "type": "landmark"
-          },
-          {
-            "title": {
-              "zh": "Hatchards / Piccadilly 一带",
-              "en": "Hatchards / Piccadilly"
-            },
-            "lat": 51.5089,
-            "lon": -0.1371,
-            "type": "district"
-          },
-          {
-            "title": {
-              "zh": "科文特花园",
-              "en": "Covent Garden"
-            },
-            "lat": 51.5117,
-            "lon": -0.124,
-            "type": "district"
-          },
-          {
-            "title": {
-              "zh": "伦敦塔",
-              "en": "Tower of London"
-            },
-            "lat": 51.5081,
-            "lon": -0.0759,
-            "type": "landmark"
-          },
-          {
-            "title": {
-              "zh": "伦敦塔桥（外观）",
-              "en": "Tower Bridge (exterior)"
-            },
-            "lat": 51.5055,
-            "lon": -0.0754,
-            "type": "landmark"
-          },
-          {
-            "title": {
-              "zh": "利登霍尔市场",
-              "en": "Leadenhall Market"
-            },
-            "lat": 51.5127,
-            "lon": -0.0835,
-            "type": "district"
-          },
-          {
-            "title": {
-              "zh": "伯勒市场",
-              "en": "Borough Market"
-            },
-            "lat": 51.5055,
-            "lon": -0.091,
-            "type": "district"
-          },
-          {
-            "title": {
-              "zh": "国王十字 9¾",
-              "en": "King’s Cross 9¾"
-            },
-            "lat": 51.5322,
-            "lon": -0.1237,
-            "type": "landmark"
-          },
-          {
-            "title": {
-              "zh": "白金汉宫",
-              "en": "Buckingham Palace"
-            },
-            "lat": 51.5014,
-            "lon": -0.1419,
-            "type": "landmark"
-          },
-          {
-            "title": {
-              "zh": "哈罗德百货",
-              "en": "Harrods"
-            },
-            "lat": 51.4994,
-            "lon": -0.1632,
-            "type": "district"
-          },
-          {
-            "title": {
-              "zh": "索德海姆剧院《悲惨世界》",
-              "en": "Sondheim Theatre · Les Misérables"
-            },
-            "lat": 51.5113,
-            "lon": -0.1321,
-            "type": "theatre"
-          }
-        ]
-      },
-      {
-        "title": {
-          "zh": "牛津",
-          "en": "Oxford"
-        },
-        "points": [
-          {
-            "title": {
-              "zh": "基督堂学院",
-              "en": "Christ Church"
-            },
-            "lat": 51.7502,
-            "lon": -1.2556,
-            "type": "landmark"
-          },
-          {
-            "title": {
-              "zh": "博德利图书馆",
-              "en": "Bodleian Library"
-            },
-            "lat": 51.754,
-            "lon": -1.254,
-            "type": "landmark"
-          },
-          {
-            "title": {
-              "zh": "拉德克利夫广场区域",
-              "en": "Radcliffe Camera area"
-            },
-            "lat": 51.7534,
-            "lon": -1.2543,
-            "type": "landmark"
-          }
-        ]
-      },
-      {
-        "title": {
-          "zh": "剑桥",
-          "en": "Cambridge"
-        },
-        "points": [
-          {
-            "title": {
-              "zh": "国王学院礼拜堂",
-              "en": "King’s College Chapel"
-            },
-            "lat": 52.2043,
-            "lon": 0.1166,
-            "type": "landmark"
-          },
-          {
-            "title": {
-              "zh": "康河撑篙",
-              "en": "Punting on the River Cam"
-            },
-            "lat": 52.208,
-            "lon": 0.116,
-            "type": "district"
-          },
-          {
-            "title": {
-              "zh": "剑桥市中心",
-              "en": "Cambridge city centre"
-            },
-            "lat": 52.2053,
-            "lon": 0.1218,
-            "type": "district"
-          }
-        ]
-      },
-      {
-        "title": {
-          "zh": "曼彻斯特",
-          "en": "Manchester"
-        },
-        "points": [
-          {
-            "title": {
-              "zh": "老特拉福德（外观 + Megastore）",
-              "en": "Old Trafford (exterior + Megastore)"
-            },
-            "lat": 53.4631,
-            "lon": -2.2914,
-            "type": "landmark"
-          },
-          {
-            "title": {
-              "zh": "国家足球博物馆",
-              "en": "National Football Museum"
-            },
-            "lat": 53.4852,
-            "lon": -2.2427,
-            "type": "museum"
-          },
-          {
-            "title": {
-              "zh": "市中心 / 北区",
-              "en": "City Centre / Northern Quarter"
-            },
-            "lat": 53.4826,
-            "lon": -2.2363,
-            "type": "district"
-          }
-        ]
-      },
-      {
-        "title": {
-          "zh": "爱丁堡",
-          "en": "Edinburgh"
-        },
-        "points": [
-          {
-            "title": {
-              "zh": "爱丁堡城堡",
-              "en": "Edinburgh Castle"
-            },
-            "lat": 55.9486,
-            "lon": -3.1999,
-            "type": "landmark"
-          },
-          {
-            "title": {
-              "zh": "皇家英里大道",
-              "en": "Royal Mile"
-            },
-            "lat": 55.9503,
-            "lon": -3.1872,
-            "type": "district"
-          },
-          {
-            "title": {
-              "zh": "维多利亚街",
-              "en": "Victoria Street"
-            },
-            "lat": 55.9481,
-            "lon": -3.1936,
-            "type": "district"
-          },
-          {
-            "title": {
-              "zh": "卡尔顿山",
-              "en": "Calton Hill"
-            },
-            "lat": 55.9555,
-            "lon": -3.1824,
-            "type": "landmark"
-          },
-          {
-            "title": {
-              "zh": "荷里路德宫 / 亚瑟王座一带",
-              "en": "Holyrood Palace / Arthur’s Seat area"
-            },
-            "lat": 55.9527,
-            "lon": -3.1728,
-            "type": "landmark"
-          },
-          {
-            "title": {
-              "zh": "迪恩村",
-              "en": "Dean Village"
-            },
-            "lat": 55.9529,
-            "lon": -3.217,
-            "type": "district"
-          },
-          {
-            "title": {
-              "zh": "Stockbridge",
-              "en": "Stockbridge"
-            },
-            "lat": 55.9596,
-            "lon": -3.207,
-            "type": "district"
-          },
-          {
-            "title": {
-              "zh": "王子街 / Waverley 区域",
-              "en": "Princes Street / Waverley area"
-            },
-            "lat": 55.9524,
-            "lon": -3.1906,
-            "type": "district"
-          }
-        ]
-      }
-    ]
-  },
   "routes": {
     "title": {
       "zh": "飞过的世界",
@@ -716,6 +367,65 @@
             1
           ]
         ]
+      }
+    ]
+  },
+  "impressions": {
+    "title": {
+      "zh": "旅行片段",
+      "en": "Travel impressions"
+    },
+    "description": {
+      "zh": "从旅途中选出几种文化体验。",
+      "en": "A few cultural experiences from my travels."
+    },
+    "items": [
+      {
+        "theme": {
+          "zh": "剧场",
+          "en": "Theatre"
+        },
+        "title": {
+          "zh": "伦敦西区",
+          "en": "London's West End"
+        },
+        "description": {
+          "zh": "《歌剧魅影》与《悲惨世界》的现场剧场体验。",
+          "en": "Live performances of The Phantom of the Opera and Les Misérables."
+        },
+        "link": "/life/music/",
+        "linkLabel": {
+          "zh": "音乐与剧场",
+          "en": "Music & theatre"
+        }
+      },
+      {
+        "theme": {
+          "zh": "艺术与历史",
+          "en": "Art & history"
+        },
+        "title": {
+          "zh": "博物馆与美术馆",
+          "en": "Museums & galleries"
+        },
+        "description": {
+          "zh": "以大英博物馆、国家美术馆为例，旅行也是接触艺术与历史的机会。",
+          "en": "The British Museum and the National Gallery are examples of the cultural side of travelling."
+        }
+      },
+      {
+        "theme": {
+          "zh": "城市与建筑",
+          "en": "Cities & architecture"
+        },
+        "title": {
+          "zh": "英国大学城",
+          "en": "University towns"
+        },
+        "description": {
+          "zh": "牛津与剑桥的学院建筑和城市风貌。",
+          "en": "The collegiate architecture and urban character of Oxford and Cambridge."
+        }
       }
     ]
   }

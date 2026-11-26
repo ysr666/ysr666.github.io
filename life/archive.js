@@ -210,50 +210,19 @@ function routeAtlas(data){
    map.fitBounds(bounds,{padding:[35,50],maxZoom:3,animate:false});select(selected,!!selected);translate();
  });return section;
 }
-const categoryLabels={museum:t('博物馆 / 美术馆','Museum / gallery'),theatre:t('剧院','Theatre'),landmark:t('地标','Landmark'),district:t('街区 / 体验','District / experience')};
-function ukAtlas(data){
- const section=node('section','uk-atlas');section.id='travel-uk';const total=data.cities.reduce((n,c)=>n+c.points.length,0);section.append(sectionHeader(data.title,data.note),node('p','uk-count',t(data.cities.length+' 座城市 · '+total+' 个公共地点',data.cities.length+' cities · '+total+' public places')));
- const cityNav=node('div','city-nav'),filters=node('div','city-nav'),pane=node('div','uk-pane'),mapWrap=node('div','uk-map'),mapEl=node('div','geo-map city-map'),list=node('div','uk-list');mapWrap.append(mapEl);pane.append(mapWrap,list);section.append(cityNav,filters,pane);
- let cityIndex=0,type='all',map=null,layer=null,failed=false;const cityButtons=[],typeButtons=[];
- for(const [i,city] of data.cities.entries()){const b=node('button','route-button');b.type='button';b.append(node('strong','',city.title),node('span','',String(city.points.length)));b.addEventListener('click',()=>{cityIndex=i;type='all';draw();});cityButtons.push(b);cityNav.append(b);}
- for(const key of ['all','museum','theatre','landmark','district']){const b=node('button','route-button',key==='all'?t('全部地点','All places'):categoryLabels[key]);b.type='button';b.addEventListener('click',()=>{type=key;draw()});typeButtons.push([key,b]);filters.append(b);}
- function draw(){
- cityButtons.forEach((b,i)=>b.setAttribute('aria-pressed',String(cityIndex===i)));typeButtons.forEach(([k,b])=>b.setAttribute('aria-pressed',String(k===type)));
- const city=data.cities[cityIndex],shown=city.points.filter(p=>type==='all'||p.type===type);
- list.replaceChildren();if(layer)layer.clearLayers();
- const selectPlace=(row,button,marker,point)=>{
-   list.querySelectorAll('.uk-place.is-selected').forEach(el=>el.classList.remove('is-selected'));
-   list.querySelectorAll('.uk-place-select').forEach(el=>el.setAttribute('aria-pressed','false'));
-   row.classList.add('is-selected');button.setAttribute('aria-pressed','true');
-   if(map&&marker){map.setView([point.lat,point.lon],Math.max(map.getZoom(),15),{animate:false});marker.openPopup();}
- };
- shown.forEach((p,i)=>{
-   const row=node('div','uk-place'),button=node('button','uk-place-select');button.type='button';button.setAttribute('aria-pressed','false');
-   const text=node('span','uk-place-text');text.append(node('strong','',p.title),node('span','uk-place-category',categoryLabels[p.type]));
-   button.append(node('span','uk-place-number',String(i+1)),text);
-   const a=node('a','uk-external','↗');a.href=osmLink(p.lat,p.lon,17);a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label',lang==='zh'?'在地图中打开 '+p.title.zh:'Open '+p.title.en+' in map');row.append(button,a);list.append(row);
-   let marker=null;
-   if(layer){const colors={museum:'#855224',theatre:'#7b3f60',landmark:'#346b64',district:'#475d81'};marker=L.circleMarker([p.lat,p.lon],{radius:7,color:'#fff',weight:1.5,fillColor:colors[p.type],fillOpacity:1}).addTo(layer);
-     const popup=node('div','map-popup');popup.append(node('strong','',p.title),node('p','',categoryLabels[p.type]));const link=node('a','',t('打开地图 ↗','Open map ↗'));link.href=a.href;link.target='_blank';link.rel='noopener noreferrer';popup.append(link);marker.bindPopup(popup);
-     marker.on('click',()=>{selectPlace(row,button,marker,p);});
-   }
-   button.addEventListener('click',()=>{if(map&&marker)selectPlace(row,button,marker,p);else a.click();});
- });
- if(!shown.length)list.append(node('p','archive-empty',t('此城市暂无该分类记录。','No places in this category for this city.')));
- if(map)map.fitBounds((shown.length?shown:city.points).map(p=>[p.lat,p.lon]),{padding:[28,28],maxZoom:16,animate:false});
- else if(failed)mapFallback(mapEl,city.points[0].lat,city.points[0].lon,13);
- translate();
- }
- draw();whenMapNear(mapEl,ok=>{if(!ok){failed=true;draw();return;}map=setupMap(mapEl,{},[51.5,-.12],12);if(map)layer=L.layerGroup().addTo(map);else failed=true;draw();});return section;
+function travelImpressions(data){
+ const section=node('section','travel-impressions');section.id='travel-uk';section.append(sectionHeader(data.title,data.description));
+ const grid=node('div','impression-grid');
+ for(const r of data.items){const article=node('article','impression-card');article.append(node('p','impression-theme',r.theme),node('h3','',r.title),node('p','impression-description',r.description));if(r.link==='/life/music/'){const a=node('a','impression-link',r.linkLabel);a.href=r.link;article.append(a);}grid.append(article);}
+ section.append(grid);return section;
 }
-
 function render(data){
  if(data.schemaVersion!==1||data.kind!==kind||!Array.isArray(data.sections))throw Error('Invalid archive data');
  const fragment=document.createDocumentFragment();
  if(data.summary){const block=node('section','archive-summary');block.setAttribute('aria-label','Flight statistics');const meta=node('p','archive-meta',t('飞行日志概览 · '+data.summary.asOf,'Flight log snapshot · '+data.summary.asOf));block.append(meta);const grid=node('div','archive-metrics');for(const metric of data.summary.metrics){const item=node('div','archive-metric');item.append(node('strong','',metric.value),node('span','',metric.label));grid.append(item);}block.append(grid,node('p','archive-note',data.summary.note));fragment.append(block);}
  if(data.featured)fragment.append(featured(data.featured,data.sections.find(s=>s.id==='stage')?.records));
  if(data.routes)fragment.append(routeAtlas(data.routes));
- if(data.uk)fragment.append(ukAtlas(data.uk));
+ if(data.impressions)fragment.append(travelImpressions(data.impressions));
  const secondaryGroups=node('details','collection-disclosure collection-records');secondaryGroups.append(node('summary','',t('其他音乐记录','More listening records')));
  for(const group of data.sections){
   if(kind==='music'&&group.id==='stage')continue;
@@ -288,7 +257,7 @@ function render(data){
  if(secondaryGroups.children.length>1)fragment.append(secondaryGroups);
  root.replaceChildren(fragment);root.setAttribute('aria-busy','false');translate();
 }
-return fetch('/life/'+kind+'.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Archive unavailable');return r.json();}).then(render).catch(()=>{root.replaceChildren(node('p','archive-status',t('档案暂时无法读取，请刷新页面重试。','The archive could not load. Please refresh to try again.')));root.setAttribute('aria-busy','false');}).finally(()=>document.dispatchEvent(new Event('portfolio:archive-ready')));
+return fetch('/life/'+kind+'.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Archive unavailable');return r.json();}).then(render).catch(()=>{root.replaceChildren(node('p','archive-status',t('档案暂时无法读取，请刷新页面重试。','The archive could not load. Please refresh to try again.')));root.setAttribute('aria-busy','false');}).finally(()=>document.dispatchEvent(new Event('portfolio:archive-ready')));
 }
 Promise.all(roots.map(mount)).then(()=>document.dispatchEvent(new Event('portfolio:archives-ready')));
 })();

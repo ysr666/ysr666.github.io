@@ -169,3 +169,14 @@
 .archive-metric + .archive-metric{border-left:1px solid var(--quiet);padding-left:clamp(12px,2vw,24px)}
 @media(min-width:651px) and (max-width:950px){.album-shelf{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:650px){.feature-hamilton .feature-button{margin-top:9px}.archive-metric:nth-child(3){border-left:0;padding-left:0}.overview-label.leaflet-tooltip{font-size:10px;padding:2px 4px}}
+
+/* Cultural impressions are editorial excerpts, not precise itinerary points. */
+.travel-impressions{margin:40px 0 20px;padding-top:28px;border-top:1px solid var(--quiet)}
+.impression-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,36px);margin-top:24px}
+.impression-card{min-width:0;padding:18px 0 24px;border-top:2px solid var(--quiet)}
+.impression-theme{font-size:12px;color:var(--muted);margin:0 0 10px;font-weight:600}
+.impression-card h3{font-size:clamp(21px,2.6vw,30px);line-height:1.25;letter-spacing:-.04em;font-weight:600;margin:0 0 12px}
+.impression-description{font-size:15px;line-height:1.75;color:var(--muted);margin:0 0 12px}
+.impression-link{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-size:14px;font-weight:600}
+.impression-link::after{content:'↗';margin-left:8px}
+@media(max-width:650px){.impression-grid{grid-template-columns:1fr;gap:4px}.impression-card{padding:16px 0 20px}}

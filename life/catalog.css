@@ -15,3 +15,7 @@
 
 /* Keep the collection visible rather than magnifying the first three covers at the expense of the rest. */
 .record-card.primary-record{grid-column:span 1}.record-card.primary-record h2{font-size:15px}.record-card.primary-record p{font-size:12px}.other-stage-works{margin-top:28px}.other-stage-works h3{font-size:17px;font-weight:600;margin:0 0 9px}.other-stage-row{display:grid;grid-template-columns:minmax(150px,1fr) minmax(0,2fr);gap:16px;border-top:1px solid var(--quiet);padding:10px 0;font-size:14px}.other-stage-row span{color:var(--muted)}.catalog-album-link:hover{color:var(--accent)}@media(max-width:650px){.record-card.primary-record h2{font-size:13px}.record-card.primary-record p{font-size:11px}.other-stage-row{grid-template-columns:1fr;gap:3px}}
+
+/* Selected works receive readable space; there is no promise of a complete collection. */
+.record-grid.public-selection{grid-template-columns:repeat(4,minmax(0,1fr));gap:26px 20px}.public-selection .record-card h2{font-size:clamp(15px,1.7vw,20px)}
+@media(max-width:650px){.record-grid.public-selection{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px}.public-selection .record-card h2{font-size:15px}}
