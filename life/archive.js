@@ -16,10 +16,46 @@ translate();
 function svgEl(tag,attrs={}){const e=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));return e;}
 function sectionHeader(title,detail){const h=node('div','atlas-header');h.append(node('h2','',title),node('p','',detail));return h;}
 function featured(data){
- const section=node('section','featured-works');section.append(sectionHeader(t('音乐剧精选','Featured musicals'),t('一些想留在这里的作品与录音。','A selection of works and recordings worth keeping.')));
- const grid=node('div','featured-grid');
- for(const r of data){const article=node('article','feature-work feature-'+r.style+(r.large?' feature-large':''));const art=node('div','feature-art');art.setAttribute('aria-hidden','true');const tag=node('span','feature-kicker',r.style.startsWith('chinese')?'中文音乐剧':'MUSICAL / COLLECTION');art.append(tag,node('strong','feature-art-title',r.title.en));const body=node('div','feature-body');body.append(node('h3','',r.title),node('p','',r.subtitle));if(r.tracks.length)body.append(node('p','feature-tracks',r.tracks.join(' · ')));article.append(art,body);grid.append(article);}
- section.append(grid);return section;
+ const section=node('section','featured-works');
+ const main=node('div','featured-grid');const rest=node('div','featured-list');
+ const dialog=node('dialog','work-dialog');dialog.setAttribute('aria-labelledby','work-dialog-title');
+ const panel=node('div','work-dialog-panel');dialog.append(panel);
+ let returnFocus=null;
+ dialog.addEventListener('close',()=>{document.body.classList.remove('dialog-open');if(returnFocus?.isConnected)returnFocus.focus();});
+ dialog.addEventListener('click',e=>{if(e.target===dialog){const r=panel.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
+ function openWork(r,trigger){
+   returnFocus=trigger;panel.replaceChildren();
+   const close=node('button','work-close',t('关闭 ×','Close ×'));close.type='button';close.addEventListener('click',()=>dialog.close());
+   const top=node('div','work-dialog-top');
+   const title=node('h2','',r.title);title.id='work-dialog-title';
+   const otherTitle=node('p','work-other-title',t(r.title.en,r.title.zh));
+   if(r.title.en===r.title.zh)otherTitle.hidden=true;
+   top.append(node('p','work-eyebrow',r.context||r.subtitle),title,otherTitle);
+   panel.append(close,top,node('p','work-version',r.subtitle));
+   if(r.tracks?.length){
+     const list=node('ul','work-tracks');for(const track of r.tracks)list.append(node('li','',track));
+     panel.append(node('h3','work-track-heading',t('收藏唱段','Selected recordings')),list);
+   }
+   panel.append(node('p','work-detail-note',['lesmis','phantom'].includes(r.style)?t('伦敦西区剧场记忆与音乐收藏。','A West End theatre memory and listening collection.'):t('音乐收藏中的一部作品；不代表现场观看记录。','A work from the collection; not a claim of live attendance.')));
+   translate();dialog.showModal();document.body.classList.add('dialog-open');close.focus();
+ }
+ function makeCard(r,primary){
+   const article=node('article',primary?'feature-work feature-'+r.style:'feature-row');
+   const btn=node('button',primary?'feature-button':'feature-row-button');btn.type='button';btn.setAttribute('aria-haspopup','dialog');
+   const body=node('div','feature-body');
+   if(primary)body.append(node('span','feature-kicker',r.context||r.subtitle));
+   const title=node('span','feature-title',r.title);
+   const subtitle=node('span','feature-subtitle',primary?t(r.title.en,r.title.zh):r.subtitle);
+   if(primary&&r.title.zh===r.title.en)subtitle.hidden=true;
+   body.append(title,subtitle);
+   if(primary&&r.tracks?.length)body.append(node('span','feature-tracks',r.tracks.join(' · ')));
+   const arrow=node('span','feature-arrow','↗');arrow.setAttribute('aria-hidden','true');
+   btn.append(body,arrow);btn.addEventListener('click',()=>openWork(r,btn));article.append(btn);return article;
+ }
+ for(const r of data) (r.large?main:rest).append(makeCard(r,!!r.large));
+ section.append(main);
+ if(rest.children.length){section.append(node('h2','collection-heading',t('其他收藏','More from the collection')),rest);}
+ section.append(dialog);return section;
 }
 function routeAtlas(data){
  const section=node('section','route-atlas');section.append(sectionHeader(data.title,data.note));
@@ -60,6 +96,7 @@ function render(data){
  if(data.uk)fragment.append(ukAtlas(data.uk));
  for(const group of data.sections){
   const section=node('section','archive-group');section.id=group.id;
+  if(kind==='music'&&group.id==='musicals')section.classList.add('archive-secondary');
   const intro=node('div','archive-group-intro');intro.append(node('h2','',group.title),node('p','',group.description));section.append(intro);
   const content=node('div','archive-records'); const list=node('div','archive-record-list');
   if(!group.records.length)list.append(node('p','archive-empty',group.empty||t('暂无已整理记录。','No records added yet.')));
@@ -83,7 +120,7 @@ function render(data){
       localize(result,t('显示 '+count+' / '+group.records.length+' 首','Showing '+count+' / '+group.records.length+' tracks'));
     }
     search.addEventListener('input',filter);filter();details.append(summary,search,result,list);content.append(details);
-  }else{content.append(list);}
+  }else if(kind==='music'&&group.id==='musicals'){const details=node('details','archive-fold');details.append(node('summary','',t('其他看过的作品','Other works I’ve watched')),list);content.append(details);}else{content.append(list);}
   section.append(content);fragment.append(section);
  }
  root.replaceChildren(fragment);root.setAttribute('aria-busy','false');translate();

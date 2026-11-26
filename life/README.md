@@ -41,3 +41,7 @@ For flight logs, `python3 life/tools/import_candidates.py flights /path/to/fligh
 ## Personal atlas and featured works
 
 `travel.json` contains an illustrative Eurasia/Oceania journey overview using a symbolic China origin, not exact airport segments; dashed multi-country links indicate visits, not direct flights. Japan is approximate. Natural Earth public-domain coastline is simplified in `world.svg`. UK public places were selected from the owner's confirmed 12-day itinerary. Lodging, station-only points, ambiguous alternatives, booking data and private notes are excluded. City point diagrams use relative coordinates and link to OpenStreetMap for street detail. `music.json` has featured works with original typographic treatments, not actual album artwork. Stage records and listening records remain separate.
+
+## Editorial UI
+
+The home page links to two archives using the original portfolio's text-led design. Hadestown and Les Misérables are the two primary works; other titles use compact rows. Each title opens a native dialog with the work's existing recording and theatre context, selected tracks, a close button and Escape support. No new dependencies or artwork claims. The travel and music records remain independent JSON files.

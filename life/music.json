@@ -1085,14 +1085,18 @@
       },
       "style": "hadestown",
       "subtitle": {
-        "zh": "伦敦现场录音 · 歌单收藏",
-        "en": "Live From London · listening collection"
+        "zh": "Hadestown: Live From London",
+        "en": "Hadestown: Live From London"
       },
       "tracks": [
         "Wait for Me (Reprise)",
         "Way Down Hadestown"
       ],
-      "large": true
+      "large": true,
+      "context": {
+        "zh": "伦敦卡司现场录音 · 音乐收藏",
+        "en": "London live cast recording · listening collection"
+      }
     },
     {
       "title": {
@@ -1101,14 +1105,18 @@
       },
       "style": "lesmis",
       "subtitle": {
-        "zh": "伦敦西区现场 · 2010 伦敦卡司录音",
-        "en": "West End performance · 2010 London cast recording"
+        "zh": "Sondheim Theatre · London",
+        "en": "Sondheim Theatre · London"
       },
       "tracks": [
         "Look Down",
         "Prologue / Look Down (Live)"
       ],
-      "large": true
+      "large": true,
+      "context": {
+        "zh": "2026 年夏 · West End 现场",
+        "en": "Summer 2026 · Seen live in the West End"
+      }
     },
     {
       "title": {
@@ -1124,7 +1132,11 @@
         "Think of Me",
         "The Music of the Night"
       ],
-      "large": false
+      "large": false,
+      "context": {
+        "zh": "伦敦西区现场 · 电影原声",
+        "en": "West End performance · film soundtrack"
+      }
     },
     {
       "title": {
@@ -1141,7 +1153,11 @@
         "Satisfied",
         "My Shot"
       ],
-      "large": false
+      "large": false,
+      "context": {
+        "zh": "百老汇原卡录音",
+        "en": "Original Broadway cast recording"
+      }
     },
     {
       "title": {
@@ -1154,7 +1170,11 @@
         "en": "1964 film and soundtrack"
       },
       "tracks": [],
-      "large": false
+      "large": false,
+      "context": {
+        "zh": "1964 电影与原声",
+        "en": "1964 film and soundtrack"
+      }
     },
     {
       "title": {
@@ -1170,7 +1190,11 @@
         "申冤",
         "撒一场白米"
       ],
-      "large": false
+      "large": false,
+      "context": {
+        "zh": "中文音乐剧 · 原声收藏",
+        "en": "Chinese-language musical · soundtrack collection"
+      }
     },
     {
       "title": {
@@ -1186,7 +1210,11 @@
         "盛典",
         "约定"
       ],
-      "large": false
+      "large": false,
+      "context": {
+        "zh": "中文音乐剧 · 原声收藏",
+        "en": "Chinese-language musical · soundtrack collection"
+      }
     },
     {
       "title": {
@@ -1201,7 +1229,11 @@
       "tracks": [
         "英雄花开"
       ],
-      "large": false
+      "large": false,
+      "context": {
+        "zh": "中文音乐剧 · 原声收藏",
+        "en": "Chinese-language musical · soundtrack collection"
+      }
     },
     {
       "title": {
@@ -1216,7 +1248,11 @@
       "tracks": [
         "若有一个人之霸气江山"
       ],
-      "large": false
+      "large": false,
+      "context": {
+        "zh": "中文音乐剧 · 原声收藏",
+        "en": "Chinese-language musical · soundtrack collection"
+      }
     }
   ]
 }
