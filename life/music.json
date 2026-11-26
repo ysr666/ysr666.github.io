@@ -1022,55 +1022,143 @@
     {
       "id": "library",
       "title": {
-        "zh": "音乐收藏选录",
-        "en": "Selected listening library"
+        "zh": "平时常听",
+        "en": "On repeat"
       },
       "description": {
-        "zh": "从已有资料库中选录的曲目，不是实时榜单。",
-        "en": "Selections verified against the exported library, not a live chart."
+        "zh": "根据已有播放记录和收藏选录的一些日常音乐，与音乐剧收藏分开；不是实时播放榜。",
+        "en": "A selection from my recorded listening and favourites, separate from the musical collection; not a live chart."
       },
       "records": [
         {
           "title": {
-            "zh": "The Nights",
-            "en": "The Nights"
+            "zh": "彩虹 (十周年纪念版)",
+            "en": "彩虹 (十周年纪念版)"
           },
           "subtitle": {
-            "zh": "Avicii · The Days / Nights - EP",
-            "en": "Avicii · The Days / Nights - EP"
+            "zh": "上海彩虹室内合唱团 · 彩虹 (十周年纪念版) - Single",
+            "en": "上海彩虹室内合唱团 · 彩虹 (十周年纪念版) - Single"
           },
           "detail": null
         },
         {
           "title": {
-            "zh": "Going Home (Live)",
-            "en": "Going Home (Live)"
+            "zh": "Heal the World",
+            "en": "Heal the World"
           },
           "subtitle": {
-            "zh": "Kenny G · The Essential Kenny G",
-            "en": "Kenny G · The Essential Kenny G"
+            "zh": "Michael Jackson · HIStory: Past, Present and Future, Book I",
+            "en": "Michael Jackson · HIStory: Past, Present and Future, Book I"
           },
           "detail": null
         },
         {
           "title": {
-            "zh": "远走高飞",
-            "en": "远走高飞"
+            "zh": "当爱已成往事",
+            "en": "当爱已成往事"
           },
           "subtitle": {
-            "zh": "金志文 · 远走高飞 - Single",
-            "en": "金志文 · 远走高飞 - Single"
+            "zh": "李宗盛 & 林忆莲 · 回忆莲莲 2: 回, 忆",
+            "en": "李宗盛 & 林忆莲 · 回忆莲莲 2: 回, 忆"
           },
           "detail": null
         },
         {
           "title": {
-            "zh": "DAY BY DAY",
-            "en": "DAY BY DAY"
+            "zh": "Luv Letter",
+            "en": "Luv Letter"
           },
           "subtitle": {
-            "zh": "T-ara · DAY BY DAY",
-            "en": "T-ara · DAY BY DAY"
+            "zh": "DJ OKAWARI · MIRROR",
+            "en": "DJ OKAWARI · MIRROR"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "过火",
+            "en": "过火"
+          },
+          "subtitle": {
+            "zh": "张信哲 · 从开始到现在",
+            "en": "张信哲 · 从开始到现在"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "道别是一件难事",
+            "en": "道别是一件难事"
+          },
+          "subtitle": {
+            "zh": "上海彩虹室内合唱团 · 道别是一件难事 - Single",
+            "en": "上海彩虹室内合唱团 · 道别是一件难事 - Single"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "忘情水",
+            "en": "忘情水"
+          },
+          "subtitle": {
+            "zh": "刘德华 · 忘情水",
+            "en": "刘德华 · 忘情水"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "每天爱你多一些",
+            "en": "每天爱你多一些"
+          },
+          "subtitle": {
+            "zh": "张学友 · 情不禁",
+            "en": "张学友 · 情不禁"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "你曾是少年",
+            "en": "你曾是少年"
+          },
+          "subtitle": {
+            "zh": "S.H.E · 你曾是少年 - Single",
+            "en": "S.H.E · 你曾是少年 - Single"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Lover",
+            "en": "Lover"
+          },
+          "subtitle": {
+            "zh": "Taylor Swift · Lover",
+            "en": "Taylor Swift · Lover"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "no tears left to cry",
+            "en": "no tears left to cry"
+          },
+          "subtitle": {
+            "zh": "Ariana Grande · sweetener (Bonus Videos Edition)",
+            "en": "Ariana Grande · sweetener (Bonus Videos Edition)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "NO SECRETS",
+            "en": "NO SECRETS"
+          },
+          "subtitle": {
+            "zh": "Jessie J · Don't Tease Me With A Good Time",
+            "en": "Jessie J · Don't Tease Me With A Good Time"
           },
           "detail": null
         }
