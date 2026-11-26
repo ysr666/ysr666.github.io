@@ -91,6 +91,9 @@ def run():
                     page.locator(".travel-impressions").screenshot(path=str(OUT/f"travel-impressions-{width}.png"))
                 page.goto(BASE+"/work/#vision");layout(page)
                 check(page.locator("main h1").count()==1,"work semantic H1")
+                if width<=850:
+                    check(not page.locator(".work-split .visual-stage").is_visible(),"compact work page avoids duplicate preview")
+                    check(page.locator(".mobile-art").first.is_visible(),"compact case evidence retained")
                 if width in [375,1440] and lang=="zh":
                     page.evaluate("window.scrollTo({top:0,behavior:'instant'})");page.screenshot(path=str(OUT/f"work-{width}.png"))
                 page.wait_for_function("document.querySelector('#stage-name').textContent==='Vision Router'")

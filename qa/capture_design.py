@@ -19,6 +19,15 @@ with sync_playwright() as p:
                 if page.locator("#lang-toggle").count() and not page.evaluate("document.documentElement.lang").startswith(lang):
                     page.locator("#lang-toggle").click()
                 page.evaluate("""async()=>{for(const img of document.images)img.loading='eager';await Promise.race([Promise.allSettled([...document.images].map(i=>i.decode())),new Promise(r=>setTimeout(r,2500))])}""")
+                if name=="travel":
+                    route=page.locator(".route-map")
+                    route.scroll_into_view_if_needed()
+                    page.wait_for_function("document.querySelectorAll('.route-map path.route-arc').length===19",timeout=20000)
+                    try:
+                        page.wait_for_function("Array.from(document.querySelectorAll('.route-map img.leaflet-tile')).some(i=>i.complete&&i.naturalWidth>0)",timeout=10000)
+                    except Exception as exc:
+                        print("Map tile capture unavailable:",str(exc),flush=True)
+                    route.screenshot(path=str(OUT/f"flight-map-{width}-{lang}.png"),animations="disabled")
                 page.evaluate("window.scrollTo({top:0,behavior:'instant'})")
                 page.screenshot(path=str(OUT/f"{name}-{width}-{lang}.png"),animations="disabled")
                 print(name,width,lang,flush=True)
