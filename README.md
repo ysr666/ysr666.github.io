@@ -10,7 +10,7 @@ Plain HTML, CSS and JavaScript. No dependencies or build process. Run a local we
 
 ## Content
 
-Featured source-backed work: DSH Vision Router, Computer History and Agent Wrapped. Four other non-fork public repositories are listed briefly. Engineering practice is compact and distinguishes participation from planned integration. The qualifications section includes CET-4 and CET-6 passed. No invented achievements, fake interfaces, unrelated fork attribution, private phone number or confidential projects.
+Featured source-backed work: DSH Vision Router, Computer History and Agent Wrapped. Four other non-fork public repositories are listed briefly. Engineering practice is compact and distinguishes participation from planned integration. The qualifications section includes CET-4 and CET-6 passed and ongoing IELTS preparation. No invented achievements, fake interfaces, unrelated fork attribution, private phone number or confidential projects.
 
 Screenshots in assets originate in public project repositories, including two annotated case-study images with links back to their original files. Agent Wrapped artwork is typographic, not presented as a real app screen.
 
