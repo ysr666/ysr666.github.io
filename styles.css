@@ -14,7 +14,7 @@
   color-scheme:light;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:auto;scroll-padding-top:calc(var(--top) + 18px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--top) + 20px)}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:'General Sans',-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;font-size:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -80,12 +80,12 @@ button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .intro-foot{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:clamp(44px,8vh,100px);font-size:var(--small);color:var(--muted)}
 
 /* Featured cases. Case links are plain; evidence lives in the stage. */
-.body-section{scroll-margin-top:calc(var(--top) + 18px)}
+.body-section{scroll-margin-top:0}
 .work{padding-top:78px;padding-bottom:65px}
 .section-intro{margin-bottom:46px}
 .section-intro h2,.about-section h2,.contact-section h2{font-size:var(--heading);letter-spacing:-.05em;line-height:1.2;font-weight:600;margin:0 0 17px}
 .section-intro p,.contact-section>p{max-width:45ch;font-size:16px;line-height:1.75;color:var(--muted);margin:0}
-.case{padding:0 0 55px;margin-bottom:45px;scroll-margin-top:calc(var(--top) + 26px)}
+.case{padding:0 0 55px;margin-bottom:45px;scroll-margin-top:0}
 .case:last-child{padding-bottom:0;margin-bottom:0}
 .case-heading{display:flex;justify-content:space-between;align-items:baseline;gap:12px 20px;flex-wrap:wrap;margin-bottom:17px}
 .case-heading h3{margin:0;font-size:clamp(28px,2.5vw,39px);line-height:1.15;font-weight:600;letter-spacing:-.05em}
@@ -317,3 +317,15 @@ button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .case-links .detail-entry-link{color:#173db3;font-weight:600}
 .case-links .detail-entry-link:hover{color:#132b77}
 .case-links .detail-entry-link:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* Unified navigation: current chapter follows the reading position. */
+.topbar{border-bottom:1px solid #e8eded;background:rgba(255,255,255,.97)}
+.topnav a{position:relative;color:var(--muted);transition:color .18s}
+.topnav a[aria-current=location]{color:var(--ink);font-weight:600}
+.topnav a[aria-current=location]::after{content:'';position:absolute;bottom:0;left:7px;right:7px;height:2px;background:var(--ink)}
+.chapter-heading h2{margin:0;font-size:var(--heading);line-height:1.2;letter-spacing:-.05em}
+.chapter-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px 18px;margin:0 0 32px}
+.chapter-nav a{min-height:44px;display:inline-flex;align-items:center;padding:5px 0;font-size:14px;color:var(--muted);border-bottom:1px solid transparent}
+.chapter-nav a:hover,.chapter-nav a[aria-current=location]{color:var(--accent);border-color:var(--accent)}
+.chapter-heading .chapter-nav{margin:14px 0 25px;gap:0 15px}
+@media(max-width:530px){.topnav{justify-content:space-between;gap:0}.topnav a{padding:0 7px;font-size:13px}.chapter-nav{gap:4px 15px;margin-bottom:24px}}

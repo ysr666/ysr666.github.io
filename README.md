@@ -36,8 +36,8 @@ Both case studies run on the same static HTML/CSS/JavaScript stack. Screenshots 
 
 ## Personal archives
 
-- [Music & Theatre](https://ysr666.github.io/life/music/) — works, stage memories, musical numbers and selected library records.
-- [Flight & Travel](https://ysr666.github.io/life/travel/) — flight log snapshot, flight highlights, places, and museum records.
+- [Music & Theatre](https://ysr666.github.io/#music) — works, stage memories, musical numbers and selected library records.
+- [Flight & Travel](https://ysr666.github.io/#travel) — flight log snapshot, flight highlights, places, and museum records.
 - Edit `life/music.json` and `life/travel.json` to add records; page design and language switching are shared. See [life/README.md](life/README.md) for the data format and privacy boundaries. No scheduled manual updates are expected. Digital Garden is deferred.
 
 Local, review-first import helpers for Apple Music XML, TripMap backup ZIP and normalized flight CSV are documented in life/README.md. They never write to the published archive directly.

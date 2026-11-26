@@ -45,3 +45,7 @@ For flight logs, `python3 life/tools/import_candidates.py flights /path/to/fligh
 ## Editorial UI
 
 The home page links to two archives using the original portfolio's text-led design. Hadestown and Les Misérables are the two primary works; other titles use compact rows. Each title opens a native dialog with the work's existing recording and theatre context, selected tracks, a close button and Escape support. No new dependencies or artwork claims. The travel and music records remain independent JSON files.
+
+## Unified site navigation (2026-11-26)
+
+Music and travel mount within the homepage at `/#music` and `/#travel`; the old archive paths redirect for backwards compatibility. Both share the main language preference, navigation, scrolling and layout. Archive JSON remains independently maintained. `archive.js` mounts each data-archive root, scopes translations and uses site-relative assets. Main navigation uses native anchor history, smooth scrolling with reduced-motion support, and scroll-position highlighting. Project case-study URLs are unchanged.

@@ -1,16 +1,4 @@
-/* Life pages — extend the original paper/ink system, without a separate visual brand. */
-.life-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(28px,5vw,75px)}
-.life-link{display:flex;flex-direction:column;gap:12px;padding:24px 0;border-top:1px solid var(--quiet)}
-.life-link-title{font-size:clamp(24px,3vw,36px);font-weight:600;line-height:1.2;letter-spacing:-.045em}
-.life-link-description{font-size:16px;color:var(--muted);max-width:38ch}
-.life-link-action{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:44px;font-size:14px;font-weight:600;color:var(--accent)}
-.life-link:hover .life-link-title,.archive-back:hover,.archive-next:hover{color:var(--accent)}
-.archive-main{max-width:1280px;margin:auto;padding:24px clamp(24px,5vw,70px) 0}
-.archive-back{display:inline-flex;align-items:center;min-height:44px;color:var(--muted);font-size:14px}
-.archive-hero{padding:clamp(22px,4vw,54px) 0 clamp(28px,4vw,52px)}
-.archive-hero h1{font-size:clamp(40px,6.1vw,80px);line-height:1.06;letter-spacing:-.065em;font-weight:600;margin:0 0 16px}
-.archive-lead{font-size:clamp(16px,1.8vw,20px);line-height:1.7;color:var(--muted);max-width:55ch;margin:0}
-.archive-page .topnav a[aria-current="page"]{font-weight:600;color:var(--accent)}
+/* Integrated life chapters; shared portfolio width, typography and navigation. */
 .featured-works{padding:0 0 42px}
 .featured-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .feature-work{min-width:0;border-radius:var(--radius);overflow:hidden;background:var(--stage);color:#fff}
@@ -95,8 +83,32 @@
 .uk-place:hover{color:var(--accent)}
 .uk-place-number,.uk-place-category{font-size:12px;color:var(--muted)}
 .uk-place-category{text-align:right}
-.archive-next{display:flex;justify-content:space-between;align-items:center;gap:18px;border-top:1px solid var(--quiet);padding:24px 0;margin-top:16px}
-.archive-next>span:first-child{display:flex;flex-direction:column}.archive-next small{color:var(--muted);font-size:13px}.archive-next strong{font-size:24px;line-height:1.4}.archive-next>span:last-child{font-size:25px}
-@media(max-width:900px){.archive-page .topnav{gap:10px}.archive-page .topnav a{font-size:13px}.topnav{gap:18px}.uk-pane{grid-template-columns:1fr}}
-@media(max-width:650px){.life-links,.featured-grid,.featured-list,.archive-group{grid-template-columns:1fr}.feature-button{min-height:205px}.feature-kicker{padding-bottom:28px}.feature-title{font-size:38px}.feature-row .feature-title{font-size:20px}.archive-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.archive-group{gap:20px}.uk-list{max-height:350px}}
-@media(max-width:530px){.topnav{gap:2px}.topnav a{padding:0 4px;font-size:13px}.archive-page .topnav{justify-content:flex-start;gap:8px;overflow-x:auto}.archive-page .topnav a{font-size:12px;padding:0 5px}.archive-main{padding:12px 20px 0}.archive-hero{padding-top:20px}.uk-place{grid-template-columns:22px minmax(0,1fr);gap:5px}.uk-place-category{grid-column:2;text-align:left}}
+
+/* Life is a chapter of the original site, not a subsite. */
+.after-work .life-section{padding-top:clamp(45px,6vw,90px);padding-bottom:clamp(45px,6vw,90px)}
+.life-intro{display:grid;grid-template-columns:minmax(190px,33%) minmax(0,1fr);gap:clamp(30px,5vw,70px);align-items:end;margin-bottom:clamp(32px,5vw,65px)}
+.chapter-index{font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--muted);margin:0 0 12px}
+.life-intro h2{font-size:clamp(35px,5vw,65px);line-height:1.12;letter-spacing:-.055em;font-weight:600;margin:0}
+.life-intro-copy{font-size:clamp(17px,2vw,22px);color:var(--muted);line-height:1.7;max-width:45ch;margin:0}
+.life-intro .chapter-nav{margin:13px 0 0}
+.life-chapter{border-top:1px solid var(--quiet);padding:clamp(28px,4vw,48px) 0 0;scroll-margin-top:0}
+.life-chapter + .life-chapter{margin-top:clamp(35px,6vw,80px)}
+.life-chapter-heading{display:grid;grid-template-columns:minmax(190px,33%) minmax(0,1fr);gap:clamp(30px,5vw,70px);align-items:end;margin-bottom:25px}
+.life-chapter-heading h3{font-size:var(--heading);font-weight:600;letter-spacing:-.05em;line-height:1.2;margin:0}
+.life-chapter-heading>p{font-size:16px;color:var(--muted);margin:0;max-width:40ch}
+.life-chapter [aria-busy=true]{min-height:100px}
+.life-chapter .featured-grid{gap:16px}
+.feature-button{min-height:230px}
+.feature-kicker{padding-bottom:32px}
+.feature-title{font-size:clamp(30px,4vw,53px)}
+.collection-heading{margin:30px 0 12px}
+.feature-row-button{min-height:70px}
+.featured-works{padding-bottom:28px}
+.life-chapter .archive-group,.life-chapter .route-atlas,.life-chapter .uk-atlas{padding:28px 0}
+.life-chapter .archive-group-intro h2,.life-chapter .atlas-header h2{font-size:clamp(22px,2.6vw,32px)}
+.life-chapter .archive-summary{padding:0 0 22px}
+.atlas-frame{max-width:100%;padding:8px}
+.uk-atlas{padding-bottom:0!important}
+@media(max-width:900px){.uk-pane{grid-template-columns:1fr}}
+@media(max-width:650px){.life-intro,.life-chapter-heading,.featured-grid,.featured-list,.archive-group{grid-template-columns:1fr;gap:18px}.feature-button{min-height:185px;padding:24px}.feature-kicker{padding-bottom:25px}.feature-title{font-size:36px}.feature-row .feature-title{font-size:20px}.archive-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.archive-group{gap:20px}.uk-list{max-height:350px}.life-chapter-heading{margin-bottom:20px}.life-intro .chapter-nav{margin-top:6px}}
+@media(max-width:530px){.uk-place{grid-template-columns:22px minmax(0,1fr);gap:5px}.uk-place-category{grid-column:2;text-align:left}.route-controls,.city-nav{gap:4px 10px}.route-button{font-size:13px}}

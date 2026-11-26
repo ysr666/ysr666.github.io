@@ -1,22 +1,19 @@
 (() => {
 'use strict';
-const root=document.querySelector('#archive-content');
-const button=document.querySelector('#lang-toggle');
-const kind=document.body.dataset.archive;
-if (!root || !button || !['music','travel'].includes(kind)) return;
-let lang='zh';
-try { lang=localStorage.getItem('portfolio-lang')==='en'?'en':'zh'; } catch (_) {}
+const roots=[...document.querySelectorAll('[data-archive]')];
 const t=(zh,en)=>({zh,en});
-function localize(el,value){if(!value)return el; if(typeof value==='string'){el.textContent=value;return el;} el.dataset.zh=value.zh;el.dataset.en=value.en;el.textContent=value[lang]||value.zh;return el;}
+function mount(root){
+const kind=root.dataset.archive;
+if(!['music','travel'].includes(kind))return Promise.resolve();
+let lang=document.documentElement.lang==='en'?'en':'zh';
+function localize(el,value){if(!value)return el;if(typeof value==='string'){el.textContent=value;return el;}el.dataset.zh=value.zh;el.dataset.en=value.en;el.textContent=value[lang]||value.zh;return el;}
 function node(tag,cls,value){const el=document.createElement(tag);if(cls)el.className=cls;return localize(el,value);}
-function translate(){document.documentElement.lang=lang==='zh'?'zh-CN':'en';document.querySelectorAll('[data-zh][data-en]').forEach(el=>el.textContent=el.dataset[lang]);document.querySelectorAll('[data-alt-zh][data-alt-en]').forEach(el=>el.alt=el.dataset[lang==='zh'?'altZh':'altEn']);document.querySelectorAll('[data-placeholder-zh]').forEach(el=>{el.placeholder=el.dataset[lang==='zh'?'placeholderZh':'placeholderEn'];el.setAttribute('aria-label',el.dataset[lang==='zh'?'labelZh':'labelEn']);});button.textContent=lang==='zh'?'EN':'中文';button.title=lang==='zh'?'Switch to English':'切换为中文';}
-button.addEventListener('click',()=>{lang=lang==='zh'?'en':'zh';try{localStorage.setItem('portfolio-lang',lang)}catch(_){}translate();});
-translate();
-
+function translate(){root.querySelectorAll('[data-zh][data-en]').forEach(el=>el.textContent=el.dataset[lang]);root.querySelectorAll('[data-alt-zh][data-alt-en]').forEach(el=>el.alt=el.dataset[lang==='zh'?'altZh':'altEn']);root.querySelectorAll('[data-placeholder-zh]').forEach(el=>{el.placeholder=el.dataset[lang==='zh'?'placeholderZh':'placeholderEn'];el.setAttribute('aria-label',el.dataset[lang==='zh'?'labelZh':'labelEn']);});}
+document.addEventListener('portfolio:language',e=>{lang=e.detail==='en'?'en':'zh';translate();});
 function svgEl(tag,attrs={}){const e=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));return e;}
 function sectionHeader(title,detail){const h=node('div','atlas-header');h.append(node('h2','',title),node('p','',detail));return h;}
 function featured(data){
- const section=node('section','featured-works');
+ const section=node('section','featured-works');section.id='music-featured';
  const main=node('div','featured-grid');const rest=node('div','featured-list');
  const dialog=node('dialog','work-dialog');dialog.setAttribute('aria-labelledby','work-dialog-title');
  const panel=node('div','work-dialog-panel');dialog.append(panel);
@@ -58,8 +55,8 @@ function featured(data){
  section.append(dialog);return section;
 }
 function routeAtlas(data){
- const section=node('section','route-atlas');section.append(sectionHeader(data.title,data.note));
- const frame=node('div','atlas-frame');const svg=svgEl('svg',{viewBox:'0 0 820 540',role:'img','aria-label':'Illustrative flight routes across Eurasia and Oceania'});const title=svgEl('title');title.textContent='Travel overview, illustrative routes';svg.append(title,svgEl('image',{href:'../world.svg',width:820,height:540}));
+ const section=node('section','route-atlas');section.id='travel-routes';section.append(sectionHeader(data.title,data.note));
+ const frame=node('div','atlas-frame');const svg=svgEl('svg',{viewBox:'0 0 820 540',role:'img','aria-label':'Illustrative flight routes across Eurasia and Oceania'});const title=svgEl('title');title.textContent='Travel overview, illustrative routes';svg.append(title,svgEl('image',{href:'./life/world.svg',width:820,height:540}));
  const nodes=new Map(data.nodes.map(n=>[n.id,n]));const xy=n=>[(n.lon+25)*4,(80-n.lat)*4];
  const layers=new Map();for(const j of data.journeys){const layer=svgEl('g',{'data-journey':j.id});for(const [a,b,offset] of j.paths){const [x1,y1]=xy(nodes.get(a)),[x2,y2]=xy(nodes.get(b));const dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy);const bend=Math.min(95,len*.28)*(offset<0?-.55:offset===2?1.4:1);const cx=(x1+x2)/2-dy/len*bend,cy=(y1+y2)/2+dx/len*bend;layer.append(svgEl('path',{d:'M'+x1+' '+y1+' Q'+cx+' '+cy+' '+x2+' '+y2,class:'route-line'+(j.id==='europe'?' route-region':'')}));}svg.append(layer);layers.set(j.id,layer);}
  for(const n of data.nodes){const [x,y]=xy(n);svg.append(svgEl('circle',{cx:x,cy:y,r:n.id==='cn'?5:3.1,class:'atlas-node'}));const text=svgEl('text',{x:x+n.dx,y:y+n.dy,'text-anchor':n.anchor||'start',class:'atlas-label'});localize(text,n.title);svg.append(text);}
@@ -72,7 +69,7 @@ function routeAtlas(data){
 }
 const categoryLabels={museum:t('博物馆 / 美术馆','Museum / gallery'),theatre:t('剧院','Theatre'),landmark:t('地标','Landmark'),district:t('街区 / 体验','District / experience')};
 function ukAtlas(data){
- const section=node('section','uk-atlas');const total=data.cities.reduce((n,c)=>n+c.points.length,0);section.append(sectionHeader(data.title,data.note),node('p','uk-count',t(data.cities.length+' 座城市 · '+total+' 个公共地点',data.cities.length+' cities · '+total+' public places')));
+ const section=node('section','uk-atlas');section.id='travel-uk';const total=data.cities.reduce((n,c)=>n+c.points.length,0);section.append(sectionHeader(data.title,data.note),node('p','uk-count',t(data.cities.length+' 座城市 · '+total+' 个公共地点',data.cities.length+' cities · '+total+' public places')));
  const cityNav=node('div','city-nav');const filters=node('div','city-nav');const pane=node('div','uk-pane');const mapWrap=node('div','uk-map');const list=node('div','uk-list');pane.append(mapWrap,list);section.append(cityNav,filters,pane);
  let cityIndex=0,type='all';const cityButtons=[],typeButtons=[];
  for(const [i,city] of data.cities.entries()){const b=node('button','route-button');b.type='button';b.append(node('strong','',city.title),node('span','',String(city.points.length)));b.addEventListener('click',()=>{cityIndex=i;type='all';draw();});cityButtons.push(b);cityNav.append(b);}
@@ -95,7 +92,7 @@ function render(data){
  if(data.routes)fragment.append(routeAtlas(data.routes));
  if(data.uk)fragment.append(ukAtlas(data.uk));
  for(const group of data.sections){
-  const section=node('section','archive-group');section.id=group.id;
+  const section=node('section','archive-group');section.id=kind+'-'+group.id;
   if(kind==='music'&&group.id==='musicals')section.classList.add('archive-secondary');
   const intro=node('div','archive-group-intro');intro.append(node('h2','',group.title),node('p','',group.description));section.append(intro);
   const content=node('div','archive-records'); const list=node('div','archive-record-list');
@@ -104,7 +101,7 @@ function render(data){
     const item=node('article','archive-record');item.append(node('h3','',record.title));
     if(record.subtitle)item.append(node('p','archive-sub',record.subtitle));
     if(record.detail)item.append(node('p','archive-detail',record.detail));
-    if(record.image && typeof record.image.src==='string' && /^\.\.\/media\/[a-zA-Z0-9_-]+\.(?:jpg|jpeg|png|webp|avif)$/i.test(record.image.src)){const img=node('img','archive-photo');img.src=record.image.src;img.alt=(record.image.alt||{})[lang]||'';if(record.image.alt){img.dataset.altZh=record.image.alt.zh;img.dataset.altEn=record.image.alt.en;}img.loading='lazy';item.append(img);}
+    if(record.image && typeof record.image.src==='string' && /^\.\.\/media\/[a-zA-Z0-9_-]+\.(?:jpg|jpeg|png|webp|avif)$/i.test(record.image.src)){const img=node('img','archive-photo');img.src='./life/'+record.image.src.slice(3);img.alt=(record.image.alt||{})[lang]||'';if(record.image.alt){img.dataset.altZh=record.image.alt.zh;img.dataset.altEn=record.image.alt.en;}img.loading='lazy';item.append(img);}
     list.append(item);
   }
   if(group.searchable && group.records.length){
@@ -125,5 +122,7 @@ function render(data){
  }
  root.replaceChildren(fragment);root.setAttribute('aria-busy','false');translate();
 }
-fetch('../'+kind+'.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Archive unavailable');return r.json();}).then(render).catch(()=>{root.replaceChildren(node('p','archive-status',t('档案暂时无法读取，请刷新页面重试。','The archive could not load. Please refresh to try again.')));root.setAttribute('aria-busy','false');});
+return fetch('./life/'+kind+'.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Archive unavailable');return r.json();}).then(render).catch(()=>{root.replaceChildren(node('p','archive-status',t('档案暂时无法读取，请刷新页面重试。','The archive could not load. Please refresh to try again.')));root.setAttribute('aria-busy','false');}).finally(()=>document.dispatchEvent(new Event('portfolio:archive-ready')));
+}
+Promise.all(roots.map(mount)).then(()=>document.dispatchEvent(new Event('portfolio:archives-ready')));
 })();
