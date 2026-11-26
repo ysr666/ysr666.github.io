@@ -108,3 +108,8 @@
 .section-title{font-size:var(--type-h2)}
 .detail-section>p,.stage-step p{max-width:var(--text-measure);font-size:var(--type-body)}
 @media(min-width:851px){.article-layout{grid-template-columns:minmax(160px,2fr) minmax(0,8fr);gap:var(--grid-gap)}}
+
+.pill,.project-facts dt,.hero-proof figcaption,.detail-bottom,.detail-toc p{font-size:var(--type-caption)}
+.detail-toc a{font-size:var(--type-small);min-height:var(--touch)}
+.detail-lead,.caution p{font-size:var(--type-body)}
+.stage-step strong,.caution h3{font-size:var(--type-h3)}

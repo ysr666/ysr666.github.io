@@ -411,3 +411,14 @@ main [tabindex="-1"]:focus:not(:focus-visible){outline:none}
  .nav-dropdown{left:var(--page-gutter);right:var(--page-gutter)}
  .after-work .contact-section{padding:var(--space-24)!important}
 }
+
+/* Shared navigation targets and semantic text roles. */
+.topnav .nav-trigger,.topnav .nav-direct{min-width:var(--touch);min-height:var(--touch)}
+.topnav .nav-dropdown a{min-height:var(--touch);gap:var(--space-16);padding:var(--space-12) var(--space-16);font-size:var(--type-small)}
+.topnav .nav-dropdown a[aria-current=page]{background:var(--soft);color:var(--accent);font-weight:600}
+.nav-dropdown-inner{padding-block:var(--space-8)}
+.chapter-nav a,.language{min-height:var(--touch)}
+.language{min-width:var(--touch)}
+.page-kicker,.footer,.case-state,.stage-topline,.case-proof figcaption,.mini-meta{font-size:var(--type-caption)}
+.case-dek,.intro-lead{font-size:var(--type-lead)}
+.mini-project h3{font-size:var(--type-h3)}

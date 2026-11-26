@@ -62,3 +62,8 @@
 .public-selection .record-card h3{font-size:var(--type-h3)}
 .editorial-heading p,.public-selection .record-card p{font-size:var(--type-small)}
 @media(max-width:650px){.hamilton-copy{padding-top:0}.record-grid.public-selection{gap:var(--space-24) var(--grid-gap)}}
+
+.editorial-eyebrow,.editorial-small,.catalog-credit,.portal-label{font-size:var(--type-caption)!important}
+.editorial-inline-link,.impression-link{min-height:var(--touch)}
+.portal-copy h2{font-size:var(--type-h2)}
+.portal-copy>span:not(.portal-arrow),.theatre-production span{font-size:var(--type-small)}

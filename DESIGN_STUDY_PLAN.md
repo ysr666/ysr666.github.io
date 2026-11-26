@@ -26,3 +26,10 @@ P2 implementation: initial common type roles, Work H1. Remaining: audit all comp
 P3 next: eliminate duplicated headers using maintainable generation/checking; verify active states, keyboard and focus, minimum target dimensions.
 P4 next: review actual screenshots of home, work, background, music, travel and both project cases at desktop and mobile. Revise composition against keylines, preserve content and real imagery.
 P5 acceptance: test zoom/text resize, reduced motion, offline asset fallback, screenshot review and CI. Publish only checked changes.
+
+## P2/P3 study and implementation round
+- Fluent typography (https://fluent2.microsoft.design/typography): role-based type ramp; use consistent body, caption and heading roles rather than individual sizes. Current editorial display headings remain exceptions by design.
+- Primer links and buttons (https://primer.style/accessibility/design-guidance/links-and-buttons/): navigation uses native links, actions use native buttons. Shared disclosure header retains normal links instead of ARIA menu widgets.
+- WAI APG disclosure navigation (https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/): native disclosure buttons, aria-expanded, Tab through links, Escape dismissal and restored focus. Example is guidance, not a claim of tested AT compatibility. Keyboard regression tests added.
+- Shared header source: templates/site-header.html; regenerate using python tools/sync_header.py. CI checks generated static markup on nine real pages. No runtime dependency. Route-specific state and legacy links preserved.
+- CI trigger corrected to include design-system branches. Browser acceptance pending; screenshot review and further contrast checks are open.

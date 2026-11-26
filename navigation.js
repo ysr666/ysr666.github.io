@@ -96,9 +96,11 @@ window.addEventListener('wheel',()=>{userNavigated=true;stopScroll();},{passive:
 window.addEventListener('touchstart',()=>{userNavigated=true;stopScroll();},{passive:true});
 window.addEventListener('keydown',e=>{if(['PageDown','PageUp','Home','End','ArrowUp','ArrowDown',' '].includes(e.key)&&!e.defaultPrevented&&!e.target.closest?.('input,textarea,button,summary,[contenteditable]')){userNavigated=true;stopScroll();}});
 if(isHome&&'scrollRestoration' in history)history.scrollRestoration='manual';
-window.addEventListener('popstate',()=>{const id=location.hash.slice(1)||(isHome?'home':'case-main');navigate(id,{push:false});});
+window.addEventListener('popstate',()=>{const id=location.hash.slice(1)||(page==='home'?'home':page==='work'?'work':page==='background'?'main':'case-main');navigate(id,{push:false});});
 function highlight(){
  highlightFrame=0;
+ const routeCurrent=page==='music'||page==='recording'?'music':page==='travel'?'travel':null;
+ if(routeCurrent){nav.querySelectorAll('[data-nav-destination]').forEach(a=>{if(a.dataset.navDestination===routeCurrent)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});}
  if(!isHome){const marker=header.getBoundingClientRect().height+100;let active=null;const local=[...document.querySelectorAll('.detail-toc a[href^="#"]')];for(const a of local){const el=document.getElementById(a.hash.slice(1));if(el&&el.getBoundingClientRect().top<=marker)active=a;}for(const a of local){if(a===active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');}return;}
  const marker=header.getBoundingClientRect().height+Math.min(110,innerHeight*.17);
  let current=page==='work'?'work':page==='background'?'journey':'home';

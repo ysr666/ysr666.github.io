@@ -17,6 +17,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Verify shared header source
+        run: python tools/sync_header.py --check
       - name: Install Chinese screenshot fonts
         run: |
           if ! fc-list :lang=zh | grep -q .; then
