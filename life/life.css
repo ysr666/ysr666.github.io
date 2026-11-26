@@ -11,33 +11,34 @@
 .life-chapter-heading>p{font-size:15px;color:var(--muted);margin:0;max-width:42ch}
 .life-chapter [aria-busy=true]{min-height:100px}
 /* Theatre and album editorial composition. No decorative gradients or pseudo covers. */
-.featured-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(16px,2.6vw,32px)}
+.featured-grid{--feature-gap:clamp(12px,2vw,24px);display:grid;grid-template-columns:minmax(0,calc((100% - var(--feature-gap)*2)/3*2 + var(--feature-gap))) minmax(0,calc((100% - var(--feature-gap)*2)/3));gap:var(--feature-gap);align-items:stretch}
 .feature-work,.shelf-item{min-width:0}
 .feature-button,.feature-row-button{font:inherit;color:inherit;text-align:left;display:flex;flex-direction:column;align-items:stretch;width:100%;height:100%;border:0;background:transparent;padding:0;cursor:pointer}
-.feature-artwork{display:flex;align-items:center;justify-content:center;gap:12px;background:#f3f1ec;min-height:0;height:clamp(200px,24vw,320px);padding:clamp(14px,2.2vw,30px);overflow:hidden;border-radius:var(--radius)}
-.feature-hamilton .feature-artwork{background:#eee7d8}
-.feature-artwork .album-cover{width:auto;max-width:72%;height:100%;aspect-ratio:1;flex:none;box-shadow:0 8px 20px rgba(23,29,32,.12)}
-.westend-art{background:#eeeae5}
-.westend-art .album-cover{width:auto;height:auto;max-height:100%;max-width:calc((100% - 12px)/2);aspect-ratio:1}
+.feature-artwork{display:grid;grid-template-columns:1fr;min-height:0;gap:var(--feature-gap);height:auto;overflow:visible;align-items:stretch}
+.feature-artwork .album-cover{width:100%;height:auto;aspect-ratio:1;border-radius:var(--radius);box-shadow:0 4px 14px #17212612}
+.feature-artwork .album-image{object-fit:contain;background:#141e22}
+.westend-art{grid-template-columns:repeat(2,minmax(0,1fr))}
+.westend-art .album-cover{min-width:0;width:100%;height:auto;aspect-ratio:1}
+.feature-hamilton .album-image{background:#d5ab4d}
 .album-cover{position:relative;display:block;overflow:hidden;width:100%;aspect-ratio:1;background:#e7e8e4;border-radius:3px;flex:none}
 .album-cover img{position:relative;display:block;width:100%;height:100%;object-fit:cover;transition:transform .32s cubic-bezier(.2,.7,.2,1)}
 .album-cover img[hidden]{display:none}
 .album-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-size:12px;color:var(--muted);visibility:hidden}
 .album-cover.art-unavailable .album-fallback{visibility:visible}
 .feature-button:hover .album-image,.feature-row-button:hover .album-image{transform:scale(1.035)}
-.feature-body{display:flex;flex-direction:column;align-items:flex-start;flex:1;gap:5px;padding:20px 0 13px}
+.feature-body{display:flex;flex-direction:column;align-items:flex-start;flex:1;gap:5px;padding:17px 0 10px}
 .feature-kicker{font-size:12px;color:var(--muted);font-weight:600}
-.feature-title{font-size:clamp(25px,3vw,39px);letter-spacing:-.045em;line-height:1.16;font-weight:600;overflow-wrap:anywhere}
+ .feature-title{font-size:clamp(24px,2.5vw,35px);letter-spacing:-.045em;line-height:1.16;font-weight:600;overflow-wrap:anywhere}
 .feature-subtitle{font-size:14px;color:var(--muted);line-height:1.5}
 .feature-action{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:8px 0;border-top:1px solid var(--quiet);font-size:13px;font-weight:600;color:var(--accent)}
 .feature-arrow{font-size:18px}
-.shelf-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:35px 0 16px}
+.shelf-heading{display:flex;align-items:baseline;justify-content:space-between;gap:8px 20px;flex-wrap:wrap;margin:34px 0 16px;padding-top:20px;border-top:1px solid var(--quiet)}
 .shelf-heading h4{font-size:22px;letter-spacing:-.035em;font-weight:600;margin:0}
 .shelf-heading>span{font-size:13px;color:var(--muted)}
-.album-shelf{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px clamp(12px,2vw,25px)}
+.album-shelf{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:22px clamp(12px,1.6vw,20px)}
 .shelf-item .album-cover{aspect-ratio:1}
-.shelf-title{font-size:16px;line-height:1.35;font-weight:600;letter-spacing:-.02em;margin-top:11px;overflow-wrap:anywhere}
-.shelf-caption{font-size:13px;color:var(--muted);margin-top:3px}
+ .shelf-title{font-size:14px;line-height:1.35;font-weight:600;letter-spacing:-.02em;margin-top:11px;overflow-wrap:anywhere}
+.shelf-caption{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:4px}.shelf-arrow{font-size:16px;color:var(--accent)}
 .feature-row-button:hover .shelf-title{color:var(--accent)}
 .artwork-credit{font-size:12px;color:var(--muted);margin:19px 0 25px;line-height:1.5}
 /* Native detail dialog, including mobile and keyboard interaction. */
@@ -113,11 +114,11 @@
 @media(max-width:650px){
  .life-intro,.featured-grid,.archive-group{grid-template-columns:1fr;gap:18px}
  .life-chapter-heading{display:block}.life-chapter-heading>p{margin-top:8px}
- .feature-artwork{height:clamp(174px,48vw,270px);padding:12px}
+ .feature-artwork{height:auto;max-width:100%}.feature-hamilton .feature-button{display:grid;grid-template-columns:minmax(110px,40%) minmax(0,1fr);gap:0 16px;align-items:start}.feature-hamilton .feature-artwork{grid-row:1/span 2}.feature-hamilton .feature-body{padding:0 0 8px}.feature-hamilton .feature-action{grid-column:2;align-self:end}.feature-hamilton .feature-title{font-size:clamp(21px,5vw,30px)}.feature-hamilton .feature-subtitle{font-size:12px}
  .feature-body{padding:14px 0 8px}
- .album-shelf{grid-template-columns:repeat(2,minmax(0,1fr));gap:21px 15px}
+ .album-shelf{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 12px}
  .shelf-heading{margin-top:26px}
- .shelf-title{font-size:15px}
+ .shelf-title{font-size:13px}
  .work-dialog-top{grid-template-columns:1fr;gap:16px}
  .work-dialog-top>.album-cover{width:min(190px,70%);margin:auto}
  .work-performance{grid-template-columns:80px minmax(0,1fr);gap:12px}
@@ -156,3 +157,15 @@
 .uk-place.is-selected .uk-place-text strong{color:var(--accent)}
 .uk-external{display:inline-flex;min-width:44px;align-items:center;justify-content:center;color:var(--accent);font-size:16px}
 @media(max-width:650px){.uk-place-select{padding:11px 4px}}
+
+/* Editorial finishing: actual covers form the composition, not artificial color panels. */
+.stage-recording{margin-top:6px;font-size:13px}.stage-recording summary{color:var(--accent);cursor:pointer;min-height:40px;padding:8px 0}.stage-recording .work-tracks li{font-size:13px}
+.overview-label.leaflet-tooltip{background:rgba(255,255,255,.88);border:0;box-shadow:none;color:#263d4b;font-size:12px;font-weight:600;line-height:1.35;padding:3px 6px;border-radius:3px}
+.overview-label.leaflet-tooltip::before{display:none}
+.route-map{background:#c8d8de}
+.route-map .leaflet-tile-pane{filter:saturate(.52) contrast(.97);opacity:1}
+.route-map .leaflet-control-zoom a{color:#243745}
+.archive-metrics{padding:18px 0;border-top:1px solid var(--quiet);border-bottom:1px solid var(--quiet)}
+.archive-metric + .archive-metric{border-left:1px solid var(--quiet);padding-left:clamp(12px,2vw,24px)}
+@media(min-width:651px) and (max-width:950px){.album-shelf{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:650px){.feature-hamilton .feature-button{margin-top:9px}.archive-metric:nth-child(3){border-left:0;padding-left:0}.overview-label.leaflet-tooltip{font-size:10px;padding:2px 4px}}

@@ -75,7 +75,7 @@ function featured(data,stageRecords){
        const row=node('div','work-performance'),work=byKey.get(i===0?'phantom':'lesmis'),details=node('div','');
        if(work?.album)row.append(cover(work.album,true));
        details.append(node('h3','',performance.title),node('p','',performance.subtitle),node('p','',performance.detail));
-       if(work?.album)details.append(albumLink(work.album));
+       if(work?.album){details.append(albumLink(work.album));if(work.tracks?.length){const tracks=node('details','stage-recording');tracks.append(node('summary','',t('收藏唱段','Selected tracks')));const ul=node('ul','work-tracks');for(const track of work.tracks)ul.append(node('li','',track));tracks.append(ul);details.append(tracks);}}
        row.append(details);list.append(row);
      });
      panel.append(list,node('p','work-detail-note',t('封面对应相关录音版本，并非现场演出照片或当日卡司。','Album artwork represents related recordings, not photos or casts from the attended shows.')));
@@ -101,13 +101,13 @@ function featured(data,stageRecords){
  function albumCard(r){
    const article=node('article','shelf-item'),btn=node('button','feature-row-button');btn.type='button';btn.setAttribute('aria-haspopup','dialog');
    if(r.album)btn.append(cover(r.album));
-   btn.append(node('span','shelf-title',r.title),node('span','shelf-caption',r.album?.year||r.subtitle));
+   const caption=node('span','shelf-caption');caption.append(node('span','',r.album?.year||''),node('span','shelf-arrow','↗'));btn.append(node('span','shelf-title',r.title),caption);
    btn.addEventListener('click',()=>openWork(r,btn));article.append(btn);return article;
  }
  const westEnd={style:'westend',title:t('伦敦西区','West End'),context:t('剧场记忆 · 2026 年夏','Theatre memories · Summer 2026'),subtitle:t('伦敦的两场现场音乐剧','Two live musicals in London'),performances:stageRecords||[],tracks:[]};
  main.append(feature(westEnd));const h=byKey.get('hamilton');if(h)main.append(feature(h));section.append(main);
- const shelfHeader=node('div','shelf-heading');shelfHeader.append(node('h4','',t('唱片收藏','Cast recordings & soundtracks')),node('span','',t('点击封面查看详情','Select a cover to explore')));section.append(shelfHeader);
- for(const key of ['lesmis','phantom','fairlady','hadestown','chinese','chinese2','chinese3','chinese4']){const r=byKey.get(key);if(r)shelf.append(albumCard(r));}
+ const shelfHeader=node('div','shelf-heading');shelfHeader.append(node('h4','',t('更多唱片收藏','More cast recordings')),node('span','',t('从西区、百老汇到中文音乐剧','From West End and Broadway to Chinese musicals')));section.append(shelfHeader);
+ for(const key of ['fairlady','hadestown','chinese','chinese2','chinese3','chinese4']){const r=byKey.get(key);if(r)shelf.append(albumCard(r));}
  section.append(shelf,node('p','artwork-credit',t('唱片封面来自 Apple Music 目录，版权归相应权利人。','Album artwork from the Apple Music catalogue; rights remain with the respective owners.')),dialog);
  return section;
 }
@@ -157,11 +157,18 @@ function routeAtlas(data){
  for(const [key,label] of [['outbound',t('去程','Outbound')],['inbound',t('返程','Return')],['regional',t('多国旅行示意','Multi-country visits')]]){
    const item=node('span','route-legend-item');const swatch=node('span','route-legend-line '+key);swatch.setAttribute('aria-hidden','true');item.append(swatch,node('span','',label));legend.append(item);
  }
- const controls=node('div','route-controls');const all=node('button','route-button',t('全部旅行','All journeys'));all.type='button';all.dataset.route='';controls.append(all);const buttons=[all];const info=node('p','route-selection');const nodes=new Map(data.nodes.map(n=>[n.id,n]));const layers=new Map(),journeyBounds=new Map(),markers=new Map();let map=null,selected='',overview=null;
+ const controls=node('div','route-controls');const all=node('button','route-button',t('全部旅行','All journeys'));all.type='button';all.dataset.route='';controls.append(all);const buttons=[all];const info=node('p','route-selection');const nodes=new Map(data.nodes.map(n=>[n.id,n]));const layers=new Map(),journeyBounds=new Map(),markers=new Map();let map=null,selected='',overview=null,overviewLabels=null;
  const pickerWrap=node('label','route-picker');pickerWrap.append(node('span','route-picker-label',t('选择旅程','Choose journey')));const picker=node('select','route-select');pickerWrap.append(picker);
  const option=(id,label)=>{const o=node('option','',label);o.value=id;picker.append(o);};option('',t('全部旅行','All journeys'));
  for(const j of data.journeys)option(j.id,t(j.title.zh+' · '+j.count.zh,j.title.en+' · '+j.count.en));
  picker.addEventListener('change',()=>select(picker.value,true));
+ function renderOverviewLabels(){
+   if(!map||!overviewLabels)return;
+   overviewLabels.clearLayers();if(selected)return;
+   const labels=[['cn','right',t('中国','China')],['jp','right',t('日本','Japan')],['sg','bottom',t('新加坡','Singapore')],['th','left',t('泰国','Thailand')],['nz','left',t('新西兰','New Zealand')],['fr','left',t('欧洲','Europe')]];
+   for(const [key,direction,title] of labels){const n=nodes.get(key);if(!n)continue;const label=node('span','',title);L.tooltip({permanent:true,direction,className:'overview-label',opacity:1,offset:[0,0],interactive:false}).setLatLng([n.lat,n.lon]).setContent(label).addTo(overviewLabels);}
+   translate();
+ }
  function select(id,focus=false){
    selected=id;
    for(const [key,layer] of layers){
@@ -177,7 +184,7 @@ function routeAtlas(data){
    const j=data.journeys.find(x=>x.id===id);
    const activeNodes=new Set(j?j.paths.flatMap(([a,b])=>[a,b]):[]);
    for(const [key,marker] of markers){marker.setStyle({fillOpacity:!id||activeNodes.has(key)?1:.22,opacity:!id||activeNodes.has(key)?1:.3});if(id&&activeNodes.has(key))marker.openTooltip();else marker.closeTooltip();}
-   if(focus&&map&&overview){const bounds=id?journeyBounds.get(id):overview;if(bounds?.isValid())map.fitBounds(bounds,{padding:[30,36],maxZoom:id?5:3,animate:false});}localize(info,j?(j.note?t(j.count.zh+' · '+j.note.zh,j.count.en+' · '+j.note.en):j.count):t('点击旅程，突出显示相应的往返航线。','Select a journey to highlight its outbound and return arcs.'));
+   if(focus&&map&&overview){const bounds=id?journeyBounds.get(id):overview;if(bounds?.isValid())map.fitBounds(bounds,{padding:[30,36],maxZoom:id?5:3,animate:false});}renderOverviewLabels();localize(info,j?(j.note?t(j.count.zh+' · '+j.note.zh,j.count.en+' · '+j.note.en):j.count):t('点击旅程，突出显示相应的往返航线。','Select a journey to highlight its outbound and return arcs.'));
  }
  all.addEventListener('click',()=>select('',true));for(const j of data.journeys){const btn=node('button','route-button');btn.type='button';btn.dataset.route=j.id;btn.append(node('strong','',j.title),node('span','',j.count));btn.addEventListener('click',()=>select(j.id,true));buttons.push(btn);controls.append(btn);}
  info.setAttribute('aria-live','polite');
@@ -185,7 +192,7 @@ function routeAtlas(data){
  whenMapNear(mapEl,ok=>{
    if(!ok){mapFallback(mapEl,25,86,2);return;}
    map=setupMap(mapEl,{worldCopyJump:true,minZoom:0,zoomSnap:.25,zoomDelta:.5},[25,86],2);if(!map)return;
-   const bounds=L.latLngBounds([]);overview=bounds;
+   const bounds=L.latLngBounds([]);overview=bounds;overviewLabels=L.layerGroup().addTo(map);
    for(const j of data.journeys){
      const layer=L.layerGroup().addTo(map),counts=new Map(),regional=j.id==='europe',localBounds=L.latLngBounds([]);
      for(const [a,b] of j.paths){
@@ -200,7 +207,7 @@ function routeAtlas(data){
      layers.set(j.id,layer);journeyBounds.set(j.id,localBounds);
    }
    for(const n of data.nodes){const marker=L.circleMarker([n.lat,n.lon],{radius:n.id==='cn'?6:4,color:'#fff',weight:1.5,fillColor:'#172b39',fillOpacity:1}).addTo(map);const label=node('span','',n.title);marker.bindTooltip(label,{direction:'top',offset:[0,-6],className:'flight-label',opacity:.95});markers.set(n.id,marker);bounds.extend([n.lat,n.lon]);}
-   map.fitBounds(bounds,{padding:[24,30],maxZoom:3,animate:false});select(selected,!!selected);translate();
+   map.fitBounds(bounds,{padding:[35,50],maxZoom:3,animate:false});select(selected,!!selected);translate();
  });return section;
 }
 const categoryLabels={museum:t('博物馆 / 美术馆','Museum / gallery'),theatre:t('剧院','Theatre'),landmark:t('地标','Landmark'),district:t('街区 / 体验','District / experience')};
