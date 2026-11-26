@@ -34,7 +34,7 @@ The measured font sizes between roles result from fluid scaling, Latin/CJK metri
 
 ## Interaction, semantics and responsiveness
 
-Semantic main, nav and sections; one H1 for the person's real name, skip link, descriptive images and project links. Explicit focus rings. All visible mobile controls are at least 44×44 CSS px. No browser zoom restrictions. Full keyboard use, named project preview buttons, correct pressed state, language switching in place and persistence where storage is available. Browser fragment jumps are immediate rather than animated through long pages. Motion respects the reduced-motion preference and never blocks reading.
+Semantic main, nav and sections; one H1 for the person's real name, skip link, descriptive images and project links. Explicit focus rings. All visible mobile controls are at least 44×44 CSS px. No browser zoom restrictions. Full keyboard use, named project preview buttons, correct pressed state, language switching in place and persistence where storage is available. Same-document navigation uses one interruptible scroll controller, with direct reduced-motion navigation. Motion respects the reduced-motion preference and never blocks reading.
 
 Featured screenshots come from public Vision Router and Computer History repositories. A separate duplicate gallery was intentionally removed. Experimental or pending work is labeled, forked repositories never claimed as original, and private projects/contact details remain excluded.
 
@@ -49,7 +49,7 @@ See QA_REPORT.md for tested coverage and remaining limits.
 
 We compared real public portfolios rather than choosing aesthetics from one inspiration image: Anthony Fu (personal voice and open-source projects), Paco Coursey (compact editorial structure and Now), Brittany Chiang (recruiting evidence and contact), Emil Kowalski (projects as proof), and Rauno Freiberg (careful typographic craft).
 
-The adaptation keeps the existing source-backed work but uses more human copy, Projects / Background / Contact navigation, removes duplicate screenshots, and adds a truthful Now note about work still in progress. This alters information hierarchy, not the user's achievements.
+The adaptation keeps the existing source-backed work but uses more human copy, Projects / Background / Life / Contact navigation, removes duplicate screenshots, and adds a truthful Now note about work still in progress. This alters information hierarchy, not the user's achievements.
 
 Reference URLs and decisions are in DESIGN_REFERENCES.md.
 
@@ -61,3 +61,7 @@ Rather than keep the former large four-photo gallery, two distinct, source-backe
 ## Project case studies
 
 Two source-backed deep dives share the design tokens, 44px controls and language preference with the homepage. Each presents the problem, technical approach, observable evidence and meaningful limitations. Typography and image treatment are intentionally quieter than the interactive homepage stage. No fictional diagrams, statistics or testimonials were added. Links to original source and release notes remain visible.
+
+## November quality pass
+
+The site header is shared across the portfolio and project case studies. The main site remains a continuous reading experience; only full source-backed project case studies have distinct URLs. At <=850px the header uses two rows. Work, Background and Life are disclosure groups; Life has two destinations. The top of Music & Theatre is a West End theatre memory (two attended performances) and Hadestown recordings, distinct from attendance. Other collections stay collapsed until requested. Archive data remains separate JSON. Do not treat previous QA screenshots as evidence for this revision.

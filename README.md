@@ -41,3 +41,7 @@ Both case studies run on the same static HTML/CSS/JavaScript stack. Screenshots 
 - Edit `life/music.json` and `life/travel.json` to add records; page design and language switching are shared. See [life/README.md](life/README.md) for the data format and privacy boundaries. No scheduled manual updates are expected. Digital Garden is deferred.
 
 Local, review-first import helpers for Apple Music XML, TripMap backup ZIP and normalized flight CSV are documented in life/README.md. They never write to the published archive directly.
+
+## Regression checks
+
+The browser regression suite (`qa/test_site.py`) checks both languages, responsive header, dropdowns, anchor scrolling, keyboard, details pages, modal and data integrity. Run with Python Playwright and Chromium against a local HTTP server. See the GitHub Actions Site QA workflow for current results; older October screenshot checks do not certify newer changes.

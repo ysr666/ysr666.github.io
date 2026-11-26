@@ -8,9 +8,10 @@ const triggers=groups.map(g=>g.querySelector('.nav-trigger'));
 const panels=groups.map(g=>g.querySelector('.nav-dropdown'));
 const reduce=matchMedia('(prefers-reduced-motion: reduce)');
 const hover=matchMedia('(hover: hover) and (pointer: fine)');
+const isHome=!!document.getElementById('home');
 const chapters=['home','work','journey','life','contact'];
 const destinations={work:['work','vision','history','wrapped','more'],journey:['journey','honors','skills','about'],life:['music','travel']};
-let opened=-1,closeTimer=0,frame=0,requestId=0,highlightFrame=0,userNavigated=false;
+let opened=-1,closeTimer=0,frame=0,requestId=0,highlightFrame=0,userNavigated=false,lastPointer='';
 let archivesReady=!document.querySelector('[data-archive][aria-busy="true"]');
 let readyResolve;
 const ready=archivesReady?Promise.resolve():new Promise(resolve=>{readyResolve=resolve;});
@@ -28,11 +29,12 @@ function open(i,focus=false){
  if(focus)panels[i].querySelector('a')?.focus({preventScroll:true});
 }
 groups.forEach((group,i)=>{
- group.addEventListener('pointerenter',e=>{if(hover.matches&&e.pointerType!=='touch')open(i);});
- group.addEventListener('pointerleave',e=>{if(hover.matches&&e.pointerType!=='touch'){clearTimeout(closeTimer);closeTimer=setTimeout(()=>{if(opened===i&&!group.contains(document.activeElement))close();},130);}});
+ group.addEventListener('pointerenter',e=>{if(hover.matches&&e.pointerType==='mouse')open(i);});
+ group.addEventListener('pointerleave',e=>{if(hover.matches&&e.pointerType==='mouse'){clearTimeout(closeTimer);closeTimer=setTimeout(()=>{if(opened===i&&!group.contains(document.activeElement))close();},130);}});
+ triggers[i].addEventListener('pointerdown',e=>{lastPointer=e.pointerType;});
  triggers[i].addEventListener('click',e=>{
    // A mouse click after hover keeps the menu open; touch and keyboard click toggle it.
-   if(hover.matches&&e.detail>0&&opened===i)return;
+   if(hover.matches&&lastPointer==='mouse'&&e.detail>0&&opened===i)return;
    if(opened===i)close();else open(i);
  });
  triggers[i].addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();open(i,true);if(e.key==='ArrowUp'){const links=panels[i].querySelectorAll('a');links[links.length-1]?.focus({preventScroll:true});}}});
@@ -71,11 +73,13 @@ async function navigate(id,{push=true,instant=false,initial=false}={}){
  const el=document.getElementById(id);
  if(!el)return;
  if(!initial)userNavigated=true;
+ const moveFocus=push&&!initial;
  close();stopScroll();const token=requestId;
  if(push&&location.hash!=='#'+id)history.pushState(null,'','#'+id);
  // Only targets whose vertical position depends on async archive content wait.
  if(!archivesReady&&(id==='travel'||id==='contact'))await ready;
  if(token!==requestId)return;
+ if(moveFocus){if(!el.hasAttribute('tabindex'))el.setAttribute('tabindex','-1');el.focus({preventScroll:true});}
  animate(el,instant);
 }
 document.addEventListener('click',e=>{
@@ -87,10 +91,11 @@ document.addEventListener('portfolio:navigate',e=>navigate(e.detail));
 window.addEventListener('wheel',()=>{userNavigated=true;stopScroll();},{passive:true});
 window.addEventListener('touchstart',()=>{userNavigated=true;stopScroll();},{passive:true});
 window.addEventListener('keydown',e=>{if(['PageDown','PageUp','Home','End','ArrowUp','ArrowDown',' '].includes(e.key)&&!e.defaultPrevented&&!e.target.closest?.('input,textarea,button,summary,[contenteditable]')){userNavigated=true;stopScroll();}});
-if('scrollRestoration' in history)history.scrollRestoration='manual';
-window.addEventListener('popstate',()=>navigate(location.hash.slice(1)||'home',{push:false}));
+if(isHome&&'scrollRestoration' in history)history.scrollRestoration='manual';
+window.addEventListener('popstate',()=>{const id=location.hash.slice(1)||(isHome?'home':'case-main');navigate(id,{push:false});});
 function highlight(){
  highlightFrame=0;
+ if(!isHome){const marker=header.getBoundingClientRect().height+100;let active=null;const local=[...document.querySelectorAll('.detail-toc a[href^="#"]')];for(const a of local){const el=document.getElementById(a.hash.slice(1));if(el&&el.getBoundingClientRect().top<=marker)active=a;}for(const a of local){if(a===active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');}return;}
  const marker=header.getBoundingClientRect().height+Math.min(110,innerHeight*.17);
  let current='home';
  for(const id of chapters){const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=marker)current=id;}
@@ -113,7 +118,8 @@ function highlight(){
 }
 function scheduleHighlight(){if(!highlightFrame)highlightFrame=requestAnimationFrame(highlight);}
 window.addEventListener('scroll',scheduleHighlight,{passive:true});
-window.addEventListener('resize',()=>{close();scheduleHighlight();},{passive:true});
+let viewportWidth=innerWidth;
+window.addEventListener('resize',()=>{if(innerWidth!==viewportWidth){viewportWidth=innerWidth;close();}scheduleHighlight();},{passive:true});
 document.addEventListener('portfolio:archive-ready',scheduleHighlight);
 const initial=location.hash.slice(1);
 if(initial&&document.getElementById(initial)){

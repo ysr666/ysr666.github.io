@@ -112,3 +112,22 @@
 @media(max-width:900px){.uk-pane{grid-template-columns:1fr}}
 @media(max-width:650px){.life-intro,.life-chapter-heading,.featured-grid,.featured-list,.archive-group{grid-template-columns:1fr;gap:18px}.feature-button{min-height:185px;padding:24px}.feature-kicker{padding-bottom:25px}.feature-title{font-size:36px}.feature-row .feature-title{font-size:20px}.archive-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.archive-group{gap:20px}.uk-list{max-height:350px}.life-chapter-heading{margin-bottom:20px}.life-intro .chapter-nav{margin-top:6px}}
 @media(max-width:530px){.uk-place{grid-template-columns:22px minmax(0,1fr);gap:5px}.uk-place-category{grid-column:2;text-align:left}.route-controls,.city-nav{gap:4px 10px}.route-button{font-size:13px}}
+
+/* Personal collection: two editorial features, no exhaustive card wall. */
+.feature-westend{background:var(--stage);color:#fff}
+.feature-hadestown{background:#e9efef;color:var(--ink)}
+.feature-hadestown .feature-kicker,.feature-hadestown .feature-subtitle,.feature-hadestown .feature-tracks{color:#45575d}
+.feature-hadestown .feature-button:hover{background:#dfe8e8}
+.feature-hadestown .feature-button:focus-visible{outline-color:var(--accent)}
+.collection-disclosure{margin:18px 0 0;border-top:1px solid var(--quiet)}
+.collection-disclosure>summary{min-height:48px;padding:14px 0;font-weight:600;cursor:pointer;color:var(--accent)}
+.collection-disclosure[open]>summary{margin-bottom:12px}
+.collection-records{margin-top:0}
+.work-performances{display:grid;gap:14px;margin:25px 0}
+.work-performance{border-top:1px solid var(--quiet);padding-top:15px}
+.work-performance h3{font-size:22px;margin:0 0 8px}
+.work-performance p{color:var(--muted);font-size:14px;margin:3px 0}
+.life-chapter .featured-works{padding-bottom:12px}
+.life-chapter .route-atlas{border-top:0;padding-top:8px}
+.atlas-frame{position:relative;overflow:hidden}
+@media(max-width:650px){.atlas-frame{overflow-x:auto}.atlas-frame svg{min-width:560px}.collection-disclosure>summary{font-size:14px}.life-chapter + .life-chapter{margin-top:50px}}

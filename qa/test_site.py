@@ -1,0 +1,87 @@
+import os, pathlib, json, math, time
+from playwright.sync_api import sync_playwright
+BASE=os.environ.get("SITE_URL","http://127.0.0.1:8080").rstrip("/")
+OUT=pathlib.Path("qa/current")
+OUT.mkdir(parents=True,exist_ok=True)
+def check(value,label):
+    if not value: raise AssertionError(label)
+def loaded(page):
+    page.wait_for_function("!document.querySelector('[data-archive][aria-busy=true]')")
+    check(page.locator(".archive-status").count()==0,"archive failed")
+def layout(page,label):
+    check(page.evaluate("document.documentElement.scrollWidth <= innerWidth+1"),label+" document overflow")
+    check(page.locator("#site-navigation").count()==1,label+" duplicate/missing header")
+    check(page.locator("#lang-toggle").count()==1,label+" language switch")
+def target(page,id):
+    page.wait_for_function("(id)=>{const e=document.getElementById(id);return e&&Math.abs(scrollY-Math.max(0,Math.min(scrollY+e.getBoundingClientRect().top-document.querySelector('.topbar').getBoundingClientRect().height-20,document.documentElement.scrollHeight-innerHeight)))<4}",arg=id,timeout=6000)
+def menu(page,id):
+    trigger=page.locator(f'[aria-controls=nav-{id}]')
+    if trigger.get_attribute("aria-expanded")!="true":
+        trigger.click()
+    check(trigger.get_attribute("aria-expanded")=="true",id+" not open")
+    check(page.locator(f'#nav-{id}').evaluate("(el)=>!el.inert"),id+" inert")
+def run():
+    with sync_playwright() as p:
+        browser=p.chromium.launch(headless=True,args=["--no-sandbox"])
+        for width in [320,375,768,1024,1440]:
+            ctx=browser.new_context(viewport={"width":width,"height":900},has_touch=width<=375,is_mobile=width<=375,device_scale_factor=1)
+            page=ctx.new_page()
+            errors=[]
+            page.on("pageerror",lambda e:errors.append(str(e)))
+            page.goto(BASE+"/",wait_until="domcontentloaded")
+            loaded(page)
+            for lang in ["zh","en"]:
+                layout(page,f"{width}/{lang}")
+                if lang=="en": page.locator("#lang-toggle").click()
+                layout(page,f"{width}/{lang}/translated")
+                menu(page,"life")
+                check(page.locator("#nav-life a").count()==2,"Life destinations")
+                page.locator("#nav-life a[href='#music']").click()
+                target(page,"music")
+                check(page.url.endswith("#music"),"music hash")
+                check(page.locator("[aria-controls=nav-life]").get_attribute("aria-expanded")=="false","menu close")
+                check(page.locator(".feature-button").count()==2,"two highlights")
+                page.locator(".feature-button").first.click()
+                check(page.locator(".work-dialog").evaluate("el=>el.open"),"modal open")
+                check(page.locator(".work-performance").count()==2,"West End records")
+                page.keyboard.press("Escape")
+                check(not page.locator(".work-dialog").evaluate("el=>el.open"),"modal Escape")
+                menu(page,"life")
+                page.locator("#nav-life a[href='#travel']").click()
+                target(page,"travel")
+                check(page.locator(".route-controls button").count()==8,"journey controls")
+                check(page.locator(".uk-count").inner_text().find("33")>=0,"UK count")
+                if width in [375,1440] and lang=="en":page.screenshot(path=str(OUT/f"travel-{width}.png"))
+                menu(page,"work")
+                page.locator("#nav-work a[href='#work']").click()
+                target(page,"work")
+                if width in [375,1440] and lang=="en":page.screenshot(path=str(OUT/f"work-{width}.png"))
+            if width==1440:
+                page.locator("[aria-controls=nav-life]").hover()
+                check(page.locator("[aria-controls=nav-life]").get_attribute("aria-expanded")=="true","desktop hover")
+                page.screenshot(path=str(OUT/"desktop-menu.png"))
+                page.keyboard.press("Escape")
+                check(page.locator("[aria-controls=nav-life]").get_attribute("aria-expanded")=="false","menu Escape")
+                # Sample actual intermediate scroll positions, not only final hash.
+                page.evaluate("window.scrollTo({top:0,behavior:'instant'})")
+                page.evaluate("""()=>{window.__samples=[];const f=()=>{window.__samples.push(scrollY);if(window.__samples.length<70)requestAnimationFrame(f)};requestAnimationFrame(f)}""")
+                menu(page,"life")
+                page.locator("#nav-life a[href='#travel']").click()
+                target(page,"travel")
+                check(page.evaluate("new Set(window.__samples.map(y=>Math.round(y))).size>5"),"animated intermediate positions")
+                page.go_back()
+                target(page,"work")
+            for case in ["vision-router","computer-history"]:
+                page.goto(BASE+"/projects/"+case+"/",wait_until="domcontentloaded")
+                layout(page,f"{width}/{case}")
+                menu(page,"life")
+                check(page.locator("#nav-life a").count()==2,"case shared nav")
+                page.locator("#nav-life a").first.click()
+                page.wait_for_url("**/#music")
+                loaded(page)
+                target(page,"music")
+            check(not errors,f"{width} JS errors: {errors}")
+            print(f"PASS {width}px: languages, menu, anchors, modal, archive, case round trips",flush=True)
+            ctx.close()
+        browser.close()
+if __name__=="__main__":run()

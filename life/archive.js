@@ -12,13 +12,13 @@ function translate(){root.querySelectorAll('[data-zh][data-en]').forEach(el=>el.
 document.addEventListener('portfolio:language',e=>{lang=e.detail==='en'?'en':'zh';translate();});
 function svgEl(tag,attrs={}){const e=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));return e;}
 function sectionHeader(title,detail){const h=node('div','atlas-header');h.append(node('h2','',title),node('p','',detail));return h;}
-function featured(data){
+function featured(data,stageRecords){
  const section=node('section','featured-works');section.id='music-featured';
  const main=node('div','featured-grid');const rest=node('div','featured-list');
  const dialog=node('dialog','work-dialog');dialog.setAttribute('aria-labelledby','work-dialog-title');
  const panel=node('div','work-dialog-panel');dialog.append(panel);
  let returnFocus=null;
- dialog.addEventListener('close',()=>{document.body.classList.remove('dialog-open');if(returnFocus?.isConnected)returnFocus.focus();});
+ dialog.addEventListener('close',()=>{document.body.classList.remove('dialog-open');if(returnFocus?.isConnected)returnFocus.focus({preventScroll:true});});
  dialog.addEventListener('click',e=>{if(e.target===dialog){const r=panel.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
  function openWork(r,trigger){
    returnFocus=trigger;panel.replaceChildren();
@@ -29,11 +29,12 @@ function featured(data){
    if(r.title.en===r.title.zh)otherTitle.hidden=true;
    top.append(node('p','work-eyebrow',r.context||r.subtitle),title,otherTitle);
    panel.append(close,top,node('p','work-version',r.subtitle));
+   if(r.performances?.length){const list=node('div','work-performances');for(const performance of r.performances){const row=node('div','work-performance');row.append(node('h3','',performance.title),node('p','',performance.subtitle),node('p','',performance.detail));list.append(row);}panel.append(list);}
    if(r.tracks?.length){
      const list=node('ul','work-tracks');for(const track of r.tracks)list.append(node('li','',track));
      panel.append(node('h3','work-track-heading',t('收藏唱段','Selected recordings')),list);
    }
-   panel.append(node('p','work-detail-note',['lesmis','phantom'].includes(r.style)?t('伦敦西区剧场记忆与音乐收藏。','A West End theatre memory and listening collection.'):t('音乐收藏中的一部作品；不代表现场观看记录。','A work from the collection; not a claim of live attendance.')));
+   panel.append(node('p','work-detail-note',['westend','lesmis','phantom'].includes(r.style)?t('伦敦西区剧场记忆与音乐收藏。','A West End theatre memory and listening collection.'):t('音乐收藏中的一部作品；不代表现场观看记录。','A work from the collection; not a claim of live attendance.')));
    translate();dialog.showModal();document.body.classList.add('dialog-open');close.focus();
  }
  function makeCard(r,primary){
@@ -45,13 +46,16 @@ function featured(data){
    const subtitle=node('span','feature-subtitle',primary?t(r.title.en,r.title.zh):r.subtitle);
    if(primary&&r.title.zh===r.title.en)subtitle.hidden=true;
    body.append(title,subtitle);
-   if(primary&&r.tracks?.length)body.append(node('span','feature-tracks',r.tracks.join(' · ')));
+   if(primary&&r.performances?.length)body.append(node('span','feature-tracks',t(r.performances.map(p=>p.title.zh).join(' · '),r.performances.map(p=>p.title.en).join(' · '))));
+   else if(primary&&r.tracks?.length)body.append(node('span','feature-tracks',r.tracks.join(' · ')));
    const arrow=node('span','feature-arrow','↗');arrow.setAttribute('aria-hidden','true');
    btn.append(body,arrow);btn.addEventListener('click',()=>openWork(r,btn));article.append(btn);return article;
  }
- for(const r of data) (r.large?main:rest).append(makeCard(r,!!r.large));
+ const westEnd={style:'westend',title:t('伦敦西区','West End'),context:t('剧场记忆 · 2026 年夏','Theatre memories · Summer 2026'),subtitle:t('伦敦的两场现场音乐剧','Two live musicals in London'),performances:stageRecords||[],tracks:[]};
+ main.append(makeCard(westEnd,true));
+ for(const r of data){if(r.style==='hadestown')main.append(makeCard(r,true));else rest.append(makeCard(r,false));}
  section.append(main);
- if(rest.children.length){section.append(node('h2','collection-heading',t('其他收藏','More from the collection')),rest);}
+ if(rest.children.length){const disclosure=node('details','collection-disclosure');disclosure.append(node('summary','',t('浏览其他作品 · '+rest.children.length+' 部','Browse other works · '+rest.children.length+' titles')),rest);section.append(disclosure);}
  section.append(dialog);return section;
 }
 function routeAtlas(data){
@@ -62,7 +66,7 @@ function routeAtlas(data){
  for(const n of data.nodes){const [x,y]=xy(n);svg.append(svgEl('circle',{cx:x,cy:y,r:n.id==='cn'?5:3.1,class:'atlas-node'}));const text=svgEl('text',{x:x+n.dx,y:y+n.dy,'text-anchor':n.anchor||'start',class:'atlas-label'});localize(text,n.title);svg.append(text);}
  frame.append(svg);section.append(frame,node('p','map-credit','Map outline: Natural Earth · public domain'));
  const controls=node('div','route-controls');const all=node('button','route-button',t('全部旅行','All journeys'));all.type='button';controls.append(all);const buttons=[all];const info=node('p','route-selection',t('选择一段旅程查看示意航迹。','Select a journey to highlight its routes.'));
- function select(id){for(const [key,layer] of layers)layer.classList.toggle('route-muted',!!id&&id!==key);for(const b of buttons)b.setAttribute('aria-pressed',String(b.dataset.route===id));const selected=data.journeys.find(j=>j.id===id);localize(info,selected?(selected.note||selected.count):t('选择一段旅程查看示意航迹。','Select a journey to highlight its routes.'));}
+ function select(id){for(const [key,layer] of layers)layer.classList.toggle('route-muted',!!id&&id!==key);for(const b of buttons)b.setAttribute('aria-pressed',String(b.dataset.route===id));const selected=data.journeys.find(j=>j.id===id);localize(info,selected?(selected.note?t(selected.count.zh+' · '+selected.note.zh,selected.count.en+' · '+selected.note.en):selected.count):t('选择一段旅程查看示意航迹。','Select a journey to highlight its routes.'));}
  all.dataset.route='';all.addEventListener('click',()=>select(''));
  for(const j of data.journeys){const btn=node('button','route-button');btn.type='button';btn.dataset.route=j.id;btn.append(node('strong','',j.title),node('span','',j.count));btn.addEventListener('click',()=>select(j.id));buttons.push(btn);controls.append(btn);}
  section.append(controls,info);select('');return section;
@@ -88,10 +92,12 @@ function render(data){
  if(data.schemaVersion!==1||data.kind!==kind||!Array.isArray(data.sections))throw Error('Invalid archive data');
  const fragment=document.createDocumentFragment();
  if(data.summary){const block=node('section','archive-summary');block.setAttribute('aria-label','Flight statistics');const meta=node('p','archive-meta',t('飞行日志概览 · '+data.summary.asOf,'Flight log snapshot · '+data.summary.asOf));block.append(meta);const grid=node('div','archive-metrics');for(const metric of data.summary.metrics){const item=node('div','archive-metric');item.append(node('strong','',metric.value),node('span','',metric.label));grid.append(item);}block.append(grid,node('p','archive-note',data.summary.note));fragment.append(block);}
- if(data.featured)fragment.append(featured(data.featured));
+ if(data.featured)fragment.append(featured(data.featured,data.sections.find(s=>s.id==='stage')?.records));
  if(data.routes)fragment.append(routeAtlas(data.routes));
  if(data.uk)fragment.append(ukAtlas(data.uk));
+ const secondaryGroups=node('details','collection-disclosure collection-records');secondaryGroups.append(node('summary','',t('其他音乐记录','More listening records')));
  for(const group of data.sections){
+  if(kind==='music'&&group.id==='stage')continue;
   const section=node('section','archive-group');section.id=kind+'-'+group.id;
   if(kind==='music'&&group.id==='musicals')section.classList.add('archive-secondary');
   const intro=node('div','archive-group-intro');intro.append(node('h2','',group.title),node('p','',group.description));section.append(intro);
@@ -118,8 +124,9 @@ function render(data){
     }
     search.addEventListener('input',filter);filter();details.append(summary,search,result,list);content.append(details);
   }else if(kind==='music'&&group.id==='musicals'){const details=node('details','archive-fold');details.append(node('summary','',t('其他看过的作品','Other works I’ve watched')),list);content.append(details);}else{content.append(list);}
-  section.append(content);fragment.append(section);
+  section.append(content);if(kind==='music'&&group.id!=='playlist-musicals')secondaryGroups.append(section);else fragment.append(section);
  }
+ if(secondaryGroups.children.length>1)fragment.append(secondaryGroups);
  root.replaceChildren(fragment);root.setAttribute('aria-busy','false');translate();
 }
 return fetch('./life/'+kind+'.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Archive unavailable');return r.json();}).then(render).catch(()=>{root.replaceChildren(node('p','archive-status',t('档案暂时无法读取，请刷新页面重试。','The archive could not load. Please refresh to try again.')));root.setAttribute('aria-busy','false');}).finally(()=>document.dispatchEvent(new Event('portfolio:archive-ready')));
