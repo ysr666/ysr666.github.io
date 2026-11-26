@@ -63,3 +63,5 @@ The site uses nine matched catalogue album covers, with exact album title, relea
 ### Directional flight map
 
 Each of the 19 recorded schematic segments is rendered individually. Outbound and return paths are visually separated using offsets from a great-circle reference, with two lanes per direction for the two approximate round trips. Blue is outbound, green is return; dashed grey paths are non-directional multi-country visit references. These visual offsets and arrows are not actual aircraft tracks or airport records. Fit bounds includes all arc points, with fractional zoom for narrow screens.
+
+Journey selection is above the map, using a native select on phone/tablet and compact buttons on desktop. Selecting a journey fits its arc bounds, dims unrelated routes and labels the selected endpoints. Selecting all restores the overview. The original flight and place records are unchanged.

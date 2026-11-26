@@ -66,7 +66,7 @@ function featured(data,stageRecords){
    body.append(node('span','feature-kicker',r.context),node('span','feature-title',r.title));
    if(r.performances)body.append(node('span','feature-subtitle',t('歌剧魅影 · 悲惨世界','The Phantom of the Opera · Les Misérables')));
    else body.append(node('span','feature-subtitle',r.album?.name||r.subtitle));
-   const footer=node('span','feature-action',r.performances?t('打开剧场记忆','View theatre memories'):t('打开唱片','View recording'));
+   const footer=node('span','feature-action');footer.append(node('span','',r.performances?t('打开剧场记忆','View theatre memories'):t('打开唱片','View recording')));
    const arrow=node('span','feature-arrow','↗');arrow.setAttribute('aria-hidden','true');footer.append(arrow);
    btn.append(art,body,footer);btn.addEventListener('click',()=>openWork(r,btn));article.append(btn);return article;
  }
@@ -124,14 +124,17 @@ function arrowOnArc(map,points,index,color,kind){
 }
 function routeAtlas(data){
  const section=node('section','route-atlas');section.id='travel-routes';section.append(sectionHeader(data.title,data.note));
- const frame=node('div','atlas-frame');const mapEl=node('div','geo-map route-map');mapEl.setAttribute('aria-label','Flight overview map');frame.append(mapEl);section.append(frame);
+ const frame=node('div','atlas-frame');const mapEl=node('div','geo-map route-map');mapEl.setAttribute('aria-label','Flight overview map');frame.append(mapEl);
  const legend=node('div','route-legend');
  for(const [key,label] of [['outbound',t('去程','Outbound')],['inbound',t('返程','Return')],['regional',t('多国旅行示意','Multi-country visits')]]){
    const item=node('span','route-legend-item');const swatch=node('span','route-legend-line '+key);swatch.setAttribute('aria-hidden','true');item.append(swatch,node('span','',label));legend.append(item);
  }
- section.append(legend);
- const controls=node('div','route-controls');const all=node('button','route-button',t('全部旅行','All journeys'));all.type='button';all.dataset.route='';controls.append(all);const buttons=[all];const info=node('p','route-selection');const nodes=new Map(data.nodes.map(n=>[n.id,n]));const layers=new Map();let map=null,selected='';
- function select(id){
+ const controls=node('div','route-controls');const all=node('button','route-button',t('全部旅行','All journeys'));all.type='button';all.dataset.route='';controls.append(all);const buttons=[all];const info=node('p','route-selection');const nodes=new Map(data.nodes.map(n=>[n.id,n]));const layers=new Map(),journeyBounds=new Map(),markers=new Map();let map=null,selected='',overview=null;
+ const pickerWrap=node('label','route-picker');pickerWrap.append(node('span','route-picker-label',t('选择旅程','Choose journey')));const picker=node('select','route-select');pickerWrap.append(picker);
+ const option=(id,label)=>{const o=node('option','',label);o.value=id;picker.append(o);};option('',t('全部旅行','All journeys'));
+ for(const j of data.journeys)option(j.id,t(j.title.zh+' · '+j.count.zh,j.title.en+' · '+j.count.en));
+ picker.addEventListener('change',()=>select(picker.value,true));
+ function select(id,focus=false){
    selected=id;
    for(const [key,layer] of layers){
      const active=!id||id===key;
@@ -142,28 +145,33 @@ function routeAtlas(data){
      if(id===key)layer.eachLayer(item=>{if(item instanceof L.Polyline)item.bringToFront();});
    }
    for(const b of buttons)b.setAttribute('aria-pressed',String(b.dataset.route===id));
-   const j=data.journeys.find(x=>x.id===id);localize(info,j?(j.note?t(j.count.zh+' · '+j.note.zh,j.count.en+' · '+j.note.en):j.count):t('点击旅程，突出显示相应的往返航线。','Select a journey to highlight its outbound and return arcs.'));
+   picker.value=id;
+   const j=data.journeys.find(x=>x.id===id);
+   const activeNodes=new Set(j?j.paths.flatMap(([a,b])=>[a,b]):[]);
+   for(const [key,marker] of markers){marker.setStyle({fillOpacity:!id||activeNodes.has(key)?1:.22,opacity:!id||activeNodes.has(key)?1:.3});if(id&&activeNodes.has(key))marker.openTooltip();else marker.closeTooltip();}
+   if(focus&&map&&overview){const bounds=id?journeyBounds.get(id):overview;if(bounds?.isValid())map.fitBounds(bounds,{padding:[30,36],maxZoom:id?5:3,animate:false});}localize(info,j?(j.note?t(j.count.zh+' · '+j.note.zh,j.count.en+' · '+j.note.en):j.count):t('点击旅程，突出显示相应的往返航线。','Select a journey to highlight its outbound and return arcs.'));
  }
- all.addEventListener('click',()=>select(''));for(const j of data.journeys){const btn=node('button','route-button');btn.type='button';btn.dataset.route=j.id;btn.append(node('strong','',j.title),node('span','',j.count));btn.addEventListener('click',()=>select(j.id));buttons.push(btn);controls.append(btn);}
- section.append(controls,info);select('');
+ all.addEventListener('click',()=>select('',true));for(const j of data.journeys){const btn=node('button','route-button');btn.type='button';btn.dataset.route=j.id;btn.append(node('strong','',j.title),node('span','',j.count));btn.addEventListener('click',()=>select(j.id,true));buttons.push(btn);controls.append(btn);}
+ info.setAttribute('aria-live','polite');
+ section.append(pickerWrap,controls,frame,legend,info);select('');
  requestAnimationFrame(()=>{
    map=setupMap(mapEl,{worldCopyJump:true,minZoom:0,zoomSnap:.25,zoomDelta:.5},[25,86],2);if(!map)return;
-   const bounds=L.latLngBounds([]);
+   const bounds=L.latLngBounds([]);overview=bounds;
    for(const j of data.journeys){
-     const layer=L.layerGroup().addTo(map),counts=new Map(),regional=j.id==='europe';
+     const layer=L.layerGroup().addTo(map),counts=new Map(),regional=j.id==='europe',localBounds=L.latLngBounds([]);
      for(const [a,b] of j.paths){
        const key=a+'>'+b,lane=counts.get(key)||0;counts.set(key,lane+1);
        const kind=regional?'regional':a==='cn'?'outbound':'inbound';
        const color=kind==='regional'?'#7a858e':kind==='outbound'?'#2359b8':'#168879';
        const points=directionalArc(map,nodes.get(a),nodes.get(b),lane,regional);
-       points.forEach(p=>bounds.extend(p));
-       const line=L.polyline(points,{className:'route-arc route-'+kind,color,weight:1.8,opacity:.88,lineCap:'round',lineJoin:'round',smoothFactor:.4,dashArray:regional?'5 5':null,interactive:false}).addTo(layer);
+       points.forEach(p=>{bounds.extend(p);localBounds.extend(p);});
+       const line=L.polyline(points,{className:'route-arc route-'+kind,color,weight:1.8,opacity:.88,lineCap:'round',lineJoin:'round',smoothFactor:1.15,dashArray:regional?'5 5':null,interactive:false}).addTo(layer);
        if(!regional)arrowOnArc(map,points,Math.round((points.length-1)*(.56+lane*.12)),color,kind).addTo(layer);
      }
-     layers.set(j.id,layer);
+     layers.set(j.id,layer);journeyBounds.set(j.id,localBounds);
    }
-   for(const n of data.nodes){const marker=L.circleMarker([n.lat,n.lon],{radius:n.id==='cn'?6:4,color:'#fff',weight:1.5,fillColor:'#172b39',fillOpacity:1}).addTo(map);const label=node('span','',n.title);marker.bindTooltip(label,{direction:'top'});bounds.extend([n.lat,n.lon]);}
-   map.fitBounds(bounds,{padding:[22,24],maxZoom:3,animate:false});select(selected);translate();
+   for(const n of data.nodes){const marker=L.circleMarker([n.lat,n.lon],{radius:n.id==='cn'?6:4,color:'#fff',weight:1.5,fillColor:'#172b39',fillOpacity:1}).addTo(map);const label=node('span','',n.title);marker.bindTooltip(label,{direction:'top',offset:[0,-6],className:'flight-label',opacity:.95});markers.set(n.id,marker);bounds.extend([n.lat,n.lon]);}
+   map.fitBounds(bounds,{padding:[24,30],maxZoom:3,animate:false});select(selected,!!selected);translate();
  });return section;
 }
 const categoryLabels={museum:t('博物馆 / 美术馆','Museum / gallery'),theatre:t('剧院','Theatre'),landmark:t('地标','Landmark'),district:t('街区 / 体验','District / experience')};
