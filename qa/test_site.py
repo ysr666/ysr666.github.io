@@ -22,7 +22,7 @@ def menu(page,id):
     check(page.locator(f'#nav-{id}').evaluate("(el)=>!el.inert"),id+" inert")
 def run():
     with sync_playwright() as p:
-        browser=p.chromium.launch(headless=True,args=["--no-sandbox"])
+        browser=p.chromium.launch(headless=True,args=["--no-sandbox"],**({"executable_path":os.environ["SITE_CHROME"]} if os.environ.get("SITE_CHROME") else {}))
         for width in [320,375,768,1024,1440]:
             ctx=browser.new_context(viewport={"width":width,"height":900},has_touch=width<=375,is_mobile=width<=375,device_scale_factor=1)
             page=ctx.new_page()

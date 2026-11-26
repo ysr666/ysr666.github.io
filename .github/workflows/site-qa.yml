@@ -3,6 +3,9 @@ on:
   push:
     branches: [main, 'site-quality-*']
   workflow_dispatch:
+concurrency:
+  group: site-qa-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -17,7 +20,11 @@ jobs:
       - name: Install browser test tools
         run: |
           python -m pip install playwright==1.51.0
-          python -m playwright install --with-deps chromium
+          if command -v google-chrome >/dev/null; then
+            echo "SITE_CHROME=$(command -v google-chrome)" >> "$GITHUB_ENV"
+          else
+            python -m playwright install chromium
+          fi
       - name: Start HTTP server and test
         run: |
           python3 -m http.server 8080 > /tmp/site-http.log 2>&1 &
