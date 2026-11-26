@@ -92,8 +92,8 @@
             "en": "His Majesty’s Theatre · London"
           },
           "detail": {
-            "zh": "2026 年夏 · 西区现场演出",
-            "en": "Summer 2026 · West End performance"
+            "zh": "伦敦西区 · 现场演出",
+            "en": "West End · Live performance"
           }
         },
         {
@@ -106,8 +106,8 @@
             "en": "Sondheim Theatre · London"
           },
           "detail": {
-            "zh": "2026 年夏 · 西区现场演出",
-            "en": "Summer 2026 · West End performance"
+            "zh": "伦敦西区 · 现场演出",
+            "en": "West End · Live performance"
           }
         }
       ]
@@ -125,6 +125,10 @@
         "year": "2015",
         "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f3/99/31/f399318c-3f0d-bfd5-7a69-0b78b22a90df/075679921338.jpg/600x600bb.jpg",
         "source": "https://music.apple.com/cn/album/hamilton-an-american-musical-original-broadway-cast/1025210938"
+      },
+      "description": {
+        "zh": "将美国建国史放进说唱、流行与传统音乐剧的语言之中。",
+        "en": "American history told through hip-hop, pop and musical theatre."
       }
     },
     {
@@ -138,6 +142,10 @@
         "year": "2010",
         "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/98/2f/09/982f09e1-63bd-4d35-e64f-69a4a4a1ce58/885890999654.jpg/600x600bb.jpg",
         "source": "https://music.apple.com/cn/album/les-mis%C3%A9rables-live-2010-london-cast-recording/390322608"
+      },
+      "description": {
+        "zh": "从个人命运到群像叙事，合唱是这部作品的重要音乐语言。",
+        "en": "Personal stories and collective voices meet in a powerful ensemble score."
       }
     },
     {
@@ -151,6 +159,10 @@
         "year": "2004",
         "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/77/ed/67/77ed670a-7f4b-d9af-eea9-c994a7e66da2/602567004370.jpg/600x600bb.jpg",
         "source": "https://music.apple.com/cn/album/the-phantom-of-the-opera-original/1843485036"
+      },
+      "description": {
+        "zh": "舞台、歌剧式旋律与戏剧性相结合的音乐剧。",
+        "en": "A musical where theatrical spectacle meets operatic melody."
       }
     },
     {
@@ -164,7 +176,82 @@
         "year": "1964",
         "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/80/b5/f6/80b5f6fb-9727-254c-61eb-fa2e75a204fe/mzi.xefgmlbj.jpg/600x600bb.jpg",
         "source": "https://music.apple.com/cn/album/my-fair-lady-original-1964-motion-picture-soundtrack/158520818"
+      },
+      "description": {
+        "zh": "1964 年电影原声；以语言、旋律和戏剧人物构成经典。",
+        "en": "The 1964 film soundtrack, bringing language, melody and character together."
+      }
+    },
+    {
+      "style": "oklahoma",
+      "title": {
+        "zh": "俄克拉荷马！",
+        "en": "Oklahoma!"
+      },
+      "album": {
+        "name": "Oklahoma! (Expanded Edition) [Original Motion Picture Soundtrack]",
+        "year": "1955",
+        "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/2f/f8/71/2ff8711c-8652-a33a-223e-b61d9f9c64f0/00028948123476.rgb.jpg/600x600bb.jpg",
+        "source": "https://music.apple.com/cn/album/oklahoma-expanded-edition-original-motion-picture-soundtrack/1440787701"
+      },
+      "description": {
+        "zh": "罗杰斯与汉默斯坦的经典音乐剧；这里选介电影原声版本。",
+        "en": "A Rodgers and Hammerstein classic, represented here by the film soundtrack."
+      }
+    },
+    {
+      "style": "bridges",
+      "title": {
+        "zh": "廊桥遗梦",
+        "en": "The Bridges of Madison County"
+      },
+      "album": {
+        "name": "Bridges of Madison County (Original Broadway Cast Recording)",
+        "year": "2014",
+        "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/b1/f8/45/b1f845e7-e577-c93b-2884-418908ce6681/791558948431.jpg/600x600bb.jpg",
+        "source": "https://music.apple.com/cn/album/bridges-of-madison-county-original-broadway-cast/1270809834"
+      },
+      "description": {
+        "zh": "杰森·罗伯特·布朗的音乐剧，以亲密的抒情叙事见长。",
+        "en": "Jason Robert Brown’s musical, with an intimate, lyrical score."
+      }
+    },
+    {
+      "style": "guys-dolls",
+      "title": {
+        "zh": "红男绿女",
+        "en": "Guys and Dolls"
+      },
+      "album": {
+        "name": "Guys and Dolls (New Broadway Cast Recording (1992))",
+        "year": "1992",
+        "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Features/62/ec/48/dj.jhujaxzk.jpg/600x600bb.jpg",
+        "source": "https://music.apple.com/cn/album/guys-and-dolls-new-broadway-cast-recording-1992/258638090"
+      },
+      "description": {
+        "zh": "从 Luck Be a Lady 出发，走进百老汇黄金时代的音乐。",
+        "en": "Luck Be a Lady offers a way into Broadway's golden-age sound."
       }
     }
-  ]
+  ],
+  "editorial": {
+    "themes": [
+      {
+        "zh": "合唱",
+        "en": "Choral music"
+      },
+      {
+        "zh": "华语流行",
+        "en": "Mandopop & Cantopop"
+      },
+      {
+        "zh": "器乐与配乐",
+        "en": "Instrumental & film music"
+      },
+      {
+        "zh": "流行音乐",
+        "en": "Pop"
+      }
+    ]
+  }
 }

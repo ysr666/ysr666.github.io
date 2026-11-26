@@ -180,3 +180,9 @@
 .impression-link{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-size:14px;font-weight:600}
 .impression-link::after{content:'↗';margin-left:8px}
 @media(max-width:650px){.impression-grid{grid-template-columns:1fr;gap:4px}.impression-card{padding:16px 0 20px}}
+
+/* Travel notes belong to a magazine-like spread, not a location directory. */
+.travel-impressions .impression-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);gap:30px}
+.travel-impressions .impression-card:first-child{border-top-color:var(--accent)}
+.impression-card h3{font-size:clamp(23px,2.6vw,32px)}
+@media(max-width:650px){.travel-impressions .impression-grid{grid-template-columns:1fr;gap:6px}}

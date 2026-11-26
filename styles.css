@@ -348,9 +348,10 @@ main [tabindex="-1"]:focus:not(:focus-visible){outline:none}
 @media(max-width:850px){.intro-actions{gap:12px 20px}}
 
 /* Real pages share the same portfolio shell, with progressive cross-document transitions. */
-@view-transition{navigation:auto}
-::view-transition-old(root){animation-duration:.16s}::view-transition-new(root){animation-duration:.22s}
-@media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none}}
+/* Use a progressive entrance animation, including on routes that redirect. */
+@media(prefers-reduced-motion:no-preference){.standalone-page{animation:page-enter .18s ease-out}@keyframes page-enter{from{opacity:.72;transform:translateY(3px)}to{opacity:1;transform:none}}}
+
+
 .home-split{grid-template-rows:auto}.home-split .visual-stage{grid-row:1;position:relative}
 .work-split{grid-template-rows:auto}.work-split>.work{grid-row:1;padding-top:42px}.work-split .visual-stage{grid-row:1}
 .standalone-page{padding-top:clamp(30px,5vw,72px)}.page-heading{margin-bottom:24px}.page-kicker{font-size:13px;color:var(--muted);margin:0 0 8px}.page-heading h1{font-size:clamp(38px,5vw,70px);letter-spacing:-.055em;line-height:1.12;font-weight:600;margin:0}

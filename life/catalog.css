@@ -19,3 +19,31 @@
 /* Selected works receive readable space; there is no promise of a complete collection. */
 .record-grid.public-selection{grid-template-columns:repeat(4,minmax(0,1fr));gap:26px 20px}.public-selection .record-card h2{font-size:clamp(15px,1.7vw,20px)}
 @media(max-width:650px){.record-grid.public-selection{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px}.public-selection .record-card h2{font-size:15px}}
+
+/* Life as editorial pages: a feature spread, a small curated shelf, and broad themes. */
+.music-feature-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(20px,4vw,52px);align-items:start;margin:14px 0 58px}
+.theatre-feature,.hamilton-feature{min-width:0}
+.theatre-cover-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+.theatre-cover-link,.hamilton-cover{display:block;min-width:0}
+.theatre-cover-link .album-cover,.hamilton-cover .album-cover{border-radius:5px;box-shadow:0 6px 20px #16232b14}
+.hamilton-feature{display:grid;grid-template-columns:minmax(0,1fr);align-content:start}
+.hamilton-cover{width:100%;max-width:calc((100vw - 160px)/3);justify-self:start}
+.theatre-feature-copy,.hamilton-copy{padding:19px 0 0}
+.editorial-eyebrow{font-size:12px;color:var(--muted);font-weight:600;margin:0 0 8px}
+.theatre-feature-copy h2,.hamilton-title{display:block;font-size:clamp(28px,3.3vw,43px);line-height:1.15;letter-spacing:-.05em;font-weight:600;margin:0 0 13px}
+.hamilton-copy>p:not(.editorial-eyebrow){font-size:15px;color:var(--muted);line-height:1.65;margin:0 0 8px}
+.theatre-production-list{display:grid;gap:0}
+.theatre-production{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--quiet);font-size:14px;align-items:baseline}
+.theatre-production strong{font-weight:600}.theatre-production span{color:var(--muted);font-size:12px}
+.editorial-small{font-size:12px!important;color:var(--muted);line-height:1.6;margin:9px 0}
+.editorial-inline-link{display:inline-flex;min-height:40px;align-items:center;color:var(--accent);font-size:13px;font-weight:600}
+.editorial-works,.beyond-stage{padding:28px 0 35px;border-top:1px solid var(--quiet)}
+.editorial-heading{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px 30px;margin-bottom:23px}
+.editorial-heading h2{font-size:clamp(25px,3vw,37px);font-weight:600;letter-spacing:-.045em;margin:0}
+.editorial-heading p{max-width:48ch;font-size:14px;color:var(--muted);margin:0}
+.public-selection .record-card h3{font-size:clamp(16px,1.8vw,21px);font-weight:600;letter-spacing:-.02em;margin:12px 0 5px;line-height:1.35}
+.public-selection .record-card p{font-size:13px;line-height:1.65}
+.music-theme-line{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.music-theme{border-top:2px solid var(--quiet);padding:14px 0;font-size:clamp(16px,2vw,24px);letter-spacing:-.025em}
+@media(min-width:1000px){.hamilton-cover{max-width:300px}}
+@media(max-width:650px){.music-feature-grid{grid-template-columns:1fr;gap:25px;margin-bottom:36px}.theatre-production{grid-template-columns:1fr;gap:4px}.hamilton-feature{display:grid;grid-template-columns:minmax(110px,40%) minmax(0,1fr);gap:16px;align-items:start;padding-top:22px;border-top:1px solid var(--quiet)}.hamilton-cover{max-width:none}.hamilton-copy{padding:0}.hamilton-title{font-size:25px}.hamilton-copy>p:not(.editorial-eyebrow){font-size:13px}.public-selection .record-card h3{font-size:15px}.public-selection .record-card p{font-size:12px}.music-theme-line{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}

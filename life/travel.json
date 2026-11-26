@@ -376,8 +376,8 @@
       "en": "Travel impressions"
     },
     "description": {
-      "zh": "从旅途中选出几种文化体验。",
-      "en": "A few cultural experiences from my travels."
+      "zh": "从飞行到文化体验。",
+      "en": "From flight to cultural experiences."
     },
     "items": [
       {
@@ -390,8 +390,8 @@
           "en": "London's West End"
         },
         "description": {
-          "zh": "《歌剧魅影》与《悲惨世界》的现场剧场体验。",
-          "en": "Live performances of The Phantom of the Opera and Les Misérables."
+          "zh": "旅行不只是抵达一座城市。伦敦西区的《歌剧魅影》与《悲惨世界》，是将音乐与旅行连接起来的剧场体验。",
+          "en": "Travel is more than reaching a city. The Phantom of the Opera and Les Misérables connect theatre with the experience of London."
         },
         "link": "/life/music/",
         "linkLabel": {
@@ -409,8 +409,8 @@
           "en": "Museums & galleries"
         },
         "description": {
-          "zh": "以大英博物馆、国家美术馆为例，旅行也是接触艺术与历史的机会。",
-          "en": "The British Museum and the National Gallery are examples of the cultural side of travelling."
+          "zh": "旅行中的艺术与历史：大英博物馆的历史收藏，以及国家美术馆的绘画。",
+          "en": "Art and history on the road: historical collections at the British Museum and paintings at the National Gallery."
         }
       },
       {
@@ -423,8 +423,8 @@
           "en": "University towns"
         },
         "description": {
-          "zh": "牛津与剑桥的学院建筑和城市风貌。",
-          "en": "The collegiate architecture and urban character of Oxford and Cambridge."
+          "zh": "从牛津到剑桥，大学与城市交织的空间、学院建筑与历史。",
+          "en": "In Oxford and Cambridge, collegiate architecture and history are woven into the cities."
         }
       }
     ]
