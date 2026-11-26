@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "kind": "music",
+  "sections": [
+    {
+      "id": "musicals",
+      "title": {
+        "zh": "音乐剧与音乐电影",
+        "en": "Musicals & musical films"
+      },
+      "description": {
+        "zh": "看过或听过的作品，不混同现场演出与录音。",
+        "en": "Works encountered on stage, on screen or through recordings."
+      },
+      "records": [
+        {
+          "title": {
+            "zh": "歌剧魅影",
+            "en": "The Phantom of the Opera"
+          },
+          "subtitle": {
+            "zh": "舞台音乐剧",
+            "en": "Stage musical"
+          },
+          "detail": {
+            "zh": "伦敦西区现场观看。",
+            "en": "Seen live in London's West End."
+          }
+        },
+        {
+          "title": {
+            "zh": "窈窕淑女",
+            "en": "My Fair Lady"
+          },
+          "subtitle": {
+            "zh": "1964 年电影原声",
+            "en": "1964 film soundtrack"
+          },
+          "detail": {
+            "zh": "电影与原声专辑。",
+            "en": "Film and soundtrack."
+          }
+        },
+        {
+          "title": {
+            "zh": "廊桥遗梦",
+            "en": "The Bridges of Madison County"
+          },
+          "subtitle": {
+            "zh": "音乐剧 · 线上观看",
+            "en": "Musical · viewed online"
+          },
+          "detail": {
+            "zh": "看过英文版演出录像。",
+            "en": "Watched an English-language recording."
+          }
+        },
+        {
+          "title": {
+            "zh": "俄克拉荷马！",
+            "en": "Oklahoma!"
+          },
+          "subtitle": {
+            "zh": "音乐剧 · 音乐",
+            "en": "Musical · music"
+          },
+          "detail": {
+            "zh": "关注其音乐与唱段。",
+            "en": "Explored its music and songs."
+          }
+        }
+      ]
+    },
+    {
+      "id": "stage",
+      "title": {
+        "zh": "剧场记忆",
+        "en": "Theatre memories"
+      },
+      "description": {
+        "zh": "只记录确认已经看过的现场演出。",
+        "en": "Only confirmed live performances."
+      },
+      "records": [
+        {
+          "title": {
+            "zh": "歌剧魅影",
+            "en": "The Phantom of the Opera"
+          },
+          "subtitle": {
+            "zh": "His Majesty’s Theatre · 伦敦",
+            "en": "His Majesty’s Theatre · London"
+          },
+          "detail": {
+            "zh": "2026 年夏 · 西区现场演出",
+            "en": "Summer 2026 · West End performance"
+          }
+        }
+      ]
+    },
+    {
+      "id": "songs",
+      "title": {
+        "zh": "喜欢的唱段",
+        "en": "Favourite musical numbers"
+      },
+      "description": {
+        "zh": "从音乐剧中留下来的旋律。",
+        "en": "Songs worth returning to."
+      },
+      "records": [
+        {
+          "title": {
+            "zh": "The Music of the Night",
+            "en": "The Music of the Night"
+          },
+          "subtitle": {
+            "zh": "歌剧魅影",
+            "en": "The Phantom of the Opera"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Luck Be a Lady",
+            "en": "Luck Be a Lady"
+          },
+          "subtitle": {
+            "zh": "红男绿女",
+            "en": "Guys and Dolls"
+          },
+          "detail": null
+        }
+      ]
+    },
+    {
+      "id": "library",
+      "title": {
+        "zh": "音乐收藏选录",
+        "en": "Selected listening library"
+      },
+      "description": {
+        "zh": "来自已有音乐资料库的少量选录，不是实时播放榜单。",
+        "en": "A small selection from my music library, not a live listening chart."
+      },
+      "records": [
+        {
+          "title": {
+            "zh": "The Nights",
+            "en": "The Nights"
+          },
+          "subtitle": {
+            "zh": "Avicii · The Days / Nights – EP",
+            "en": "Avicii · The Days / Nights – EP"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Going Home (Live)",
+            "en": "Going Home (Live)"
+          },
+          "subtitle": {
+            "zh": "Kenny G",
+            "en": "Kenny G"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "远走高飞",
+            "en": "远走高飞"
+          },
+          "subtitle": {
+            "zh": "金志文",
+            "en": "Jin Zhiwen"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "明天，你好",
+            "en": "明天，你好"
+          },
+          "subtitle": {
+            "zh": "牛奶咖啡",
+            "en": "Milk Coffee"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "DAY BY DAY",
+            "en": "DAY BY DAY"
+          },
+          "subtitle": {
+            "zh": "T-ara",
+            "en": "T-ara"
+          },
+          "detail": null
+        }
+      ]
+    }
+  ]
+}

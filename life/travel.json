@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "kind": "travel",
+  "summary": {
+    "asOf": "2026-11",
+    "note": {
+      "zh": "来自个人飞行日志的阶段性估计，尚未逐条核算。",
+      "en": "Approximate snapshot from my personal flight log; individual records have not yet been reconciled."
+    },
+    "metrics": [
+      {
+        "value": "60+",
+        "label": {
+          "zh": "航班",
+          "en": "Flights"
+        }
+      },
+      {
+        "value": "≈20",
+        "label": {
+          "zh": "航空公司",
+          "en": "Airlines"
+        }
+      },
+      {
+        "value": "20+",
+        "label": {
+          "zh": "机型",
+          "en": "Aircraft types"
+        }
+      },
+      {
+        "value": "≈3.5×",
+        "label": {
+          "zh": "绕地球圈数",
+          "en": "Around the Earth"
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "flights",
+      "title": {
+        "zh": "飞行日志",
+        "en": "Flight log"
+      },
+      "description": {
+        "zh": "记录值得留下的飞行；这不是完整航班清单。",
+        "en": "Memorable flights, not a complete flight history."
+      },
+      "records": [
+        {
+          "title": {
+            "zh": "迪拜 → 伦敦",
+            "en": "Dubai → London"
+          },
+          "subtitle": {
+            "zh": "Emirates · Airbus A380 · 2026 年夏",
+            "en": "Emirates · Airbus A380 · Summer 2026"
+          },
+          "detail": {
+            "zh": "第 50 次记录在册的飞行，机长留下了留言。",
+            "en": "My 50th recorded flight, with a message from the captain."
+          },
+          "route": {
+            "from": "DXB",
+            "to": "London"
+          },
+          "airline": "Emirates",
+          "aircraft": "Airbus A380"
+        }
+      ]
+    },
+    {
+      "id": "places",
+      "title": {
+        "zh": "旅行足迹",
+        "en": "Places"
+      },
+      "description": {
+        "zh": "已确认到访的部分城市。",
+        "en": "A selection of confirmed visits."
+      },
+      "records": [
+        {
+          "title": {
+            "zh": "伦敦",
+            "en": "London"
+          },
+          "subtitle": {
+            "zh": "英国",
+            "en": "United Kingdom"
+          },
+          "detail": {
+            "zh": "西区剧场与旅行。",
+            "en": "West End theatre and travel."
+          }
+        },
+        {
+          "title": {
+            "zh": "牛津",
+            "en": "Oxford"
+          },
+          "subtitle": {
+            "zh": "英国",
+            "en": "United Kingdom"
+          },
+          "detail": {
+            "zh": "曾到访牛津大学。",
+            "en": "Visited the University of Oxford."
+          }
+        },
+        {
+          "title": {
+            "zh": "剑桥",
+            "en": "Cambridge"
+          },
+          "subtitle": {
+            "zh": "英国",
+            "en": "United Kingdom"
+          },
+          "detail": {
+            "zh": "曾到访剑桥大学。",
+            "en": "Visited the University of Cambridge."
+          }
+        }
+      ]
+    },
+    {
+      "id": "museums",
+      "title": {
+        "zh": "博物馆与文化地标",
+        "en": "Museums & landmarks"
+      },
+      "description": {
+        "zh": "把参观过的博物馆、展览和文化地标留在这里。",
+        "en": "A place for museum visits, exhibitions and cultural landmarks."
+      },
+      "records": [],
+      "empty": {
+        "zh": "暂无已整理的参观记录。",
+        "en": "No verified visit records added yet."
+      }
+    }
+  ]
+}

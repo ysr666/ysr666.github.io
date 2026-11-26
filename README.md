@@ -1,6 +1,6 @@
 # Shirui Ye / 叶石瑞
 
-A bilingual professional portfolio of open-source software, selected engineering work and qualifications.
+A bilingual personal website of open-source software, engineering work, qualifications, music, theatre, flights and travel.
 
 Website: https://ysr666.github.io/
 
@@ -33,3 +33,9 @@ Style direction: Taste Skill v2 Split Stage adapted to actual developer work. Mo
 - /FACT_AUDIT.md — public, source-tiered statement verification list.
 
 Both case studies run on the same static HTML/CSS/JavaScript stack. Screenshots are in qa/case-studies/.
+
+## Personal archives
+
+- [Music & Theatre](https://ysr666.github.io/life/music/) — works, stage memories, musical numbers and selected library records.
+- [Flight & Travel](https://ysr666.github.io/life/travel/) — flight log snapshot, flight highlights, places, and museum records.
+- Edit `life/music.json` and `life/travel.json` to add records; page design and language switching are shared. See [life/README.md](life/README.md) for the data format and privacy boundaries. No scheduled manual updates are expected. Digital Garden is deferred.
