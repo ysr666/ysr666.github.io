@@ -326,7 +326,7 @@ button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .nav-trigger[aria-expanded=true] svg{transform:rotate(180deg)}
 .topnav .nav-trigger:hover,.topnav .nav-trigger[data-active],.topnav .nav-trigger[aria-expanded=true],.topnav .nav-direct:hover,.topnav .nav-direct[aria-current=location]{color:var(--ink)}
 .topnav .nav-trigger[data-active]::after,.topnav .nav-direct[aria-current=location]::after{content:'';position:absolute;bottom:4px;left:2px;right:2px;height:2px;background:var(--ink)}
-.nav-dropdown{position:absolute;z-index:35;top:100%;left:50%;min-width:235px;width:max-content;max-width:300px;padding-top:6px;opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,-5px);transition:opacity .16s ease,transform .16s ease,visibility .16s}
+.nav-dropdown{position:absolute;z-index:35;top:100%;left:50%;min-width:235px;width:max-content;max-width:300px;padding-top:6px;opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,-5px);transition:opacity .16s ease,transform .16s ease}
 .nav-group.is-open>.nav-dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
 .nav-dropdown-inner{padding:var(--space-8) 0;background:#fff;border:1px solid var(--quiet);border-radius:var(--radius);box-shadow:0 10px 30px rgba(23,29,32,.08)}
 .topnav .nav-dropdown a{display:flex;position:relative;justify-content:space-between;align-items:center;gap:22px;min-height:46px;padding:10px var(--space-16);font-size:14px;line-height:1.4;color:var(--ink);white-space:normal}
@@ -422,3 +422,8 @@ main [tabindex="-1"]:focus:not(:focus-visible){outline:none}
 .page-kicker,.footer,.case-state,.stage-topline,.case-proof figcaption,.mini-meta{font-size:var(--type-caption)}
 .case-dek,.intro-lead{font-size:var(--type-lead)}
 .mini-project h3{font-size:var(--type-h3)}
+
+/* Visibility and focusability must change synchronously when disclosure opens. */
+.nav-group.is-open>.nav-dropdown{visibility:visible;transition:opacity .16s ease,transform .16s ease}
+.nav-group:focus-within>.nav-dropdown{transition:none}
+@media(prefers-reduced-motion:reduce){.nav-group.is-open>.nav-dropdown{transition:none}}

@@ -41,7 +41,10 @@ groups.forEach((group,i)=>{
    if(hover.matches&&lastPointer==='mouse'&&e.detail>0&&opened===i)return;
    if(opened===i)close();else open(i);
  });
- triggers[i].addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();open(i,true);if(e.key==='ArrowUp'){const links=panels[i].querySelectorAll('a');links[links.length-1]?.focus({preventScroll:true});}}});
+ triggers[i].addEventListener('keydown',e=>{
+   if(e.key==='Tab'&&!e.shiftKey&&opened===i){const first=panels[i].querySelector('a');if(first){e.preventDefault();first.focus({preventScroll:true});}return;}
+   if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();open(i,true);if(e.key==='ArrowUp'){const links=panels[i].querySelectorAll('a');links[links.length-1]?.focus({preventScroll:true});}}
+ });
  group.addEventListener('keydown',e=>{
    const links=[...panels[i].querySelectorAll('a')];const n=links.indexOf(document.activeElement);
    if(n<0)return;

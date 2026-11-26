@@ -33,3 +33,6 @@ P5 acceptance: test zoom/text resize, reduced motion, offline asset fallback, sc
 - WAI APG disclosure navigation (https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/): native disclosure buttons, aria-expanded, Tab through links, Escape dismissal and restored focus. Example is guidance, not a claim of tested AT compatibility. Keyboard regression tests added.
 - Shared header source: templates/site-header.html; regenerate using python tools/sync_header.py. CI checks generated static markup on nine real pages. No runtime dependency. Route-specific state and legacy links preserved.
 - CI trigger corrected to include design-system branches. Browser acceptance pending; screenshot review and further contrast checks are open.
+
+## P4/P5 acceptance round
+First browser run 45856785468: shared static header check passed; immediate keyboard Tab after opening Life disclosure failed. Fix visibility transitions and make Tab enter the opened disclosure explicitly. Preserve Escape and focus restoration checks. Independent first-screen capture of eight routes at 375/1440 px in both languages now precedes interaction tests, so visual review can proceed even if later tests fail. No full visual acceptance claimed yet.
