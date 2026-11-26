@@ -73,7 +73,7 @@ def run():
                 check(page.evaluate("new Set(Array.from(document.querySelectorAll(\x27.route-map path.route-arc\x27),p=>p.getAttribute(\x27d\x27))).size===19"),"each route has distinct geometry")
                 if width<=850: page.locator(".route-select").select_option("sg")
                 else: page.locator(".route-controls button[data-route=sg]").click()
-                page.wait_for_function("document.querySelectorAll('.route-map path.route-arc[stroke-opacity=\x270.88\x27]').length===4")
+                page.wait_for_function("selector => document.querySelectorAll(selector).length===4", arg='.route-map path.route-arc[stroke-opacity="0.88"]')
                 check(page.locator(".route-map .flight-label").count()==2,"Singapore endpoint labels")
                 if width in [375,1440] and lang=="en":
                     page.locator(".route-map").screenshot(path=str(OUT/f"flight-singapore-{width}.png"))
