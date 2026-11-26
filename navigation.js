@@ -8,7 +8,9 @@ const triggers=groups.map(g=>g.querySelector('.nav-trigger'));
 const panels=groups.map(g=>g.querySelector('.nav-dropdown'));
 const reduce=matchMedia('(prefers-reduced-motion: reduce)');
 const hover=matchMedia('(hover: hover) and (pointer: fine)');
-const isHome=!!document.getElementById('home');
+const page=document.body.dataset.sitePage||'case';const isHome=page==='home'||page==='work'||page==='background';
+const legacy={"home":"/","work":"/work/","vision":"/work/#vision","history":"/work/#history","wrapped":"/work/#wrapped","more":"/work/#more","journey":"/background/","honors":"/background/#honors","skills":"/background/#skills","about":"/background/#about","life":"/life/","music":"/life/music/","travel":"/life/travel/","contact":"/#contact"};
+if(page==='home'){const id=location.hash.slice(1);if(id&&legacy[id]&&!document.getElementById(id)){location.replace(legacy[id]);return;}}
 const chapters=['home','work','journey','life','contact'];
 const destinations={work:['work','vision','history','wrapped','more'],journey:['journey','honors','skills','about'],life:['music','travel']};
 let opened=-1,closeTimer=0,frame=0,requestId=0,highlightFrame=0,userNavigated=false,lastPointer='';
@@ -97,9 +99,9 @@ function highlight(){
  highlightFrame=0;
  if(!isHome){const marker=header.getBoundingClientRect().height+100;let active=null;const local=[...document.querySelectorAll('.detail-toc a[href^="#"]')];for(const a of local){const el=document.getElementById(a.hash.slice(1));if(el&&el.getBoundingClientRect().top<=marker)active=a;}for(const a of local){if(a===active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');}return;}
  const marker=header.getBoundingClientRect().height+Math.min(110,innerHeight*.17);
- let current='home';
+ let current=page==='work'?'work':page==='background'?'journey':'home';
  for(const id of chapters){const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=marker)current=id;}
- if(scrollY>0&&scrollY+innerHeight>=document.documentElement.scrollHeight-4)current='contact';
+ if(page==='home'&&scrollY>0&&scrollY+innerHeight>=document.documentElement.scrollHeight-4)current='contact';
  document.querySelectorAll('[data-chapter]').forEach(el=>{
    const on=el.dataset.chapter===current;
    if(el.tagName==='BUTTON'){el.toggleAttribute('data-active',on);}

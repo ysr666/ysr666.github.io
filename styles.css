@@ -346,3 +346,13 @@ main [tabindex="-1"]:focus:not(:focus-visible){outline:none}
 .intro-actions .action-text{gap:10px}
 .visual-picture.is-changing{opacity:.68}
 @media(max-width:850px){.intro-actions{gap:12px 20px}}
+
+/* Real pages share the same portfolio shell, with progressive cross-document transitions. */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation-duration:.16s}::view-transition-new(root){animation-duration:.22s}
+@media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none}}
+.home-split{grid-template-rows:auto}.home-split .visual-stage{grid-row:1;position:relative}
+.work-split{grid-template-rows:auto}.work-split>.work{grid-row:1;padding-top:42px}.work-split .visual-stage{grid-row:1}
+.standalone-page{padding-top:clamp(30px,5vw,72px)}.page-heading{margin-bottom:24px}.page-kicker{font-size:13px;color:var(--muted);margin:0 0 8px}.page-heading h1{font-size:clamp(38px,5vw,70px);letter-spacing:-.055em;line-height:1.12;font-weight:600;margin:0}
+.home-directory{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px}.home-directory>a{display:grid;grid-template-columns:1fr auto;gap:8px 15px;padding:20px 0;border-top:1px solid var(--quiet)}.home-directory>a>span:first-child{font-size:13px;color:var(--muted);grid-column:1/-1}.home-directory strong{font-size:clamp(20px,2.5vw,29px);font-weight:600}.home-directory>a:hover{color:var(--accent)}
+@media(max-width:650px){.home-directory{grid-template-columns:1fr}.work-split>.work{padding-top:24px}}

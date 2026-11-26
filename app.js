@@ -6,8 +6,8 @@ const stageName = document.querySelector('#stage-name');
 const stageDetail = document.querySelector('#stage-detail');
 const controls = [...document.querySelectorAll('.stage-dot')];
 const projects = {
-  vision: { name: 'Vision Router', secondary:'./assets/vision-settings.png', image: './assets/vision-demo.png', alt: {zh:'Vision Router 真实像素比对与界面重建截图',en:'Vision Router actual pixel comparison'}, kicker: {zh:'从图片到行动',en:'From image to action'}, detail: {zh:'让文字 Agent 也能看见、定位与验证。',en:'Verifiable visual tasks for text-first agents.'}},
-  history: { name: 'Computer History', secondary:'./assets/history-first-run.png', image: './assets/history-timeline.png', alt: {zh:'Computer History 时间线和继续工作界面',en:'Computer History real timeline and resume screen'}, kicker: {zh:'从活动到上下文',en:'From activity to context'}, detail: {zh:'只记录必要的元数据，让工作可以继续。',en:'Local, metadata-only work continuity.'}},
+  vision: { name: 'Vision Router', secondary:'/assets/vision-settings.png', image: '/assets/vision-demo.png', alt: {zh:'Vision Router 真实像素比对与界面重建截图',en:'Vision Router actual pixel comparison'}, kicker: {zh:'从图片到行动',en:'From image to action'}, detail: {zh:'让文字 Agent 也能看见、定位与验证。',en:'Verifiable visual tasks for text-first agents.'}},
+  history: { name: 'Computer History', secondary:'/assets/history-first-run.png', image: '/assets/history-timeline.png', alt: {zh:'Computer History 时间线和继续工作界面',en:'Computer History real timeline and resume screen'}, kicker: {zh:'从活动到上下文',en:'From activity to context'}, detail: {zh:'只记录必要的元数据，让工作可以继续。',en:'Local, metadata-only work continuity.'}},
   wrapped: { name: 'Agent Wrapped', image: null, alt: {zh:'Agent Wrapped 项目文字视觉',en:'Agent Wrapped editorial project visual'}, kicker: {zh:'从会话到故事',en:'From sessions to stories'}, detail: {zh:'把调试会话里的转折，变成可以回看的故事。',en:'The plot twists hidden in long coding sessions.'}}
 };
 let lang = 'zh';
@@ -32,7 +32,7 @@ const translate = () => {
     wrapped: lang === 'zh' ? '会话 · Agent Wrapped 预览' : 'Sessions · Agent Wrapped preview',
   };
   controls.forEach(el => el.setAttribute('aria-label', selectionLabels[el.dataset.go]));
-  document.title = lang === 'zh' ? '叶石瑞 / Shirui Ye — 把想法做成能工作的软件' : 'Shirui Ye — Ideas are better when they work';
+  document.title = document.body.dataset.sitePage==='work'?(lang==='zh'?'项目 · 叶石瑞':'Work · Shirui Ye'):lang === 'zh' ? '叶石瑞 / Shirui Ye — 把想法做成能工作的软件' : 'Shirui Ye — Ideas are better when they work';
   const p = projects[active];
   stageName.textContent = p.name;
   stageDetail.textContent = p.detail[lang];
@@ -63,7 +63,7 @@ controls.forEach(el => el.addEventListener('click', () => {
   // as the browser jumps from the preview to the matching project.
   manualSelectionUntil = Date.now() + 1200;
   setStage(el.dataset.go);
-  document.dispatchEvent(new CustomEvent('portfolio:navigate',{detail:el.dataset.go}));
+  if(document.body.dataset.sitePage==='home')location.href='/work/#'+el.dataset.go;else document.dispatchEvent(new CustomEvent('portfolio:navigate',{detail:el.dataset.go}));
 }));
 // Read current geometry rather than competing observer entries or a stale transition.
 const cases=[...document.querySelectorAll('[data-stage]')];

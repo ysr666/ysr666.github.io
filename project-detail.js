@@ -16,7 +16,8 @@
     });
     toggle.textContent=lang==='zh'?'EN':'中文';
     toggle.title=lang==='zh'?'Switch to English':'切换为中文';
-    document.title=document.body.dataset.pageTitle+' · '+(lang==='zh'?'叶石瑞':'Shirui Ye');
+    document.title=(lang==='zh'?(document.body.dataset.pageTitleZh||document.body.dataset.pageTitle):document.body.dataset.pageTitle)+' · '+(lang==='zh'?'叶石瑞':'Shirui Ye');
+    document.dispatchEvent(new CustomEvent('portfolio:language',{detail:lang}));
   }
   toggle.addEventListener('click',() => {
     lang=lang==='zh'?'en':'zh';

@@ -1,0 +1,32 @@
+(() => {
+'use strict';
+const root=document.querySelector('[data-music-view]');if(!root)return;
+const view=root.dataset.musicView,t=(zh,en)=>({zh,en});let lang=document.documentElement.lang==='en'?'en':'zh';
+function node(tag,cls,value){const el=document.createElement(tag);if(cls)el.className=cls;if(typeof value==='string')el.textContent=value;else if(value){el.dataset.zh=value.zh;el.dataset.en=value.en;el.textContent=value[lang]||value.zh;}return el;}
+function translate(){root.querySelectorAll('[data-zh][data-en]').forEach(el=>el.textContent=el.dataset[lang]);const input=root.querySelector('.archive-search');if(input){input.placeholder=lang==='zh'?'搜索歌曲、专辑':'Search tracks or albums';input.setAttribute('aria-label',input.placeholder);}}
+document.addEventListener('portfolio:language',e=>{lang=e.detail==='en'?'en':'zh';translate();});
+function cover(album){const box=node('span','album-cover');const img=node('img','album-image');img.alt=album.name;img.src=album.artwork;img.width=600;img.height=600;img.loading='lazy';img.decoding='async';img.referrerPolicy='no-referrer';const fallback=node('span','album-fallback',t('封面暂不可用','Artwork unavailable'));img.addEventListener('error',()=>{img.hidden=true;box.classList.add('art-unavailable');});box.append(fallback,img);return box;}
+function link(href,cls,label){const a=node('a',cls,label);a.href=href;return a;}
+function render(data){
+ const all=[...data.featured,...data.catalog],byId=new Map(all.map(r=>[r.style,r]));
+ const groups=new Map();for(const r of data.sections.find(s=>s.id==='playlist-musicals').records){const name=r.subtitle.en;if(!groups.has(name))groups.set(name,[]);groups.get(name).push(r);}
+ const trackList=r=>[...new Set([...(groups.get(r.album.name)||[]).map(x=>x.title.en),...(r.tracks||[])])];
+ const frag=document.createDocumentFragment();
+ if(view==='albums'){
+  const intro=node('div','catalog-intro');intro.append(node('p','',t(all.length+' 张唱片 · 原卡录音、电影原声与中文音乐剧',all.length+' recordings · cast albums, film scores and Chinese musicals')),link('/life/music/playlist/','',t('全部 '+groups.size+' 个录音版本 →','All '+groups.size+' playlist recordings →')));frag.append(intro);
+  const order=['hamilton','lesmis','phantom','fairlady','chinese','chinese2','chinese3','chinese4','hadestown','cats','chicago','wicked','dear-evan-hansen','notre-dame','red-black','waitress','six','sunset','la-la-land','mamma-mia','gatsby','outsiders'];const grid=node('div','record-grid');
+  for(const [i,id] of order.entries()){const r=byId.get(id);if(!r)continue;const a=link('/life/music/recording/?album='+encodeURIComponent(id),'record-card'+(i<3?' primary-record':''));a.append(cover(r.album),node('h2','',r.title),node('p','',r.album.year+' · '+(r.album.name.includes('Motion Picture')?'Soundtrack':'Cast / recording')));grid.append(a);}frag.append(grid);
+  const stage=node('section','catalog-stage');stage.append(node('h2','',t('剧场记忆 · West End','Theatre memories · West End')));const stageGrid=node('div','stage-grid');for(const r of data.sections.find(s=>s.id==='stage').records){const card=node('article','');card.append(node('h3','',r.title),node('p','',r.subtitle),node('p','',r.detail));stageGrid.append(card);}stage.append(stageGrid);frag.append(stage,node('p','catalog-credit',t('唱片封面来自 Apple Music 目录；录音收藏不等同于现场观看。','Artwork from the Apple Music catalogue. Recorded listening does not imply live attendance.')));
+ }else if(view==='recording'){
+  const r=byId.get(new URLSearchParams(location.search).get('album'));if(!r){frag.append(node('p','',t('找不到这张唱片。','Recording not found.')),link('/life/music/','album-source',t('返回收藏','Back to albums')));}else{const detail=node('article','record-detail'),body=node('div','');body.append(node('p','page-kicker',t('唱片收藏','Record collection')),node('h1','',r.title),node('p','',r.album.name),node('p','',r.album.year));const source=link(r.album.source,'album-source',t('在 Apple Music 查看 ↗','View on Apple Music ↗'));source.target='_blank';source.rel='noopener noreferrer';body.append(source,node('h2','work-track-heading',t('收藏唱段','Selected tracks')));const tracks=trackList(r),list=node('ul','work-tracks');for(const name of tracks)list.append(node('li','',name));if(tracks.length)body.append(list);else body.append(node('p','',t('已收藏录音版本，暂未列出单独唱段。','Recording collected; individual tracks are not listed yet.')));body.append(node('p','recording-note',t('封面对应录音版本，不代表现场演出卡司。','Cover represents the recording, not the cast of an attended performance.')));detail.append(cover(r.album),body);frag.append(detail);}
+ }else if(view==='playlist'){
+  const search=node('div','catalog-search'),input=node('input','archive-search'),count=node('span','catalog-count');input.type='search';count.setAttribute('aria-live','polite');search.append(input,count);frag.append(search);const rendered=[];
+  for(const [name,tracks] of groups){const section=node('section','catalog-track-group');section.append(node('h2','',name));const ul=node('ul','');for(const track of tracks)ul.append(node('li','',track.title));section.append(ul);frag.append(section);rendered.push({section,ul,name,tracks});}
+  function filter(){let n=0,albums=0;const q=input.value.trim().toLocaleLowerCase();for(const g of rendered){let shown=0;[...g.ul.children].forEach((el,i)=>{const ok=!q||(g.name+' '+g.tracks[i].title.en+' '+g.tracks[i].title.zh).toLocaleLowerCase().includes(q);el.hidden=!ok;if(ok)shown++;});g.section.hidden=!shown;n+=shown;if(shown)albums++;}const s=t(n+' 首 · '+albums+' 个录音版本',n+' tracks · '+albums+' recordings');count.dataset.zh=s.zh;count.dataset.en=s.en;count.textContent=s[lang];}input.addEventListener('input',filter);filter();
+ }else if(view==='listening'){
+  const group=data.sections.find(s=>s.id==='library'),list=node('ul','listening-list');frag.append(node('p','catalog-credit',group.description));for(const r of group.records){const li=node('li','');li.append(node('strong','',r.title),node('span','',r.subtitle));list.append(li);}frag.append(list);
+ }
+ root.replaceChildren(frag);root.setAttribute('aria-busy','false');translate();
+}
+fetch('/life/music.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('music');return r.json();}).then(render).catch(()=>{root.replaceChildren(node('p','archive-status',t('音乐收藏暂时无法读取，请刷新。','The collection could not load. Please refresh.')));root.setAttribute('aria-busy','false');});
+})();

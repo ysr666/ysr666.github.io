@@ -69,3 +69,6 @@ Journey selection is above the map, using a native select on phone/tablet and co
 The map library and tiles load only near the travel section. A failed CDN does not block the original portfolio or music collection; links remain usable. The UK place index selects its corresponding marker and opens an in-page popup, while the separate arrow opens the full external map.
 
 The editorial layout displays nine distinct covers without duplicates. The West End feature keeps both recording links and track lists. The map overview adds labels for China, Japan, Thailand, Singapore, New Zealand and Europe; selected journeys still show the actual endpoint names in the existing data. No route or collection records were changed.
+
+## Multi-page collection (2026-11-26)
+Home, work, background, life, album collection, playlist, daily listening, recording details and travel now have separate URLs and the same header, language preference and stylesheet. Old home hashes redirect to the corresponding page. The gallery displays 22 verified artwork-backed recordings (nine previous plus thirteen exact catalogue matches to the playlist); the complete 59-version/78-track index is a separate searchable page. Daily listening has its own page. No in-page archive accordions. Tracks and performance records remain in the JSON.
