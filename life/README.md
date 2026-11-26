@@ -72,3 +72,5 @@ The editorial layout displays nine distinct covers without duplicates. The West 
 
 ## Multi-page collection (2026-11-26)
 Home, work, background, life, album collection, playlist, daily listening, recording details and travel now have separate URLs and the same header, language preference and stylesheet. Old home hashes redirect to the corresponding page. The gallery displays 22 verified artwork-backed recordings (nine previous plus thirteen exact catalogue matches to the playlist); the complete 59-version/78-track index is a separate searchable page. Daily listening has its own page. No in-page archive accordions. Tracks and performance records remain in the JSON.
+
+All 22 cover-backed recordings have equal visual weight in the gallery, with Hamilton and the two West End works first. Other watched works and the two favorite musical numbers remain visible without accordion controls. Recording detail separates exact playlist-version tracks from other collected numbers whose versions may differ.
