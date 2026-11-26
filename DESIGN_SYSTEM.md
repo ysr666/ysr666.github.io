@@ -76,3 +76,5 @@ Project previews follow the actual reading position and the latest explicit navi
 
 ### Editorial visual pass
 The album covers themselves form a three-square composition at desktop widths, with the West End pair and Hamilton as complementary entries. On mobile the West End pair remains adjacent and Hamilton becomes a horizontal compact feature. The six other covers form a smaller shelf; the two West End works are not duplicated there and their tracks remain in the theatre dialog. Flight overview labels identify the principal regions without cluttering the dense European endpoints. The screenshot job includes CJK fonts.
+
+Public music presentation must be deliberately selected by the owner, not inferred from a private library or playlist.

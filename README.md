@@ -36,7 +36,7 @@ Both case studies run on the same static HTML/CSS/JavaScript stack. Screenshots 
 
 ## Personal archives
 
-- [Music & Theatre](https://ysr666.github.io/#music) — works, stage memories, musical numbers and selected library records.
+- [Music & Theatre](https://ysr666.github.io/#music) — selected works and theatre memories.
 - [Flight & Travel](https://ysr666.github.io/#travel) — flight log snapshot, flight highlights, places, and museum records.
 - Edit `life/music.json` and `life/travel.json` to add records; page design and language switching are shared. See [life/README.md](life/README.md) for the data format and privacy boundaries. No scheduled manual updates are expected. Digital Garden is deferred.
 
@@ -48,4 +48,4 @@ The browser regression suite (`qa/test_site.py`) checks both languages, responsi
 
 The personal archive uses matched album artwork and real map tiles; missing third-party content degrades to readable labels or place links. Artwork rights remain with their owners.
 
-Site structure: `/`, `/work/`, `/background/`, `/life/`, `/life/music/`, `/life/music/playlist/`, `/life/music/listening/`, `/life/music/recording/?album=…`, `/life/travel/`. Shared navigation, language and cross-document transition enhancement; original project case URLs unchanged.
+Site structure: `/`, `/work/`, `/background/`, `/life/`, `/life/music/`, `/life/music/recording/?album=…`, `/life/travel/`. Shared navigation, language and cross-document transition enhancement; original project case URLs unchanged.
