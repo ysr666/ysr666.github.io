@@ -12,12 +12,12 @@ Checked 2026-10-22. Public summary of the audit; no private CV files, personal c
 | Public statement | Evidence class | Editorial action |
 |---|---|---|
 | XJTU Youth Gifted Program, mechanical engineering class 2606 | Self-reported research CV | Retain |
-| CET-4 and CET-6 passed (no numerical score) | Self-reported research CV | Retain; never invent exam scores |
-| Four listed competitions and awards + school merit student | Self-reported research CV | Retain exact levels; avoid invented dates or certificate numbers |
+| CET-4 and CET-6 passed; preparing for IELTS (no numerical score) | Self-reported research CV and owner update (2026-11-26) | Retain; never invent exam scores |
+| Four listed competition awards, including national first prize in the National College Physics Experiment (Innovation) Competition | Self-reported research CV and owner update (2026-11-26) | Retain exact levels; omit school recognition; avoid invented dates or certificate numbers |
 | 2025 XJTU Tengfei Cup first prize | Research CV and team project records | Explicitly attribute to **aircraft project team**, not solo achievement |
 | Aircraft project joined national undergraduate innovation training program | Research CV and team proposal | Say project member, CAD / 3D print / assembly / tests; no published-paper authorship claim |
 | Neurosignal simulated-arm response | Research CV | Describe as a basic experiment, not a finished BCI product |
-| Mars air-ground sampling and SolidWorks servo arm | Owner's ongoing project records | Clearly described as planning / coursework under checking |
+| Mars air-ground sampling (State Key Laboratory project) and SolidWorks servo arm | Owner's ongoing project records and update (2026-11-26) | Clearly described as planning / coursework under checking |
 | Vision Router 14 deep tools, model keeps reasoning control | Project README | Retain; link project case |
 | Vision Router v3.0.5 | GitHub Release 2026-10-20 | Verified published tag at review time |
 | Vision Router's keyless fallback is a cloud route | Project README data-flow warning | **New: explicitly state that data can leave the computer** |
