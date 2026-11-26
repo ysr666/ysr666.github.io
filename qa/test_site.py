@@ -21,6 +21,18 @@ def run():
             check(page.locator("script[src*=leaflet]").count()==0,"home has no maps")
             for lang in ["zh","en"]:
                 if lang=="en":page.locator("#lang-toggle").click()
+                page.evaluate("document.fonts.ready")
+                title=page.locator("#hero-title").bounding_box()
+                frame=page.locator(".home-split .visual-frame").bounding_box()
+                intro=page.locator(".home-split .intro").bounding_box()
+                if width>850:
+                    check(abs(title["y"]-frame["y"])<=1.5,"hero title and image frame share top line: "+str((title["y"],frame["y"])))
+                    check(abs(intro["y"]+intro["height"]-frame["y"]-frame["height"])<=1.5,"hero columns share bottom line")
+                else:
+                    check(abs(title["x"]-frame["x"])<=1.5,"mobile hero gutters align")
+                    check(frame["y"]>=intro["y"]+intro["height"]-1,"mobile visual follows intro")
+                if width in [375,1024,1440]:
+                    page.screenshot(path=str(OUT/f"home-{width}-{lang}.png"))
                 page.locator("[aria-controls=nav-life]").click()
                 page.locator("#nav-life a[href='/life/music/']").click();page.wait_for_url("**/life/music/");ready(page);layout(page)
                 check(page.locator(".record-card").count()==4,"four secondary selected works")

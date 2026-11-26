@@ -352,7 +352,23 @@ main [tabindex="-1"]:focus:not(:focus-visible){outline:none}
 @media(prefers-reduced-motion:no-preference){.standalone-page{animation:page-enter .18s ease-out}@keyframes page-enter{from{opacity:.72;transform:translateY(3px)}to{opacity:1;transform:none}}}
 
 
-.home-split{grid-template-rows:auto}.home-split .visual-stage{grid-row:1;position:relative}
+/* Home hero: the name and image panel share a real top and bottom grid line. */
+.home-split{grid-template-rows:auto;--hero-gutter:clamp(24px,3.2vw,54px);--hero-inset:clamp(24px,3vw,44px)}
+.home-split>.visual-stage{grid-row:1;position:relative;top:auto}
+@media(min-width:851px){
+ .home-split{padding-top:var(--hero-inset);padding-bottom:var(--hero-inset);align-items:stretch}
+ .home-split>.visual-stage{display:flex;align-self:stretch;min-height:clamp(500px,64svh,650px);height:auto;padding:0 0 0 var(--hero-gutter)}
+ .home-split .visual-frame{flex:1 1 auto;width:100%;height:auto;min-height:0}
+ .home-split>.intro{min-height:clamp(500px,64svh,650px);height:auto;padding-top:0;padding-bottom:0;padding-right:var(--hero-gutter);justify-content:flex-start;align-self:stretch}
+ .home-split .intro h1{max-width:none;margin-top:0}
+ .home-split .intro-foot{margin-top:auto;padding-top:30px}
+}
+@media(max-width:850px){
+ .home-split{--hero-gutter:clamp(20px,4vw,32px)}
+ .home-split>.intro{padding-left:var(--hero-gutter);padding-right:var(--hero-gutter);padding-top:clamp(28px,5vw,46px);padding-bottom:28px}
+ .home-split>.visual-stage{padding:0 var(--hero-gutter);top:auto}
+ .home-split .intro-foot{margin-top:30px}
+}
 .work-split{grid-template-rows:auto}.work-split>.work{grid-row:1;padding-top:42px}.work-split .visual-stage{grid-row:1}
 .standalone-page{padding-top:clamp(30px,5vw,72px)}.page-heading{margin-bottom:24px}.page-kicker{font-size:13px;color:var(--muted);margin:0 0 8px}.page-heading h1{font-size:clamp(38px,5vw,70px);letter-spacing:-.055em;line-height:1.12;font-weight:600;margin:0}
 .home-directory{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px}.home-directory>a{display:grid;grid-template-columns:1fr auto;gap:8px 15px;padding:20px 0;border-top:1px solid var(--quiet)}.home-directory>a>span:first-child{font-size:13px;color:var(--muted);grid-column:1/-1}.home-directory strong{font-size:clamp(20px,2.5vw,29px);font-weight:600}.home-directory>a:hover{color:var(--accent)}
