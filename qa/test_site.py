@@ -38,6 +38,8 @@ def run():
                 intro=page.locator(".home-split .intro").bounding_box()
                 if width>850:
                     check(abs(title["y"]-frame["y"])<=1.5,"hero title and image frame share top line: "+str((title["y"],frame["y"])))
+                    if width>=1440:
+                        check(frame["y"]+frame["height"]<=900,"desktop project preview fits first viewport")
                     check(abs(intro["y"]+intro["height"]-frame["y"]-frame["height"])<=1.5,"hero columns share bottom line")
                 else:
                     check(abs(title["x"]-frame["x"])<=1.5,"mobile hero gutters align")
