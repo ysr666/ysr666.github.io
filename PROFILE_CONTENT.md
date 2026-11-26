@@ -12,14 +12,13 @@ Only career-relevant and source-supported experiences are presented on the publi
 - GitHub project details, releases and limitations are checked against the respective repositories. Forks are not presented as the user's original work.
 
 ## Listed honors
-- Northwest regional First Prize, National College Physics Experiment (Innovation) Competition.
+- National First Prize, National College Physics Experiment (Innovation) Competition.
 - Provincial First Prize, National Youth Science Popularization Innovation Competition.
 - Provincial Innovation Potential Award, innovation competition's Emerging Ideas track.
 - 2025 XJTU Tengfei Cup First Prize, associated with the aircraft project team.
-- School Merit Student.
 
 ## Languages and tools
-- CET-4 and CET-6 passed; do not invent numerical scores.
+- CET-4 and CET-6 passed; currently preparing for IELTS. Do not invent numerical scores.
 - Python, C++ basics, TypeScript/JavaScript, Git/GitHub; React, Vue and uni-app in project practice.
 - Fusion 360, 3D printing and assembly, basic Arduino; exposure to PX4.
 - SolidWorks, robotics and intelligent manufacturing are continuing studies, not claims of proficiency.
@@ -30,7 +29,7 @@ Only career-relevant and source-supported experiences are presented on the publi
 - No public phone number, home address, private family or confidential project details.
 
 ## Additional engineering practice (scope and status)
-- Mars air–ground sampling concept: rover, arm and drone selection, integration and sample-transfer planning. **Ongoing**; do not claim completed hardware integration, autonomous landing or sampling.
+- Mars air–ground sampling concept (State Key Laboratory project): rover, arm and drone selection, integration and sample-transfer planning. **Ongoing**; do not claim completed hardware integration, autonomous landing or sampling.
 - SolidWorks six-servo robotic arm assembly: coursework involving servo/link/gripper assembly and joint mate/interference review. **Checks were still under review**; do not claim final motion/interference acceptance.
 - Neural signal acquisition and simulated response: hands-on sensor wiring/acquisition/debugging and a simple simulated-arm response demonstration, not a complete brain–computer interface product.
 - The portfolio shows these as concise entries and does not repeat prizes separately already listed under Honors.
