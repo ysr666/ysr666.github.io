@@ -55,3 +55,7 @@ Top navigation uses disclosure buttons for Work, Background and Life, with hover
 The quality pass consolidates West End attendance into one featured memory (The Phantom of the Opera and Les Misérables) and keeps Hamilton as recordings, not attendance. Other titles and extra listening records are disclosure sections; their data is retained.
 
 Map tile access may be unavailable on some networks; the archive retains place links and a readable list. Route curves are spherical interpolation of approximate endpoints, not actual flight tracks. No geolocation or booking data is sent. The OpenStreetMap tile usage policy applies.
+
+## Album visual presentation
+
+The site uses nine matched catalogue album covers, with exact album title, release year and Apple Music source in `music.json`. The cover art is referenced, not rehosted or represented as personal photography. West End attendance is a separate record; the accompanying Phantom (2004 film) and Les Misérables (2010 London recording) covers are related recordings, not the attended casts. The responsive shelf exposes the collection directly; native dialogs reveal details. Missing art has a truthful fallback. The stylesheet was replaced rather than layered over earlier card styles.

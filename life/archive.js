@@ -14,49 +14,74 @@ function svgEl(tag,attrs={}){const e=document.createElementNS('http://www.w3.org
 function sectionHeader(title,detail){const h=node('div','atlas-header');h.append(node('h2','',title),node('p','',detail));return h;}
 function featured(data,stageRecords){
  const section=node('section','featured-works');section.id='music-featured';
- const main=node('div','featured-grid');const rest=node('div','featured-list');
+ const main=node('div','featured-grid'), shelf=node('div','album-shelf');
  const dialog=node('dialog','work-dialog');dialog.setAttribute('aria-labelledby','work-dialog-title');
  const panel=node('div','work-dialog-panel');dialog.append(panel);
  let returnFocus=null;
+ const byKey=new Map(data.map(r=>[r.style,r]));
+ function cover(album,priority=false){
+   const box=node('span','album-cover');
+   const fallback=node('span','album-fallback',t('封面暂不可用','Artwork unavailable'));
+   const img=node('img','album-image');img.alt=album.name;img.width=600;img.height=600;img.loading=priority?'eager':'lazy';img.decoding='async';img.referrerPolicy='no-referrer';
+   img.addEventListener('error',()=>{img.hidden=true;box.classList.add('art-unavailable');});
+   img.src=album.artwork;box.append(fallback,img);return box;
+ }
+ function albumLink(album){
+   const link=node('a','album-source',t('在 Apple Music 查看 ↗','View on Apple Music ↗'));
+   link.href=album.source;link.target='_blank';link.rel='noopener noreferrer';return link;
+ }
  dialog.addEventListener('close',()=>{document.body.classList.remove('dialog-open');if(returnFocus?.isConnected)returnFocus.focus({preventScroll:true});});
  dialog.addEventListener('click',e=>{if(e.target===dialog){const r=panel.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
  function openWork(r,trigger){
    returnFocus=trigger;panel.replaceChildren();
-   const close=node('button','work-close',t('关闭 ×','Close ×'));close.type='button';close.addEventListener('click',()=>dialog.close());
-   const top=node('div','work-dialog-top');
+   const close=node('button','work-close',t('关闭 ×','Close ×'));close.type='button';close.addEventListener('click',()=>dialog.close());panel.append(close);
+   const top=node('div','work-dialog-top'),text=node('div','work-dialog-text');
    const title=node('h2','',r.title);title.id='work-dialog-title';
-   const otherTitle=node('p','work-other-title',t(r.title.en,r.title.zh));
-   if(r.title.en===r.title.zh)otherTitle.hidden=true;
-   top.append(node('p','work-eyebrow',r.context||r.subtitle),title,otherTitle);
-   panel.append(close,top,node('p','work-version',r.subtitle));
-   if(r.performances?.length){const list=node('div','work-performances');for(const performance of r.performances){const row=node('div','work-performance');row.append(node('h3','',performance.title),node('p','',performance.subtitle),node('p','',performance.detail));list.append(row);}panel.append(list);}
-   if(r.tracks?.length){
-     const list=node('ul','work-tracks');for(const track of r.tracks)list.append(node('li','',track));
-     panel.append(node('h3','work-track-heading',t('收藏唱段','Selected recordings')),list);
+   text.append(node('p','work-eyebrow',r.context||r.subtitle),title);
+   if(r.album){top.append(cover(r.album,true));text.append(node('p','work-version',r.album.name),node('p','work-year',r.album.year),albumLink(r.album));}
+   else text.append(node('p','work-version',r.subtitle));
+   top.append(text);panel.append(top);
+   if(r.performances?.length){
+     const list=node('div','work-performances');
+     r.performances.forEach((performance,i)=>{
+       const row=node('div','work-performance'),work=byKey.get(i===0?'phantom':'lesmis'),details=node('div','');
+       if(work?.album)row.append(cover(work.album,true));
+       details.append(node('h3','',performance.title),node('p','',performance.subtitle),node('p','',performance.detail));
+       if(work?.album)details.append(albumLink(work.album));
+       row.append(details);list.append(row);
+     });
+     panel.append(list,node('p','work-detail-note',t('封面对应相关录音版本，并非现场演出照片或当日卡司。','Album artwork represents related recordings, not photos or casts from the attended shows.')));
    }
-   panel.append(node('p','work-detail-note',['westend','lesmis','phantom'].includes(r.style)?t('伦敦西区剧场记忆与音乐收藏。','A West End theatre memory and listening collection.'):t('音乐收藏中的一部作品；不代表现场观看记录。','A work from the collection; not a claim of live attendance.')));
+   if(r.tracks?.length){const list=node('ul','work-tracks');for(const track of r.tracks)list.append(node('li','',track));panel.append(node('h3','work-track-heading',t('收藏唱段','Selected tracks')),list);}
    translate();dialog.showModal();document.body.classList.add('dialog-open');close.focus();
  }
- function makeCard(r,primary){
-   const article=node('article',primary?'feature-work feature-'+r.style:'feature-row');
-   const btn=node('button',primary?'feature-button':'feature-row-button');btn.type='button';btn.setAttribute('aria-haspopup','dialog');
+ function feature(r){
+   const article=node('article','feature-work feature-'+r.style);
+   const btn=node('button','feature-button');btn.type='button';btn.setAttribute('aria-haspopup','dialog');
+   const art=node('div','feature-artwork');
+   if(r.performances){
+     art.classList.add('westend-art');for(const key of ['phantom','lesmis']){const w=byKey.get(key);if(w?.album)art.append(cover(w.album,true));}
+   }else if(r.album)art.append(cover(r.album,true));
    const body=node('div','feature-body');
-   if(primary)body.append(node('span','feature-kicker',r.context||r.subtitle));
-   const title=node('span','feature-title',r.title);
-   const subtitle=node('span','feature-subtitle',primary?t(r.title.en,r.title.zh):r.subtitle);
-   if(primary&&r.title.zh===r.title.en)subtitle.hidden=true;
-   body.append(title,subtitle);
-   if(primary&&r.performances?.length)body.append(node('span','feature-tracks',t(r.performances.map(p=>p.title.zh).join(' · '),r.performances.map(p=>p.title.en).join(' · '))));
-   else if(primary&&r.tracks?.length)body.append(node('span','feature-tracks',r.tracks.join(' · ')));
-   const arrow=node('span','feature-arrow','↗');arrow.setAttribute('aria-hidden','true');
-   btn.append(body,arrow);btn.addEventListener('click',()=>openWork(r,btn));article.append(btn);return article;
+   body.append(node('span','feature-kicker',r.context),node('span','feature-title',r.title));
+   if(r.performances)body.append(node('span','feature-subtitle',t('歌剧魅影 · 悲惨世界','The Phantom of the Opera · Les Misérables')));
+   else body.append(node('span','feature-subtitle',r.album?.name||r.subtitle));
+   const footer=node('span','feature-action',r.performances?t('打开剧场记忆','View theatre memories'):t('打开唱片','View recording'));
+   const arrow=node('span','feature-arrow','↗');arrow.setAttribute('aria-hidden','true');footer.append(arrow);
+   btn.append(art,body,footer);btn.addEventListener('click',()=>openWork(r,btn));article.append(btn);return article;
+ }
+ function albumCard(r){
+   const article=node('article','shelf-item'),btn=node('button','feature-row-button');btn.type='button';btn.setAttribute('aria-haspopup','dialog');
+   if(r.album)btn.append(cover(r.album));
+   btn.append(node('span','shelf-title',r.title),node('span','shelf-caption',r.album?.year||r.subtitle));
+   btn.addEventListener('click',()=>openWork(r,btn));article.append(btn);return article;
  }
  const westEnd={style:'westend',title:t('伦敦西区','West End'),context:t('剧场记忆 · 2026 年夏','Theatre memories · Summer 2026'),subtitle:t('伦敦的两场现场音乐剧','Two live musicals in London'),performances:stageRecords||[],tracks:[]};
- main.append(makeCard(westEnd,true));
- for(const r of data){if(r.style==='hamilton')main.append(makeCard(r,true));else rest.append(makeCard(r,false));}
- section.append(main);
- if(rest.children.length){const disclosure=node('details','collection-disclosure');disclosure.append(node('summary','',t('浏览其他作品 · '+rest.children.length+' 部','Browse other works · '+rest.children.length+' titles')),rest);section.append(disclosure);}
- section.append(dialog);return section;
+ main.append(feature(westEnd));const h=byKey.get('hamilton');if(h)main.append(feature(h));section.append(main);
+ const shelfHeader=node('div','shelf-heading');shelfHeader.append(node('h4','',t('唱片收藏','Cast recordings & soundtracks')),node('span','',t('点击封面查看详情','Select a cover to explore')));section.append(shelfHeader);
+ for(const key of ['lesmis','phantom','fairlady','hadestown','chinese','chinese2','chinese3','chinese4']){const r=byKey.get(key);if(r)shelf.append(albumCard(r));}
+ section.append(shelf,node('p','artwork-credit',t('唱片封面来自 Apple Music 目录，版权归相应权利人。','Album artwork from the Apple Music catalogue; rights remain with the respective owners.')),dialog);
+ return section;
 }
 function osmLink(lat,lon,zoom=6){return 'https://www.openstreetmap.org/?mlat='+lat+'&mlon='+lon+'#map='+zoom+'/'+lat+'/'+lon;}
 function mapFallback(container,lat,lon,zoom){const p=node('p','map-fallback',t('地图服务暂不可用。','Map service is temporarily unavailable.'));const a=node('a','map-open-link',t('在 OpenStreetMap 中查看 ↗','Open in OpenStreetMap ↗'));a.href=osmLink(lat,lon,zoom);a.target='_blank';a.rel='noopener noreferrer';container.replaceChildren(p,a);}

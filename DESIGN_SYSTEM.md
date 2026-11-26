@@ -67,3 +67,7 @@ Two source-backed deep dives share the design tokens, 44px controls and language
 The site header is shared across the portfolio and project case studies. The main site remains a continuous reading experience; only full source-backed project case studies have distinct URLs. At <=850px the header uses two rows. Work, Background and Life are disclosure groups; Life has two destinations. The top of Music & Theatre is a West End theatre memory (two attended performances) and Hamilton recordings, distinct from attendance. Other collections stay collapsed until requested. Archive data remains separate JSON. Do not treat previous QA screenshots as evidence for this revision.
 
 Maps use Leaflet and attributed OpenStreetMap tiles; no hand-drawn basemap. Preserve a textual fallback for service failure.
+
+### Artwork-led personal archive
+
+Life uses the same type, spacing and header as the original portfolio. The two editorial music features are actual related album artwork, not flat text panels; the collection shelf uses exact, square catalogue covers in a compact grid. The stage memory clearly distinguishes attendance from recordings. Maps retain the official tile provider and fixed responsive dimensions. No fabricated photos, excessive decorative card fills, or added production dependencies beyond Leaflet.

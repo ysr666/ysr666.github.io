@@ -45,3 +45,5 @@ Local, review-first import helpers for Apple Music XML, TripMap backup ZIP and n
 ## Regression checks
 
 The browser regression suite (`qa/test_site.py`) checks both languages, responsive header, dropdowns, anchor scrolling, keyboard, details pages, modal and data integrity. Run with Python Playwright and Chromium against a local HTTP server. See the GitHub Actions Site QA workflow for current results; older October screenshot checks do not certify newer changes.
+
+The personal archive uses matched album artwork and real map tiles; missing third-party content degrades to readable labels or place links. Artwork rights remain with their owners.
