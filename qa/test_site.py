@@ -7,6 +7,7 @@ def check(v,label):
 def layout(page):
     check(page.evaluate("document.documentElement.scrollWidth <= innerWidth+1"),"horizontal overflow "+page.url)
     check(page.locator("#site-navigation").count()==1,"shared header")
+    check(page.evaluate("""() => {const header=document.querySelector('.topbar-inner'), shell=document.querySelector('.after-work,.project-detail');if(!shell)return true;const edge=e=>e.getBoundingClientRect().left+parseFloat(getComputedStyle(e).paddingLeft);return Math.abs(edge(header)-edge(shell))<=1.5}"""),"shared content rail "+page.url)
 def ready(page):
     page.wait_for_function("!document.querySelector('[data-music-view][aria-busy=true],[data-archive][aria-busy=true]')")
     check(page.locator(".archive-status").count()==0,"archive loaded")
@@ -38,6 +39,9 @@ def run():
                 check(page.locator(".record-card").count()==4,"four secondary selected works")
                 check(page.locator(".theatre-cover-link").count()==2 and page.locator(".hamilton-cover").count()==1,"three featured works")
                 check(page.locator(".music-theme").count()==4,"broad music genres only")
+                if width>650:
+                    cover_widths=page.locator(".theatre-cover-link .album-cover,.hamilton-cover .album-cover").evaluate_all("els=>els.map(el=>el.getBoundingClientRect().width)")
+                    check(max(cover_widths)-min(cover_widths)<=1.5,"equal music cover widths "+str(cover_widths))
                 check(page.locator("details").count()==0,"no accordion")
                 check(page.locator(".theatre-production").count()==2,"West End experiences")
                 check(page.evaluate("document.documentElement.lang.startsWith("+repr(lang)+")"),"language persisted")
@@ -73,15 +77,20 @@ def run():
                 if width in [375,1440] and lang=="zh":
                     page.locator(".travel-impressions").screenshot(path=str(OUT/f"travel-impressions-{width}.png"))
                 page.goto(BASE+"/work/#vision");layout(page)
+                check(page.locator("main h1").count()==1,"work semantic H1")
+                if width in [375,1440] and lang=="zh":
+                    page.evaluate("window.scrollTo({top:0,behavior:'instant'})");page.screenshot(path=str(OUT/f"work-{width}.png"))
                 page.wait_for_function("document.querySelector('#stage-name').textContent==='Vision Router'")
                 page.goto(BASE+"/background/");layout(page)
                 check(page.locator("#honors").count()==1,"background content")
+                if width in [375,1440] and lang=="zh":page.screenshot(path=str(OUT/f"background-{width}.png"))
                 page.goto(BASE+"/");layout(page)
             for legacy,dest in [("music","/life/music/"),("travel","/life/travel/"),("vision","/work/#vision"),("honors","/background/#honors")]:
                 page.goto(BASE+"/#"+legacy);page.wait_for_url("**"+dest)
             for case in ["vision-router","computer-history"]:
                 page.goto(BASE+"/projects/"+case+"/");layout(page)
                 check(page.locator("#nav-life a[href='/life/music/']").count()==1,"case navigation")
+                if width in [375,1440]:page.screenshot(path=str(OUT/f"case-{case}-{width}.png"))
             check(not errors, str(errors));print(f"PASS {width}px: bilingual pages, editorial selections, travel, privacy checks, compatibility links",flush=True);ctx.close()
         browser.close()
 if __name__=="__main__":run()

@@ -1,3 +1,9 @@
+# Portfolio design system v2
+
+The authoritative implementation plan and source-grounded study notes are in [DESIGN_STUDY_PLAN.md](DESIGN_STUDY_PLAN.md). The previous design system is preserved below as historical context, not the current layout specification.
+
+---
+
 # Shirui Ye — Portfolio Design System
 
 Updated 2026-10-22. Art direction: Taste Skill v2 Split Stage, modified for a public developer portfolio.
