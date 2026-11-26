@@ -80,7 +80,7 @@ def run():
                 if width<=850: page.locator(".route-select").select_option("")
                 else: page.locator(".route-controls button[data-route=\x27\x27]").click()
                 page.wait_for_function("document.querySelectorAll('.route-map path.route-arc').length===19")
-                check(page.locator(".route-map .flight-label").count()==0,"overview clears route labels")
+                page.wait_for_function("document.querySelectorAll('.route-map .flight-label').length===0",timeout=5000)
                 check(page.locator(".route-map").bounding_box()["height"]>=320,"map visible height")
                 check(page.locator(".city-map").bounding_box()["height"]>=280,"city map visible height")
                 page.wait_for_function("Array.from(document.querySelectorAll('.route-map img.leaflet-tile')).some(i=>i.complete&&i.naturalWidth>0)",timeout=20000)
