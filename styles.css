@@ -341,3 +341,8 @@ button,a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .nav-dropdown a:focus-visible{outline-offset:-3px}
 .detail-toc a[aria-current=location]{color:var(--accent);font-weight:600}
 main [tabindex="-1"]:focus:not(:focus-visible){outline:none}
+
+/* Intro links and preview state stay coherent across reading modes. */
+.intro-actions .action-text{gap:10px}
+.visual-picture.is-changing{opacity:.68}
+@media(max-width:850px){.intro-actions{gap:12px 20px}}

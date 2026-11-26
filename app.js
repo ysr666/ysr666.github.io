@@ -13,11 +13,12 @@ const projects = {
 let lang = 'zh';
 try { lang = localStorage.getItem('portfolio-lang') === 'en' ? 'en' : 'zh'; } catch (_) {}
 let active = 'vision';
-let swapping = false;
+let stageTimer=0, stageFrame=0;
 let manualSelectionUntil = 0;
 const translate = () => {
   document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
   document.querySelectorAll('[data-zh][data-en]').forEach(el => {
+    if(el.closest('[data-archive]'))return;
     const value = el.getAttribute('data-' + lang);
     if(el.id === 'hero-title') el.innerHTML = value;
     else el.textContent = value;
@@ -39,17 +40,18 @@ const translate = () => {
   document.dispatchEvent(new CustomEvent('portfolio:language',{detail:lang}));
 };
 function setStage(id){
-  if (!projects[id] || id === active || swapping) return;
+  if (!projects[id] || id === active) return;
+  clearTimeout(stageTimer);
   const p = projects[id]; active = id;
   controls.forEach(el => { const on = el.dataset.go === id; el.classList.toggle('active', on); el.setAttribute('aria-pressed',String(on)); });
-  stage.classList.add('is-changing'); swapping = true;
+  stage.classList.add('is-changing');
   const change = () => {
     if (p.image) { stage.innerHTML = '<img id="stage-image" src="' + p.image + '" width="1280" height="768" alt="' + p.alt[lang] + '">' + (p.secondary ? '<img class="stage-secondary" src="' + p.secondary + '" alt="Second real project interface screenshot">' : ''); }
     else { stage.innerHTML = '<div class="stage-wordmark" role="img" aria-label="Agent Wrapped editorial artwork"><span>Agent<br>Wrapped.</span><small>Turns in the story.</small></div>'; }
     stageName.textContent = p.name; stageDetail.textContent = p.detail[lang];
-    stage.classList.remove('is-changing'); swapping = false;
+    stage.classList.remove('is-changing'); stageTimer=0;
   };
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) change(); else setTimeout(change,210);
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) change(); else stageTimer=setTimeout(change,130);
 }
 button.addEventListener('click', () => {
   lang = lang === 'zh' ? 'en' : 'zh';
@@ -63,14 +65,22 @@ controls.forEach(el => el.addEventListener('click', () => {
   setStage(el.dataset.go);
   document.dispatchEvent(new CustomEvent('portfolio:navigate',{detail:el.dataset.go}));
 }));
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(entries => {
-    if (Date.now() < manualSelectionUntil) return;
-    entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio).forEach(entry => setStage(entry.target.dataset.stage));
-  }, {rootMargin:'-20% 0px -42% 0px',threshold:[0,0.2,0.4]});
-  document.querySelectorAll('[data-stage]').forEach(el=>observer.observe(el));
+// Read current geometry rather than competing observer entries or a stale transition.
+const cases=[...document.querySelectorAll('[data-stage]')];
+function syncStage(){
+ stageFrame=0;
+ if(Date.now()<manualSelectionUntil)return;
+ const marker=document.querySelector('.topbar').getBoundingClientRect().height+Math.min(innerHeight*.3,210);
+ let id='vision';
+ for(const el of cases){if(el.getBoundingClientRect().top<=marker)id=el.dataset.stage;}
+ setStage(id);
 }
-window.addEventListener('scroll', () => { if (Date.now() >= manualSelectionUntil && window.scrollY < 160 && active !== 'vision') setStage('vision'); }, {passive:true});
+function requestStage(){if(!stageFrame)stageFrame=requestAnimationFrame(syncStage);}
+window.addEventListener('scroll',requestStage,{passive:true});
+window.addEventListener('resize',requestStage,{passive:true});
+document.addEventListener('portfolio:scroll-end',()=>{manualSelectionUntil=0;requestStage();});
+document.addEventListener('portfolio:navigate',e=>{const id=e.detail;if(id==='work'||id==='home'||projects[id]){manualSelectionUntil=Date.now()+1600;setStage(projects[id]?id:'vision');}});
+requestStage();
 // A single restrained motion layer, triggered only when content enters the viewport.
 // Without JS or with reduced motion, everything remains fully visible.
 if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {

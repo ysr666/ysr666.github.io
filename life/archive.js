@@ -2,6 +2,34 @@
 'use strict';
 const roots=[...document.querySelectorAll('[data-archive]')];
 const t=(zh,en)=>({zh,en});
+let leafletPromise;
+function loadLeaflet(){
+ if(window.L)return Promise.resolve(true);
+ if(leafletPromise)return leafletPromise;
+ leafletPromise=new Promise(resolve=>{
+   let cssReady=false,jsReady=false,settled=false;
+   const done=ok=>{if(settled)return;settled=true;clearTimeout(timeout);resolve(ok);};
+   const check=()=>{if(cssReady&&jsReady)done(!!window.L);};
+   const timeout=setTimeout(()=>done(false),9000);
+   const css=document.createElement('link');css.rel='stylesheet';css.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';css.integrity='sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=';css.crossOrigin='anonymous';
+   css.onload=()=>{cssReady=true;check();};css.onerror=()=>done(false);
+   const script=document.createElement('script');script.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';script.integrity='sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=';script.crossOrigin='anonymous';
+   script.onload=()=>{jsReady=true;check();};script.onerror=()=>done(false);
+   document.head.append(css,script);
+ });
+ return leafletPromise;
+}
+function whenMapNear(el,init){
+ const start=()=>{
+   el.setAttribute('aria-busy','true');
+   loadLeaflet().then(ok=>{el.setAttribute('aria-busy','false');init(ok);});
+ };
+ requestAnimationFrame(()=>{
+   if(!('IntersectionObserver' in window)){start();return;}
+   const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){observer.disconnect();start();}},{rootMargin:'700px 0px'});
+   observer.observe(el);
+ });
+}
 function mount(root){
 const kind=root.dataset.archive;
 if(!['music','travel'].includes(kind))return Promise.resolve();
@@ -154,7 +182,8 @@ function routeAtlas(data){
  all.addEventListener('click',()=>select('',true));for(const j of data.journeys){const btn=node('button','route-button');btn.type='button';btn.dataset.route=j.id;btn.append(node('strong','',j.title),node('span','',j.count));btn.addEventListener('click',()=>select(j.id,true));buttons.push(btn);controls.append(btn);}
  info.setAttribute('aria-live','polite');
  section.append(pickerWrap,controls,frame,legend,info);select('');
- requestAnimationFrame(()=>{
+ whenMapNear(mapEl,ok=>{
+   if(!ok){mapFallback(mapEl,25,86,2);return;}
    map=setupMap(mapEl,{worldCopyJump:true,minZoom:0,zoomSnap:.25,zoomDelta:.5},[25,86],2);if(!map)return;
    const bounds=L.latLngBounds([]);overview=bounds;
    for(const j of data.journeys){
@@ -178,18 +207,37 @@ const categoryLabels={museum:t('博物馆 / 美术馆','Museum / gallery'),theat
 function ukAtlas(data){
  const section=node('section','uk-atlas');section.id='travel-uk';const total=data.cities.reduce((n,c)=>n+c.points.length,0);section.append(sectionHeader(data.title,data.note),node('p','uk-count',t(data.cities.length+' 座城市 · '+total+' 个公共地点',data.cities.length+' cities · '+total+' public places')));
  const cityNav=node('div','city-nav'),filters=node('div','city-nav'),pane=node('div','uk-pane'),mapWrap=node('div','uk-map'),mapEl=node('div','geo-map city-map'),list=node('div','uk-list');mapWrap.append(mapEl);pane.append(mapWrap,list);section.append(cityNav,filters,pane);
- let cityIndex=0,type='all',map=null,layer=null;const cityButtons=[],typeButtons=[];
+ let cityIndex=0,type='all',map=null,layer=null,failed=false;const cityButtons=[],typeButtons=[];
  for(const [i,city] of data.cities.entries()){const b=node('button','route-button');b.type='button';b.append(node('strong','',city.title),node('span','',String(city.points.length)));b.addEventListener('click',()=>{cityIndex=i;type='all';draw();});cityButtons.push(b);cityNav.append(b);}
  for(const key of ['all','museum','theatre','landmark','district']){const b=node('button','route-button',key==='all'?t('全部地点','All places'):categoryLabels[key]);b.type='button';b.addEventListener('click',()=>{type=key;draw()});typeButtons.push([key,b]);filters.append(b);}
- function draw(){cityButtons.forEach((b,i)=>b.setAttribute('aria-pressed',String(cityIndex===i)));typeButtons.forEach(([k,b])=>b.setAttribute('aria-pressed',String(k===type)));const city=data.cities[cityIndex];const shown=city.points.filter(p=>type==='all'||p.type===type);list.replaceChildren();if(layer)layer.clearLayers();
- shown.forEach((p,i)=>{const a=node('a','uk-place');a.href=osmLink(p.lat,p.lon,17);a.target='_blank';a.rel='noopener noreferrer';a.append(node('span','uk-place-number',String(i+1)),node('strong','',p.title),node('span','uk-place-category',categoryLabels[p.type]));list.append(a);
- if(layer){const colors={museum:'#855224',theatre:'#7b3f60',landmark:'#346b64',district:'#475d81'};const marker=L.circleMarker([p.lat,p.lon],{radius:7,color:'#fff',weight:1.5,fillColor:colors[p.type],fillOpacity:1}).addTo(layer);const popup=node('div','map-popup');popup.append(node('strong','',p.title),node('p','',categoryLabels[p.type]));const link=node('a','',t('打开地图 ↗','Open map ↗'));link.href=a.href;link.target='_blank';link.rel='noopener noreferrer';popup.append(link);marker.bindPopup(popup);}
+ function draw(){
+ cityButtons.forEach((b,i)=>b.setAttribute('aria-pressed',String(cityIndex===i)));typeButtons.forEach(([k,b])=>b.setAttribute('aria-pressed',String(k===type)));
+ const city=data.cities[cityIndex],shown=city.points.filter(p=>type==='all'||p.type===type);
+ list.replaceChildren();if(layer)layer.clearLayers();
+ const selectPlace=(row,button,marker,point)=>{
+   list.querySelectorAll('.uk-place.is-selected').forEach(el=>el.classList.remove('is-selected'));
+   list.querySelectorAll('.uk-place-select').forEach(el=>el.setAttribute('aria-pressed','false'));
+   row.classList.add('is-selected');button.setAttribute('aria-pressed','true');
+   if(map&&marker){map.setView([point.lat,point.lon],Math.max(map.getZoom(),15),{animate:false});marker.openPopup();}
+ };
+ shown.forEach((p,i)=>{
+   const row=node('div','uk-place'),button=node('button','uk-place-select');button.type='button';button.setAttribute('aria-pressed','false');
+   const text=node('span','uk-place-text');text.append(node('strong','',p.title),node('span','uk-place-category',categoryLabels[p.type]));
+   button.append(node('span','uk-place-number',String(i+1)),text);
+   const a=node('a','uk-external','↗');a.href=osmLink(p.lat,p.lon,17);a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label',lang==='zh'?'在地图中打开 '+p.title.zh:'Open '+p.title.en+' in map');row.append(button,a);list.append(row);
+   let marker=null;
+   if(layer){const colors={museum:'#855224',theatre:'#7b3f60',landmark:'#346b64',district:'#475d81'};marker=L.circleMarker([p.lat,p.lon],{radius:7,color:'#fff',weight:1.5,fillColor:colors[p.type],fillOpacity:1}).addTo(layer);
+     const popup=node('div','map-popup');popup.append(node('strong','',p.title),node('p','',categoryLabels[p.type]));const link=node('a','',t('打开地图 ↗','Open map ↗'));link.href=a.href;link.target='_blank';link.rel='noopener noreferrer';popup.append(link);marker.bindPopup(popup);
+     marker.on('click',()=>{selectPlace(row,button,marker,p);});
+   }
+   button.addEventListener('click',()=>{if(map&&marker)selectPlace(row,button,marker,p);else a.click();});
  });
  if(!shown.length)list.append(node('p','archive-empty',t('此城市暂无该分类记录。','No places in this category for this city.')));
  if(map)map.fitBounds((shown.length?shown:city.points).map(p=>[p.lat,p.lon]),{padding:[28,28],maxZoom:16,animate:false});
- else if(mapEl.children.length)mapFallback(mapEl,city.points[0].lat,city.points[0].lon,13);translate();
+ else if(failed)mapFallback(mapEl,city.points[0].lat,city.points[0].lon,13);
+ translate();
  }
- draw();requestAnimationFrame(()=>{map=setupMap(mapEl,{},[51.5,-.12],12);if(map)layer=L.layerGroup().addTo(map);draw();});return section;
+ draw();whenMapNear(mapEl,ok=>{if(!ok){failed=true;draw();return;}map=setupMap(mapEl,{},[51.5,-.12],12);if(map)layer=L.layerGroup().addTo(map);else failed=true;draw();});return section;
 }
 
 function render(data){

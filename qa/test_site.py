@@ -30,6 +30,7 @@ def run():
             page.on("pageerror",lambda e:errors.append(str(e)))
             page.goto(BASE+"/",wait_until="domcontentloaded")
             loaded(page)
+            check(page.locator("script[src*=leaflet]").count()==0,"no map dependency at homepage entry")
             for lang in ["zh","en"]:
                 layout(page,f"{width}/{lang}")
                 if lang=="en": page.locator("#lang-toggle").click()
@@ -57,7 +58,11 @@ def run():
                 page.locator("#nav-life a[href='#travel']").click()
                 target(page,"travel")
                 check(page.locator(".route-controls button").count()==8,"journey controls")
+                page.locator(".route-map").scroll_into_view_if_needed()
+                page.wait_for_function("document.querySelector('.route-map.leaflet-container')!==null",timeout=15000)
+                page.locator(".city-map").scroll_into_view_if_needed()
                 page.wait_for_function("document.querySelectorAll('.geo-map.leaflet-container').length===2",timeout=15000)
+                page.locator(".route-map").scroll_into_view_if_needed()
                 check(page.locator(".geo-map .leaflet-control-attribution").count()==2,"map attribution")
                 check(page.locator(".route-map .leaflet-tile").count()>0,"real tile layer")
                 check(page.locator(".route-map path.route-arc").count()==19,"all 19 illustrative legs retained")
@@ -80,6 +85,10 @@ def run():
                 check(page.locator(".city-map").bounding_box()["height"]>=280,"city map visible height")
                 page.wait_for_function("Array.from(document.querySelectorAll('.route-map img.leaflet-tile')).some(i=>i.complete&&i.naturalWidth>0)",timeout=20000)
                 check(page.locator(".uk-count").inner_text().find("33")>=0,"UK count")
+                page.locator(".uk-place-select").first.click()
+                check(page.locator(".uk-place.is-selected").count()==1,"place selects in same page")
+                check(page.locator(".city-map .leaflet-popup").count()==1,"place opens map detail")
+                check(page.url.endswith("#travel"),"place selection stays in page")
                 if width in [375,1440] and lang=="en":
                     page.locator(".route-map").screenshot(path=str(OUT/f"flight-overview-{width}.png"))
                     page.locator("#travel").scroll_into_view_if_needed()
@@ -90,6 +99,7 @@ def run():
                 menu(page,"work")
                 page.locator("#nav-work a[href='#work']").click()
                 target(page,"work")
+                page.wait_for_function("document.querySelector('#stage-name').textContent==='Vision Router' && !document.querySelector('#stage-visual').classList.contains('is-changing')")
                 if width in [375,1440] and lang=="en":page.screenshot(path=str(OUT/f"work-{width}.png"))
             if width==1440:
                 page.locator("[aria-controls=nav-life]").hover()

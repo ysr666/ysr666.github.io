@@ -49,13 +49,13 @@ nav.addEventListener('focusout',e=>{if(opened>=0&&e.relatedTarget&&!groups[opene
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&opened>=0){e.preventDefault();close(true);}});
 function stopScroll(){
  requestId++;
- if(frame){cancelAnimationFrame(frame);frame=0;}
+ if(frame){cancelAnimationFrame(frame);frame=0;document.dispatchEvent(new Event('portfolio:scroll-end'));}
 }
 function targetY(el){return Math.max(0,Math.min(scrollY+el.getBoundingClientRect().top-header.getBoundingClientRect().height-20,document.documentElement.scrollHeight-innerHeight));}
 function jump(y){window.scrollTo({top:y,behavior:'instant'});}
 function animate(el,instant=false){
  const start=scrollY;const distance=targetY(el)-start;
- if(instant||reduce.matches||Math.abs(distance)<3){jump(targetY(el));scheduleHighlight();return;}
+ if(instant||reduce.matches||Math.abs(distance)<3){jump(targetY(el));scheduleHighlight();document.dispatchEvent(new Event('portfolio:scroll-end'));return;}
  const duration=Math.min(920,Math.max(440,440+Math.sqrt(Math.abs(distance))*6));
  const token=requestId;let startTime=null;
  function tick(now){
@@ -65,7 +65,7 @@ function animate(el,instant=false){
    const ease=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
    jump(start+(targetY(el)-start)*ease);
    if(p<1)frame=requestAnimationFrame(tick);
-   else{frame=0;jump(targetY(el));scheduleHighlight();}
+   else{frame=0;jump(targetY(el));scheduleHighlight();document.dispatchEvent(new Event('portfolio:scroll-end'));}
  }
  frame=requestAnimationFrame(tick);
 }

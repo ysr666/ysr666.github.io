@@ -71,3 +71,5 @@ Maps use Leaflet and attributed OpenStreetMap tiles; no hand-drawn basemap. Pres
 ### Artwork-led personal archive
 
 Life uses the same type, spacing and header as the original portfolio. The two editorial music features are actual related album artwork, not flat text panels; the collection shelf uses exact, square catalogue covers in a compact grid. The stage memory clearly distinguishes attendance from recordings. Maps retain the official tile provider and fixed responsive dimensions. No fabricated photos, excessive decorative card fills, or added production dependencies beyond Leaflet.
+
+Project previews follow the actual reading position and the latest explicit navigation request. The life chapter is linked from the hero without a separate site. External map assets are loaded on demand; map area sizes are reserved and place selection is in-page with a separate external link.

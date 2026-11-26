@@ -65,3 +65,5 @@ The site uses nine matched catalogue album covers, with exact album title, relea
 Each of the 19 recorded schematic segments is rendered individually. Outbound and return paths are visually separated using offsets from a great-circle reference, with two lanes per direction for the two approximate round trips. Blue is outbound, green is return; dashed grey paths are non-directional multi-country visit references. These visual offsets and arrows are not actual aircraft tracks or airport records. Fit bounds includes all arc points, with fractional zoom for narrow screens.
 
 Journey selection is above the map, using a native select on phone/tablet and compact buttons on desktop. Selecting a journey fits its arc bounds, dims unrelated routes and labels the selected endpoints. Selecting all restores the overview. The original flight and place records are unchanged.
+
+The map library and tiles load only near the travel section. A failed CDN does not block the original portfolio or music collection; links remain usable. The UK place index selects its corresponding marker and opens an in-page popup, while the separate arrow opens the full external map.
