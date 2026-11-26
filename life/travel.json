@@ -394,8 +394,8 @@
       "en": "A world of flights"
     },
     "note": {
-      "zh": "基于旅行记忆的航迹示意；中国节点为统一出发/返回方向，线条不是实际航路或中转记录。",
-      "en": "Memory-based travel overview; China is a symbolic origin/return, not an airport. Lines do not represent exact flight paths or connections."
+      "zh": "旅行记忆中的航迹概览。去程、返程分别绘制，曲线间距仅用于视觉区分；中国为示意起点，非实际机场或飞行轨迹。",
+      "en": "A memory-based travel overview. Separate outbound and return arcs use visual offsets only; China is a symbolic origin, not an airport or actual flight track."
     },
     "nodes": [
       {

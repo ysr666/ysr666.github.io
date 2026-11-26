@@ -126,3 +126,13 @@
  .route-controls,.city-nav{gap:4px 10px}.route-button{font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){.album-image{transition:none}}
+
+/* Directional flight arcs: quiet map, distinct return lanes. */
+.route-map .leaflet-tile-pane{filter:saturate(.36);opacity:.92}
+.route-legend{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;margin:13px 0 2px;color:var(--muted);font-size:13px}
+.route-legend-item{display:inline-flex;align-items:center;gap:7px}
+.route-legend-line{width:26px;height:0;border-top:2px solid #2359b8}
+.route-legend-line.inbound{border-color:#168879}
+.route-legend-line.regional{border-top:2px dashed #7a858e}
+.route-arrow-marker{background:transparent;border:0;pointer-events:none}
+.route-arrow-shape{display:block;width:12px;height:12px;transform:rotate(var(--arrow-angle));background:var(--arrow-color);clip-path:polygon(0 11%,100% 50%,0 89%,25% 50%);filter:drop-shadow(0 0 1px white)}

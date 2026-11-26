@@ -103,18 +103,67 @@ function greatCircle(a,b){
  if(s<1e-8)return [[a.lat,a.lon],[b.lat,b.lon]];
  return Array.from({length:65},(_,i)=>{const q=i/64,x=u.map((p,k)=>(Math.sin((1-q)*theta)*p+Math.sin(q*theta)*v[k])/s);return [Math.atan2(x[2],Math.hypot(x[0],x[1]))/rad,Math.atan2(x[1],x[0])/rad];});
 }
+// Offset each directional leg from its great-circle reference in projected map space.
+// The offset is purely cartographic, not a claim about the route flown.
+function directionalArc(map,a,b,lane,regional){
+ const pts=greatCircle(a,b).map(p=>map.project(p,0));
+ const length=pts[0].distanceTo(pts[pts.length-1]);
+ const bow=regional?0:Math.min(18,Math.max(1.2,length*(.12+lane*.085))+lane*.8);
+ return pts.map((p,i)=>{
+   if(i===0||i===pts.length-1)return map.unproject(p,0);
+   const v=pts[i+1].subtract(pts[i-1]),mag=Math.hypot(v.x,v.y)||1;
+   const offset=bow*Math.sin(Math.PI*i/(pts.length-1));
+   return map.unproject(L.point(p.x-v.y/mag*offset,p.y+v.x/mag*offset),0);
+ });
+}
+function arrowOnArc(map,points,index,color,kind){
+ const i=Math.min(points.length-2,Math.max(1,index)),p=map.project(points[i-1],0),q=map.project(points[i+1],0);
+ const angle=Math.atan2(q.y-p.y,q.x-p.x)*180/Math.PI;
+ const icon=L.divIcon({className:'route-arrow-marker',html:'<span class="route-arrow-shape '+kind+'" style="--arrow-angle:'+angle+'deg;--arrow-color:'+color+'"></span>',iconSize:[12,12],iconAnchor:[6,6]});
+ return L.marker(points[i],{icon,interactive:false,keyboard:false,zIndexOffset:20});
+}
 function routeAtlas(data){
  const section=node('section','route-atlas');section.id='travel-routes';section.append(sectionHeader(data.title,data.note));
  const frame=node('div','atlas-frame');const mapEl=node('div','geo-map route-map');mapEl.setAttribute('aria-label','Flight overview map');frame.append(mapEl);section.append(frame);
+ const legend=node('div','route-legend');
+ for(const [key,label] of [['outbound',t('去程','Outbound')],['inbound',t('返程','Return')],['regional',t('多国旅行示意','Multi-country visits')]]){
+   const item=node('span','route-legend-item');const swatch=node('span','route-legend-line '+key);swatch.setAttribute('aria-hidden','true');item.append(swatch,node('span','',label));legend.append(item);
+ }
+ section.append(legend);
  const controls=node('div','route-controls');const all=node('button','route-button',t('全部旅行','All journeys'));all.type='button';all.dataset.route='';controls.append(all);const buttons=[all];const info=node('p','route-selection');const nodes=new Map(data.nodes.map(n=>[n.id,n]));const layers=new Map();let map=null,selected='';
- function select(id){selected=id;for(const [key,layer] of layers)layer.eachLayer(line=>line.setStyle({opacity:(!id||id===key)?0.8:0.08,weight:id===key?3:2}));for(const b of buttons)b.setAttribute('aria-pressed',String(b.dataset.route===id));const j=data.journeys.find(x=>x.id===id);localize(info,j?(j.note?t(j.count.zh+' · '+j.note.zh,j.count.en+' · '+j.note.en):j.count):t('点击旅程查看对应航迹。','Select a journey to highlight its routes.'));}
+ function select(id){
+   selected=id;
+   for(const [key,layer] of layers){
+     const active=!id||id===key;
+     layer.eachLayer(item=>{
+       if(item instanceof L.Polyline)item.setStyle({opacity:active ? .88 : .10,weight:id===key?2.7:1.8});
+       else if(item instanceof L.Marker)item.setOpacity(active ? .95 : 0);
+     });
+     if(id===key)layer.eachLayer(item=>{if(item instanceof L.Polyline)item.bringToFront();});
+   }
+   for(const b of buttons)b.setAttribute('aria-pressed',String(b.dataset.route===id));
+   const j=data.journeys.find(x=>x.id===id);localize(info,j?(j.note?t(j.count.zh+' · '+j.note.zh,j.count.en+' · '+j.note.en):j.count):t('点击旅程，突出显示相应的往返航线。','Select a journey to highlight its outbound and return arcs.'));
+ }
  all.addEventListener('click',()=>select(''));for(const j of data.journeys){const btn=node('button','route-button');btn.type='button';btn.dataset.route=j.id;btn.append(node('strong','',j.title),node('span','',j.count));btn.addEventListener('click',()=>select(j.id));buttons.push(btn);controls.append(btn);}
  section.append(controls,info);select('');
  requestAnimationFrame(()=>{
- map=setupMap(mapEl,{worldCopyJump:true,minZoom:2},[25,86],2);if(!map)return;
- for(const j of data.journeys){const layer=L.layerGroup().addTo(map);const seen=new Set();for(const [a,b] of j.paths){const key=[a,b].sort().join(':');if(seen.has(key))continue;seen.add(key);L.polyline(greatCircle(nodes.get(a),nodes.get(b)),{color:'#2450d8',weight:2,opacity:.8,dashArray:j.id==='europe'?'5 5':null}).addTo(layer);}layers.set(j.id,layer);}
- for(const n of data.nodes){const marker=L.circleMarker([n.lat,n.lon],{radius:n.id==='cn'?6:4,color:'#fff',weight:1.5,fillColor:'#172b39',fillOpacity:1}).addTo(map);const label=node('span','',n.title);marker.bindTooltip(label,{direction:'top'});}
- map.fitBounds(data.nodes.map(n=>[n.lat,n.lon]),{padding:[24,24],maxZoom:3,animate:false});select(selected);translate();
+   map=setupMap(mapEl,{worldCopyJump:true,minZoom:0,zoomSnap:.25,zoomDelta:.5},[25,86],2);if(!map)return;
+   const bounds=L.latLngBounds([]);
+   for(const j of data.journeys){
+     const layer=L.layerGroup().addTo(map),counts=new Map(),regional=j.id==='europe';
+     for(const [a,b] of j.paths){
+       const key=a+'>'+b,lane=counts.get(key)||0;counts.set(key,lane+1);
+       const kind=regional?'regional':a==='cn'?'outbound':'inbound';
+       const color=kind==='regional'?'#7a858e':kind==='outbound'?'#2359b8':'#168879';
+       const points=directionalArc(map,nodes.get(a),nodes.get(b),lane,regional);
+       points.forEach(p=>bounds.extend(p));
+       const line=L.polyline(points,{className:'route-arc route-'+kind,color,weight:1.8,opacity:.88,lineCap:'round',lineJoin:'round',smoothFactor:.4,dashArray:regional?'5 5':null,interactive:false}).addTo(layer);
+       if(!regional)arrowOnArc(map,points,Math.round((points.length-1)*(.56+lane*.12)),color,kind).addTo(layer);
+     }
+     layers.set(j.id,layer);
+   }
+   for(const n of data.nodes){const marker=L.circleMarker([n.lat,n.lon],{radius:n.id==='cn'?6:4,color:'#fff',weight:1.5,fillColor:'#172b39',fillOpacity:1}).addTo(map);const label=node('span','',n.title);marker.bindTooltip(label,{direction:'top'});bounds.extend([n.lat,n.lon]);}
+   map.fitBounds(bounds,{padding:[22,24],maxZoom:3,animate:false});select(selected);translate();
  });return section;
 }
 const categoryLabels={museum:t('博物馆 / 美术馆','Museum / gallery'),theatre:t('剧院','Theatre'),landmark:t('地标','Landmark'),district:t('街区 / 体验','District / experience')};
