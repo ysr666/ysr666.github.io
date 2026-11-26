@@ -10,7 +10,9 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)');
 const hover=matchMedia('(hover: hover) and (pointer: fine)');
 const page=document.body.dataset.sitePage||'case';const isHome=page==='home'||page==='work'||page==='background';
 const legacy={"home":"/","work":"/work/","vision":"/work/#vision","history":"/work/#history","wrapped":"/work/#wrapped","more":"/work/#more","journey":"/background/","honors":"/background/#honors","skills":"/background/#skills","about":"/background/#about","life":"/life/","music":"/life/music/","travel":"/life/travel/","contact":"/#contact"};
-if(page==='home'){const id=location.hash.slice(1);if(id&&legacy[id]&&!document.getElementById(id)){location.replace(legacy[id]);return;}}
+function redirectLegacy(){if(page!=='home')return false;const id=location.hash.slice(1);if(id&&legacy[id]&&!document.getElementById(id)){location.replace(legacy[id]);return true;}return false;}
+if(redirectLegacy())return;
+window.addEventListener('hashchange',redirectLegacy);
 const chapters=['home','work','journey','life','contact'];
 const destinations={work:['work','vision','history','wrapped','more'],journey:['journey','honors','skills','about'],life:['music','travel']};
 let opened=-1,closeTimer=0,frame=0,requestId=0,highlightFrame=0,userNavigated=false,lastPointer='';
