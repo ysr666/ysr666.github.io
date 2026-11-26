@@ -95,6 +95,20 @@
             "zh": "2026 年夏 · 西区现场演出",
             "en": "Summer 2026 · West End performance"
           }
+        },
+        {
+          "title": {
+            "zh": "悲惨世界",
+            "en": "Les Misérables"
+          },
+          "subtitle": {
+            "zh": "Sondheim Theatre · 伦敦",
+            "en": "Sondheim Theatre · London"
+          },
+          "detail": {
+            "zh": "2026 年夏 · 西区现场演出",
+            "en": "Summer 2026 · West End performance"
+          }
         }
       ]
     },
@@ -1061,6 +1075,148 @@
           "detail": null
         }
       ]
+    }
+  ],
+  "featured": [
+    {
+      "title": {
+        "zh": "哈梦城",
+        "en": "Hadestown"
+      },
+      "style": "hadestown",
+      "subtitle": {
+        "zh": "伦敦现场录音 · 歌单收藏",
+        "en": "Live From London · listening collection"
+      },
+      "tracks": [
+        "Wait for Me (Reprise)",
+        "Way Down Hadestown"
+      ],
+      "large": true
+    },
+    {
+      "title": {
+        "zh": "悲惨世界",
+        "en": "Les Misérables"
+      },
+      "style": "lesmis",
+      "subtitle": {
+        "zh": "伦敦西区现场 · 2010 伦敦卡司录音",
+        "en": "West End performance · 2010 London cast recording"
+      },
+      "tracks": [
+        "Look Down",
+        "Prologue / Look Down (Live)"
+      ],
+      "large": true
+    },
+    {
+      "title": {
+        "zh": "歌剧魅影",
+        "en": "The Phantom of the Opera"
+      },
+      "style": "phantom",
+      "subtitle": {
+        "zh": "伦敦西区现场 · 电影原声",
+        "en": "West End performance · film soundtrack"
+      },
+      "tracks": [
+        "Think of Me",
+        "The Music of the Night"
+      ],
+      "large": false
+    },
+    {
+      "title": {
+        "zh": "汉密尔顿",
+        "en": "Hamilton"
+      },
+      "style": "hamilton",
+      "subtitle": {
+        "zh": "百老汇原卡录音",
+        "en": "Original Broadway cast recording"
+      },
+      "tracks": [
+        "Alexander Hamilton",
+        "Satisfied",
+        "My Shot"
+      ],
+      "large": false
+    },
+    {
+      "title": {
+        "zh": "窈窕淑女",
+        "en": "My Fair Lady"
+      },
+      "style": "fairlady",
+      "subtitle": {
+        "zh": "1964 电影与原声",
+        "en": "1964 film and soundtrack"
+      },
+      "tracks": [],
+      "large": false
+    },
+    {
+      "title": {
+        "zh": "大状王",
+        "en": "大状王"
+      },
+      "style": "chinese",
+      "subtitle": {
+        "zh": "中文音乐剧 · 原声收藏",
+        "en": "Chinese-language musical · soundtrack collection"
+      },
+      "tracks": [
+        "申冤",
+        "撒一场白米"
+      ],
+      "large": false
+    },
+    {
+      "title": {
+        "zh": "三星堆",
+        "en": "三星堆 · Sanxingdui"
+      },
+      "style": "chinese2",
+      "subtitle": {
+        "zh": "中文音乐剧 · 原声收藏",
+        "en": "Chinese-language musical · soundtrack collection"
+      },
+      "tracks": [
+        "盛典",
+        "约定"
+      ],
+      "large": false
+    },
+    {
+      "title": {
+        "zh": "雄狮少年",
+        "en": "雄狮少年"
+      },
+      "style": "chinese3",
+      "subtitle": {
+        "zh": "中文音乐剧 · 原声收藏",
+        "en": "Chinese-language musical · soundtrack collection"
+      },
+      "tracks": [
+        "英雄花开"
+      ],
+      "large": false
+    },
+    {
+      "title": {
+        "zh": "赛貂蝉",
+        "en": "赛貂蝉"
+      },
+      "style": "chinese4",
+      "subtitle": {
+        "zh": "中文音乐剧 · 原声收藏",
+        "en": "Chinese-language musical · soundtrack collection"
+      },
+      "tracks": [
+        "若有一个人之霸气江山"
+      ],
+      "large": false
     }
   ]
 }

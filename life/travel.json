@@ -38,65 +38,685 @@
       }
     ]
   },
-  "sections": [
-    {
-      "id": "flights",
-      "title": {
-        "zh": "飞行日志",
-        "en": "Flight log"
-      },
-      "description": {
-        "zh": "记录值得留下的飞行；这不是完整航班清单。",
-        "en": "Memorable flights, not a complete flight history."
-      },
-      "records": [],
-      "empty": {
-        "zh": "完整飞行日志待整理，暂不公开未核实的航线。",
-        "en": "Individual flight records are pending verification."
-      }
+  "sections": [],
+  "uk": {
+    "title": {
+      "zh": "英国 · 12 天",
+      "en": "United Kingdom · 12 days"
     },
-    {
-      "id": "places",
-      "title": {
-        "zh": "旅行足迹",
-        "en": "Places"
-      },
-      "description": {
-        "zh": "已确认到访的部分城市。",
-        "en": "A selection of confirmed visits."
-      },
-      "records": [
-        {
-          "title": {
-            "zh": "伦敦",
-            "en": "London"
+    "note": {
+      "zh": "2026 年夏 · 根据本人确认的到访记录整理，仅收录公共地点。坐标为原始行程点位。",
+      "en": "Summer 2026 · Owner-confirmed visits to public places; coordinates from the itinerary."
+    },
+    "cities": [
+      {
+        "title": {
+          "zh": "伦敦",
+          "en": "London"
+        },
+        "points": [
+          {
+            "title": {
+              "zh": "伦敦眼",
+              "en": "London Eye"
+            },
+            "lat": 51.5033,
+            "lon": -0.1196,
+            "type": "landmark"
           },
-          "subtitle": {
-            "zh": "英国",
-            "en": "United Kingdom"
+          {
+            "title": {
+              "zh": "威斯敏斯特教堂",
+              "en": "Westminster Abbey"
+            },
+            "lat": 51.4994,
+            "lon": -0.1273,
+            "type": "landmark"
           },
-          "detail": {
-            "zh": "西区剧场与旅行。",
-            "en": "West End theatre and travel."
+          {
+            "title": {
+              "zh": "国家美术馆",
+              "en": "The National Gallery"
+            },
+            "lat": 51.5089,
+            "lon": -0.1283,
+            "type": "museum"
+          },
+          {
+            "title": {
+              "zh": "国王陛下剧院《歌剧魅影》",
+              "en": "His Majesty’s Theatre · The Phantom of the Opera"
+            },
+            "lat": 51.5082,
+            "lon": -0.1318,
+            "type": "theatre"
+          },
+          {
+            "title": {
+              "zh": "大英博物馆",
+              "en": "British Museum"
+            },
+            "lat": 51.5194,
+            "lon": -0.127,
+            "type": "museum"
+          },
+          {
+            "title": {
+              "zh": "查令十字街84号",
+              "en": "84 Charing Cross Road"
+            },
+            "lat": 51.5141,
+            "lon": -0.13,
+            "type": "landmark"
+          },
+          {
+            "title": {
+              "zh": "Hatchards / Piccadilly 一带",
+              "en": "Hatchards / Piccadilly"
+            },
+            "lat": 51.5089,
+            "lon": -0.1371,
+            "type": "district"
+          },
+          {
+            "title": {
+              "zh": "科文特花园",
+              "en": "Covent Garden"
+            },
+            "lat": 51.5117,
+            "lon": -0.124,
+            "type": "district"
+          },
+          {
+            "title": {
+              "zh": "伦敦塔",
+              "en": "Tower of London"
+            },
+            "lat": 51.5081,
+            "lon": -0.0759,
+            "type": "landmark"
+          },
+          {
+            "title": {
+              "zh": "伦敦塔桥（外观）",
+              "en": "Tower Bridge (exterior)"
+            },
+            "lat": 51.5055,
+            "lon": -0.0754,
+            "type": "landmark"
+          },
+          {
+            "title": {
+              "zh": "利登霍尔市场",
+              "en": "Leadenhall Market"
+            },
+            "lat": 51.5127,
+            "lon": -0.0835,
+            "type": "district"
+          },
+          {
+            "title": {
+              "zh": "伯勒市场",
+              "en": "Borough Market"
+            },
+            "lat": 51.5055,
+            "lon": -0.091,
+            "type": "district"
+          },
+          {
+            "title": {
+              "zh": "国王十字 9¾",
+              "en": "King’s Cross 9¾"
+            },
+            "lat": 51.5322,
+            "lon": -0.1237,
+            "type": "landmark"
+          },
+          {
+            "title": {
+              "zh": "白金汉宫",
+              "en": "Buckingham Palace"
+            },
+            "lat": 51.5014,
+            "lon": -0.1419,
+            "type": "landmark"
+          },
+          {
+            "title": {
+              "zh": "哈罗德百货",
+              "en": "Harrods"
+            },
+            "lat": 51.4994,
+            "lon": -0.1632,
+            "type": "district"
+          },
+          {
+            "title": {
+              "zh": "索德海姆剧院《悲惨世界》",
+              "en": "Sondheim Theatre · Les Misérables"
+            },
+            "lat": 51.5113,
+            "lon": -0.1321,
+            "type": "theatre"
           }
-        }
-      ]
-    },
-    {
-      "id": "museums",
-      "title": {
-        "zh": "博物馆与文化地标",
-        "en": "Museums & landmarks"
+        ]
       },
-      "description": {
-        "zh": "把参观过的博物馆、展览和文化地标留在这里。",
-        "en": "A place for museum visits, exhibitions and cultural landmarks."
+      {
+        "title": {
+          "zh": "牛津",
+          "en": "Oxford"
+        },
+        "points": [
+          {
+            "title": {
+              "zh": "基督堂学院",
+              "en": "Christ Church"
+            },
+            "lat": 51.7502,
+            "lon": -1.2556,
+            "type": "landmark"
+          },
+          {
+            "title": {
+              "zh": "博德利图书馆",
+              "en": "Bodleian Library"
+            },
+            "lat": 51.754,
+            "lon": -1.254,
+            "type": "landmark"
+          },
+          {
+            "title": {
+              "zh": "拉德克利夫广场区域",
+              "en": "Radcliffe Camera area"
+            },
+            "lat": 51.7534,
+            "lon": -1.2543,
+            "type": "landmark"
+          }
+        ]
       },
-      "records": [],
-      "empty": {
-        "zh": "暂无已整理的参观记录。",
-        "en": "No verified visit records added yet."
+      {
+        "title": {
+          "zh": "剑桥",
+          "en": "Cambridge"
+        },
+        "points": [
+          {
+            "title": {
+              "zh": "国王学院礼拜堂",
+              "en": "King’s College Chapel"
+            },
+            "lat": 52.2043,
+            "lon": 0.1166,
+            "type": "landmark"
+          },
+          {
+            "title": {
+              "zh": "康河撑篙",
+              "en": "Punting on the River Cam"
+            },
+            "lat": 52.208,
+            "lon": 0.116,
+            "type": "district"
+          },
+          {
+            "title": {
+              "zh": "剑桥市中心",
+              "en": "Cambridge city centre"
+            },
+            "lat": 52.2053,
+            "lon": 0.1218,
+            "type": "district"
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "曼彻斯特",
+          "en": "Manchester"
+        },
+        "points": [
+          {
+            "title": {
+              "zh": "老特拉福德（外观 + Megastore）",
+              "en": "Old Trafford (exterior + Megastore)"
+            },
+            "lat": 53.4631,
+            "lon": -2.2914,
+            "type": "landmark"
+          },
+          {
+            "title": {
+              "zh": "国家足球博物馆",
+              "en": "National Football Museum"
+            },
+            "lat": 53.4852,
+            "lon": -2.2427,
+            "type": "museum"
+          },
+          {
+            "title": {
+              "zh": "市中心 / 北区",
+              "en": "City Centre / Northern Quarter"
+            },
+            "lat": 53.4826,
+            "lon": -2.2363,
+            "type": "district"
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "爱丁堡",
+          "en": "Edinburgh"
+        },
+        "points": [
+          {
+            "title": {
+              "zh": "爱丁堡城堡",
+              "en": "Edinburgh Castle"
+            },
+            "lat": 55.9486,
+            "lon": -3.1999,
+            "type": "landmark"
+          },
+          {
+            "title": {
+              "zh": "皇家英里大道",
+              "en": "Royal Mile"
+            },
+            "lat": 55.9503,
+            "lon": -3.1872,
+            "type": "district"
+          },
+          {
+            "title": {
+              "zh": "维多利亚街",
+              "en": "Victoria Street"
+            },
+            "lat": 55.9481,
+            "lon": -3.1936,
+            "type": "district"
+          },
+          {
+            "title": {
+              "zh": "卡尔顿山",
+              "en": "Calton Hill"
+            },
+            "lat": 55.9555,
+            "lon": -3.1824,
+            "type": "landmark"
+          },
+          {
+            "title": {
+              "zh": "荷里路德宫 / 亚瑟王座一带",
+              "en": "Holyrood Palace / Arthur’s Seat area"
+            },
+            "lat": 55.9527,
+            "lon": -3.1728,
+            "type": "landmark"
+          },
+          {
+            "title": {
+              "zh": "迪恩村",
+              "en": "Dean Village"
+            },
+            "lat": 55.9529,
+            "lon": -3.217,
+            "type": "district"
+          },
+          {
+            "title": {
+              "zh": "Stockbridge",
+              "en": "Stockbridge"
+            },
+            "lat": 55.9596,
+            "lon": -3.207,
+            "type": "district"
+          },
+          {
+            "title": {
+              "zh": "王子街 / Waverley 区域",
+              "en": "Princes Street / Waverley area"
+            },
+            "lat": 55.9524,
+            "lon": -3.1906,
+            "type": "district"
+          }
+        ]
       }
-    }
-  ]
+    ]
+  },
+  "routes": {
+    "title": {
+      "zh": "飞过的世界",
+      "en": "A world of flights"
+    },
+    "note": {
+      "zh": "基于旅行记忆的航迹示意；中国节点为统一出发/返回方向，线条不是实际航路或中转记录。",
+      "en": "Memory-based travel overview; China is a symbolic origin/return, not an airport. Lines do not represent exact flight paths or connections."
+    },
+    "nodes": [
+      {
+        "id": "cn",
+        "title": {
+          "zh": "中国",
+          "en": "China"
+        },
+        "lat": 35,
+        "lon": 105,
+        "dx": 8,
+        "dy": -8
+      },
+      {
+        "id": "sg",
+        "title": {
+          "zh": "新加坡",
+          "en": "Singapore"
+        },
+        "lat": 1.35,
+        "lon": 103.82,
+        "dx": 9,
+        "dy": 17
+      },
+      {
+        "id": "th",
+        "title": {
+          "zh": "泰国",
+          "en": "Thailand"
+        },
+        "lat": 13.75,
+        "lon": 100.5,
+        "dx": -9,
+        "dy": 2,
+        "anchor": "end"
+      },
+      {
+        "id": "jp",
+        "title": {
+          "zh": "日本",
+          "en": "Japan"
+        },
+        "lat": 35.7,
+        "lon": 139.7,
+        "dx": 9,
+        "dy": -5
+      },
+      {
+        "id": "nz",
+        "title": {
+          "zh": "新西兰",
+          "en": "New Zealand"
+        },
+        "lat": -36.85,
+        "lon": 174.76,
+        "dx": -9,
+        "dy": 18,
+        "anchor": "end"
+      },
+      {
+        "id": "fr",
+        "title": {
+          "zh": "法国",
+          "en": "France"
+        },
+        "lat": 46.6,
+        "lon": 2.2,
+        "dx": -8,
+        "dy": 19,
+        "anchor": "end"
+      },
+      {
+        "id": "es",
+        "title": {
+          "zh": "西班牙",
+          "en": "Spain"
+        },
+        "lat": 40.4,
+        "lon": -3.7,
+        "dx": -8,
+        "dy": 17,
+        "anchor": "end"
+      },
+      {
+        "id": "ch",
+        "title": {
+          "zh": "瑞士",
+          "en": "Switzerland"
+        },
+        "lat": 46.8,
+        "lon": 8.2,
+        "dx": 12,
+        "dy": 25
+      },
+      {
+        "id": "de",
+        "title": {
+          "zh": "德国",
+          "en": "Germany"
+        },
+        "lat": 51.2,
+        "lon": 10.4,
+        "dx": 13,
+        "dy": -1
+      },
+      {
+        "id": "lon",
+        "title": {
+          "zh": "伦敦",
+          "en": "London"
+        },
+        "lat": 51.5,
+        "lon": -0.12,
+        "dx": -12,
+        "dy": 3,
+        "anchor": "end"
+      },
+      {
+        "id": "edi",
+        "title": {
+          "zh": "爱丁堡",
+          "en": "Edinburgh"
+        },
+        "lat": 55.95,
+        "lon": -3.19,
+        "dx": -8,
+        "dy": -10,
+        "anchor": "end"
+      }
+    ],
+    "journeys": [
+      {
+        "id": "sg",
+        "title": {
+          "zh": "新加坡",
+          "en": "Singapore"
+        },
+        "count": {
+          "zh": "2 次往返",
+          "en": "2 round trips"
+        },
+        "paths": [
+          [
+            "cn",
+            "sg",
+            1
+          ],
+          [
+            "sg",
+            "cn",
+            1
+          ],
+          [
+            "cn",
+            "sg",
+            -1
+          ],
+          [
+            "sg",
+            "cn",
+            -1
+          ]
+        ]
+      },
+      {
+        "id": "th",
+        "title": {
+          "zh": "泰国",
+          "en": "Thailand"
+        },
+        "count": {
+          "zh": "1 次往返",
+          "en": "1 round trip"
+        },
+        "paths": [
+          [
+            "cn",
+            "th",
+            1
+          ],
+          [
+            "th",
+            "cn",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "jp",
+        "title": {
+          "zh": "日本",
+          "en": "Japan"
+        },
+        "count": {
+          "zh": "约 2 次往返",
+          "en": "About 2 round trips"
+        },
+        "paths": [
+          [
+            "cn",
+            "jp",
+            1
+          ],
+          [
+            "jp",
+            "cn",
+            1
+          ],
+          [
+            "cn",
+            "jp",
+            -1
+          ],
+          [
+            "jp",
+            "cn",
+            -1
+          ]
+        ]
+      },
+      {
+        "id": "nz",
+        "title": {
+          "zh": "新西兰",
+          "en": "New Zealand"
+        },
+        "count": {
+          "zh": "1 次往返",
+          "en": "1 round trip"
+        },
+        "paths": [
+          [
+            "cn",
+            "nz",
+            1
+          ],
+          [
+            "nz",
+            "cn",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "fr-es",
+        "title": {
+          "zh": "法国 → 西班牙",
+          "en": "France → Spain"
+        },
+        "count": {
+          "zh": "1 次开口程",
+          "en": "1 open-jaw trip"
+        },
+        "paths": [
+          [
+            "cn",
+            "fr",
+            1
+          ],
+          [
+            "es",
+            "cn",
+            1
+          ]
+        ]
+      },
+      {
+        "id": "europe",
+        "title": {
+          "zh": "瑞士 · 德国 · 法国",
+          "en": "Switzerland · Germany · France"
+        },
+        "count": {
+          "zh": "1 次多国旅行",
+          "en": "1 multi-country trip"
+        },
+        "paths": [
+          [
+            "cn",
+            "ch",
+            2
+          ],
+          [
+            "cn",
+            "de",
+            1
+          ],
+          [
+            "cn",
+            "fr",
+            -1
+          ]
+        ],
+        "note": {
+          "zh": "多国访问方向示意，不表示三次直飞。",
+          "en": "Illustrative links to visited countries, not three direct flights."
+        }
+      },
+      {
+        "id": "uk",
+        "title": {
+          "zh": "伦敦 → 爱丁堡",
+          "en": "London → Edinburgh"
+        },
+        "count": {
+          "zh": "1 次开口程",
+          "en": "1 open-jaw trip"
+        },
+        "paths": [
+          [
+            "cn",
+            "lon",
+            1
+          ],
+          [
+            "edi",
+            "cn",
+            1
+          ]
+        ]
+      }
+    ]
+  }
 }

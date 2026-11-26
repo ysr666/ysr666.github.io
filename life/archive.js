@@ -12,10 +12,52 @@ function node(tag,cls,value){const el=document.createElement(tag);if(cls)el.clas
 function translate(){document.documentElement.lang=lang==='zh'?'zh-CN':'en';document.querySelectorAll('[data-zh][data-en]').forEach(el=>el.textContent=el.dataset[lang]);document.querySelectorAll('[data-alt-zh][data-alt-en]').forEach(el=>el.alt=el.dataset[lang==='zh'?'altZh':'altEn']);document.querySelectorAll('[data-placeholder-zh]').forEach(el=>{el.placeholder=el.dataset[lang==='zh'?'placeholderZh':'placeholderEn'];el.setAttribute('aria-label',el.dataset[lang==='zh'?'labelZh':'labelEn']);});button.textContent=lang==='zh'?'EN':'中文';button.title=lang==='zh'?'Switch to English':'切换为中文';}
 button.addEventListener('click',()=>{lang=lang==='zh'?'en':'zh';try{localStorage.setItem('portfolio-lang',lang)}catch(_){}translate();});
 translate();
+
+function svgEl(tag,attrs={}){const e=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));return e;}
+function sectionHeader(title,detail){const h=node('div','atlas-header');h.append(node('h2','',title),node('p','',detail));return h;}
+function featured(data){
+ const section=node('section','featured-works');section.append(sectionHeader(t('音乐剧精选','Featured musicals'),t('一些想留在这里的作品与录音。','A selection of works and recordings worth keeping.')));
+ const grid=node('div','featured-grid');
+ for(const r of data){const article=node('article','feature-work feature-'+r.style+(r.large?' feature-large':''));const art=node('div','feature-art');art.setAttribute('aria-hidden','true');const tag=node('span','feature-kicker',r.style.startsWith('chinese')?'中文音乐剧':'MUSICAL / COLLECTION');art.append(tag,node('strong','feature-art-title',r.title.en));const body=node('div','feature-body');body.append(node('h3','',r.title),node('p','',r.subtitle));if(r.tracks.length)body.append(node('p','feature-tracks',r.tracks.join(' · ')));article.append(art,body);grid.append(article);}
+ section.append(grid);return section;
+}
+function routeAtlas(data){
+ const section=node('section','route-atlas');section.append(sectionHeader(data.title,data.note));
+ const frame=node('div','atlas-frame');const svg=svgEl('svg',{viewBox:'0 0 820 540',role:'img','aria-label':'Illustrative flight routes across Eurasia and Oceania'});const title=svgEl('title');title.textContent='Travel overview, illustrative routes';svg.append(title,svgEl('image',{href:'../world.svg',width:820,height:540}));
+ const nodes=new Map(data.nodes.map(n=>[n.id,n]));const xy=n=>[(n.lon+25)*4,(80-n.lat)*4];
+ const layers=new Map();for(const j of data.journeys){const layer=svgEl('g',{'data-journey':j.id});for(const [a,b,offset] of j.paths){const [x1,y1]=xy(nodes.get(a)),[x2,y2]=xy(nodes.get(b));const dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy);const bend=Math.min(95,len*.28)*(offset<0?-.55:offset===2?1.4:1);const cx=(x1+x2)/2-dy/len*bend,cy=(y1+y2)/2+dx/len*bend;layer.append(svgEl('path',{d:'M'+x1+' '+y1+' Q'+cx+' '+cy+' '+x2+' '+y2,class:'route-line'+(j.id==='europe'?' route-region':'')}));}svg.append(layer);layers.set(j.id,layer);}
+ for(const n of data.nodes){const [x,y]=xy(n);svg.append(svgEl('circle',{cx:x,cy:y,r:n.id==='cn'?5:3.1,class:'atlas-node'}));const text=svgEl('text',{x:x+n.dx,y:y+n.dy,'text-anchor':n.anchor||'start',class:'atlas-label'});localize(text,n.title);svg.append(text);}
+ frame.append(svg);section.append(frame,node('p','map-credit','Map outline: Natural Earth · public domain'));
+ const controls=node('div','route-controls');const all=node('button','route-button',t('全部旅行','All journeys'));all.type='button';controls.append(all);const buttons=[all];const info=node('p','route-selection',t('选择一段旅程查看示意航迹。','Select a journey to highlight its routes.'));
+ function select(id){for(const [key,layer] of layers)layer.classList.toggle('route-muted',!!id&&id!==key);for(const b of buttons)b.setAttribute('aria-pressed',String(b.dataset.route===id));const selected=data.journeys.find(j=>j.id===id);localize(info,selected?(selected.note||selected.count):t('选择一段旅程查看示意航迹。','Select a journey to highlight its routes.'));}
+ all.dataset.route='';all.addEventListener('click',()=>select(''));
+ for(const j of data.journeys){const btn=node('button','route-button');btn.type='button';btn.dataset.route=j.id;btn.append(node('strong','',j.title),node('span','',j.count));btn.addEventListener('click',()=>select(j.id));buttons.push(btn);controls.append(btn);}
+ section.append(controls,info);select('');return section;
+}
+const categoryLabels={museum:t('博物馆 / 美术馆','Museum / gallery'),theatre:t('剧院','Theatre'),landmark:t('地标','Landmark'),district:t('街区 / 体验','District / experience')};
+function ukAtlas(data){
+ const section=node('section','uk-atlas');const total=data.cities.reduce((n,c)=>n+c.points.length,0);section.append(sectionHeader(data.title,data.note),node('p','uk-count',t(data.cities.length+' 座城市 · '+total+' 个公共地点',data.cities.length+' cities · '+total+' public places')));
+ const cityNav=node('div','city-nav');const filters=node('div','city-nav');const pane=node('div','uk-pane');const mapWrap=node('div','uk-map');const list=node('div','uk-list');pane.append(mapWrap,list);section.append(cityNav,filters,pane);
+ let cityIndex=0,type='all';const cityButtons=[],typeButtons=[];
+ for(const [i,city] of data.cities.entries()){const b=node('button','route-button');b.type='button';b.append(node('strong','',city.title),node('span','',String(city.points.length)));b.addEventListener('click',()=>{cityIndex=i;type='all';draw();});cityButtons.push(b);cityNav.append(b);}
+ for(const key of ['all','museum','theatre','landmark','district']){const b=node('button','route-button',key==='all'?t('全部地点','All places'):categoryLabels[key]);b.type='button';b.addEventListener('click',()=>{type=key;draw()});typeButtons.push([key,b]);filters.append(b);}
+ function draw(){cityButtons.forEach((b,i)=>b.setAttribute('aria-pressed',String(cityIndex===i)));typeButtons.forEach(([k,b])=>b.setAttribute('aria-pressed',String(k===type)));const city=data.cities[cityIndex];const all=city.points;const shown=all.filter(p=>type==='all'||p.type===type);mapWrap.replaceChildren();list.replaceChildren();const svg=svgEl('svg',{viewBox:'0 0 520 340',role:'img','aria-label':'Relative geographic position of public places'});const minX=Math.min(...all.map(p=>p.lon)),maxX=Math.max(...all.map(p=>p.lon)),minY=Math.min(...all.map(p=>p.lat)),maxY=Math.max(...all.map(p=>p.lat));const midX=(minX+maxX)/2,midY=(minY+maxY)/2,cos=Math.cos(midY*Math.PI/180);const scale=Math.min(430/Math.max(.003,(maxX-minX)*cos),250/Math.max(.003,maxY-minY));const px=p=>[260+(p.lon-midX)*cos*scale,170-(p.lat-midY)*scale];
+ for(let x=40;x<=480;x+=44)svg.append(svgEl('line',{x1:x,y1:25,x2:x,y2:315,class:'uk-gridline'}));for(let y=35;y<=305;y+=45)svg.append(svgEl('line',{x1:25,y1:y,x2:495,y2:y,class:'uk-gridline'}));
+ const north=svgEl('text',{x:480,y:20,class:'uk-north'});north.textContent='N ↑';svg.append(north);
+ shown.forEach((p,i)=>{const [x,y]=px(p);const g=svgEl('g',{class:'uk-pin pin-'+p.type});const c=svgEl('circle',{cx:x,cy:y,r:10});const num=svgEl('text',{x,y:y+3.5,'text-anchor':'middle'});num.textContent=String(i+1);const title=svgEl('title');localize(title,p.title);g.append(title,c,num);svg.append(g);const a=node('a','uk-place');a.href='https://www.openstreetmap.org/?mlat='+p.lat+'&mlon='+p.lon+'#map=17/'+p.lat+'/'+p.lon;a.target='_blank';a.rel='noopener noreferrer';a.append(node('span','uk-place-number',String(i+1)),node('strong','',p.title),node('span','uk-place-category',categoryLabels[p.type]));list.append(a);});
+ if(!shown.length)list.append(node('p','archive-empty',t('此城市暂无该分类记录。','No places in this category for this city.')));
+ mapWrap.append(svg,node('p','archive-note',t('地点相对坐标图（非街道底图）。点击右侧地点可打开实际地图。','Relative-coordinate plot, not a street basemap. Open a place for the actual map.')));translate();
+ }
+ draw();return section;
+}
+
 function render(data){
  if(data.schemaVersion!==1||data.kind!==kind||!Array.isArray(data.sections))throw Error('Invalid archive data');
  const fragment=document.createDocumentFragment();
  if(data.summary){const block=node('section','archive-summary');block.setAttribute('aria-label','Flight statistics');const meta=node('p','archive-meta',t('飞行日志概览 · '+data.summary.asOf,'Flight log snapshot · '+data.summary.asOf));block.append(meta);const grid=node('div','archive-metrics');for(const metric of data.summary.metrics){const item=node('div','archive-metric');item.append(node('strong','',metric.value),node('span','',metric.label));grid.append(item);}block.append(grid,node('p','archive-note',data.summary.note));fragment.append(block);}
+ if(data.featured)fragment.append(featured(data.featured));
+ if(data.routes)fragment.append(routeAtlas(data.routes));
+ if(data.uk)fragment.append(ukAtlas(data.uk));
  for(const group of data.sections){
   const section=node('section','archive-group');section.id=group.id;
   const intro=node('div','archive-group-intro');intro.append(node('h2','',group.title),node('p','',group.description));section.append(intro);
