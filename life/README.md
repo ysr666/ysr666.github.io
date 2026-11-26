@@ -29,3 +29,11 @@ Apple Music library exports and TripMap may be transformed into reviewed JSON en
 ## Quick check
 
 `python3 -m http.server 8080` from the repository root. Open both archive pages, switch Chinese/English, and confirm links, mobile layout and the new records. Directly opening file:// pages may block fetch. JSON files can be validated with `python3 -m json.tool life/music.json` and the same for travel.
+
+## Source import (local, review first)
+
+The musical collection comes from the owner's Apple Music playlist **听个音乐剧！**, 78 track entries in a prior XML export. Only song and album titles are published; the source library and play history remain private. Use `python3 life/tools/import_candidates.py music /path/to/Library.xml --playlist '听个音乐剧！' --out /tmp/music-candidates.json` to produce a candidate list. Review before replacing the corresponding records in music.json.
+
+TripMap exports its trip backups as ZIP archives. Use `python3 life/tools/import_candidates.py tripmap /path/to/backup.zip --out /tmp/travel-candidates.json`. This reads only the manifest, trip/day dates and itinerary items, accepts only past items marked completed, and emits titles for review. It does not publish, extract tickets or read financial records. Trip plans and reservations are not proof of visits. Use an output outside the repo, and manually decide which titles belong in the city or museum sections.
+
+For flight logs, `python3 life/tools/import_candidates.py flights /path/to/flights.csv --out /tmp/flight-candidates.json` accepts an explicitly normalized CSV with columns date,from,to,airline,aircraft,distance_km,status. Date is ISO YYYY-MM-DD; status must be completed; distance_km optional. Only completed past flights with distinct valid airport codes are emitted. Estimates and unknown distances remain separate. No import ever modifies the live JSON files. Run `python3 -m unittest discover -s life/tools -p 'test_*.py'` for regression tests.

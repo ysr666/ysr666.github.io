@@ -4,8 +4,8 @@
   "summary": {
     "asOf": "2026-11",
     "note": {
-      "zh": "来自个人飞行日志的阶段性估计，尚未逐条核算。",
-      "en": "Approximate snapshot from my personal flight log; individual records have not yet been reconciled."
+      "zh": "2026 年 11 月本人回忆估计，尚未逐条核算；与下方公开档案数量不等同。",
+      "en": "Owner-reported estimates from November 2026, not reconciled with individual records or the public archive."
     },
     "metrics": [
       {
@@ -49,28 +49,11 @@
         "zh": "记录值得留下的飞行；这不是完整航班清单。",
         "en": "Memorable flights, not a complete flight history."
       },
-      "records": [
-        {
-          "title": {
-            "zh": "迪拜 → 伦敦",
-            "en": "Dubai → London"
-          },
-          "subtitle": {
-            "zh": "Emirates · Airbus A380 · 2026 年夏",
-            "en": "Emirates · Airbus A380 · Summer 2026"
-          },
-          "detail": {
-            "zh": "第 50 次记录在册的飞行，机长留下了留言。",
-            "en": "My 50th recorded flight, with a message from the captain."
-          },
-          "route": {
-            "from": "DXB",
-            "to": "London"
-          },
-          "airline": "Emirates",
-          "aircraft": "Airbus A380"
-        }
-      ]
+      "records": [],
+      "empty": {
+        "zh": "完整飞行日志待整理，暂不公开未核实的航线。",
+        "en": "Individual flight records are pending verification."
+      }
     },
     {
       "id": "places",
@@ -95,34 +78,6 @@
           "detail": {
             "zh": "西区剧场与旅行。",
             "en": "West End theatre and travel."
-          }
-        },
-        {
-          "title": {
-            "zh": "牛津",
-            "en": "Oxford"
-          },
-          "subtitle": {
-            "zh": "英国",
-            "en": "United Kingdom"
-          },
-          "detail": {
-            "zh": "曾到访牛津大学。",
-            "en": "Visited the University of Oxford."
-          }
-        },
-        {
-          "title": {
-            "zh": "剑桥",
-            "en": "Cambridge"
-          },
-          "subtitle": {
-            "zh": "英国",
-            "en": "United Kingdom"
-          },
-          "detail": {
-            "zh": "曾到访剑桥大学。",
-            "en": "Visited the University of Cambridge."
           }
         }
       ]

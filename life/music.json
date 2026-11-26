@@ -37,8 +37,8 @@
             "en": "1964 film soundtrack"
           },
           "detail": {
-            "zh": "电影与原声专辑。",
-            "en": "Film and soundtrack."
+            "zh": "看过作品，喜欢 1964 年电影原声。",
+            "en": "Watched the work; interested in the 1964 film soundtrack."
           }
         },
         {
@@ -134,14 +134,886 @@
       ]
     },
     {
+      "id": "playlist-musicals",
+      "title": {
+        "zh": "听个音乐剧！",
+        "en": "Musical listening collection"
+      },
+      "description": {
+        "zh": "从自己的 Apple Music 歌单导入的 78 首曲目，按录音版本列出。收藏不代表现场观看。",
+        "en": "78 tracks from my curated Apple Music playlist, listed by recording. Collection does not imply live attendance."
+      },
+      "searchable": true,
+      "records": [
+        {
+          "title": {
+            "zh": "I’m Just Ken",
+            "en": "I’m Just Ken"
+          },
+          "subtitle": {
+            "zh": "Barbie The Album",
+            "en": "Barbie The Album"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Say My Name",
+            "en": "Say My Name"
+          },
+          "subtitle": {
+            "zh": "Beetlejuice (Original Broadway Cast Recording)",
+            "en": "Beetlejuice (Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Feast or Famine",
+            "en": "Feast or Famine"
+          },
+          "subtitle": {
+            "zh": "Black Friday",
+            "en": "Black Friday"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "El Cuarto de Tula",
+            "en": "El Cuarto de Tula"
+          },
+          "subtitle": {
+            "zh": "Buena Vista Social Club (Original Broadway Cast Recording)",
+            "en": "Buena Vista Social Club (Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "End of Act 1: Memory",
+            "en": "End of Act 1: Memory"
+          },
+          "subtitle": {
+            "zh": "Cats (Original 1981 London Cast)",
+            "en": "Cats (Original 1981 London Cast)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Prologue: Jellicle Songs for Jellicle Cats",
+            "en": "Prologue: Jellicle Songs for Jellicle Cats"
+          },
+          "subtitle": {
+            "zh": "Cats (Original 1981 London Cast)",
+            "en": "Cats (Original 1981 London Cast)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Cell Block Tango",
+            "en": "Cell Block Tango"
+          },
+          "subtitle": {
+            "zh": "Chicago (Music From The Miramax Motion Picture)",
+            "en": "Chicago (Music From The Miramax Motion Picture)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Nowadays / Hot Honey Rag",
+            "en": "Nowadays / Hot Honey Rag"
+          },
+          "subtitle": {
+            "zh": "Chicago (Music From The Miramax Motion Picture)",
+            "en": "Chicago (Music From The Miramax Motion Picture)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "When You're Good To Mama",
+            "en": "When You're Good To Mama"
+          },
+          "subtitle": {
+            "zh": "Chicago (Music From The Miramax Motion Picture)",
+            "en": "Chicago (Music From The Miramax Motion Picture)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Remember Me (Lullaby)",
+            "en": "Remember Me (Lullaby)"
+          },
+          "subtitle": {
+            "zh": "Coco (Original Motion Picture Soundtrack) [Asia Special Edition]",
+            "en": "Coco (Original Motion Picture Soundtrack) [Asia Special Edition]"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "You Will Be Found",
+            "en": "You Will Be Found"
+          },
+          "subtitle": {
+            "zh": "Dear Evan Hansen (Original Broadway Cast Recording)",
+            "en": "Dear Evan Hansen (Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Bibbidi-Bobbidi-Boo (From \"Cinderella\")",
+            "en": "Bibbidi-Bobbidi-Boo (From \"Cinderella\")"
+          },
+          "subtitle": {
+            "zh": "Disney's Greatest, Vol. 1",
+            "en": "Disney's Greatest, Vol. 1"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Les fleurs du mal",
+            "en": "Les fleurs du mal"
+          },
+          "subtitle": {
+            "zh": "Don Juan 20e anniversaire",
+            "en": "Don Juan 20e anniversaire"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Ruthlessness",
+            "en": "Ruthlessness"
+          },
+          "subtitle": {
+            "zh": "EPIC: The Ocean Saga (Official Concept Album) - EP",
+            "en": "EPIC: The Ocean Saga (Official Concept Album) - EP"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Wenn Ich Tanzen Will",
+            "en": "Wenn Ich Tanzen Will"
+          },
+          "subtitle": {
+            "zh": "Elisabeth - Gesamtaufnahme Live - Jubiläumsfassung",
+            "en": "Elisabeth - Gesamtaufnahme Live - Jubiläumsfassung"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Let It Go",
+            "en": "Let It Go"
+          },
+          "subtitle": {
+            "zh": "Frozen (Original Motion Picture Soundtrack)",
+            "en": "Frozen (Original Motion Picture Soundtrack)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Grease",
+            "en": "Grease"
+          },
+          "subtitle": {
+            "zh": "Grease (The Original Soundtrack from the Motion Picture)",
+            "en": "Grease (The Original Soundtrack from the Motion Picture)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Wait for Me (Reprise)",
+            "en": "Wait for Me (Reprise)"
+          },
+          "subtitle": {
+            "zh": "Hadestown: Live From London",
+            "en": "Hadestown: Live From London"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Way Down Hadestown",
+            "en": "Way Down Hadestown"
+          },
+          "subtitle": {
+            "zh": "Hadestown: Live From London",
+            "en": "Hadestown: Live From London"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "You Can't Stop the Beat",
+            "en": "You Can't Stop the Beat"
+          },
+          "subtitle": {
+            "zh": "Hairspray (Soundtrack to the Motion Picture)",
+            "en": "Hairspray (Soundtrack to the Motion Picture)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Alexander Hamilton",
+            "en": "Alexander Hamilton"
+          },
+          "subtitle": {
+            "zh": "Hamilton: An American Musical (Original Broadway Cast Recording)",
+            "en": "Hamilton: An American Musical (Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Satisfied",
+            "en": "Satisfied"
+          },
+          "subtitle": {
+            "zh": "Hamilton: An American Musical (Original Broadway Cast Recording)",
+            "en": "Hamilton: An American Musical (Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "My Shot",
+            "en": "My Shot"
+          },
+          "subtitle": {
+            "zh": "Hamilton: An American Musical (Original Broadway Cast Recording)",
+            "en": "Hamilton: An American Musical (Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Aaron Burr, Sir",
+            "en": "Aaron Burr, Sir"
+          },
+          "subtitle": {
+            "zh": "Hamilton: An American Musical (Original Broadway Cast Recording)",
+            "en": "Hamilton: An American Musical (Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "High School Musical",
+            "en": "High School Musical"
+          },
+          "subtitle": {
+            "zh": "High School Musical 3: Senior Year",
+            "en": "High School Musical 3: Senior Year"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "City of Stars",
+            "en": "City of Stars"
+          },
+          "subtitle": {
+            "zh": "La La Land (Original Motion Picture Soundtrack)",
+            "en": "La La Land (Original Motion Picture Soundtrack)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Ding dong",
+            "en": "Ding dong"
+          },
+          "subtitle": {
+            "zh": "Le rouge et le noir (L'opéra rock)",
+            "en": "Le rouge et le noir (L'opéra rock)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "La gloire à mes genoux",
+            "en": "La gloire à mes genoux"
+          },
+          "subtitle": {
+            "zh": "Le rouge et le noir (L'opéra rock)",
+            "en": "Le rouge et le noir (L'opéra rock)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "There! Right There!",
+            "en": "There! Right There!"
+          },
+          "subtitle": {
+            "zh": "Legally Blonde the Musical (Original Broadway Cast Recording)",
+            "en": "Legally Blonde the Musical (Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Look Down",
+            "en": "Look Down"
+          },
+          "subtitle": {
+            "zh": "Les Misérables (The Motion Picture Soundtrack) [Deluxe Edition]",
+            "en": "Les Misérables (The Motion Picture Soundtrack) [Deluxe Edition]"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Prologue / Look Down (Live)",
+            "en": "Prologue / Look Down (Live)"
+          },
+          "subtitle": {
+            "zh": "Les Misérables Live! (2010 London Cast Recording)",
+            "en": "Les Misérables Live! (2010 London Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Mamma Mia",
+            "en": "Mamma Mia"
+          },
+          "subtitle": {
+            "zh": "Mamma Mia! (The Movie Soundtrack feat. the Songs of ABBA) [Bonus Track Version]",
+            "en": "Mamma Mia! (The Movie Soundtrack feat. the Songs of ABBA) [Bonus Track Version]"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "When I Grow Up",
+            "en": "When I Grow Up"
+          },
+          "subtitle": {
+            "zh": "Matilda the Musical (Deluxe Edition of Original Broadway Cast Recording)",
+            "en": "Matilda the Musical (Deluxe Edition of Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "I'd Rather Be Me",
+            "en": "I'd Rather Be Me"
+          },
+          "subtitle": {
+            "zh": "Mean Girls (Original Broadway Cast Recording)",
+            "en": "Mean Girls (Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Sun and Moon",
+            "en": "Sun and Moon"
+          },
+          "subtitle": {
+            "zh": "Miss Saigon (Original London Cast Recording)",
+            "en": "Miss Saigon (Original London Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Rêver j'en ai l'habitude",
+            "en": "Rêver j'en ai l'habitude"
+          },
+          "subtitle": {
+            "zh": "Molière, le spectacle musical",
+            "en": "Molière, le spectacle musical"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Le bien qui fait mal",
+            "en": "Le bien qui fait mal"
+          },
+          "subtitle": {
+            "zh": "Mozart l'Opéra Rock",
+            "en": "Mozart l'Opéra Rock"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Gold Von Den Sternen (Live)",
+            "en": "Gold Von Den Sternen (Live)"
+          },
+          "subtitle": {
+            "zh": "Mozart! - Das Musical (Gesamtaufnahme Live)",
+            "en": "Mozart! - Das Musical (Gesamtaufnahme Live)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Wie Wird Man Seinen Schatten Los? (Live)",
+            "en": "Wie Wird Man Seinen Schatten Los? (Live)"
+          },
+          "subtitle": {
+            "zh": "Mozart! - Das Musical (Gesamtaufnahme Live)",
+            "en": "Mozart! - Das Musical (Gesamtaufnahme Live)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Literal Monster",
+            "en": "Literal Monster"
+          },
+          "subtitle": {
+            "zh": "Nerdy Prudes Must Die (Original StarKid Cast Recording)",
+            "en": "Nerdy Prudes Must Die (Original StarKid Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Le temps des cathédrales",
+            "en": "Le temps des cathédrales"
+          },
+          "subtitle": {
+            "zh": "Notre Dame de Paris (Version Intégrale)",
+            "en": "Notre Dame de Paris (Version Intégrale)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Seasons of Love",
+            "en": "Seasons of Love"
+          },
+          "subtitle": {
+            "zh": "Rent (Original Motion Picture Soundtrack)",
+            "en": "Rent (Original Motion Picture Soundtrack)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Carousel, Act I: Soliloquy",
+            "en": "Carousel, Act I: Soliloquy"
+          },
+          "subtitle": {
+            "zh": "Rodgers & Hammerstein's Carousel",
+            "en": "Rodgers & Hammerstein's Carousel"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "All You Wanna Do (feat. Samantha Pauly)",
+            "en": "All You Wanna Do (feat. Samantha Pauly)"
+          },
+          "subtitle": {
+            "zh": "SIX: LIVE ON OPENING NIGHT (Original Broadway Cast Recording)",
+            "en": "SIX: LIVE ON OPENING NIGHT (Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Don't Lose Ur Head (feat. Andrea Macasaet)",
+            "en": "Don't Lose Ur Head (feat. Andrea Macasaet)"
+          },
+          "subtitle": {
+            "zh": "SIX: LIVE ON OPENING NIGHT (Original Broadway Cast Recording)",
+            "en": "SIX: LIVE ON OPENING NIGHT (Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "As If We Never Said Goodbye",
+            "en": "As If We Never Said Goodbye"
+          },
+          "subtitle": {
+            "zh": "SUNSET BLVD: The Album",
+            "en": "SUNSET BLVD: The Album"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "With One Look",
+            "en": "With One Look"
+          },
+          "subtitle": {
+            "zh": "SUNSET BLVD: The Album",
+            "en": "SUNSET BLVD: The Album"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Get Down (feat. Genesis Lynea)",
+            "en": "Get Down (feat. Genesis Lynea)"
+          },
+          "subtitle": {
+            "zh": "Six: The Musical (Studio Cast Recording)",
+            "en": "Six: The Musical (Studio Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "The March (We Demand Equality)",
+            "en": "The March (We Demand Equality)"
+          },
+          "subtitle": {
+            "zh": "Suffs (Original Broadway Cast Recording)",
+            "en": "Suffs (Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "New Money",
+            "en": "New Money"
+          },
+          "subtitle": {
+            "zh": "The Great Gatsby - A New Musical (Original Broadway Cast Recording)",
+            "en": "The Great Gatsby - A New Musical (Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "This Is Me",
+            "en": "This Is Me"
+          },
+          "subtitle": {
+            "zh": "The Greatest Showman (Original Motion Picture Soundtrack)",
+            "en": "The Greatest Showman (Original Motion Picture Soundtrack)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "The Greatest Show",
+            "en": "The Greatest Show"
+          },
+          "subtitle": {
+            "zh": "The Greatest Showman (Original Motion Picture Soundtrack)",
+            "en": "The Greatest Showman (Original Motion Picture Soundtrack)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Never Enough",
+            "en": "Never Enough"
+          },
+          "subtitle": {
+            "zh": "The Greatest Showman (Original Motion Picture Soundtrack)",
+            "en": "The Greatest Showman (Original Motion Picture Soundtrack)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Rewrite the Stars",
+            "en": "Rewrite the Stars"
+          },
+          "subtitle": {
+            "zh": "The Greatest Showman (Original Motion Picture Soundtrack)",
+            "en": "The Greatest Showman (Original Motion Picture Soundtrack)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "The Guy Who Didn't Like Musicals",
+            "en": "The Guy Who Didn't Like Musicals"
+          },
+          "subtitle": {
+            "zh": "The Guy Who Didn't Like Musicals",
+            "en": "The Guy Who Didn't Like Musicals"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Not Your Seed",
+            "en": "Not Your Seed"
+          },
+          "subtitle": {
+            "zh": "The Guy Who Didn't Like Musicals",
+            "en": "The Guy Who Didn't Like Musicals"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Great Expectations",
+            "en": "Great Expectations"
+          },
+          "subtitle": {
+            "zh": "The Outsiders - A New Musical (Original Broadway Cast Recording)",
+            "en": "The Outsiders - A New Musical (Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Think of Me",
+            "en": "Think of Me"
+          },
+          "subtitle": {
+            "zh": "The Phantom of the Opera (Original Motion Picture Soundtrack)",
+            "en": "The Phantom of the Opera (Original Motion Picture Soundtrack)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "The Phantom of the Opera",
+            "en": "The Phantom of the Opera"
+          },
+          "subtitle": {
+            "zh": "The Phantom of the Opera (Original Motion Picture Soundtrack)",
+            "en": "The Phantom of the Opera (Original Motion Picture Soundtrack)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "The Music of the Night",
+            "en": "The Music of the Night"
+          },
+          "subtitle": {
+            "zh": "The Phantom of the Opera (Original Motion Picture Soundtrack) [Deluxe Edition]",
+            "en": "The Phantom of the Opera (Original Motion Picture Soundtrack) [Deluxe Edition]"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "My Favorite Things",
+            "en": "My Favorite Things"
+          },
+          "subtitle": {
+            "zh": "The Sound Of Music (Original Soundtrack Recording)",
+            "en": "The Sound Of Music (Original Soundtrack Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "She Used to Be Mine",
+            "en": "She Used to Be Mine"
+          },
+          "subtitle": {
+            "zh": "Waitress (Original Broadway Cast Recording)",
+            "en": "Waitress (Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Defying Gravity",
+            "en": "Defying Gravity"
+          },
+          "subtitle": {
+            "zh": "Wicked (Original Broadway Cast Recording)",
+            "en": "Wicked (Original Broadway Cast Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Popular",
+            "en": "Popular"
+          },
+          "subtitle": {
+            "zh": "Wicked: The Soundtrack",
+            "en": "Wicked: The Soundtrack"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Pure Imagination",
+            "en": "Pure Imagination"
+          },
+          "subtitle": {
+            "zh": "Willy Wonka & the Chocolate Factory (Music From the Original Soundtrack of the Paramount Picture)",
+            "en": "Willy Wonka & the Chocolate Factory (Music From the Original Soundtrack of the Paramount Picture)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Pure Imagination (from \"Wonka\")",
+            "en": "Pure Imagination (from \"Wonka\")"
+          },
+          "subtitle": {
+            "zh": "Wonka (Original Motion Picture Soundtrack)",
+            "en": "Wonka (Original Motion Picture Soundtrack)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "Cathy's Curse",
+            "en": "Cathy's Curse"
+          },
+          "subtitle": {
+            "zh": "Wuthering Heights (World Premiere Recording)",
+            "en": "Wuthering Heights (World Premiere Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "I Am the Moor",
+            "en": "I Am the Moor"
+          },
+          "subtitle": {
+            "zh": "Wuthering Heights (World Premiere Recording)",
+            "en": "Wuthering Heights (World Premiere Recording)"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "申冤",
+            "en": "申冤"
+          },
+          "subtitle": {
+            "zh": "《大状王》原声大碟",
+            "en": "《大状王》原声大碟"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "撒一场白米",
+            "en": "撒一场白米"
+          },
+          "subtitle": {
+            "zh": "《大状王》原声大碟",
+            "en": "《大状王》原声大碟"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "若有一个人之霸气江山",
+            "en": "若有一个人之霸气江山"
+          },
+          "subtitle": {
+            "zh": "周华健/张大春原创音乐剧《赛貂蝉》",
+            "en": "周华健/张大春原创音乐剧《赛貂蝉》"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "ODD GIRL",
+            "en": "ODD GIRL"
+          },
+          "subtitle": {
+            "zh": "奋青乐与路",
+            "en": "奋青乐与路"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "定风波·莫听穿林打叶声 (《苏东坡》音乐剧推广曲)",
+            "en": "定风波·莫听穿林打叶声 (《苏东坡》音乐剧推广曲)"
+          },
+          "subtitle": {
+            "zh": "定风波·莫听穿林打叶声 (《苏东坡》音乐剧推广曲) - Single",
+            "en": "定风波·莫听穿林打叶声 (《苏东坡》音乐剧推广曲) - Single"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "撒一场白米",
+            "en": "撒一场白米"
+          },
+          "subtitle": {
+            "zh": "撒一场白米 - Single",
+            "en": "撒一场白米 - Single"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "盛典 (音乐剧《三星堆》原声)",
+            "en": "盛典 (音乐剧《三星堆》原声)"
+          },
+          "subtitle": {
+            "zh": "音乐剧《三星堆》原声专辑",
+            "en": "音乐剧《三星堆》原声专辑"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "约定 (音乐剧《三星堆》原声)",
+            "en": "约定 (音乐剧《三星堆》原声)"
+          },
+          "subtitle": {
+            "zh": "音乐剧《三星堆》原声专辑",
+            "en": "音乐剧《三星堆》原声专辑"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "英雄花开",
+            "en": "英雄花开"
+          },
+          "subtitle": {
+            "zh": "音乐剧《雄狮少年》原声带精选集",
+            "en": "音乐剧《雄狮少年》原声带精选集"
+          },
+          "detail": null
+        },
+        {
+          "title": {
+            "zh": "My Bucket List",
+            "en": "My Bucket List"
+          },
+          "subtitle": {
+            "zh": "뮤지컬 마이 버킷리스트 (Original Cast Recording)",
+            "en": "뮤지컬 마이 버킷리스트 (Original Cast Recording)"
+          },
+          "detail": null
+        }
+      ]
+    },
+    {
       "id": "library",
       "title": {
         "zh": "音乐收藏选录",
         "en": "Selected listening library"
       },
       "description": {
-        "zh": "来自已有音乐资料库的少量选录，不是实时播放榜单。",
-        "en": "A small selection from my music library, not a live listening chart."
+        "zh": "从已有资料库中选录的曲目，不是实时榜单。",
+        "en": "Selections verified against the exported library, not a live chart."
       },
       "records": [
         {
@@ -150,8 +1022,8 @@
             "en": "The Nights"
           },
           "subtitle": {
-            "zh": "Avicii · The Days / Nights – EP",
-            "en": "Avicii · The Days / Nights – EP"
+            "zh": "Avicii · The Days / Nights - EP",
+            "en": "Avicii · The Days / Nights - EP"
           },
           "detail": null
         },
@@ -161,8 +1033,8 @@
             "en": "Going Home (Live)"
           },
           "subtitle": {
-            "zh": "Kenny G",
-            "en": "Kenny G"
+            "zh": "Kenny G · The Essential Kenny G",
+            "en": "Kenny G · The Essential Kenny G"
           },
           "detail": null
         },
@@ -172,19 +1044,8 @@
             "en": "远走高飞"
           },
           "subtitle": {
-            "zh": "金志文",
-            "en": "Jin Zhiwen"
-          },
-          "detail": null
-        },
-        {
-          "title": {
-            "zh": "明天，你好",
-            "en": "明天，你好"
-          },
-          "subtitle": {
-            "zh": "牛奶咖啡",
-            "en": "Milk Coffee"
+            "zh": "金志文 · 远走高飞 - Single",
+            "en": "金志文 · 远走高飞 - Single"
           },
           "detail": null
         },
@@ -194,8 +1055,8 @@
             "en": "DAY BY DAY"
           },
           "subtitle": {
-            "zh": "T-ara",
-            "en": "T-ara"
+            "zh": "T-ara · DAY BY DAY",
+            "en": "T-ara · DAY BY DAY"
           },
           "detail": null
         }

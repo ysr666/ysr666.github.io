@@ -9,7 +9,7 @@ try { lang=localStorage.getItem('portfolio-lang')==='en'?'en':'zh'; } catch (_) 
 const t=(zh,en)=>({zh,en});
 function localize(el,value){if(!value)return el; if(typeof value==='string'){el.textContent=value;return el;} el.dataset.zh=value.zh;el.dataset.en=value.en;el.textContent=value[lang]||value.zh;return el;}
 function node(tag,cls,value){const el=document.createElement(tag);if(cls)el.className=cls;return localize(el,value);}
-function translate(){document.documentElement.lang=lang==='zh'?'zh-CN':'en';document.querySelectorAll('[data-zh][data-en]').forEach(el=>el.textContent=el.dataset[lang]);document.querySelectorAll('[data-alt-zh][data-alt-en]').forEach(el=>el.alt=el.dataset[lang==='zh'?'altZh':'altEn']);button.textContent=lang==='zh'?'EN':'中文';button.title=lang==='zh'?'Switch to English':'切换为中文';}
+function translate(){document.documentElement.lang=lang==='zh'?'zh-CN':'en';document.querySelectorAll('[data-zh][data-en]').forEach(el=>el.textContent=el.dataset[lang]);document.querySelectorAll('[data-alt-zh][data-alt-en]').forEach(el=>el.alt=el.dataset[lang==='zh'?'altZh':'altEn']);document.querySelectorAll('[data-placeholder-zh]').forEach(el=>{el.placeholder=el.dataset[lang==='zh'?'placeholderZh':'placeholderEn'];el.setAttribute('aria-label',el.dataset[lang==='zh'?'labelZh':'labelEn']);});button.textContent=lang==='zh'?'EN':'中文';button.title=lang==='zh'?'Switch to English':'切换为中文';}
 button.addEventListener('click',()=>{lang=lang==='zh'?'en':'zh';try{localStorage.setItem('portfolio-lang',lang)}catch(_){}translate();});
 translate();
 function render(data){
@@ -19,15 +19,29 @@ function render(data){
  for(const group of data.sections){
   const section=node('section','archive-group');section.id=group.id;
   const intro=node('div','archive-group-intro');intro.append(node('h2','',group.title),node('p','',group.description));section.append(intro);
-  const content=node('div','archive-records');
-  if(!group.records.length)content.append(node('p','archive-empty',group.empty||t('暂无已整理记录。','No records added yet.')));
+  const content=node('div','archive-records'); const list=node('div','archive-record-list');
+  if(!group.records.length)list.append(node('p','archive-empty',group.empty||t('暂无已整理记录。','No records added yet.')));
   for(const record of group.records){
     const item=node('article','archive-record');item.append(node('h3','',record.title));
     if(record.subtitle)item.append(node('p','archive-sub',record.subtitle));
     if(record.detail)item.append(node('p','archive-detail',record.detail));
     if(record.image && typeof record.image.src==='string' && /^\.\.\/media\/[a-zA-Z0-9_-]+\.(?:jpg|jpeg|png|webp|avif)$/i.test(record.image.src)){const img=node('img','archive-photo');img.src=record.image.src;img.alt=(record.image.alt||{})[lang]||'';if(record.image.alt){img.dataset.altZh=record.image.alt.zh;img.dataset.altEn=record.image.alt.en;}img.loading='lazy';item.append(img);}
-    content.append(item);
+    list.append(item);
   }
+  if(group.searchable && group.records.length){
+    const details=node('details','archive-fold');
+    const summary=node('summary','',t('展开歌单 · '+group.records.length+' 首','Browse playlist · '+group.records.length+' tracks'));
+    const search=node('input','archive-search');search.type='search';
+    search.dataset.placeholderZh='搜索歌曲或专辑';search.dataset.placeholderEn='Search tracks or albums';
+    search.dataset.labelZh='搜索歌曲或专辑';search.dataset.labelEn='Search tracks or albums';
+    const result=node('p','archive-note');result.setAttribute('aria-live','polite');
+    function filter(){
+      const query=search.value.trim().toLocaleLowerCase();
+      let count=0;Array.from(list.children).forEach((item,i)=>{const r=group.records[i];const match=!query||JSON.stringify([r.title,r.subtitle]).toLocaleLowerCase().includes(query);item.hidden=!match;if(match)count++;});
+      localize(result,t('显示 '+count+' / '+group.records.length+' 首','Showing '+count+' / '+group.records.length+' tracks'));
+    }
+    search.addEventListener('input',filter);filter();details.append(summary,search,result,list);content.append(details);
+  }else{content.append(list);}
   section.append(content);fragment.append(section);
  }
  root.replaceChildren(fragment);root.setAttribute('aria-busy','false');translate();
