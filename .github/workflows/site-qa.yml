@@ -1,7 +1,7 @@
 name: Site QA
 on:
   push:
-    branches: [main, 'site-quality-*']
+    branches: [main, 'site-quality-*', 'design-system-*']
   workflow_dispatch:
 concurrency:
   group: site-qa-${{ github.ref }}
