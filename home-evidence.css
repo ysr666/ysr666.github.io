@@ -1,0 +1,8 @@
+/* Image-only enhancement. All colors, spacing, type and rails inherit the shared V2 design system. */
+.home-evidence>a{align-content:start;grid-template-columns:minmax(0,1fr) auto;gap:var(--space-8) var(--space-16)}
+.home-evidence .directory-figure{grid-column:1/-1;position:relative;margin:0 0 var(--space-8);min-width:0}
+.home-evidence .directory-figure img{display:block;width:100%;aspect-ratio:16/10;object-fit:contain;object-position:center;background:var(--soft);border-radius:var(--radius)}
+.home-evidence .directory-figure figcaption{font-size:var(--type-caption);color:var(--muted);margin-top:var(--space-8);line-height:1.5}
+.home-evidence .directory-label{grid-column:1/-1;font-size:var(--type-caption);color:var(--muted)}
+.home-evidence .directory-arrow{align-self:start;color:var(--accent)}
+.home-evidence>a:hover strong{color:var(--accent)}
