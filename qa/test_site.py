@@ -25,6 +25,12 @@ def run():
             check(page.locator("link[href*='home-editorial.css']").count()==0,"no alternate homepage theme")
             page.locator(".home-evidence").scroll_into_view_if_needed()
             page.wait_for_function("Array.from(document.querySelectorAll('.home-evidence img')).every(i=>i.complete&&i.naturalWidth>0)",timeout=15000)
+            image_sizes=page.locator(".home-evidence .directory-figure img").evaluate_all("els=>els.map(e=>({w:e.getBoundingClientRect().width,h:e.getBoundingClientRect().height}))")
+            check(all(abs(i["w"]/i["h"]-1.6)<0.02 for i in image_sizes),"consistent evidence image ratio")
+            if width>650:
+                check(abs(image_sizes[0]["h"]-image_sizes[1]["h"])<=1.5,"same evidence image height")
+                caption_y=page.locator(".home-evidence figcaption").evaluate_all("els=>els.map(e=>e.getBoundingClientRect().top)")
+                check(abs(caption_y[0]-caption_y[1])<=1.5,"aligned evidence captions")
             page.evaluate("window.scrollTo({top:0,behavior:'instant'})")
             trigger=page.locator("[aria-controls=nav-life]")
             trigger.focus();page.keyboard.press("Enter")
