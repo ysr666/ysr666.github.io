@@ -54,3 +54,6 @@ Image-only branch QA 45936360094 passed but screenshot review revealed unequal e
 
 ## Image replacement
 At the owner's request, remove the coaxial rotor test rig photograph from the current published source and substitute the actual 3D-printed bridge load-test photograph from the supplied course evidence. Crop only side margins and re-encode without metadata. Preserve the existing layout and style. Historical commits have not been rewritten.
+
+## Homepage image selection refinement
+Replace the temporary bridge photo with the selected first frame from the existing robotic vehicle CAD animation (original-color revision, 2026-11-25). Crop to the established 16:10 image ratio without changing model geometry; resize to 1200×750 and optimize JPEG. Caption identifies it as a CAD assembly, not manufactured hardware. Existing layout, shared design tokens and all other pages are unchanged. Historical commits are retained.
