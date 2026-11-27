@@ -59,3 +59,7 @@ body[data-site-page=home]{--home-ink:#174d48;--home-paper:#eef3f0;--home-line:#c
 .home-portals .portal-travel .portal-art{background:var(--home-paper)}
 @media(max-width:650px){.after-work .editorial-directory{padding-top:var(--space-32);gap:var(--space-12)}.directory-heading{align-items:flex-end}.directory-feature strong{font-size:var(--type-h3)}}
 @media(prefers-reduced-motion:no-preference){.directory-feature .directory-arrow{transition:transform .18s ease}.directory-feature:hover .directory-arrow{transform:translate(2px,-2px)}}
+
+/* Screenshot refinement: preserve a real gap before the identity footer. */
+@media(min-width:851px){.home-split .intro-actions{margin-bottom:var(--space-16)}}
+@media(max-width:650px){.home-split .visual-picture{aspect-ratio:16/9;padding:var(--space-12)}.home-split .home-signature{margin-top:var(--space-16)}}

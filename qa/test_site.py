@@ -40,6 +40,9 @@ def run():
                 frame=page.locator(".home-split .visual-frame").bounding_box()
                 intro=page.locator(".home-split .intro").bounding_box()
                 if width>850:
+                    actions=page.locator(".home-split .intro-actions").bounding_box()
+                    signature=page.locator(".home-signature").bounding_box()
+                    check(signature["y"]-actions["y"]-actions["height"]>=15,"intentional spacing before signature")
                     check(abs(title["y"]-frame["y"])<=1.5,"hero title and image frame share top line: "+str((title["y"],frame["y"])))
                     if width>=1440:
                         check(frame["y"]+frame["height"]<=760,"compact desktop project preview fits first viewport")
