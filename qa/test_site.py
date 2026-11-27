@@ -21,7 +21,7 @@ def run():
             check(page.locator("[data-archive],[data-music-view]").count()==0,"home does not embed archives")
             check(page.locator("script[src*=leaflet]").count()==0,"home has no maps")
             check(page.locator(".home-evidence .directory-figure img").count()==2,"two real evidence images")
-            check(page.locator(".home-evidence img[src='/assets/coaxial-test-rig.jpg']").count()==1,"engineering evidence")
+            check(page.locator(".home-evidence img[src='/assets/bridge-load-test.jpg']").count()==1,"engineering evidence")
             check(page.locator("link[href*='home-editorial.css']").count()==0,"no alternate homepage theme")
             page.locator(".home-evidence").scroll_into_view_if_needed()
             page.wait_for_function("Array.from(document.querySelectorAll('.home-evidence img')).every(i=>i.complete&&i.naturalWidth>0)",timeout=15000)
