@@ -20,6 +20,9 @@ def run():
             page.goto(BASE+"/",wait_until="domcontentloaded");layout(page)
             check(page.locator("[data-archive],[data-music-view]").count()==0,"home does not embed archives")
             check(page.locator("script[src*=leaflet]").count()==0,"home has no maps")
+            check(page.locator(".directory-feature").count()==2,"two substantive editorial features")
+            check(page.locator(".home-identity-line").count()==1,"personal identity line")
+            check(page.locator(".signature-life").get_attribute("href")=="/life/","life remains accessible")
             trigger=page.locator("[aria-controls=nav-life]")
             trigger.focus();page.keyboard.press("Enter")
             check(trigger.get_attribute("aria-expanded")=="true","keyboard opens navigation")
@@ -39,7 +42,8 @@ def run():
                 if width>850:
                     check(abs(title["y"]-frame["y"])<=1.5,"hero title and image frame share top line: "+str((title["y"],frame["y"])))
                     if width>=1440:
-                        check(frame["y"]+frame["height"]<=900,"desktop project preview fits first viewport")
+                        check(frame["y"]+frame["height"]<=760,"compact desktop project preview fits first viewport")
+                        check(page.locator(".directory-heading").bounding_box()["y"]<900,"editorial section begins in first viewport")
                     check(abs(intro["y"]+intro["height"]-frame["y"]-frame["height"])<=1.5,"hero columns share bottom line")
                 else:
                     check(abs(title["x"]-frame["x"])<=1.5,"mobile hero gutters align")
